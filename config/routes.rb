@@ -1,10 +1,12 @@
 Rails.application.routes.draw do 
-  root 'user_sessions#new'
+  root 'gardens#index'
 
   resources :user_sessions
-  resources :gardens, only: [:index, :create, :show, :new]
+  
+  resources :users, only: [:show, :new, :create, :destroy] do
+  	resources :gardens, only: [:index, :create, :show, :new]
+  end
   resources :products
-  resources :users, only: [:new, :create, :destroy]
 
   get 'login' => 'user_sessions#new', :as => :login
   post 'logout' => 'user_sessions#destroy', :as => :logout
