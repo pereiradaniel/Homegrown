@@ -1,28 +1,150 @@
-== README
+################
+# USER STORIES #
+################
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+MAIN OBJECTIVE:
 
-Things you may want to cover:
+  - Homegrown is an app that allows users to trade the produce/home made preservatives (winter) from their home gardens and/or hydroponic operations with other site users.
 
-* Ruby version
+    This can be achieved by:
+      - Users searching for produce by name, category/tags, and users by vicinity.
+      - Searches generate an index of matched items which hyperlink to the gardener's page.
+      - Users can then click on the produce displayed in a box and are automatically presented with a request for trade/purchase form.
 
-* System dependencies
+AS A USER I SHOULD BE ABLE TO...
 
-* Configuration
+  GARDEN
+  **- Create a GARDEN page to list the produce I would like to offer.
+  - Make posts that appear on your garden page such as gardening tips, images or youtube video links that showcase their gardening abilities.
+  - Gallery.
+  
+  PRODUCE ITEMS
+  **- Create produce items that will be displayed on their garden page.
+  - Specify whether each item of produce is available for trade, purchase or give away.
+  - Displayed with tags and categories that hyperlink to an index page that displays all relevant items.
 
-* Database creation
+  SEARCH FUNCTIONS
+  **- Should be able to specify search by produce name, user, category or tag.
+  - Should be able to search garden by location.
+  - Search page should have a mechanism like a slide bar so that user can easily adjust search radius.
 
-* Database initialization
+  TAGS & CATEGORIES
+  *-  Display item type by tag or category after searching.
+  - Tag items with specific keywords that are unique to the item.
+  - Full-text search.
 
-* How to run the test suite
+  SOCIAL MEDIA TYPE ABILITIES
+  - Should be able to follow, user, garden or produce and thereby receive updates whenever the item is changed.
+  - Twitter, Facebook, Instagram integration - so users can automatically share their Homegrown posts on social media.
 
-* Services (job queues, cache servers, search engines, etc.)
+  MESSAGING SYSTEM
+  *- Should be able message each other within the app.
+  - Nice to have a mailer.
 
-* Deployment instructions
+  REVIEW & RATING SYSTEM
+  - Review: produce, garden, gardener.
 
-* ...
+  EXCHANGE/INVENTORY SYSTEM
+  **- By negotioation
+  - Sale items defined by amount of items for price.
+  *-  For trade items have a field that specify what is desired for trade.
+
+----------------------------------------------------------------------------------------------
+
+DEVELOPMENT STORY
+=================
+
+Saturday 2/Oct/2015
+
+- Objectives planning and phases of operation.
+- Models and associations.
+- Testing in the Rails console.
+- Social media.
+
+On the first day of development we laid out the foundation for our project.  Any mission begins with an idea, but requires a map
+and compass for the team to follow.  So we created a three week plan for development, using the the deadlines for completing our
+final project.  We worked backwards from the presentation date, by declaring our end state: have a fully functioning app that
+allows users to signup, login, create a garden page, fill it with produce items, and then message each other to negotiate trades,
+purchases or give aways.  We also came up with a few extra features that would be nice to haves, and we will try to develop these
+after we establish our minimum viable product.
+
+We kicked of the code-frenzy by firing up a new rails app and creating the models and associations with bare minimum requirements.
+To show just how bare bones it was, our "garden" model had nothing but a User_id foreign key as the only column on the table.
+
+After creating the models, we tested the associations in the Rails console.  This was an important step, because we had some
+adjustments to make in order for it to work the way we wanted.
+
+Our initial plan didn't predict that we'd get all this done on the first day, so we went ahead creating some controllers, and
+creating a user signup and login function.  For this, we used a gem called Sorcery, and it was easy.  We were initially
+going to use Bcrypt, which is also good, but since we had the time, we decided on going with Sorcery since we will need
+authentication capabilities later on.
+
+The team followed the MVC principle to make some views so that we can interact with our new baby in the browser.  All is well so
+far!  Then we agreed to come in on Sunday and keep firing away at our targets.
+
+Stay tuned for more posts detailing how this app is being developed!  If you are new to web development, or know anybody that is,
+please share and feel free to ask questions, I'd be happy to answer.  Homegrown is about sharing and loving what you do!
+
+Peace
+
+-Daniel
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+
+===============================
+WHAT IS HOMEGROWN?  WHO ARE WE?
+===============================
+
+Let me tell you about a team I am happy to be a part of!  A little over a month ago, I didn't know any of these people, but now I am
+proud to call them my friends, even prouder to call them my team-mates on this project!
+
+Who are we?
+
+All four of us are Bitmaker students, working on becoming the best web developers we can be.  Now that we have found each other and
+have begun working on this project, we are sharing our skills and multiplying our forces!  None of us can do this alone.
+
+What is Homegrown?
+
+This is our final project at Bitmaker, a culmination of all that we have learned, and our big chance to create something meaningful.
+I was about to say, "Before we go our separate ways", but I don't think I'll be able to forget about these people.  Even trolltastic Irwin has grown on me.
+
+Why Homegrown?
+
+We all know those people with home gardens that are always giving away produce because they want to share their hard work with their
+friends and family.  This is an act of love.  They love gardening, they love the people in their lives, and they want to share what they've put love into growing.  Homegrown is about love.  We hope our app can multiply the love in your life, by allowing you to
+share the passion for gardening and making preservatives with people beyond the scope of your inner circle.
+
+What is our ultimate goal?
+
+Homegrown is not just a final project, or a portfolio piece to use on the job hunt.  It is a genuine attempt to give something to the
+city of Toronto that will connect people who share a passion.  It is a real mission to encourage people to share what they've grown.
+Our biggest dream for the app is for our users to be able to give produce to humanitarian groups in Toronto, so they can maximize
+their giving potential and stretch every dollar they are working with.  Homegrown is ultimately about sharing and spreading love.
+
+That's it for now!  I'm no journalist, but I hope you can understand what I'm talking about.  If I haven't expressed myself clearly,
+I would love to hear from you, your suggestions, words of encouragement, and offers for help.  I'd also love to receive photos
+of your home gardens and the wonderful things you grow!  If it's alright with you, I'd like to use these photos as stock images
+during development.
+
+Share the love, and I'd appreciate it if you spread the word about this app!
+
+
+
+----------------------------------------------------------------------------------------------
+
+  THINGS TO LOOK INTO
+  - find_or_created_by
+
+  ON SATRUDAY:
+  - Figure out which models we need and relationships they require, then test it all out in the console.
+    - Do this all on ONE computer and then share the repo and start branching off into different features.
+  - Pair programming.
+    - Ruby should DIRECT the design, but others should do it.
+
+  BY MONDAY:
+  - Create milestones (phases of operation) that determine when MVP has been reached.
+  - Definitely need MVP by the end of next week.
+  - The last week is for making it really nice, add nice-to-have features.
+  - Leave enough time to do some demos and present to each other/instructors.
+
+----------------------------------------------------------------------------------------------
