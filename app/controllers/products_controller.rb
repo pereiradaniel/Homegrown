@@ -6,14 +6,14 @@ class ProductsController < ApplicationController
   def show
     @product = Product.find(params[:id])
   end
-  
+
   def new
     @product = Product.new
   end
 
   def create
     @product = Product.new(product_params)
-    if @product.save 
+    if @product.save
       redirect_to product_path(@product)
     else
       render :new
@@ -22,7 +22,7 @@ class ProductsController < ApplicationController
 
   def edit
   end
-  
+
   def update
   end
 
@@ -31,7 +31,7 @@ class ProductsController < ApplicationController
 
   private
   def product_params
-    params.require(:product).permit(:name)
+    params.require(:product).permit(:name, :description, :trade_info)
   end
 end
 
