@@ -1,9 +1,8 @@
 <div>
   <% @products.each do |product| %>
     <ul>
-      <li>
-         <%= product.name %>
-      </li>
+      <li>Product Name: <%= product.name %></li>
+      <li>Description: <%= product.description %></li>
     </ul>
   <% end %>
 </div>
