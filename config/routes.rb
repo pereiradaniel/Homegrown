@@ -3,7 +3,9 @@ Rails.application.routes.draw do
 
   resources :user_sessions
   resources :gardens, only: [:index, :create, :show, :new]
-  resources :products
+  resources :products do
+    resources :messages
+  end
   resources :users, only: [:new, :create, :destroy]
 
   get 'login' => 'user_sessions#new', :as => :login
