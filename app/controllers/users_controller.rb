@@ -1,13 +1,13 @@
 class UsersController < ApplicationController
   skip_before_filter :require_login, only: [:index, :new, :create]
-  
+
   def new
     @user = User.new
   end
 
   def create
     @user = User.new(user_params)
-    if @user.save 
+    if @user.save
       redirect_to products_path
     else
       render :new
@@ -19,7 +19,7 @@ class UsersController < ApplicationController
     @user.destroy
     redirect_to products_path
   end
-  
+
   def show
     @user = User.find(params[:id])
     @garden = Garden.new
