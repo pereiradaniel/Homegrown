@@ -14,6 +14,16 @@ class UsersController < ApplicationController
     end
   end
 
+  def show
+    @user = User.find(params[:id])
+    @total_messages = []
+    @user.products.each do |product|
+      product.messages.each do |message|
+        @total_messages << message
+      end
+    end
+  end
+
   def destroy
     @user = User.find(params[:id])
     @user.destroy

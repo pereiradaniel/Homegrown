@@ -16,7 +16,7 @@ class MessagesController < ApplicationController
   def create
     @message = @product.messages.build(message_params)
     @message.sender = current_user
-    @message.receiver = @product.user
+    @message.receiver = @product.garden.user
     if @message.save 
       redirect_to products_path
     else
@@ -35,7 +35,7 @@ class MessagesController < ApplicationController
 
   private
   def message_params
-    params.require(:message).permit(:title, :content, :sender_id, :receiver_id)
+    params.require(:message).permit(:title, :content)
   end
 
   def load_product
