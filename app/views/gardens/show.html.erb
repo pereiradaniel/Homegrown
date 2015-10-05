@@ -1,4 +1,8 @@
-<div>
+<h1>Welcome to <%= @user.name %>'s Garden</h1>
+
+<%= link_to "back", :back %>
+<div class="products">
+  <h3>Products</h3>
   <ul>
     <% @products.each do |product| %>
     <li>

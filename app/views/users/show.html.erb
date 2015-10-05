@@ -1,7 +1,9 @@
-<div><%= @user.name %></div>
-<div><%= @user.email %></div>
+<div>User Name: <%= @user.name %></div>
+<div>User Email: <%= @user.email %></div>
 
-<div><%= form_for [@user, @garden] do |f| %>
-  <%= f.submit %>
+<% if !@user.garden %>
+  <div><%= form_for([@user, @garden]) do |f| %>
+    <%= f.submit %>
+  <% end %>
+  </div>
 <% end %>
-</div>
