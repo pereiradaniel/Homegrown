@@ -15,8 +15,16 @@
 
 50.times do
   Product.create!(
+    garden_id: (1..10).to_a.sample,
     name: Faker::Commerce.product_name,
-    description: Faker::Lorem.sentence
+    description: Faker::Lorem.sentence,
+    trade_info: Faker::Lorem.sentence
+  )
+end
+
+(1..10).each do |i|
+  Garden.create!(
+    user_id: i
   )
 end
 

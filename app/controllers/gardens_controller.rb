@@ -1,9 +1,12 @@
 class GardensController < ApplicationController
+  skip_before_filter :require_login, only: [:index, :show]
+
   def index
     @gardens = Garden.all
   end
 
   def show
+    @user = User.find(params[:user_id])
     @products = Garden.find(params[:id]).products
   end
 
@@ -13,11 +16,15 @@ class GardensController < ApplicationController
 
   def create
     @garden = Garden.new
-    if @garden.save 
-      redirect_to garden_path(@garden)
+    @garden.user = current_user
+
+    if @garden.save
+      redirect_to user_garden_path(current_user, @garden)
     else
       render :new
     end
   end
+
+  private
 
 end

@@ -1,4 +1,15 @@
 <% @total_messages.each do |message| %>
-  <li><%= message.title %></li>
-  <li><%= message.content %></li>
+  <ul>
+    <li><%= message.title %></li>
+    <li><%= message.content %></li>
+  </ul>
+
+<div>User Name: <%= @user.name %></div>
+<div>User Email: <%= @user.email %></div>
+
+<% if !@user.garden %>
+  <div><%= form_for([@user, @garden]) do |f| %>
+    <%= f.submit %>
+  <% end %>
+  </div>
 <% end %>

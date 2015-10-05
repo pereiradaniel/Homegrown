@@ -1,9 +1,10 @@
-
+<h1>Welcome to Homegrown<h1>
+<h2>Gardens</h1>
 <div>
   <ul>
     <% @gardens.each do |garden| %>
     <li>
-      <%= garden.user.name %>'s garden
+      <%= link_to garden.user.name, user_garden_path(garden.user.id, garden) %>'s garden
     </li>
     <% end %>
   </ul>
