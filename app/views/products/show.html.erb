@@ -4,4 +4,6 @@
 <div><%= @product.trade_info %></div>
 <div><%= link_to 'Back to the Garden', user_garden_path(@product.garden.user, @product.garden) %></div>
 
-<%= render 'messageform' %>
+<% if current_user %>
+  <%= render 'messageform' %>
+<% end %>
