@@ -2,7 +2,12 @@ class ProductsController < ApplicationController
   before_filter :require_login, except: [:index, :show]
 
   def index
-    @products = Product.all
+    search = params[:search]
+    if search
+      @products = Product.where("LOWER(name) like LOWER(?) OR LOWER(description) LIKE LOWER(?)", "%#{search}%", "%#{search}%")
+    else
+      @products = Product.all
+    end
   end
 
   def show
@@ -35,7 +40,7 @@ class ProductsController < ApplicationController
 
   private
   def product_params
-    params.require(:product).permit(:name, :description, :trade_info)
+    params.require(:product).permit(:name, :description, :trade_info, :image)
   end
 end
 
