@@ -1,6 +1,12 @@
-<%= @product.name %>
+<div id="message-info">
+  <ul>
+    <li>Sender: <%= @message.sender.name %></li>
+    <li>Title: <%= @message.title %></li>
+    <li>Content: <%= @message.content %></li>
+  <ul>
+</div>
 
-<%= form_for([@product, @message]) do |f| %>
+<%= form_for([@reply]) do |f| %>
   <div class="field">
     <%= f.label :title %>
     <%= f.text_area :title %>
@@ -9,6 +15,10 @@
     <%= f.label :content %>
     <%= f.text_area :content %>
   </div>
+  <%= f.hidden_field :receiver_id, {value: @message.sender.id} %>
+  <%= f.hidden_field :product_id, {value: @message.product.id} %>
+  <%= f.hidden_field :sender_id, {value: current_user.id} %>
+
   <div class="action">
     <%= f.submit %>
   </div>

@@ -8,6 +8,7 @@ class GardensController < ApplicationController
   def show
     @user = User.find(params[:user_id])
     @products = Garden.find(params[:id]).products
+    @product = Product.new
   end
 
   def new

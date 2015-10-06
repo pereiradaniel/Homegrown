@@ -13,18 +13,32 @@
 #   )
 # end
 
-50.times do
-  Product.create!(
-    garden_id: (1..10).to_a.sample,
-    name: Faker::Commerce.product_name,
-    description: Faker::Lorem.sentence,
-    trade_info: Faker::Lorem.sentence
-  )
-end
+2.times do |i|
+  x = i + 1
+  User.create!({
+    name: "User#{x}",
+    email: "user#{x}@email.com",
+    password: "1111",
+    password_confirmation: "1111"
+    })
 
-(1..10).each do |i|
-  Garden.create!(
-    user_id: i
-  )
-end
+  Garden.create!({
+    user_id: x
+    })
 
+  Product.create!({
+    garden_id: x,
+    name: "Product #{x}",
+    description: "Description #{x}",
+    trade_info: "Trade info #{x}"
+    })
+
+  Message.create!({
+    title: "Message #{x}",
+    content: "Content #{x}",
+    product_id: x,
+    sender_id: x,
+    receiver_id: x == 2 ? x - 1 : x + 1
+    })
+
+end

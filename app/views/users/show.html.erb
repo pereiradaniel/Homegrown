@@ -1,15 +1,28 @@
-<% @total_messages.each do |message| %>
-  <ul>
-    <li><%= message.title %></li>
-    <li><%= message.content %></li>
-  </ul>
+<div id="user-info">
+  <li>User Name: <%= @user.name %></li>
+  <li>User Email: <%= @user.email %></li>
+</div>
 
-<div>User Name: <%= @user.name %></div>
-<div>User Email: <%= @user.email %></div>
-
-<% if !@user.garden %>
-  <div><%= form_for([@user, @garden]) do |f| %>
-    <%= f.submit %>
+<div id="messages">
+  <ol>
+  <% @messages.each do |message| %>
+      <li>
+        <ul>
+          <li>Sender: <%= message.sender.name %></li>
+          <li>Title: <%= message.title %></li>
+          <li>Message content:<%= message.content %></li>
+          <li><%= link_to "Reply", message_path(message) %>
+        </ul>
+      </li>
   <% end %>
-  </div>
-<% end %>
+  </ol>
+</div>
+
+<div id="create-garden-button">
+  <% if !@user.garden %>
+    <div><%= form_for([@user, @garden]) do |f| %>
+      <%= f.submit %>
+    <% end %>
+    </div>
+  <% end %>
+</div>

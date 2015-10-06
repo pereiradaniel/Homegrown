@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :user_sessions
   resources :products
   resources :messages
+
   resources :users, only: [:show, :new, :create, :destroy] do
   	resources :gardens, only: [:index, :create, :show, :new]
   end

@@ -2,18 +2,6 @@
 <div><%= @product.name %></div>
 <div><%= @product.description %></div>
 <div><%= @product.trade_info %></div>
-<div><%= link_to 'Back to the Product list', products_path %></div>
+<div><%= link_to 'Back to the Garden', user_garden_path(@product.garden.user, @product.garden) %></div>
 
-<%= form_for([@product, @message]) do |f| %>
-  <div class="field">
-    <%= f.label :title %>
-    <%= f.text_area :title %>
-  </div>
-  <div class="field">
-    <%= f.label :content %>
-    <%= f.text_area :content %>
-  </div>
-  <div class="action">
-    <%= f.submit %>
-  </div>
-<% end %>
+<%= render 'messageform' %>

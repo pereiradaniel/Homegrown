@@ -15,24 +15,14 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
-    @total_messages = []
-    @user.products.each do |product|
-      product.messages.each do |message|
-        @total_messages << message
-      end
-    end
+    @messages = Message.where("receiver_id = ?", current_user.id)
+    @user = current_user
   end
 
   def destroy
     @user = User.find(params[:id])
     @user.destroy
     redirect_to products_path
-  end
-
-  def show
-    @user = User.find(params[:id])
-    @garden = Garden.new
   end
 
   private

@@ -14,8 +14,9 @@ class ProductsController < ApplicationController
 
   def create
     @product = Product.new(product_params)
+    @product.garden = current_user.garden
     if @product.save
-      redirect_to product_path(@product)
+      redirect_to user_garden_path(current_user, current_user.garden)
     else
       render :new
     end
