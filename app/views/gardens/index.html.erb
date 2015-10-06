@@ -1,5 +1,11 @@
 <h1>Welcome to Homegrown<h1>
 <h2>Gardens</h1>
+
+<%= form_tag products_path, method: :get, id: 'search-form'  do %>
+  <%= text_field_tag :search, params[:search] %>
+  <%= submit_tag "search" %>
+<% end %>
+
 <div>
   <ul>
     <% @gardens.each do |garden| %>
