@@ -1,0 +1,8 @@
+<li>
+  <ul>
+    <li>Sender: <%= message.sender.name %></li>
+    <li>Title: <%= message.title %></li>
+    <li>Message content:<%= message.content %></li>
+    <li><%= link_to "Reply", message_path(message) %>
+  </ul>
+</li>

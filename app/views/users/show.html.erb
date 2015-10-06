@@ -3,20 +3,13 @@
   <li>User Email: <%= @user.email %></li>
 </div>
 
-<div id="messages">
-  <ol>
-  <% @messages.each do |message| %>
-      <li>
-        <ul>
-          <li>Sender: <%= message.sender.name %></li>
-          <li>Title: <%= message.title %></li>
-          <li>Message content:<%= message.content %></li>
-          <li><%= link_to "Reply", message_path(message) %>
-        </ul>
-      </li>
-  <% end %>
-  </ol>
-</div>
+<% if @messages %>
+  <div id="messages">
+    <ol>
+      <%= render partial: 'users/message', collection: @messages %>
+    </ol>
+  </div>
+<% end %>
 
 <div id="create-garden-button">
   <% if !@user.garden %>
