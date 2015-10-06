@@ -33,7 +33,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # gem 'capistrano-rails', group: :development
 
 gem 'cocoon'
-
+gem 'carrierwave'
 gem 'sorcery'
 
 group :development, :test do
