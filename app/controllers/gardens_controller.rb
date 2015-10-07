@@ -26,9 +26,19 @@ class GardensController < ApplicationController
     end
   end
 
+  def destroy
+    @garden = Garden.find(params[:id])
+
+    @garden.products.each do |product|
+      product.destroy
+    end
+
+    @garden.destroy
+    redirect_to user_path(current_user)
+  end
+
   private
   def garden_params
     params.require(:garden).permit(:postal_code)
   end
-
 end
