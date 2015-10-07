@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
-  skip_before_filter :require_login, only: [:index, :new, :create]
+  skip_before_filter :require_login, only: [:new, :create]
+  before_filter :load_user, only: [:show, :destroy, :update, :edit]
 
   def new
     @user = User.new
@@ -15,18 +16,40 @@ class UsersController < ApplicationController
   end
 
   def show
+    @garden = Garden.new
     @messages = Message.where("receiver_id = ?", current_user.id)
     @user = current_user
   end
 
   def destroy
-    @user = User.find(params[:id])
+    logout
+    @user.garden.products.each do |product|
+      product.destroy
+    end
+    @user.garden.destroy
     @user.destroy
+
     redirect_to root_path
+  end
+
+  def edit
+    @user = User.find(params[:id])
+  end
+
+  def update
+    if @user.update_attributes(user_params)
+      redirect_to user_path(@user)
+    else
+      render :edit
+    end
   end
 
   private
   def user_params
     params.require(:user).permit(:name, :email, :password, :password_confirmation)
+  end
+
+  def load_user
+    @user = User.find(params[:id])
   end
 end
