@@ -3,6 +3,10 @@
     <%= form_for @product, :html => {:multipart => true} do |f| %>
     <div>
       <div>
+        <%= f.label :tag_list %>
+        <%= f.text_field :tag_list %>
+      </div>
+      <div>
         <%= f.label :name %>
         <%= f.text_field :name %>
       </div>
@@ -17,7 +21,7 @@
       <div>
         <%= f.file_field :image %>
       </div>
-      <%= f.submit %>
+        <%= f.submit %>
       <% end %>
     </div>
   </div>
