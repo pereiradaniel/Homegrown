@@ -24,7 +24,13 @@
   <% if !@user.garden %>
     <div>
       <%= form_for([@user, @garden]) do |f| %>
+        <div class="field">
+          <%= f.label :postal_code %>
+          <%= f.text_field :postal_code %>
+        </div>  
+      <div class="action">
         <%= f.submit %>
+      </div>
       <% end %>
     </div>
   <% else %>

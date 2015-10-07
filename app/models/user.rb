@@ -11,5 +11,7 @@ class User < ActiveRecord::Base
 
   validates :email, presence: true
   validates :email, uniqueness: true
+  validates :email, format: { with: /\A([\w+\-].?)+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i,
+    message: "not a valid email address" } 
   validates :name, presence: true
 end
