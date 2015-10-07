@@ -24,7 +24,8 @@
     })
 
   Garden.create!({
-    user_id: x
+    user_id: x,
+    postal_code: "M5H 1W7"
     })
 
   Product.create!({

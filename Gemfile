@@ -34,9 +34,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'carrierwave'
 gem 'sorcery'
-# A tagging plugin for Rails applications that allows for custom tagging along dynamic contexts.
-gem 'acts-as-taggable-on', '~> 3.4'
+gem 'geocoder'
 
+# A tagging plugin for Rails applications that allows for custom tagging along dynamic contexts.
 gem 'acts-as-taggable-on', '~> 3.4'
 
 group :development, :test do

@@ -12,7 +12,7 @@ class GardensController < ApplicationController
   end
 
   def new
-    @garden = Garden.new
+    @garden = Garden.new(garden_params)
   end
 
   def create
@@ -35,5 +35,10 @@ class GardensController < ApplicationController
 
     @garden.destroy
     redirect_to user_path(current_user)
+  end
+
+  private
+  def garden_params
+    params.require(:garden).permit(:postal_code)
   end
 end

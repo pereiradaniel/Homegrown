@@ -1,3 +1,5 @@
 <%= form_for(@garden) do |f| %>
-  <%= f.submit %>
+	<%= f.label :postal_code %>
+	<%= f.text_field :postal_code %>
+  	<%= f.submit %>
 <% end %>
