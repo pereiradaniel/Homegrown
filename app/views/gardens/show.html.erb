@@ -27,6 +27,7 @@
     </li>
     <% end %>
   </ol>
+  <%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&center=#{@user.garden.latitude}%2C#{@user.garden.longitude}" %>
 </div>
 
 <%= render 'newproductform' %>

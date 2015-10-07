@@ -12,7 +12,7 @@ class GardensController < ApplicationController
   end
 
   def new
-    @garden = Garden.new
+    @garden = Garden.new(garden_params)
   end
 
   def create
@@ -27,5 +27,8 @@ class GardensController < ApplicationController
   end
 
   private
+  def garden_params
+    params.require(:garden).permit(:postal_code)
+  end
 
 end
