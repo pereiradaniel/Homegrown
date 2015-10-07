@@ -12,11 +12,11 @@ class GardensController < ApplicationController
   end
 
   def new
-    @garden = Garden.new(garden_params)
+    @garden = Garden.new
   end
 
   def create
-    @garden = Garden.new
+    @garden = Garden.new(garden_params)
     @garden.user = current_user
 
     if @garden.save
