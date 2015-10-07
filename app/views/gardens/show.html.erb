@@ -39,4 +39,6 @@
   </ol>
 </div>
 
-<%= render 'newproductform' %>
+<% if @user == current_user %>
+  <%= render 'newproductform' %>
+<% end %>
