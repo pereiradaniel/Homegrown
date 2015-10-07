@@ -13,9 +13,10 @@
 
 <div id="create-garden-button">
   <% if !@user.garden %>
-    <div><%= form_for([@user, @garden]) do |f| %>
-      <%= f.submit %>
-    <% end %>
+    <div>
+      <%= form_for([@user, @garden]) do |f| %>
+        <%= f.submit %>
+      <% end %>
     </div>
   <% end %>
 </div>

@@ -1,6 +1,10 @@
 <div>
 	<%= form_for(@product) do |f| %>
 	<div>
+    <div>
+      <%= f.label :tag_list %>
+      <%= f.text_field :tag_list %>
+    </div>
 	 	<div>
  			<%= f.label :name %>
 			<%= f.text_field :name %>

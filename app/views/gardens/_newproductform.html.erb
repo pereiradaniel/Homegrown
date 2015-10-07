@@ -1,24 +1,26 @@
-<% if @user == current_user %>
-  <div class="new_product">
-    <%= form_for @product, :html => {:multipart => true} do |f| %>
+<div class="new_product">
+  <%= form_for @product, :html => {:multipart => true} do |f| %>
+  <div>
     <div>
-      <div>
-        <%= f.label :name %>
-        <%= f.text_field :name %>
-      </div>
-      <div>
-        <%= f.label :description %>
-        <%= f.text_area :description %>
-      </div>
-      <div>
-        <%= f.label :trade_info %>
-        <%= f.text_area :trade_info %>
-      </div>
-      <div>
-        <%= f.file_field :image %>
-      </div>
-      <%= f.submit %>
-      <% end %>
+      <%= f.label :tag_list %>
+      <%= f.text_field :tag_list %>
     </div>
+    <div>
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+    </div>
+    <div>
+      <%= f.label :description %>
+      <%= f.text_area :description %>
+    </div>
+    <div>
+      <%= f.label :trade_info %>
+      <%= f.text_area :trade_info %>
+    </div>
+    <div>
+      <%= f.file_field :image %>
+    </div>
+      <%= f.submit %>
+    <% end %>
   </div>
-<% end %>
+</div>

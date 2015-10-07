@@ -4,30 +4,42 @@
   <h3>Products</h3>
   <ol>
     <% @products.each do |product| %>
-    <li>
-      <ul>
-        <li>
-          <%= link_to product.name, product_path(product) %>
-        </li>
-        <li>
-          <%= product.description %>
-        </li>
-        <li>
-          <%= product.trade_info %>
-        </li>
+      <li>
+        <ul>
+          <li>
+            <%= link_to product.name, product_path(product) %>
+          </li>
+          <li>
+            <%= product.description %>
+          </li>
+          <li>
+            <%= product.trade_info %>
+          </li>
+        </ul>
 
-      <div class="picture">
-        <%= image_tag product.image_url.to_s %>
-        <!--
-        <%= link_to "edit", edit_product_path(product) %> |
-        <%= link_to "remove", product, :confirm => 'Are you sure?', :method => :delete %>
-        -->
-      </div>
-      </ul>
-    </li>
+        <% if product.tag_list.length > 0 %>
+          <ul class="tags">
+            <% product.tag_list.each do |tag| %>
+              <li><%= tag %></li>
+            <% end %>
+          </ul>
+        <% else %>
+          <p>no tags</p>
+        <% end %>
+
+        <div class="picture">
+          <%= image_tag product.image_url.to_s %>
+          <!--
+          <%= link_to "edit", edit_product_path(product) %> |
+          <%= link_to "remove", product, :confirm => 'Are you sure?', :method => :delete %>
+          -->
+        </div>
+      </li>
     <% end %>
   </ol>
   <%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&center=#{@user.garden.latitude}%2C#{@user.garden.longitude}" %>
 </div>
 
-<%= render 'newproductform' %>
+<% if @user == current_user %>
+  <%= render 'newproductform' %>
+<% end %>

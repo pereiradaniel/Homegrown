@@ -1,10 +1,28 @@
 <div><%= link_to 'Back to the Garden', user_garden_path(@product.garden.user, @product.garden) %></div>
+
 <h1>Product Info</h1>
+
+<p>Tag: <%= @product.tag_list %></p>
+
+<% if @product.garden.user == current_user %>
+  <div>
+    <%= form_for(@product) do |f| %>
+      <div class="field">
+        <%= f.label :tag_list %>
+        <%= f.text_field :tag_list %>
+      </div>
+
+      <div class="action">
+        <%= f.submit %>
+      </div>
+    <% end %>
+  </div><br>
+  <%= link_to 'Edit product', edit_product_path(@product) %>
+<% end %>
 
 <%= render 'displayproduct' %>
 
-<% if current_user %>
-	<% if @product.garden.user != current_user %>
-	<%= render 'messageform' %>
-	<% end %>
+<% if @product.garden.user != current_user %>
+  <h4>Leave a message</h4>
+  <%= render 'messageform' %>
 <% end %>
