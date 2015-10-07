@@ -35,31 +35,25 @@
     trade_info: "Trade info #{x}"
     })
 
-  Message.create!({
-    title: "Message #{x}",
-    content: "This message was sent from User#{x} to User#{x+1} regarding Product #{x}",
+  Conversation.create!({
     product_id: x,
-    sender_id: x,
-    receiver_id: x + 1
+    sender_id: x + 1,
+    receiver_id: x
     })
 
-  if x != 1
-    Message.create!({
-      title: "Message #{x}",
-      content: "This message was sent from User#{x} to User#{x-1} regarding Product #{x}",
-      product_id: x - 1,
-      sender_id: x,
-      receiver_id: x - 1
-      })
+  Message.create!({
+    title: "Message #{x}",
+    content: "This message was sent from User#{x + 1} to User#{x} regarding Product #{x}",
+    conversation_id: x,
+    sender_id: x + 1
+    })
 
-    Message.create!({
-      title: "Message #{x}",
-      content: "This message was sent from User#{x} to User#{x+1} regarding Product #{x+1}",
-      product_id: x + 1,
-      sender_id: x,
-      receiver_id: x + 1
-      })
-  else
-  end
+  Message.create!({
+    title: "Message #{x + 1}",
+    content: "This message was sent from User#{x} to User#{x + 1} regarding Product #{x}",
+    conversation_id: x,
+    sender_id: x
+    })
+
 
 end

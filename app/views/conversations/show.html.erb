@@ -1,0 +1,23 @@
+<h1>Conversation</h1>
+<% @conversation.messages.each do |m| %>
+	<div>
+	<ul>
+		<li><%= m.sender.name %> said:</li>
+		<li><%= m.title %></li>
+		<li><%= m.content %></li>
+	</ul>
+	</div>
+<% end %>
+
+<%= form_for([@conversation, @message]) do |f| %>
+	<div>
+		<li><%= f.label :title %></li>
+		<li><%= f.text_area :title %></li>
+		<li><%= f.label :content %></li>
+		<li><%= f.text_area :content %></li>
+		<%= f.hidden_field :conversation_id, {value: @conversation.id} %>
+		<%= f.hidden_field :sender_id, {value: current_user.id} %>
+		<%= f.submit %>
+	</div>
+
+<% end %>

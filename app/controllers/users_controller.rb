@@ -17,7 +17,7 @@ class UsersController < ApplicationController
 
   def show
     @garden = Garden.new
-    @messages = Message.where("receiver_id = ?", current_user.id)
+    @conversations = Conversation.where("receiver_id = ?", current_user.id)
     @user = current_user
   end
 

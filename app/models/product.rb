@@ -1,5 +1,5 @@
 class Product < ActiveRecord::Base
-  has_many :messages
+  has_many :conversations
   belongs_to :garden
 
   validates :name, presence: true

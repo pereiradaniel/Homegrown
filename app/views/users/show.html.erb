@@ -5,10 +5,17 @@
   <li>User Email: <%= @user.email %></li>
 </div>
 
-<% if @messages %>
-  <div id="messages">
+<% if @conversations %>
+  <div id="conversations">
     <ol>
-      <%= render partial: 'users/message', collection: @messages %>
+      <% @conversations.each do |c| %>
+      <ul>
+      <li>Request for product: <%= c.product.name %></li>
+      <li>Requested by: <%= c.sender.name %></li>
+      <%= link_to "View conversation", conversation_path(c) %>
+    </ul>
+      <% end %>
+      <!-- <%= render partial: 'users/message', collection: @messages %> -->
     </ol>
   </div>
 <% end %>

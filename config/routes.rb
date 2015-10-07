@@ -3,7 +3,10 @@ Rails.application.routes.draw do
 
   resources :user_sessions
   resources :products
-  resources :messages
+  
+  resources :conversations do
+  	resources :messages
+  end
 
   resources :users, only: [:show, :new, :create, :destroy, :edit, :update] do
   	resources :gardens, only: [:show, :new, :index, :create, :destroy]
