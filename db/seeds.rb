@@ -14,7 +14,7 @@
 # end
 
 
-50.times do |i|
+10.times do |i|
   x = i + 1
   User.create!({
     name: "User#{x}",
@@ -25,35 +25,117 @@
 
   Garden.create!({
     user_id: x,
-    postal_code: "M5H 1W7"
+    # postal_code: "M5H 1W7"
     })
 
   Product.create!({
     garden_id: x,
-    name: "Product #{x}",
-    description: "Description #{x}",
-    trade_info: "Trade info #{x}"
+    name: "Product #{x}a",
+    description: "Description #{x}a",
+    trade_info: "Trade info #{x}a"
     })
 
-  Conversation.create!({
-    product_id: x,
-    sender_id: x + 1,
-    receiver_id: x
+  Product.create!({
+    garden_id: x,
+    name: "Product #{x}b",
+    description: "Description #{x}b",
+    trade_info: "Trade info #{x}b"
     })
 
+end
+
+# User 2 is requesting Product 1a from User 1
+Conversation.create!({
+  product_id: 1,
+  sender_id: 2,
+  receiver_id: 1
+  })
+
+10.times do |i|
+  x = i + 1
   Message.create!({
     title: "Message #{x}",
-    content: "This message was sent from User#{x + 1} to User#{x} regarding Product #{x}",
-    conversation_id: x,
-    sender_id: x + 1
+    content: "This message was sent from User 2 to User 1 regarding Product 1a",
+    conversation_id: 1,
+    sender_id: 2
     })
 
   Message.create!({
-    title: "Message #{x + 1}",
-    content: "This message was sent from User#{x} to User#{x + 1} regarding Product #{x}",
-    conversation_id: x,
-    sender_id: x
+    title: "Message #{x} reply",
+    content: "This message was sent from User 1 to User 2 regarding Product 1a",
+    conversation_id: 1,
+    sender_id: 1
+    })
+end
+
+# User 3 is requesting Product 1b from User 1
+Conversation.create!({
+  product_id: 2,
+  sender_id: 3,
+  receiver_id: 1
+  })
+
+10.times do |i|
+  x = i + 1
+  Message.create!({
+    title: "Message #{x}",
+    content: "This message was sent from User 3 to User 1 regarding Product 1b",
+    conversation_id: 2,
+    sender_id: 3
     })
 
+  Message.create!({
+    title: "Message #{x} reply",
+    content: "This message was sent from User 1 to User 3 regarding Product 1b",
+    conversation_id: 2,
+    sender_id: 1
+    })
+end
 
+# User 4 is requesting Product 1 from User 1
+Conversation.create!({
+  product_id: 1,
+  sender_id: 4,
+  receiver_id: 1
+  })
+
+10.times do |i|
+  x = i + 1
+  Message.create!({
+    title: "Message #{x}",
+    content: "This message was sent from User 4 to User 1 regarding Product 1a",
+    conversation_id: 3,
+    sender_id: 4
+    })
+
+  Message.create!({
+    title: "Message #{x} reply",
+    content: "This message was sent from User 1 to User 4 regarding Product 1a",
+    conversation_id: 3,
+    sender_id: 1
+    })
+end
+
+# User 5 is requesting Product 1 from User 1
+Conversation.create!({
+  product_id: 1,
+  sender_id: 5,
+  receiver_id: 1
+  })
+
+10.times do |i|
+  x = i + 1
+  Message.create!({
+    title: "Message #{x}",
+    content: "This message was sent from User 5 to User 1 regarding Product 1a",
+    conversation_id: 4,
+    sender_id: 5
+    })
+
+  Message.create!({
+    title: "Message #{x} reply",
+    content: "This message was sent from User 1 to User 5 regarding Product 1a",
+    conversation_id: 4,
+    sender_id: 1
+    })
 end
