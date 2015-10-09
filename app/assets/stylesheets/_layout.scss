@@ -4,20 +4,34 @@
     position: fixed;
     margin: 0;
     padding: 0;
-    height: 40px;
+    height: $title-bar-height + 0.25rem;
     top: 0;
     left: 0;
     width: 100%;
     text-align: center;
+
+        & > h1 {
+            font-size: 1.35rem;
+            margin: 0;
+            padding: 0;
+            line-height: $title-bar-height;
+        }
+    
+        ul.nav {
+            display: block;
+        }
+
+        .nav li {
+            display: inline-block;
+        }
+
+        li.homegrown {
+            margin-left: 20%;
+            margin-right: 20%;
+    }
 }
 
-.logo > h1 {
-    font-size: 1.35rem;
-    margin: 0;
-    padding: 0;
-    line-height: 40px;
-}
 
 main {
-    padding-top: 40px;
+    padding-top: 1.5em;
 }

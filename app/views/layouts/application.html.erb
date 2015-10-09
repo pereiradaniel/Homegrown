@@ -8,9 +8,12 @@
   <%= csrf_meta_tags %>
 </head>
   <body>
-
   <header class="logo">
-      <h1>Homegrown</h1>
+    <ul class="nav">
+      <li class="hamburger"><i class="fa fa-bars"></i></li>
+      <li class="homegrown"><h1>Homegrown</h1></li>
+      <li class="search-icon"><i class="fa fa-search"></i></li>
+    </ul>
   </header>
 
   <main>
@@ -37,6 +40,7 @@
     </div>
 
     <%= yield %>
+
 
   </body>
 </main>

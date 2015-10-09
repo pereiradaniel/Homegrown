@@ -6,7 +6,7 @@ $base-font-family: $helvetica;
 $heading-font-family: $base-font-family;
 
 // Font Sizes
-$base-font-size: 1em;
+$base-font-size: 20px;
 
 // Line height
 $base-line-height: 1.5;
@@ -43,3 +43,5 @@ $form-box-shadow-focus: $form-box-shadow, 0 0 5px adjust-color($action-color, $l
 // Animations
 $base-duration: 150ms;
 $base-timing: ease;
+
+$title-bar-height: 1.5rem;
