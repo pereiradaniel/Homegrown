@@ -1,4 +1,4 @@
-.logo {
+.header-bar {
     color: white;
     background-color: green;
     position: fixed;
@@ -23,12 +23,12 @@
 
         .nav li {
             display: inline-block;
+            float: right;
         }
 
         li.homegrown {
-            margin-left: 20%;
-            margin-right: 20%;
-    }
+            float: left
+        }
 }
 
 

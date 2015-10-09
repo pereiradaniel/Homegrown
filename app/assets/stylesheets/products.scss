@@ -3,18 +3,34 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .product-box {
-
-	@include media($small-screen-up) {
-	    @include span-columns(2);
-
+	@include media($small-screen-only) {
+		@include span-columns(1);
+		@include omega(2n);
 	}
-		img {
-		    height: 100px;
+	
+	font-size: 16px;
+
+	box-shadow: $form-box-shadow;
+
+	ul {
+		padding-left: 0.50em;
+	}
+	.picture {
+		text-align: center;
 		}
 
-	.products {
-	    display: inline-flex;
+	.picture img {
+	    height: 100px;
 	}
 
-}
+		@include media($medium-screen-only) {
+			@include span-columns(1);
+			@include omega(4n);
+		
+			.picture img {
+		    	height: 200px;
+		    	}
 
+		}
+	
+}

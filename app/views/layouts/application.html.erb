@@ -7,16 +7,40 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-  <body>
-  <header class="logo">
+  
+<body>
+
+  <header class="header-bar">
     <ul class="nav">
-      <li class="hamburger"><i class="fa fa-bars"></i></li>
-      <li class="homegrown"><h1>Homegrown</h1></li>
-      <li class="search-icon"><i class="fa fa-search"></i></li>
+      <% if current_user %>
+      
+      <li class="logout">
+          <%= link_to raw("<i class=\"fa fa-sign-out\"></i>"), :logout, method: :post %>
+      </li>
+
+      <li class="home-icon">
+          <%= link_to raw("<i class=\"fa fa-home\"></i>"), root_path %>
+      </li>
+      
+      <li class="inbox-icon">
+          <%= link_to raw("<i class=\"fa fa-comments\"></i>"), user_path(current_user) %>  
+      </li>
+      
+      <% else %>
+      <li class="login-icon">
+          <%= link_to raw("<i class=\"fa fa-sign-in\"></i>"), :login %>
+      </li>
+      <% end %>
+      <li class="homegrown">
+        <h1>Homegrown</h1>
+      </li>
+    
     </ul>
+
   </header>
 
   <main>
+
     <div id="nav">
       <% if current_user %>
       <div>
@@ -34,6 +58,7 @@
       <% end %>
       <%= link_to "Home", root_path %>
     </div>
+
     <div>
       <p id="notice"><%= flash[:notice] %></p>
       <p id="alert"><%= flash[:alert] %></p>
@@ -41,7 +66,7 @@
 
     <%= yield %>
 
+  </main>
 
-  </body>
-</main>
+</body>
 </html>
