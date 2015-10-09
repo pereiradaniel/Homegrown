@@ -1,0 +1,23 @@
+.logo {
+    color: white;
+    background-color: green;
+    position: fixed;
+    margin: 0;
+    padding: 0;
+    height: 40px;
+    top: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+}
+
+.logo > h1 {
+    font-size: 1.35rem;
+    margin: 0;
+    padding: 0;
+    line-height: 40px;
+}
+
+main {
+    padding-top: 40px;
+}
