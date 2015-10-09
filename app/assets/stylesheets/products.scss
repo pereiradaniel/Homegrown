@@ -3,16 +3,18 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .product-box {
-	
 
-	@include media($medium-screen) {
+	@include media($small-screen-up) {
 	    @include span-columns(2);
 
 	}
-	
-	.picture > img {
-		height:  100px;
+		img {
+		    height: 100px;
+		}
 
+	.products {
+	    display: inline-flex;
 	}
+
 }
 
