@@ -26,6 +26,11 @@
 	</ul>
 <% end %>
 
+<% if @conversation.product.garden.user == current_user %>
+  <%= link_to "Trade Has Been Completed", new_trade_path(:product => @product.id, :buyer => @conversation.sender.id, :conversation =>@conversation.id) %>
+  <%= link_to "Delete Trade Conversation", conversation_path(@conversation), method: :delete, data: {confirm: "Are you sure you want to delete this trade conversation?"} %>
+<% else %>
+<% end %>
 
 <%= form_for([@message]) do |f| %>
 	<div>

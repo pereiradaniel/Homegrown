@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   resources :conversations
   resources :messages
 
+  resources :trades
+
   resources :users, only: [:show, :new, :create, :destroy, :edit, :update] do
   	resources :gardens, only: [:show, :new, :index, :create, :destroy]
   end

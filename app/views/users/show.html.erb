@@ -5,6 +5,10 @@
   <li>User Email: <%= @user.email %></li>
 </div>
 
+<% if @trades.length != nil %>
+  <li><%= @trades.count %> succesful trades.</li>
+<% end %>
+
 <% if @conversations %>
   <div id="conversations">
     <ol>

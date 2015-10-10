@@ -22,6 +22,13 @@ class ConversationsController < ApplicationController
 		@message = Message.new
 	end
 
+	def destroy
+		@conversation = Conversation.find(params[:id])
+		@conversation.destroy
+		redirect_to user_path(current_user)
+	end
+
+
 	private
 	def conversation_params
 		params.require(:conversation).permit(:product_id, :sender_id, :receiver_id, :request)
