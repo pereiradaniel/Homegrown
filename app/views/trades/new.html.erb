@@ -5,9 +5,9 @@
   </ul>
     <%= f.label :negotiation_result %>
     <%= f.text_field :negotiation_result %>
-	<%= f.hidden_field :seller_id, {value: current_user.id} %>
-	<%= f.hidden_field :buyer_id, {value: @buyer.id} %>
-	<%= f.hidden_field :product_id, {value: @product.id} %>	
-	<%= f.hidden_field :conversation_id, {value: @conversation.id} %>	
+	  <%= f.hidden_field :seller_id, {value: current_user.id} %>
+	  <%= f.hidden_field :buyer_id, {value: @buyer.id} %>
+	  <%= f.hidden_field :product_id, {value: @product.id} %>	
+    <%= f.hidden_field :conversation_id, {value: @conversation.id} %>
     <%= f.submit %>
 <% end %>

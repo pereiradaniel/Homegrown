@@ -6,6 +6,7 @@ class ConversationsController < ApplicationController
 
 	def create
 		@conversation = Conversation.create(conversation_params)
+		@conversation.trade_ended = false
 
 		if @conversation.save
 			redirect_to user_path(current_user)
