@@ -1,16 +1,11 @@
 <div id="message-info">
   <ul>
     <li>Sender: <%= @message.sender.name %></li>
-    <li>Title: <%= @message.title %></li>
     <li>Content: <%= @message.content %></li>
   <ul>
 </div>
 
 <%= form_for([@reply]) do |f| %>
-  <div class="field">
-    <%= f.label :title %>
-    <%= f.text_area :title %>
-  </div>
   <div class="field">
     <%= f.label :content %>
     <%= f.text_area :content %>

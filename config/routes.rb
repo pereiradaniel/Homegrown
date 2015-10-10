@@ -4,9 +4,8 @@ Rails.application.routes.draw do
   resources :user_sessions
   resources :products
   
-  resources :conversations do
-  	resources :messages
-  end
+  resources :conversations
+  resources :messages
 
   resources :users, only: [:show, :new, :create, :destroy, :edit, :update] do
   	resources :gardens, only: [:show, :new, :index, :create, :destroy]

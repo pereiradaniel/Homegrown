@@ -9,6 +9,8 @@ class GardensController < ApplicationController
     @user = User.find(params[:user_id])
     @products = Garden.find(params[:id]).products
     @product = Product.new
+    # @conversation = Conversation.new
+    # @message = Message.new
   end
 
   def new

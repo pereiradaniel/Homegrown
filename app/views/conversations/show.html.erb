@@ -1,22 +1,42 @@
-<h1>Conversation</h1>
-<% @conversation.messages.each do |m| %>
-	<div>
+<h1>Negotiate</h1>
+<div class="trade-request-info">
+  <ul>
+    <li><%= @conversation.sender.name %> is requesting a trade for <%= @product.name %>
+  	</li>
+  </ul>
+</div>
+
+<% if @conversation.messages.length != nil %>
 	<ul>
-		<li><%= m.sender.name %> said:</li>
-		<li><%= m.title %></li>
-		<li><%= m.content %></li>
+		<li>Negotiating trade for <%= @conversation.product.name %> with <%= @conversation.sender.name %>!</li>
+		<li>Initial trade request:</li>
+		<li><%= @conversation.request %></li>
 	</ul>
-	</div>
+	<% @conversation.messages.each do |m| %>
+		<div>
+		<ul>
+			<li><%= m.sender.name %> said:</li>
+			<li><%= m.content %></li>
+		</ul>
+		</div>
+	<% end %>
+<% else %>
+	<ul>
+		<li>Start trading <%= @conversation.product.name %> with <%= @conversation.sender.name %>!</li>
+	</ul>
 <% end %>
 
-<%= form_for([@conversation, @message]) do |f| %>
+
+<%= form_for([@message]) do |f| %>
 	<div>
-		<li><%= f.label :title %></li>
-		<li><%= f.text_area :title %></li>
+
 		<li><%= f.label :content %></li>
 		<li><%= f.text_area :content %></li>
 		<%= f.hidden_field :conversation_id, {value: @conversation.id} %>
 		<%= f.hidden_field :sender_id, {value: current_user.id} %>
+		<%= f.hidden_field :product_id, {value: @product.id} %>
+		<% @conversation.sender != current_user ? @receiver = @conversation.sender : @receiver = current_user %>
+		<%= f.hidden_field :receiver_id, {value: @receiver.id} %>
 		<%= f.submit %>
 	</div>
 

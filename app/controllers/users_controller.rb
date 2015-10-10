@@ -17,8 +17,8 @@ class UsersController < ApplicationController
 
   def show
     @garden = Garden.new
-    @conversations = Conversation.where("receiver_id = ?", current_user.id)
-    @user = current_user
+    @conversations = Conversation.where("receiver_id = ? OR sender_id = ?", current_user.id, current_user.id)
+    # @user = current_user
   end
 
   def destroy

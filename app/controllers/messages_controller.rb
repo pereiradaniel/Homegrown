@@ -1,5 +1,4 @@
 class MessagesController < ApplicationController
-  # before_filter :load_product
 
   def index
     @messages = Message.all
@@ -7,7 +6,6 @@ class MessagesController < ApplicationController
 
   def show
     @message = Message.find(params[:id])
-    @reply = Message.new
   end
 
   def new
@@ -15,14 +13,13 @@ class MessagesController < ApplicationController
   end
 
   def create
-
-
+    
     @message = Message.create(message_params)
-  
+    
     if @message.save
-      redirect_to user_path(current_user)
+      redirect_to conversation_path(@message.conversation.id)
     else
-      render :new
+      redirect_to conversation_path(@message.conversation.id)
     end
   end
 
@@ -37,10 +34,7 @@ class MessagesController < ApplicationController
 
   private
   def message_params
-    params.require(:message).permit(:title, :content, :sender_id, :conversation_id)
+    params.require(:message).permit(:content, :sender_id, :receiver_id, :conversation_id)
   end
 
-  # def load_product
-  #   @product = Product.find(params[:product_id])
-  # end
 end

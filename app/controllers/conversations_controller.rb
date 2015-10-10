@@ -5,22 +5,26 @@ class ConversationsController < ApplicationController
 	end
 
 	def create
-		@conversation = Conversation.new(conversation_params)
-		@message = @conversation.messages.create(message_params)
+		@conversation = Conversation.create(conversation_params)
+
+		if @conversation.save
+			redirect_to user_path(current_user)
+		else
+			redirect_to product_path(@conversation.product.id)
+		end
+
 	end
 
 	def show
 		@conversation = Conversation.find(params[:id])
+		@product = @conversation.product
+		@owner = @product.garden.user
 		@message = Message.new
 	end
 
 	private
 	def conversation_params
-		params.require(:conversation).permit(:product_id, :sender_id, :receiver_id)
-	end
-
-	def message_params
-		params.require(:message).permit(:title, :content)
+		params.require(:conversation).permit(:product_id, :sender_id, :receiver_id, :request)
 	end
 
 end

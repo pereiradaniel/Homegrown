@@ -25,7 +25,7 @@
 
   Garden.create!({
     user_id: x,
-    # postal_code: "M5H 1W7"
+    postal_code: "M5H 1W7"
     })
 
   Product.create!({
@@ -54,16 +54,16 @@ Conversation.create!({
 10.times do |i|
   x = i + 1
   Message.create!({
-    title: "Message #{x}",
     content: "This message was sent from User 2 to User 1 regarding Product 1a",
     conversation_id: 1,
+    receiver_id: 1,
     sender_id: 2
     })
 
   Message.create!({
-    title: "Message #{x} reply",
     content: "This message was sent from User 1 to User 2 regarding Product 1a",
     conversation_id: 1,
+    receiver_id: 2,
     sender_id: 1
     })
 end
@@ -78,17 +78,19 @@ Conversation.create!({
 10.times do |i|
   x = i + 1
   Message.create!({
-    title: "Message #{x}",
     content: "This message was sent from User 3 to User 1 regarding Product 1b",
     conversation_id: 2,
-    sender_id: 3
+    sender_id: 3,
+    receiver_id: 1
+
     })
 
   Message.create!({
-    title: "Message #{x} reply",
     content: "This message was sent from User 1 to User 3 regarding Product 1b",
     conversation_id: 2,
-    sender_id: 1
+    sender_id: 1,
+    receiver_id: 3
+
     })
 end
 
@@ -102,17 +104,17 @@ Conversation.create!({
 10.times do |i|
   x = i + 1
   Message.create!({
-    title: "Message #{x}",
     content: "This message was sent from User 4 to User 1 regarding Product 1a",
     conversation_id: 3,
-    sender_id: 4
+    sender_id: 4,
+    receiver_id: 1
     })
 
   Message.create!({
-    title: "Message #{x} reply",
     content: "This message was sent from User 1 to User 4 regarding Product 1a",
     conversation_id: 3,
-    sender_id: 1
+    sender_id: 1,
+    receiver_id: 4
     })
 end
 
@@ -126,16 +128,18 @@ Conversation.create!({
 10.times do |i|
   x = i + 1
   Message.create!({
-    title: "Message #{x}",
     content: "This message was sent from User 5 to User 1 regarding Product 1a",
     conversation_id: 4,
-    sender_id: 5
+    sender_id: 5,
+    receiver_id: 1
+
     })
 
   Message.create!({
-    title: "Message #{x} reply",
     content: "This message was sent from User 1 to User 5 regarding Product 1a",
     conversation_id: 4,
-    sender_id: 1
+    sender_id: 1,
+    receiver_id: 5
+
     })
 end
