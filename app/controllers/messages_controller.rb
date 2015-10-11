@@ -1,5 +1,5 @@
 class MessagesController < ApplicationController
-  # before_filter :load_product
+  before_filter :load_product
 
   def index
     @messages = Message.all
@@ -15,10 +15,8 @@ class MessagesController < ApplicationController
   end
 
   def create
+    @message = Message.new(message_params)
 
-
-    @message = Message.create(message_params)
-  
     if @message.save
       redirect_to user_path(current_user)
     else

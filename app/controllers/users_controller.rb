@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-  skip_before_filter :require_login, only: [:new, :create]
-  before_filter :load_user, only: [:show, :destroy, :update, :edit]
+  # skip_before_filter :require_login, only: [:new, :create]
+  # before_filter :load_user, only: [:show, :destroy, :update, :edit]
 
   def new
     @user = User.new
