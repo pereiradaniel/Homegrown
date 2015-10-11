@@ -1,0 +1,22 @@
+function Map(mapId){
+  this.mapId = mapId;
+}
+
+Map.prototype.init = function(latitude, longitude){
+  var options = {
+    center: {lat: latitude, lng: longitude},
+    zoom: 15,
+    mapTypeId: google.maps.MapTypeId.ROADMAP
+  };
+
+  this.map = new google.maps.Map(this.mapId, options);
+}
+
+$(document).on('ready page:load', function(){
+  if($('#map-canvas').length){
+    var latitude = $('#map-canvas').data('latitude');
+    var longitude = $('#map-canvas').data('longitude');
+    window.myMap = new Map($('#map-canvas')[0]);
+    window.myMap.init(latitude, longitude);
+  }
+});

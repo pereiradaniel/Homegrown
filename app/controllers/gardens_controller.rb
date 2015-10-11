@@ -11,6 +11,10 @@ class GardensController < ApplicationController
     @product = Product.new
     # @conversation = Conversation.new
     # @message = Message.new
+
+    # respond_to do |format|
+    #   format.js
+    # end
   end
 
   def new

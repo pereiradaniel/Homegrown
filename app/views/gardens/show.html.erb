@@ -1,5 +1,7 @@
 <h1>Welcome to <%= @user.name %>'s Garden</h1>
 
+<div id="map-canvas" data-latitude="<%= @user.garden.latitude.to_f %>" data-longitude="<%= @user.garden.longitude.to_f %>"></div>
+
 <div class="products">
 
     <% @products.each do |product| %>
@@ -31,9 +33,6 @@
 
 </div>
 
-<div class="map">
-  <%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&center=#{@user.garden.latitude}%2C#{@user.garden.longitude}" %>
-</div>
 
 <% if @user == current_user %>
   <%= render 'newproductform' %>
