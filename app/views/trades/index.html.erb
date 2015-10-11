@@ -1,0 +1,50 @@
+
+<% if @trades_seller_success %>
+<ul>
+  <li><%= @trades_seller_success.count %> successfully completed trades for your items.</li>
+  <li>Items you've given on request</li>
+    <% @trades_seller_success.each do |t| %>
+        <li>You traded <%= t.product.name %> with <%= t.buyer.name %>.</li>
+        <li>The result of this trade was:</li>
+        <li><%= t.negotiation_result %></li>
+        <li>Trade ended on <%= t.created_at %></li>
+    <% end %>
+</ul>
+<% end %>
+
+<% if @trades_seller_unsuccessful %>
+<ul>
+    <li><%= @trades_seller_unsuccessful.count %> unsuccessful trades for your items.</li>    
+    <% @trades_seller_unsuccessful.each do |t| %>
+        <li>You attempted to trade with <%= t.buyer.name %> for your <%= t.product.name %></li>
+        <li>Trade ended on <%= t.created_at %></li>
+    <% end %>
+</ul>
+<% end %>
+
+
+    
+
+<% if @trades_buyer_successful %>
+  <ul>
+    <li><%= @trades_buyer_successful.count %> completed trades for items from others.</li>
+    <li>Items you've received on request</li>
+      <% @trades_buyer_success.each do |t| %>
+          <li>You traded <%= t.product.name %> with <%= t.seller.name %>.</li>
+          <li>The result of this trade was:</li>
+          <li><%= t.negotiation_result %></li>
+          <li>Trade ended on <%= t.created_at %></li>
+      <% end %>
+  </ul>
+<% end %>
+
+<% if @trades_buyer_unsuccessful %>
+  <ul>
+    <li><%= @trades_buyer_unsuccessful.count %> unsuccessful trades for others' items.</li> 
+    <% @trades_buyer_unsuccessful.each do |t| %>
+      <li>You attempted to trade with <%= t.buyer.name %> for their <%= t.product.name %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= link_to "View Current Trade Negotiations", user_path(current_user) %>

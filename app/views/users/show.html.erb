@@ -6,36 +6,40 @@
 </div>
 
 <% if @trades.length != nil %>
-  <li><%= @trades.count %> succesful trades.</li>
+  <li><%= @trades.count %> ended trades.</li>
+  <li>
+    <%= link_to "View Ended Trades", trades_path %>
+  </li>
 <% end %>
 
 <% if @conversations %>
   <div id="conversations">
     <ol>
       <% @conversations.each do |c| %>
-      <ul>
-      <li>Request for product: <%= c.product.name %></li>
-      <li>Requested by: <%= c.sender.name %></li>
-      <%= link_to "View conversation", conversation_path(c) %>
-    </ul>
+      
+        <% if !c.trade %>
+          <ul>
+            <li>Request for product: <%= c.product.name %></li>
+            <li>Requested by: <%= c.sender.name %></li>
+            <%= link_to "View conversation", conversation_path(c) %>
+          </ul>
+        <% end %>
       <% end %>
-      <!-- <%= render partial: 'users/message', collection: @messages %> -->
     </ol>
   </div>
 <% end %>
 
-<div id="create-garden-button">
   <% if !@user.garden %>
-    <div>
-      <%= form_for([@user, @garden]) do |f| %>
-        <div class="field">
-          <%= f.label :postal_code %>
-          <%= f.text_field :postal_code %>
-        </div>  
-      <div class="action">
-        <%= f.submit %>
-      </div>
-      <% end %>
+    <div id="create-garden-button">
+        <%= form_for([@user, @garden]) do |f| %>
+          <div class="field">
+            <%= f.label :postal_code %>
+            <%= f.text_field :postal_code %>
+          </div>  
+          <div class="action">
+            <%= f.submit %>
+          </div>
+        <% end %>
     </div>
   <% else %>
     <%= link_to "Delete Garden", user_garden_path(@user, @user.garden), method: :delete, data: {confirm: "Are you sure you want to delete your garden?"} %>

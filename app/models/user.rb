@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
   has_one :garden
   has_many :products, through: :garden
   has_many :messages, through: :product
+  has_many :trades
 
   validates :password, length: { minimum: 3 }, if: -> { new_record? || changes["password"] }
   validates :password, confirmation: true, if: -> { new_record? || changes["password"] }

@@ -46,12 +46,13 @@ end
 
 # User 2 is requesting Product 1a from User 1
 Conversation.create!({
+  request: "I will trade you x for y.",
   product_id: 1,
   sender_id: 2,
   receiver_id: 1
   })
 
-10.times do |i|
+5.times do |i|
   x = i + 1
   Message.create!({
     content: "This message was sent from User 2 to User 1 regarding Product 1a",
@@ -70,12 +71,13 @@ end
 
 # User 3 is requesting Product 1b from User 1
 Conversation.create!({
+  request: "I will buy 4 of this product for the price you are asking",
   product_id: 2,
   sender_id: 3,
   receiver_id: 1
   })
 
-10.times do |i|
+5.times do |i|
   x = i + 1
   Message.create!({
     content: "This message was sent from User 3 to User 1 regarding Product 1b",
@@ -96,12 +98,13 @@ end
 
 # User 4 is requesting Product 1 from User 1
 Conversation.create!({
+  request: "I see you are giving this away, can I please have 2?",
   product_id: 1,
   sender_id: 4,
   receiver_id: 1
   })
 
-10.times do |i|
+3.times do |i|
   x = i + 1
   Message.create!({
     content: "This message was sent from User 4 to User 1 regarding Product 1a",
@@ -120,12 +123,13 @@ end
 
 # User 5 is requesting Product 1 from User 1
 Conversation.create!({
+  request: "I'm not sure what I can trade for this, but I have x that you may be interested in.",
   product_id: 1,
   sender_id: 5,
   receiver_id: 1
   })
 
-10.times do |i|
+4.times do |i|
   x = i + 1
   Message.create!({
     content: "This message was sent from User 5 to User 1 regarding Product 1a",
@@ -143,3 +147,12 @@ Conversation.create!({
 
     })
 end
+
+Trade.create!({
+  negotiation_result: "Good trade!  Thanks.",
+  seller_id: 1,
+  buyer_id: 5,
+  product_id: 1,
+  conversation_id: 4,
+  success: true
+})

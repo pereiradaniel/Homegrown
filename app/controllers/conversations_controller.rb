@@ -6,14 +6,13 @@ class ConversationsController < ApplicationController
 
 	def create
 		@conversation = Conversation.create(conversation_params)
-		@conversation.trade_ended = false
+		# @conversation.trade_ended = false
 
 		if @conversation.save
 			redirect_to user_path(current_user)
 		else
 			redirect_to product_path(@conversation.product.id)
 		end
-
 	end
 
 	def show
@@ -32,7 +31,7 @@ class ConversationsController < ApplicationController
 
 	private
 	def conversation_params
-		params.require(:conversation).permit(:product_id, :sender_id, :receiver_id, :request)
+		params.require(:conversation).permit(:product_id, :sender_id, :receiver_id, :request, :trade_id)
 	end
 
 end

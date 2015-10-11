@@ -2,6 +2,13 @@
   <ul>
   	<li><%= @buyer.name %><%= @product.name %></li>
     <li>What was the result of this trade?</li>
+
+    <%= f.radio_button(:success, "true")  %>
+    <li><%= f.label(:success, "Succesful") %></li>
+    <%= f.radio_button(:success, "false")  %>
+    <li><%= f.label(:unsuccessful, "Unsuccesful") %></li>
+
+
   </ul>
     <%= f.label :negotiation_result %>
     <%= f.text_field :negotiation_result %>
