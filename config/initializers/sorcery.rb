@@ -76,7 +76,11 @@ Rails.application.config.sorcery.configure do |config|
   # What providers are supported by this app, i.e. [:twitter, :facebook, :github, :linkedin, :xing, :google, :liveid, :salesforce] .
   # Default: `[]`
   #
+<<<<<<< HEAD
   config.external_providers = [:github]
+=======
+  config.external_providers = [:twitter]
+>>>>>>> 885418a65cf1a24ce4f0ba097c65a3cb500903cc
 
 
   # You can change it by your local ca_file. i.e. '/etc/pki/tls/certs/ca-bundle.crt'
@@ -110,10 +114,12 @@ Rails.application.config.sorcery.configure do |config|
   # Twitter will not accept any requests nor redirect uri containing localhost,
   # make sure you use 0.0.0.0:3000 to access your app in development
   #
-  # config.twitter.key = Figaro.env.twitter_key
-  # config.twitter.secret = Figaro.env.twitter_secret
-  # config.twitter.callback_url = "http://127.0.0.1:3000/oauth/callback?provider=twitter"
-  # config.twitter.user_info_mapping = {:email => "screen_name"}
+
+  config.twitter.key = Figaro.env.twitter_key
+  config.twitter.secret = Figaro.env.twitter_secret
+  config.twitter.callback_url = "http://127.0.0.1:3000/oauth/callback?provider=twitter"
+  config.twitter.user_info_mapping = {:email => "screen_name"}
+
   #
   # config.facebook.key = ""
   # config.facebook.secret = ""

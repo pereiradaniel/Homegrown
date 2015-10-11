@@ -1,8 +1,6 @@
 class OauthsController < ApplicationController
 skip_before_filter :require_login
 
-  # sends the user on a trip to the provider,
-  # and after authorizing there back to the callback url.
   def oauth
     login_at(auth_params[:provider])
   end
@@ -25,12 +23,8 @@ skip_before_filter :require_login
     end
   end
 
-  #example for Rails 4: add private method below and use "auth_params[:provider]" in place of
-  #"params[:provider] above.
-
   private
   def auth_params
     params.permit(:code, :provider)
   end
-
 end
