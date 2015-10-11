@@ -9,9 +9,8 @@ Rails.application.routes.draw do
 
   resources :trades
 
-  resources :users, only: [:show, :new, :create, :destroy, :edit, :update] do
-  	resources :gardens, only: [:show, :new, :index, :create, :destroy]
-  end
+	resources :gardens, only: [:show, :new, :index, :create, :destroy]
+  resources :users, only: [:show, :new, :create, :destroy, :edit, :update]
 
   get 'login' => 'user_sessions#new', :as => :login
   post 'logout' => 'user_sessions#destroy', :as => :logout

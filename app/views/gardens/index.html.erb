@@ -1,3 +1,6 @@
+
+<%= button_tag "Find gardens near me", id: "current-location" %>
+
 <div class="search-bar">
 	<%= form_tag products_path, method: :get, id: 'search-form'  do %>
 	  <%= text_field_tag :search, params[:search] %>
@@ -5,13 +8,7 @@
 	<% end %>
 </div>
 
-<div class="gardens-list">
-	<h2>Gardens</h2>
-	  <ul>
-	    <% @gardens.each do |garden| %>
-	    <li>
-	      <%= link_to garden.user.name, user_garden_path(garden.user.id, garden) %>'s garden
-	    </li>
-	    <% end %>
-	  </ul>
+<h2>Gardens</h2>
+<div id="gardens">
+  <%= render @gardens %>
 </div>

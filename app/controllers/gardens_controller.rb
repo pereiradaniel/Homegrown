@@ -2,11 +2,22 @@ class GardensController < ApplicationController
   skip_before_filter :require_login, only: [:index, :show]
 
   def index
+
+    if params[:latitude] && params[:longitude]
+    @gardens = Garden.near([params[:latitude], params[:longitude]], 10, units: :km)
+    else
     @gardens = Garden.all
+    end
+
+    respond_to do |format|
+      format.html
+      format.js
+    end
+
   end
 
   def show
-    @user = User.find(params[:user_id])
+    @garden = Garden.find(params[:id])
     @products = Garden.find(params[:id]).products
     @product = Product.new
     # @conversation = Conversation.new
@@ -22,7 +33,7 @@ class GardensController < ApplicationController
   end
 
   def create
-    @garden = Garden.new(garden_params)
+    @garden = Garden.create(garden_params)
     @garden.user = current_user
 
     if @garden.save

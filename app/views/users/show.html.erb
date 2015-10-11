@@ -31,7 +31,7 @@
 
   <% if !@user.garden %>
     <div id="create-garden-button">
-        <%= form_for([@user, @garden]) do |f| %>
+        <%= form_for([@garden]) do |f| %>
           <div class="field">
             <%= f.label :postal_code %>
             <%= f.text_field :postal_code %>

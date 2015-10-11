@@ -1,3 +1,24 @@
+function geolocationSuccess(position) {
+  var latitude  = position.coords.latitude;
+  var longitude = position.coords.longitude;
+  $.ajax({
+    url: '/gardens',
+    method: 'GET',
+    data: {
+      longitude: longitude,
+      latitude: latitude
+    },
+    dataType: 'script'
+  });
+}
+
+function geolocationError() {
+  console.log("please enable location for this feature to work!");
+  // display this message in some div on the index page
+}
+
+
+
 function Map(mapId){
   this.mapId = mapId;
 }
@@ -19,4 +40,17 @@ $(document).on('ready page:load', function(){
     window.myMap = new Map($('#map-canvas')[0]);
     window.myMap.init(latitude, longitude);
   }
+
+$("#current-location").on("click", function(event) {
+    event.preventDefault();
+
+    if ("geolocation" in navigator) {
+      navigator.geolocation.getCurrentPosition(geolocationSuccess, geolocationError);
+    } else {
+      alert("Please dump your crappy browser and use Chrome!");
+    }
+  }); 
+
+
 });
+

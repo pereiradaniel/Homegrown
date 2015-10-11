@@ -15,4 +15,8 @@ class User < ActiveRecord::Base
   validates :email, format: { with: /\A([\w+\-].?)+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i,
     message: "not a valid email address" } 
   validates :name, presence: true
+
+
+  # geocoded_by :
+
 end
