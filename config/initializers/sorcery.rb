@@ -76,12 +76,7 @@ Rails.application.config.sorcery.configure do |config|
   # What providers are supported by this app, i.e. [:twitter, :facebook, :github, :linkedin, :xing, :google, :liveid, :salesforce] .
   # Default: `[]`
   #
-<<<<<<< HEAD
-  config.external_providers = [:github]
-=======
-  config.external_providers = [:twitter]
->>>>>>> 885418a65cf1a24ce4f0ba097c65a3cb500903cc
-
+  config.external_providers = [:github, :twitter]
 
   # You can change it by your local ca_file. i.e. '/etc/pki/tls/certs/ca-bundle.crt'
   # Path to ca_file. By default use a internal ca-bundle.crt.
