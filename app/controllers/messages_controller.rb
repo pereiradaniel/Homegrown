@@ -13,9 +13,8 @@ class MessagesController < ApplicationController
   end
 
   def create
-    
     @message = Message.create(message_params)
-    
+
     if @message.save
       redirect_to conversation_path(@message.conversation.id)
     else

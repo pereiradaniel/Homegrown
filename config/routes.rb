@@ -1,14 +1,16 @@
 Rails.application.routes.draw do
   root 'gardens#index'
 
+  get 'oauths/oauth'
+  post "oauth/callback" => "oauths#callback"
+  get "oauth/callback" => "oauths#callback" # for use with Github, Facebook
+  get "oauth/:provider" => "oauths#oauth", :as => :auth_at_provider
+
   resources :user_sessions
   resources :products
-  
   resources :conversations
   resources :messages
-
   resources :trades
-
   resources :users, only: [:show, :new, :create, :destroy, :edit, :update] do
   	resources :gardens, only: [:show, :new, :index, :create, :destroy]
   end

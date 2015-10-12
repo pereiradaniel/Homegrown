@@ -13,6 +13,16 @@
 
 ActiveRecord::Schema.define(version: 20151011182041) do
 
+  create_table "authentications", force: :cascade do |t|
+    t.integer  "user_id",    null: false
+    t.string   "provider",   null: false
+    t.string   "uid",        null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "authentications", ["provider", "uid"], name: "index_authentications_on_provider_and_uid"
+
   create_table "conversations", force: :cascade do |t|
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
@@ -83,7 +93,7 @@ ActiveRecord::Schema.define(version: 20151011182041) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "email",            null: false
+    t.string   "email"
     t.string   "crypted_password"
     t.string   "salt"
     t.datetime "created_at"

@@ -7,54 +7,52 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-  
 <body>
 
   <header class="header-bar">
     <ul class="nav">
       <% if current_user %>
-      
-      <li class="logout">
-          <%= link_to raw("<i class=\"fa fa-sign-out\"></i>"), :logout, method: :post %>
-      </li>
 
-      <li class="home-icon">
-          <%= link_to raw("<i class=\"fa fa-home\"></i>"), root_path %>
-      </li>
-      
-      <li class="inbox-icon">
-          <%= link_to raw("<i class=\"fa fa-comments\"></i>"), user_path(current_user) %>  
-      </li>
-      
+        <li class="logout">
+            <%= link_to raw("<i class=\"fa fa-sign-out\"></i>"), :logout, method: :post %>
+        </li>
+
+        <li class="home-icon">
+            <%= link_to raw("<i class=\"fa fa-home\"></i>"), root_path %>
+        </li>
+
+        <li class="inbox-icon">
+            <%= link_to raw("<i class=\"fa fa-comments\"></i>"), user_path(current_user) %>
+        </li>
+
       <% else %>
-      <li class="login-icon">
-          <%= link_to raw("<i class=\"fa fa-sign-in\"></i>"), :login %>
-      </li>
+        <li class="login-icon">
+            <%= link_to raw("<i class=\"fa fa-sign-in\"></i>"), :login %>
+        </li>
       <% end %>
       <li class="homegrown">
         <h1>Homegrown</h1>
       </li>
-    
     </ul>
-
   </header>
 
   <main>
-
     <div id="nav">
       <% if current_user %>
-      <div>
-        Logged in as: <%= current_user.name %>
-      </div>
-      <div>
-        <%= link_to "Logout", :logout, method: :post %>
-      </div>
-      <div>
-        <%= link_to "User Profile", user_path(current_user) %>
-      </div>
+        <div>
+          Logged in as: <%= current_user.name %>
+        </div>
+        <div>
+          <%= link_to "Logout", :logout, method: :post %>
+        </div>
+        <div>
+          <%= link_to "User Profile", user_path(current_user) %>
+        </div>
       <% else %>
         <%= link_to "Register", new_user_path %> |
-        <%= link_to "Login", :login %>
+        <%= link_to "Login", :login %> |
+        <%= link_to 'Login with Github', auth_at_provider_path(provider: :github) %> |
+        <%= link_to 'Login with Facebook', auth_at_provider_path(:provider => :facebook) %> |
       <% end %>
       <%= link_to "Home", root_path %>
     </div>
@@ -63,9 +61,7 @@
       <p id="notice"><%= flash[:notice] %></p>
       <p id="alert"><%= flash[:alert] %></p>
     </div>
-
     <%= yield %>
-
   </main>
 
 </body>
