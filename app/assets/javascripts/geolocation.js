@@ -1,13 +1,14 @@
 function geolocationSuccess(position) {
   var latitude  = position.coords.latitude;
   var longitude = position.coords.longitude;
+  var searchContent = $('#search-field').val();
   if(garden != undefined){
     $.ajax({
       url: '/gardens',
       method: 'GET',
       data: {
         longitude: longitude,
-        latitude: latitude
+        latitude: latitude,
       },
       dataType: 'script'
     });
@@ -17,7 +18,8 @@ function geolocationSuccess(position) {
       method: 'GET',
       data: {
         longitude: longitude,
-        latitude: latitude
+        latitude: latitude,
+        searchContent: searchContent
       },
       dataType: 'script'
     });
@@ -63,7 +65,7 @@ $("#garden-location").on("click", function(event) {
     }
   }); 
 
-$("#product-location").on("click", function(event) {
+$("#product-location, #search-button").on("click", function(event) {
     event.preventDefault();
     product = $(this).data;
     garden = undefined;

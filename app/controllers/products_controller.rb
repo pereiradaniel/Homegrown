@@ -2,10 +2,48 @@ class ProductsController < ApplicationController
   before_filter :require_login, except: [:index, :show]
 
   def index
-    search = params[:search]
-    if params[:latitude] && params[:longitude]
+    # search = params[:search]
+
+    if params[:latitude] && params[:longitude] && params[:searchContent]
+      binding.pry
+      # Search products by area and name
+      # Method 1, search by location first and then refine search by name/description
+      @products_by_proximity = find_products_in_proximity
+      @products = []
+      @products_by_proximity.each do |p|
+        if (p.name.include?search)
+          @products << p
+        end
+      end
+
+      # Method 2, search by name/descriptionfirst and then refine search by location
+      # @products_by_search = Product.where("LOWER(name) like LOWER(?) OR LOWER(description) LIKE LOWER(?)", "%#{search}%", "%#{search}%")
+      # @products_by_search.each do |p|
+      #   if p.garden.latitude  params[:latitude] && p.garden.
+      # end
+
+    elsif params[:latitude] && params[:longitude]
+      # Search products by area
+      find_products_in_proximity
+
+    elsif params[:searchContent] && !params[:latitude]
+      # Search products by name/description only
+      # @products = Product.where("LOWER(name) like LOWER(?) OR LOWER(description) LIKE LOWER(?)", "%#{search}%", "%#{search}%")
+      @products = Product.where("LOWER(name) like LOWER(?) OR LOWER(description) LIKE LOWER(?)", params[:searchContent], params[:searchContent])
+
+    else
+      @products = Product.all  
+    end
+  
+    respond_to do |format|
+      format.html
+      format.js
+    end
+
+  end
+
+  def find_products_in_proximity
       @gardens = Garden.near([params[:latitude], params[:longitude]], 10, units: :km)
-      
       @products = []
       @gardens.each do |garden|
         garden.products.each do |p|
@@ -13,17 +51,7 @@ class ProductsController < ApplicationController
         end
       end
 
-
-      # @products = Product.where("LOWER(name) like LOWER(?) OR LOWER(description) LIKE LOWER(?)", "%#{search}%", "%#{search}%")
-    else
-      @products = Product.all
-    end
-  
-  respond_to do |format|
-    format.html
-    format.js
-  end
-
+      return @products
   end
 
   def show
