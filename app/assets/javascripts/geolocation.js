@@ -1,15 +1,27 @@
 function geolocationSuccess(position) {
   var latitude  = position.coords.latitude;
   var longitude = position.coords.longitude;
-  $.ajax({
-    url: '/gardens',
-    method: 'GET',
-    data: {
-      longitude: longitude,
-      latitude: latitude
-    },
-    dataType: 'script'
-  });
+  if(garden != undefined){
+    $.ajax({
+      url: '/gardens',
+      method: 'GET',
+      data: {
+        longitude: longitude,
+        latitude: latitude
+      },
+      dataType: 'script'
+    });
+  } else if(product){
+    $.ajax({
+      url: '/products',
+      method: 'GET',
+      data: {
+        longitude: longitude,
+        latitude: latitude
+      },
+      dataType: 'script'
+    });
+  }
 }
 
 function geolocationError() {
@@ -41,9 +53,9 @@ $(document).on('ready page:load', function(){
     window.myMap.init(latitude, longitude);
   }
 
-$("#current-location").on("click", function(event) {
+$("#garden-location").on("click", function(event) {
     event.preventDefault();
-
+    garden = $(this).data;
     if ("geolocation" in navigator) {
       navigator.geolocation.getCurrentPosition(geolocationSuccess, geolocationError);
     } else {
@@ -51,6 +63,16 @@ $("#current-location").on("click", function(event) {
     }
   }); 
 
+$("#product-location").on("click", function(event) {
+    event.preventDefault();
+    product = $(this).data;
+    garden = undefined;
+    if ("geolocation" in navigator) {
+      navigator.geolocation.getCurrentPosition(geolocationSuccess, geolocationError);
+    } else {
+      alert("Please dump your crappy browser and use Chrome!");
+    }
+  }); 
 
 });
 

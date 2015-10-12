@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'gardens#index'
+  root 'products#index'
 
   resources :user_sessions
   resources :products

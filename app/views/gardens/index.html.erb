@@ -1,5 +1,5 @@
 
-<%= button_tag "Find gardens near me", id: "current-location" %>
+<%= button_tag "Find gardens near me", id: "garden-location", data: "garden" %>
 
 <div class="search-bar">
 	<%= form_tag products_path, method: :get, id: 'search-form'  do %>

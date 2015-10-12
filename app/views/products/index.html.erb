@@ -1,11 +1,15 @@
 <h1>Products</h1>
-<div>
-  <% @products.each do |product| %>
+<%= button_tag "Find products near me", id: "product-location" %>
+
+<div class="search-bar">
+	<%= form_tag products_path, method: :get, id: 'search-form'  do %>
+	  <%= text_field_tag :search, params[:search] %>
+	  <%= submit_tag "search" %>
+	<% end %>
+</div>
+
+<div id="products">
     <ul>
-      <li>Product Name: <%= link_to product.name, product_path(product) %></li>
-      <li>Description: <%= product.description %></li>
-      <li>Trade Information: <%= product.trade_info %></li>
-      <%= link_to 'Go the product', product_path(product) %>
+		<%= render @products %>
     </ul>
-  <% end %>
 </div>

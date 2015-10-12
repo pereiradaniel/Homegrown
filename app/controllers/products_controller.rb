@@ -3,11 +3,27 @@ class ProductsController < ApplicationController
 
   def index
     search = params[:search]
-    if search
-      @products = Product.where("LOWER(name) like LOWER(?) OR LOWER(description) LIKE LOWER(?)", "%#{search}%", "%#{search}%")
+    if params[:latitude] && params[:longitude]
+      @gardens = Garden.near([params[:latitude], params[:longitude]], 10, units: :km)
+      
+      @products = []
+      @gardens.each do |garden|
+        garden.products.each do |p|
+          @products << p
+        end
+      end
+
+
+      # @products = Product.where("LOWER(name) like LOWER(?) OR LOWER(description) LIKE LOWER(?)", "%#{search}%", "%#{search}%")
     else
       @products = Product.all
     end
+  
+  respond_to do |format|
+    format.html
+    format.js
+  end
+
   end
 
   def show
