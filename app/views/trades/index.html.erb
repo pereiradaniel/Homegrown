@@ -25,9 +25,9 @@
 
     
 
-<% if @trades_buyer_successful %>
+<% if @trades_buyer_success %>
   <ul>
-    <li><%= @trades_buyer_successful.count %> completed trades for items from others.</li>
+    <li><%= @trades_buyer_success.count %> completed trades for items from others.</li>
     <li>Items you've received on request</li>
       <% @trades_buyer_success.each do |t| %>
           <li>You traded <%= t.product.name %> with <%= t.seller.name %>.</li>
