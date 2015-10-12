@@ -1,5 +1,5 @@
 <h1>Products</h1>
-<%= button_tag "Find products near me", id: "product-location" %>
+<%= button_tag "Find products near me", id: "product-location", data: "product"%>
 
 <div class="search-bar">
 	<%= form_tag products_path, method: :get, id: 'search-form'  do %>

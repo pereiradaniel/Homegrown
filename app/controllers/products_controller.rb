@@ -2,10 +2,9 @@ class ProductsController < ApplicationController
   before_filter :require_login, except: [:index, :show]
 
   def index
-    # search = params[:search]
+    search = params[:searchContent]
 
-    if params[:latitude] && params[:longitude] && params[:searchContent]
-      binding.pry
+    if params[:latitude] && params[:longitude] && search
       # Search products by area and name
       # Method 1, search by location first and then refine search by name/description
       @products_by_proximity = find_products_in_proximity
@@ -28,8 +27,8 @@ class ProductsController < ApplicationController
 
     elsif params[:searchContent] && !params[:latitude]
       # Search products by name/description only
-      # @products = Product.where("LOWER(name) like LOWER(?) OR LOWER(description) LIKE LOWER(?)", "%#{search}%", "%#{search}%")
-      @products = Product.where("LOWER(name) like LOWER(?) OR LOWER(description) LIKE LOWER(?)", params[:searchContent], params[:searchContent])
+      @products = Product.where("LOWER(name) like LOWER(?) OR LOWER(description) LIKE LOWER(?)", "%#{search}%", "%#{search}%")
+      # @products = Product.where("LOWER(name) like LOWER(?) OR LOWER(description) LIKE LOWER(?)", params[:searchContent], params[:searchContent])
 
     else
       @products = Product.all  
@@ -43,15 +42,15 @@ class ProductsController < ApplicationController
   end
 
   def find_products_in_proximity
-      @gardens = Garden.near([params[:latitude], params[:longitude]], 10, units: :km)
-      @products = []
-      @gardens.each do |garden|
-        garden.products.each do |p|
-          @products << p
-        end
+    @gardens = Garden.near([params[:latitude], params[:longitude]], 10, units: :km)
+    @products = []
+    @gardens.each do |garden|
+      garden.products.each do |p|
+        @products << p
       end
+    end
 
-      return @products
+    return @products
   end
 
   def show
