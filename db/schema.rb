@@ -29,6 +29,8 @@ ActiveRecord::Schema.define(version: 20151011225027) do
     t.integer  "sender_id"
     t.integer  "product_id"
     t.integer  "receiver_id"
+    t.string   "request"
+    t.integer  "trade_id"
   end
 
   create_table "gardens", force: :cascade do |t|
@@ -45,8 +47,8 @@ ActiveRecord::Schema.define(version: 20151011225027) do
     t.datetime "updated_at",      null: false
     t.integer  "conversation_id"
     t.integer  "sender_id"
-    t.text     "title"
     t.text     "content"
+    t.integer  "receiver_id"
   end
 
   create_table "products", force: :cascade do |t|
@@ -78,6 +80,17 @@ ActiveRecord::Schema.define(version: 20151011225027) do
   end
 
   add_index "tags", ["name"], name: "index_tags_on_name", unique: true
+
+  create_table "trades", force: :cascade do |t|
+    t.string   "negotiation_result"
+    t.integer  "seller_id"
+    t.integer  "buyer_id"
+    t.integer  "product_id"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.integer  "conversation_id"
+    t.boolean  "success"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email"

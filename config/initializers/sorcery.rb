@@ -76,7 +76,7 @@ Rails.application.config.sorcery.configure do |config|
   # What providers are supported by this app, i.e. [:twitter, :facebook, :github, :linkedin, :xing, :google, :liveid, :salesforce] .
   # Default: `[]`
   #
-  config.external_providers = [:github, :twitter, :facebook]
+  config.external_providers = [:github, :facebook]
 
   # You can change it by your local ca_file. i.e. '/etc/pki/tls/certs/ca-bundle.crt'
   # Path to ca_file. By default use a internal ca-bundle.crt.
@@ -110,10 +110,10 @@ Rails.application.config.sorcery.configure do |config|
   # make sure you use 0.0.0.0:3000 to access your app in development
   #
 
-  config.twitter.key = Figaro.env.twitter_key
-  config.twitter.secret = Figaro.env.twitter_secret
-  config.twitter.callback_url = "http://0.0.0.0:3000/oauth/callback?provider=twitter"
-  config.twitter.user_info_mapping = {:email => "screen_name"}
+  # config.twitter.key = Figaro.env.twitter_key
+  # config.twitter.secret = Figaro.env.twitter_secret
+  # config.twitter.callback_url = "http://0.0.0.0:3000/oauth/callback?provider=twitter"
+  # config.twitter.user_info_mapping = {:email => "screen_name"}
 
   #
   config.facebook.key = "897009703681282"
