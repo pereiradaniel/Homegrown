@@ -2,7 +2,6 @@ class ProductsController < ApplicationController
   before_filter :require_login, except: [:index, :show]
 
   def index
-  
     choose_search_method
 
     respond_to do |format|
@@ -14,7 +13,6 @@ class ProductsController < ApplicationController
 
   def choose_search_method
     search = params[:search]
-
     if params[:latitude] && params[:longitude] && search
       @products = Product.where("LOWER(name) like LOWER(?) OR LOWER(description) LIKE LOWER(?)", "%#{search}%", "%#{search}%").near([params[:latitude], params[:longitude]], params[:proximity], units: :km)
     elsif !params[:latitude] && search
@@ -22,7 +20,6 @@ class ProductsController < ApplicationController
     else
       @products = Product.all
     end
-    
   end
 
   def show

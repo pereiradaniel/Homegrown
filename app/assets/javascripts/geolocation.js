@@ -14,7 +14,6 @@ function geolocationSuccess(position) {
   $.ajax({
       url: urlVar,
       method: 'GET',
-      // How to add query search here???
       data: {
         longitude: longitude,
         latitude: latitude,
@@ -77,8 +76,6 @@ $("#garden-location").on("click", function(event) {
 
 $("#search-button").on("click", function(event) {
     event.preventDefault();
-    product = $(this).data;
-    garden = undefined;
     if ("geolocation" in navigator) {
       navigator.geolocation.getCurrentPosition(geolocationSuccess, geolocationError);
     } else {
