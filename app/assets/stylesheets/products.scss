@@ -27,28 +27,85 @@
 
 .carousel-info {
 	height: 2.9em;
+	font-size: .8em;
+
+	a {
+		font-size: 1.01em;
+	}
 }
-.category-container {
-	@include span-columns(2);
-	.category-title {
+
+.search-container {
+	margin-left: .5em;
+	h2 {
+		font-size: .8em;
+	}
+}
+
+.category-title {
+ text-align: center;
 		h3 {
 			font-size: .8em;
 		}
-	}
+}
+
+.category-container {
+	margin: 0 .5em 0 .5em;
+
 	.category-thumb {
+
+		@include media($small-screen-only) {
+			@include span-columns(1);
+			@include omega(2n);
+		}
+
 		text-align: center;
-		width: 7.4em;
-		height: 3.5em;
 		border: 1px solid #ccc;
-		float: left;
-		margin: .3em;
+		margin-bottom: .4em;
+		color: #fff;
+
 		h5 {
 			font-size: .8em;
 			line-height: 4.4em;
 			margin: 0;
 		}
 	}
+
+	.btn-mask {
+		background-color: rgba(255,255,255,.3)
+	}
+
+	#leafy-green-btn {
+		background: url('leafy-green-btn.jpg') no-repeat;
+		background-size: 100%;
+	}
+	#roots-btn {
+		background: url('roots-btn.jpg') no-repeat;
+		background-size: 100%;
+	}
+	#fruit-veggie-btn {
+		background: url('fruit-veggie-btn.jpg') no-repeat;
+		background-size: 100%;
+	}
+	#pomes-btn {
+		background: url('pomes-btn.jpg') no-repeat;
+		background-size: 100%;
+	}
+	#citrus-btn {
+		background: url('citrus-btn.jpg') no-repeat;
+		background-size: 100%;
+	}
+	#berries-btn {
+		background: url('berries-btn.jpg') no-repeat;
+		background-size: 100%;
+	}
+
 }
+
+
+
+
+
+
 
 .product-box {
 
