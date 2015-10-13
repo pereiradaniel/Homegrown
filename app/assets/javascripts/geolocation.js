@@ -66,12 +66,7 @@ $(document).on('ready page:load', function(){
 
     function updateRangeValue(input){
       var value = input.val();
-      // var maximum = input.attr('max'); 
-      // var inputWidth = input.width();
-      // var offLeft = Math.floor((value / maximum) * inputWidth - (((value / maximum) * inputWidth - inputWidth/2) / 100) * 24);    
-      // var offLeftAbs = value == maximum ? input.offset().left - 15 + offLeft : input.offset().left - 10 + offLeft;
-      // input.next('.rangevalue').css({'left': offLeftAbs +'px'});
-      input.next('.rangevalue').html(value);
+      input.next('.rangevalue').html(value + ' kilometers');
     }
 
 $("#garden-location").on("click", function(event) {
