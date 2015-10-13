@@ -46,6 +46,17 @@ email_nicks = ["dave", "strongman", "viking", "larry", "holmes", "king", "prince
   "redhead", "rebel", "master_chef", "dancer", "pianist", "noodles", "baldy", "trailer_park_guy"]
 domain_array = [".com", ".ca", ".cx", ".biz", ".uk", ".org", ".ru", ".net", ".cn", ".jp", ".pt", ".br", ".ge", ".ir", ".au", ".nz", ".ro", ".pl"]
 
+tags_array = ["green", "red", "brown", "purple", "white", "black", "sweet", "spicy", "juicy", "crunchy", "organic", "GMO", "traditional",
+  "hot", "tasty", "legume", "vegetable", "berry", "herb", "dried", "preserved", "no artificial fertilizer", "large", "small", "giant", "medium",
+  "asian", "carribean", "eurpoean", "african", "north american", "special", "mexican", "south american", "backyard", "hydroponic", "fancy", "plain",
+  "fresh", "stewable"]
+
+tags_array.each do |tag|
+  Tag.create!({
+    name: tag
+  })
+end
+
 5.times do |i|
   x = i + 1
   User.create!({
@@ -228,7 +239,7 @@ Trade.create!({
 50.times do |i|
     User.create!({
       name: user_names[rand(user_names.size)],
-      email: email_handle[rand(email_handle.size)] + email_nicks[rand(email_nicks.size)] + "@" + email_array[rand(email_array.size)] + domain_array[rand(domain_array.size)],
+      email: email_handle[rand(email_handle.size)] + email_nicks[rand(email_nicks.size)] + Random.rand(666).to_s + "@" + email_array[rand(email_array.size)] + domain_array[rand(domain_array.size)],
       password: "1111",
       password_confirmation: "1111"    
       })

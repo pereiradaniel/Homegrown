@@ -22,6 +22,7 @@ class GardensController < ApplicationController
     @garden = Garden.find(params[:id])
     @products = Garden.find(params[:id]).products
     @product = Product.new
+    @user = @garden.user
     # @conversation = Conversation.new
     # @message = Message.new
 

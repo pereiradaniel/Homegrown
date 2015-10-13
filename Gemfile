@@ -40,6 +40,7 @@ gem 'neat'
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass', '~> 4.4.0'
 gem 'figaro'
+gem 'mini_magick'
 # A tagging plugin for Rails applications that allows for custom tagging along dynamic contexts.
 gem 'acts-as-taggable-on', '~> 3.4'
 

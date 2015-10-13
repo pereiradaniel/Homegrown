@@ -36,7 +36,7 @@ class ProductsController < ApplicationController
     @product.garden = current_user.garden
     @product.postal_code = @product.garden.postal_code
     if @product.save
-      redirect_to user_garden_path(current_user, current_user.garden)
+      redirect_to garden_path(@product.garden)
     else
       render :new
     end
