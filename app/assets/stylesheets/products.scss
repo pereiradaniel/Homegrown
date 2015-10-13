@@ -2,6 +2,54 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.carousel-container {
+	@include span-columns(2);
+	width: 100%;
+	overflow: hidden;
+	overflow-x: scroll;
+}
+
+.carousel {
+	width: 80em;
+	height: 11.1em;
+}
+
+.carousel-card{
+	width: 7.5em;
+	margin-left: .5em;
+	display: inline-block;
+}
+
+.carousel-pic {
+	height: 8.2em;
+}
+
+.carousel-info {
+	height: 2.9em;
+}
+.category-container {
+	@include span-columns(2);
+	.category-title {
+		h3 {
+			font-size: .8em;
+		}
+	}
+	.category-thumb {
+
+		@include omega(2n);
+		text-align: center;
+		width: 7.4em;
+		height: 3.5em;
+		border: 1px solid #ccc;
+		display: inline-block;
+		h5 {
+			font-size: .8em;
+			line-height: 3.5em;
+			margin: 0;
+		}
+	}
+}
+
 .product-box {
 
 	@include media($small-screen-only) {
@@ -22,15 +70,15 @@
 		    height: 100px;
 		}
 	}
-	
+
 
 	@include media($medium-screen-only) {
 		@include span-columns(1);
 		@include omega(4n);
-	
+
 		.picture img {
 	    	height: 200px;
 	    	}
 	}
-	
+
 }
