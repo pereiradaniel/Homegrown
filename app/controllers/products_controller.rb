@@ -8,7 +8,6 @@ class ProductsController < ApplicationController
       format.html
       format.js
     end
-
   end
 
   def choose_search_method
@@ -18,7 +17,7 @@ class ProductsController < ApplicationController
     elsif !params[:latitude] && search
       @products = Product.where("LOWER(name) like LOWER(?) OR LOWER(description) LIKE LOWER(?)", "%#{search}%", "%#{search}%")
     else
-      @products = Product.all
+      @products = Product.limit(10).order("RANDOM()")
     end
   end
 
@@ -59,6 +58,10 @@ class ProductsController < ApplicationController
     @product = Product.find(params[:id])
     @product.destroy
     redirect_to products_path
+  end
+
+  def home
+    @products = Product.limit(10).order("RANDOM()")
   end
 
   private

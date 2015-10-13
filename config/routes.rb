@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  root 'products#index'
+  get 'home' => 'pruducts#home'
+  root 'products#home'
 
   get 'oauths/oauth'
   post "oauth/callback" => "oauths#callback"

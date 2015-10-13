@@ -1,27 +1,3 @@
-<div id="products">
-  <ul>
-  	<%= render @products %>
-  </ul>
-</div>
-
-<div class="carousel-container">
-  <div class="carousel">
-    <% @products.each do |product| %>
-      <div class="carousel-card">
-        <div class="carousel-pic">
-          <%= image_tag product.image_url.to_s %>
-        </div>
-        <div class="carousel-info">
-          <ul>
-            <li><%= link_to product.name, product_path(product) %></li>
-            <li>by: <%= product.garden.user.name %></li>
-          </ul>
-        </div>
-      </div>
-    <% end %>
-  </div>
-</div>
-
 <div class="search-container">
   <div class="search-bar">
     <%= form_tag products_path, method: :get, id: 'search-form'  do %>
@@ -33,46 +9,8 @@
   </div>
 </div>
 
-<div class="category-title">
-  <h3>Browse by Category</h3>
-</div>
-
-<div class="category-container">
-
-  <div class="category-thumb" id="leafy-green-btn">
-    <div class="btn-mask">
-      <h5>Leafy Green</h5>
-    </div>
-  </div>
-
-  <div class="category-thumb" id="roots-btn">
-    <div class="btn-mask">
-      <h5>Roots</h5>
-    </div>
-  </div>
-
-  <div class="category-thumb" id="fruit-veggie-btn">
-    <div class="btn-mask">
-      <h5>Fruit Vegetables</h5>
-    </div>
-  </div>
-
-  <div class="category-thumb" id="berries-btn">
-    <div class="btn-mask">
-      <h5>Berries</h5>
-    </div>
-  </div>
-
-  <div class="category-thumb" id="pomes-btn">
-    <div class="btn-mask">
-      <h5>Pomes</h5>
-    </div>
-  </div>
-
-  <div class="category-thumb" id="citrus-btn">
-    <div class="btn-mask">
-      <h5>Citrus</h5>
-    </div>
-  </div>
-
+<div id="products">
+  <ul>
+  	<%= render @products %>
+  </ul>
 </div>
