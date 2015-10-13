@@ -3,19 +3,16 @@ function geolocationSuccess(position) {
   var longitude = position.coords.longitude;
   var searchvar = $('#search-field').val();
   var proximity = $('#proximity').val();
-  if(garden != undefined){
-    $.ajax({
-      url: '/gardens',
-      method: 'GET',
-      data: {
-        longitude: longitude,
-        latitude: latitude
-      },
-      dataType: 'script'
-    });
-  } else if(product){
-    $.ajax({
-      url: '/products',
+  var searchFor = $('#search-button').val()
+
+  if(searchFor == 'product-search'){
+    var urlVar = '/products';
+  }else if(searchFor == 'garden-search'){
+    var urlVar = '/gardens';
+  };
+
+  $.ajax({
+      url: urlVar,
       method: 'GET',
       // How to add query search here???
       data: {
@@ -27,7 +24,6 @@ function geolocationSuccess(position) {
       dataType: 'script'
     });
   }
-}
 
 function geolocationError() {
   console.log("please enable location for this feature to work!");
@@ -79,7 +75,7 @@ $("#garden-location").on("click", function(event) {
     }
   }); 
 
-$("#product-location").on("click", function(event) {
+$("#search-button").on("click", function(event) {
     event.preventDefault();
     product = $(this).data;
     garden = undefined;

@@ -2,18 +2,20 @@ class GardensController < ApplicationController
   skip_before_filter :require_login, only: [:index, :show]
 
   def index
-
-    if params[:latitude] && params[:longitude]
-    @gardens = Garden.near([params[:latitude], params[:longitude]], 10, units: :km)
-    else
-    @gardens = Garden.all
-    end
+    choose_search_method
 
     respond_to do |format|
       format.html
       format.js
     end
+  end
 
+  def choose_search_method
+    if params[:latitude] && params[:longitude]
+    @gardens = Garden.near([params[:latitude], params[:longitude]], params[:proximity], units: :km)
+    elsif !params[:latitude]
+    @gardens = Garden.all
+    end
   end
 
   def show

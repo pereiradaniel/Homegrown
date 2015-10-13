@@ -1,14 +1,14 @@
-
-<%= button_tag "Find gardens near me", id: "garden-location", data: "garden" %>
-
 <div class="search-bar">
 	<%= form_tag products_path, method: :get, id: 'search-form'  do %>
-	  <%= text_field_tag :search, params[:search] %>
-	  <%= submit_tag "search" %>
+	  <%= range_field_tag(:proximity, :distance, :in => 0..30, :step => '5', :value => '10') %>
+	  <div class="rangevalue"></div>
+
+	  <%= submit_tag "search", value: "garden-search", id: "search-button" %>
 	<% end %>
 </div>
 
-<h2>Gardens</h2>
 <div id="gardens">
-  <%= render @gardens %>
+    <ul>
+		<%= render @gardens %>
+    </ul>
 </div>
