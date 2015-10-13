@@ -1,6 +1,8 @@
 function geolocationSuccess(position) {
   var latitude  = position.coords.latitude;
   var longitude = position.coords.longitude;
+  var searchvar = $('#search-field').val();
+
   if(garden != undefined){
     $.ajax({
       url: '/gardens',
@@ -15,9 +17,11 @@ function geolocationSuccess(position) {
     $.ajax({
       url: '/products',
       method: 'GET',
+      // How to add query search here???
       data: {
         longitude: longitude,
-        latitude: latitude
+        latitude: latitude,
+        search: searchvar
       },
       dataType: 'script'
     });

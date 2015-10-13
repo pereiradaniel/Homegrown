@@ -20,7 +20,7 @@
     name: "User#{x}",
     email: "user#{x}@email.com",
     password: "1111",
-    password_confirmation: "1111"
+    password_confirmation: "1111"    
     })
 
   Garden.create!({
@@ -32,14 +32,16 @@
     garden_id: x,
     name: "Product #{x}a",
     description: "Description #{x}a",
-    trade_info: "Trade info #{x}a"
+    trade_info: "Trade info #{x}a",
+    postal_code: "M5H 1W7"    
     })
 
   Product.create!({
     garden_id: x,
     name: "Product #{x}b",
     description: "Description #{x}b",
-    trade_info: "Trade info #{x}b"
+    trade_info: "Trade info #{x}b",
+    postal_code: "M5H 1W7"
     })
 
 end
@@ -62,14 +64,16 @@ end
     garden_id: x,
     name: "Product #{x}a",
     description: "Description #{x}a",
-    trade_info: "Trade info #{x}a"
+    trade_info: "Trade info #{x}a",
+    postal_code: "M1S 1B7"
     })
 
   Product.create!({
     garden_id: x,
     name: "Product #{x}b",
     description: "Description #{x}b",
-    trade_info: "Trade info #{x}b"
+    trade_info: "Trade info #{x}b",
+    postal_code: "M1S 1B7"
     })
 
 end
