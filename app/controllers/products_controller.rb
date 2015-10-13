@@ -2,8 +2,20 @@ class ProductsController < ApplicationController
   before_filter :require_login, except: [:index, :show]
 
   def index
+    choose_search_method
+
+    respond_to do |format|
+      format.html
+      format.js
+    end
+
+  end
+
+  def choose_search_method
     search = params[:search]
-    if search
+    if params[:latitude] && params[:longitude] && search
+      @products = Product.where("LOWER(name) like LOWER(?) OR LOWER(description) LIKE LOWER(?)", "%#{search}%", "%#{search}%").near([params[:latitude], params[:longitude]], params[:proximity], units: :km)
+    elsif !params[:latitude] && search
       @products = Product.where("LOWER(name) like LOWER(?) OR LOWER(description) LIKE LOWER(?)", "%#{search}%", "%#{search}%")
     else
       @products = Product.all
@@ -22,6 +34,7 @@ class ProductsController < ApplicationController
   def create
     @product = Product.new(product_params)
     @product.garden = current_user.garden
+    @product.postal_code = @product.garden.postal_code
     if @product.save
       redirect_to user_garden_path(current_user, current_user.garden)
     else

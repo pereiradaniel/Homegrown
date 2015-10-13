@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151011182041) do
+ActiveRecord::Schema.define(version: 20151012220331) do
 
   create_table "authentications", force: :cascade do |t|
     t.integer  "user_id",    null: false
@@ -59,6 +59,9 @@ ActiveRecord::Schema.define(version: 20151011182041) do
     t.text     "description"
     t.text     "trade_info"
     t.string   "image"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.string   "postal_code"
   end
 
   create_table "taggings", force: :cascade do |t|

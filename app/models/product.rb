@@ -5,4 +5,8 @@ class Product < ActiveRecord::Base
   validates :name, presence: true
   mount_uploader :image, ImageUploader
   acts_as_taggable
+
+  geocoded_by :postal_code
+  after_validation :geocode
+
 end

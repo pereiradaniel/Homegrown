@@ -31,7 +31,7 @@
 
   <% if !@user.garden %>
     <div id="create-garden-button">
-        <%= form_for([@user, @garden]) do |f| %>
+        <%= form_for([@garden]) do |f| %>
           <div class="field">
             <%= f.label :postal_code %>
             <%= f.text_field :postal_code %>
@@ -42,7 +42,7 @@
         <% end %>
     </div>
   <% else %>
-    <%= link_to "Delete Garden", user_garden_path(@user, @user.garden), method: :delete, data: {confirm: "Are you sure you want to delete your garden?"} %>
+    <%= link_to "Delete Garden", garden_path(@user.garden), method: :delete, data: {confirm: "Are you sure you want to delete your garden?"} %>
   <% end %>
   <%= link_to "Delete Profile", user_path(@user), method: :delete, data: {confirm: "Are you sure you want to delete your profile?"} %>
 </div>

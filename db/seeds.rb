@@ -14,13 +14,13 @@
 # end
 
 
-10.times do |i|
+5.times do |i|
   x = i + 1
   User.create!({
     name: "User#{x}",
     email: "user#{x}@email.com",
     password: "1111",
-    password_confirmation: "1111"
+    password_confirmation: "1111"    
     })
 
   Garden.create!({
@@ -32,14 +32,48 @@
     garden_id: x,
     name: "Product #{x}a",
     description: "Description #{x}a",
-    trade_info: "Trade info #{x}a"
+    trade_info: "Trade info #{x}a",
+    postal_code: "M5H 1W7"    
     })
 
   Product.create!({
     garden_id: x,
     name: "Product #{x}b",
     description: "Description #{x}b",
-    trade_info: "Trade info #{x}b"
+    trade_info: "Trade info #{x}b",
+    postal_code: "M5H 1W7"
+    })
+
+end
+
+5.times do |i|
+  x = i + 1 + 5
+  User.create!({
+    name: "User#{x}",
+    email: "user#{x}@email.com",
+    password: "1111",
+    password_confirmation: "1111"
+    })
+
+  Garden.create!({
+    user_id: x,
+    postal_code: "M1S 1B7"
+    })
+
+  Product.create!({
+    garden_id: x,
+    name: "Product #{x}a",
+    description: "Description #{x}a",
+    trade_info: "Trade info #{x}a",
+    postal_code: "M1S 1B7"
+    })
+
+  Product.create!({
+    garden_id: x,
+    name: "Product #{x}b",
+    description: "Description #{x}b",
+    trade_info: "Trade info #{x}b",
+    postal_code: "M1S 1B7"
     })
 
 end
