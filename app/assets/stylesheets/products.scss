@@ -22,6 +22,7 @@
 
 .carousel-pic {
 	height: 8.2em;
+	overflow: hidden;
 }
 
 .carousel-info {
@@ -35,16 +36,15 @@
 		}
 	}
 	.category-thumb {
-
-		@include omega(2n);
 		text-align: center;
 		width: 7.4em;
 		height: 3.5em;
 		border: 1px solid #ccc;
-		display: inline-block;
+		float: left;
+		margin: .3em;
 		h5 {
 			font-size: .8em;
-			line-height: 3.5em;
+			line-height: 4.4em;
 			margin: 0;
 		}
 	}
