@@ -2,6 +2,111 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.carousel-container {
+	@include span-columns(2);
+	width: 100%;
+	overflow: hidden;
+	overflow-x: scroll;
+}
+
+.carousel {
+	width: 80em;
+	height: 11.1em;
+}
+
+.carousel-card{
+	width: 7.5em;
+	margin-left: .5em;
+	display: inline-block;
+}
+
+.carousel-pic {
+	height: 8.2em;
+	overflow: hidden;
+}
+
+.carousel-info {
+	height: 2.9em;
+	font-size: .8em;
+
+	a {
+		font-size: 1.01em;
+	}
+}
+
+.search-container {
+	margin-left: .5em;
+	h2 {
+		font-size: .8em;
+	}
+}
+
+.category-title {
+ text-align: center;
+		h3 {
+			font-size: .8em;
+		}
+}
+
+.category-container {
+	margin: 0 .5em 0 .5em;
+
+	.category-thumb {
+
+		@include media($small-screen-only) {
+			@include span-columns(1);
+			@include omega(2n);
+		}
+
+		text-align: center;
+		border: 1px solid #ccc;
+		margin-bottom: .4em;
+		color: #fff;
+
+		h5 {
+			font-size: .8em;
+			line-height: 4.4em;
+			margin: 0;
+		}
+	}
+
+	.btn-mask {
+		background-color: rgba(255,255,255,.3)
+	}
+
+	#leafy-green-btn {
+		background: url('leafy-green-btn.jpg') no-repeat;
+		background-size: 100%;
+	}
+	#roots-btn {
+		background: url('roots-btn.jpg') no-repeat;
+		background-size: 100%;
+	}
+	#fruit-veggie-btn {
+		background: url('fruit-veggie-btn.jpg') no-repeat;
+		background-size: 100%;
+	}
+	#pomes-btn {
+		background: url('pomes-btn.jpg') no-repeat;
+		background-size: 100%;
+	}
+	#citrus-btn {
+		background: url('citrus-btn.jpg') no-repeat;
+		background-size: 100%;
+	}
+	#berries-btn {
+		background: url('berries-btn.jpg') no-repeat;
+		background-size: 100%;
+	}
+
+}
+
+
+
+
+
+
+
 .product-box {
 
 	@include media($small-screen-only) {
@@ -22,15 +127,15 @@
 		    height: 100px;
 		}
 	}
-	
+
 
 	@include media($medium-screen-only) {
 		@include span-columns(1);
 		@include omega(4n);
-	
+
 		.picture img {
 	    	height: 200px;
 	    	}
 	}
-	
+
 }

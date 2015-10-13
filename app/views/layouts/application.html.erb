@@ -14,50 +14,29 @@
     <ul class="nav">
       <% if current_user %>
 
-        <li class="logout">
-            <%= link_to raw("<i class=\"fa fa-sign-out\"></i>"), :logout, method: :post %>
+        <li class="nav-link">
+            <%= link_to "Sign out", :logout, method: :post %>
         </li>
 
-        <li class="home-icon">
-            <%= link_to raw("<i class=\"fa fa-home\"></i>"), root_path %>
-        </li>
-
-        <li class="inbox-icon">
-            <%= link_to raw("<i class=\"fa fa-comments\"></i>"), user_path(current_user) %>
+        <li class="nav-button">
+            <%= link_to raw("<i class=\"fa fa-user\"></i>"), user_path(current_user) %>
         </li>
 
       <% else %>
-        <li class="login-icon">
-            <%= link_to raw("<i class=\"fa fa-sign-in\"></i>"), :login %>
+        <li class="nav-link">
+            <%= link_to "Sign in", :login %>
         </li>
+
       <% end %>
-      <li class="homegrown">
-        <h1>Homegrown</h1>
+      <li class="nav-button">
+        <%= link_to raw("<i class=\"fa fa-search\" ></i>"), root_path %>
       </li>
+      <div class="homegrown">
+      </div>
     </ul>
   </header>
 
   <main>
-    <div id="nav">
-      <% if current_user %>
-        <div>
-          Logged in as: <%= current_user.name %>
-        </div>
-        <div>
-          <%= link_to "Logout", :logout, method: :post %>
-        </div>
-        <div>
-          <%= link_to "User Profile", user_path(current_user) %>
-        </div>
-      <% else %>
-        <%= link_to "Register", new_user_path %> |
-        <%= link_to "Login", :login %> |
-        <%= link_to 'Login with Github', auth_at_provider_path(provider: :github) %> |
-        <%= link_to 'Login with Facebook', auth_at_provider_path(:provider => :facebook) %> |
-      <% end %>
-      <%= link_to "Home", root_path %>
-    </div>
-
     <div>
       <p id="notice"><%= flash[:notice] %></p>
       <p id="alert"><%= flash[:alert] %></p>

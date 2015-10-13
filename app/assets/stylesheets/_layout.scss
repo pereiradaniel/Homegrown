@@ -1,34 +1,59 @@
 .header-bar {
-    color: white;
-    background-color: green;
-    position: fixed;
+  color: white;
+  background-color: #F2F3F9;
+  position: fixed;
+  margin: 0;
+  padding: 0 .5em;
+  height: $title-bar-height;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+
+  .homegrown {
+    height: 2.3em;
+    width: 5.3em;
+    float: left;
+    background: url('homegrown-logo.png') no-repeat;
+    background-size: 100%;
+    background-position: center;
+  }
+
+  & > h1 {
+    font-size: 1.35rem;
     margin: 0;
     padding: 0;
-    height: $title-bar-height + 0.25rem;
-    top: 0;
-    left: 0;
-    width: 100%;
-    text-align: center;
+    line-height: $title-bar-height;
+  }
 
-        & > h1 {
-            font-size: 1.35rem;
-            margin: 0;
-            padding: 0;
-            line-height: $title-bar-height;
-        }
-    
-        ul.nav {
-            display: block;
-        }
+  ul.nav {
+    display: block;
+  }
 
-        .nav li {
-            display: inline-block;
-            float: right;
-        }
+  .nav li {
+    display: inline-block;
+    float: right;
+  }
 
-        li.homegrown {
-            float: left
-        }
+  li{
+    line-height: 3em;
+
+    & > a {
+      color:#989995;
+    }
+
+    &.nav-button {
+      height: 2.3em;
+      width: 2.5em;
+      font-size: .8em;
+    }
+
+    &.nav-link {
+      margin-left: .5em;
+      color: #989995;
+      font-size: .8em;
+    }
+  }
 }
 
 
