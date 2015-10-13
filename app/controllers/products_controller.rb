@@ -4,7 +4,7 @@ class ProductsController < ApplicationController
   def index
   
     choose_search_method
-    
+
     respond_to do |format|
       format.html
       format.js
@@ -16,7 +16,7 @@ class ProductsController < ApplicationController
     search = params[:search]
 
     if params[:latitude] && params[:longitude] && search
-      @products = Product.where("LOWER(name) like LOWER(?) OR LOWER(description) LIKE LOWER(?)", "%#{search}%", "%#{search}%").near([params[:latitude], params[:longitude]], 10, units: :km)
+      @products = Product.where("LOWER(name) like LOWER(?) OR LOWER(description) LIKE LOWER(?)", "%#{search}%", "%#{search}%").near([params[:latitude], params[:longitude]], params[:proximity], units: :km)
     elsif !params[:latitude] && search
       @products = Product.where("LOWER(name) like LOWER(?) OR LOWER(description) LIKE LOWER(?)", "%#{search}%", "%#{search}%")
     else

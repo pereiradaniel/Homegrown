@@ -2,7 +2,7 @@ function geolocationSuccess(position) {
   var latitude  = position.coords.latitude;
   var longitude = position.coords.longitude;
   var searchvar = $('#search-field').val();
-
+  var proximity = $('#proximity').val();
   if(garden != undefined){
     $.ajax({
       url: '/gardens',
@@ -21,7 +21,8 @@ function geolocationSuccess(position) {
       data: {
         longitude: longitude,
         latitude: latitude,
-        search: searchvar
+        search: searchvar,
+        proximity: proximity
       },
       dataType: 'script'
     });
@@ -56,6 +57,22 @@ $(document).on('ready page:load', function(){
     window.myMap = new Map($('#map-canvas')[0]);
     window.myMap.init(latitude, longitude);
   }
+
+    updateRangeValue($('input[type=range]'));
+    $('input[type=range]').on('input change',function(){
+      var input = $(this);
+      updateRangeValue(input);
+    });    
+
+    function updateRangeValue(input){
+      var value = input.val();
+      // var maximum = input.attr('max'); 
+      // var inputWidth = input.width();
+      // var offLeft = Math.floor((value / maximum) * inputWidth - (((value / maximum) * inputWidth - inputWidth/2) / 100) * 24);    
+      // var offLeftAbs = value == maximum ? input.offset().left - 15 + offLeft : input.offset().left - 10 + offLeft;
+      // input.next('.rangevalue').css({'left': offLeftAbs +'px'});
+      input.next('.rangevalue').html(value);
+    }
 
 $("#garden-location").on("click", function(event) {
     event.preventDefault();
