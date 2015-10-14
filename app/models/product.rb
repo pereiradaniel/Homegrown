@@ -9,4 +9,7 @@ class Product < ActiveRecord::Base
   geocoded_by :postal_code
   after_validation :geocode
 
+  def self.find_by_tag(tag)
+    Product.joins(:tags).where('tags.name LIKE ?', "%#{tag}%")
+  end
 end
