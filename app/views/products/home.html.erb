@@ -3,7 +3,7 @@
     <% @products.each do |product| %>
       <div class="carousel-card">
         <div class="carousel-pic">
-          <%= image_tag product.image_url.to_s %>
+          <%= image_tag product.image_url(:thumb).to_s %>
         </div>
         <div class="carousel-info">
           <ul>

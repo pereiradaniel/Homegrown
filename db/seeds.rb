@@ -51,11 +51,11 @@ tags_array = ["green", "red", "brown", "purple", "white", "black", "sweet", "spi
   "asian", "carribean", "eurpoean", "african", "north american", "special", "mexican", "south american", "backyard", "hydroponic", "fancy", "plain",
   "fresh", "stewable"]
 
-tags_array.each do |tag|
-  Tag.create!({
-    name: tag
-  })
-end
+# tags_array.each do |tag|
+#   Tag.create!({
+#     name: tag
+#   })
+# end
 
 5.times do |i|
   x = i + 1

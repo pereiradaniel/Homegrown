@@ -21,7 +21,4 @@ class User < ActiveRecord::Base
     message: "not a valid email address" }
   validates :name, presence: true
 
-
-  # geocoded_by :
-
 end
