@@ -19,7 +19,9 @@
         </li>
 
         <li class="nav-button">
-            <%= link_to raw("<i class=\"fa fa-user\"></i>"), user_path(current_user) %>
+          <%= link_to user_path(current_user) do %>
+            <i class="fa fa-user"></i>
+          <% end %>
         </li>
 
       <% else %>
@@ -29,10 +31,25 @@
 
       <% end %>
       <li class="nav-button">
-        <%= link_to raw("<i class=\"fa fa-search\" ></i>"), products_path %>
+        <%= link_to products_path do %>
+          <i class="fa fa-search" ></i>
+        <% end %>
       </li>
-      <div class="homegrown">
-      </div>
+
+      <li class="nav-button">
+        <%= link_to products_path do %>
+          <i class="fa fa-home"></i>
+        <% end %>
+ <!--        <ul>
+          <li>Gardens</li>
+          <li>Products</li>
+        </ul>
+ -->      </li>
+      
+      <%= link_to root_path do %>
+        <div class="homegrown">
+        </div>
+      <% end %>
     </ul>
   </header>
 
