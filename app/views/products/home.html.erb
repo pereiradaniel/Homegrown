@@ -44,9 +44,12 @@
   </div>
 
   <div class="category-thumb" id="berries-btn">
-    <div class="btn-mask">
-      <h5>Berries</h5>
-    </div>
+    <%= link_to raw("
+        <div class=\"btn-mask\">
+          <h5>Berries</h5>
+        </div>
+      "),
+      products_path(:tag => "berries") %>
   </div>
 
   <div class="category-thumb" id="pomes-btn">

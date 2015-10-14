@@ -51,11 +51,11 @@ tags_array = ["green", "red", "brown", "purple", "white", "black", "sweet", "spi
   "asian", "carribean", "eurpoean", "african", "north american", "special", "mexican", "south american", "backyard", "hydroponic", "fancy", "plain",
   "fresh", "stewable"]
 
-tags_array.each do |tag|
-  Tag.create!({
-    name: tag
-  })
-end
+# tags_array.each do |tag|
+#   Tag.create!({
+#     name: tag
+#   })
+# end
 
 5.times do |i|
   x = i + 1
@@ -63,7 +63,7 @@ end
     name: "User#{x}",
     email: "user#{x}@email.com",
     password: "1111",
-    password_confirmation: "1111"    
+    password_confirmation: "1111"
     })
 
   Garden.create!({
@@ -241,7 +241,7 @@ Trade.create!({
       name: user_names[rand(user_names.size)],
       email: email_handle[rand(email_handle.size)] + email_nicks[rand(email_nicks.size)] + Random.rand(666).to_s + "@" + email_array[rand(email_array.size)] + domain_array[rand(domain_array.size)],
       password: "1111",
-      password_confirmation: "1111"    
+      password_confirmation: "1111"
       })
 
     Garden.create!({
