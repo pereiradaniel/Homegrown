@@ -1,6 +1,7 @@
-<div id="user-info">
+<div class="user-info">
   <ul>
-    <li><%= @user.name %> <%= @user.email %></li>
+    <li><%= @user.name %></li>
+    <li><%= @user.email %></li>
   </ul>
 </div>
 
@@ -32,20 +33,33 @@
   </div>
 <% end %>
 
+<ul>  
   <% if !@user.garden %>
     <div id="create-garden-button">
-        <%= form_for([@garden]) do |f| %>
-          <div class="field">
-            <%= f.label :postal_code %>
-            <%= f.text_field :postal_code %>
-          </div>  
-          <div class="action">
-            <%= f.submit %>
-          </div>
-        <% end %>
+      
+      <%= form_for([@garden]) do |f| %>
+        <div class="field">
+          <li><%= f.label :postal_code %></li>
+          <li><%= f.text_field :postal_code %></li>
+        </div>  
+        <div class="action">
+          <li><%= f.submit %></li>
+        </div>
     </div>
+</ul>    
+      <% end %>
+    
   <% else %>
-    <%= link_to "Delete Garden", garden_path(@user.garden), method: :delete, data: {confirm: "Are you sure you want to delete your garden?"} %>
+    <div class="user-controls">
+    <ul>
+      <li>
+        <%= link_to raw("<i class=\"fa fa-trash\"> Delete Garden</i>"), garden_path(@user.garden), method: :delete, data: {confirm: "Are you sure you want to delete your garden?"} %>
+      </li>
   <% end %>
-  <%= link_to "Delete Profile", user_path(@user), method: :delete, data: {confirm: "Are you sure you want to delete your profile?"} %>
-</div>
+
+    <li>
+      <%= link_to raw("<i class=\"fa fa-user\"> Delete Profile</i>"), method: :delete, data: {confirm: "Are you sure you want to delete your profile?"} %>
+    </li>
+
+    </div>
+  </ul>

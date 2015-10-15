@@ -2,8 +2,10 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-#user-info {
+.user-info {
 	text-align: center;
+  font-size: 0.75em;
+  text-shadow: $text-shadow;
 }
 
 .user-controls {
@@ -51,6 +53,12 @@
 		}
 
 	font-size: 0.75em;
+  border: $base-border;
+  border-radius: $base-border-radius;
+  box-shadow: $form-box-shadow;
+  margin-top: 0.25em;
+  margin-bottom: 0.25em;
+  padding: 0.25em;
 }
 
 .view-link {
