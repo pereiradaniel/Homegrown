@@ -33,9 +33,14 @@ ul.nav {
 li {
   line-height: 2.875em;
 
+  .nav-button:hover > ul {
+    display: block;
+  }
+
   &.nav-button > ul {
     width: 4.5em;
     background: #F2F3F9;
+    display: none;
   }
 
   & > a {
