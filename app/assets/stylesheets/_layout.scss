@@ -75,8 +75,12 @@ li {
 }
 
 .nav-search {
+  input {
+    padding: 0;
+  }
+
   input[type="submit"] {
-    line-height: .1;
+    padding: .25em;
   }
 
 }

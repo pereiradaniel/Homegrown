@@ -58,15 +58,6 @@
       <% end %>
     </ul>
 
-    <div class="nav-search">
-      <%= form_tag products_path, method: :get, id: 'search-form'  do %>
-        <%= text_field_tag :search, params[:search], id: 'search-field' %>
-        <%= range_field_tag(:proximity, :distance, :in => 0..30, :step => '5', :value => '10') %>
-        <div class="rangevalue"></div>
-        <%= submit_tag "search", id: "search-button" %>
-      <% end %>
-    </div>
-
   </header>
 
   <main>
