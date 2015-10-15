@@ -56,7 +56,12 @@
   }
 }
 
+.search-container {
+  margin-bottom: .5em;
+}
+
 
 main {
-    padding-top: 1.5em;
+  @include outer-container;
+  padding-top: 1.5em;
 }

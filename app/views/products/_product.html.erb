@@ -1,4 +1,16 @@
-      <li>Product Name: <%= link_to product.name, product_path(product) %></li>
-      <li>Description: <%= product.description %></li>
-      <li>Trade Information: <%= product.trade_info %></li>
-      <%= link_to 'Go the product', product_path(product) %>
+<li class="product-card">
+  <div class="product-card-pic">
+    <%= link_to product_path(product) do %>
+      <%= image_tag product.image_url.to_s %>
+    <% end %>
+  </div>
+  <div class="product-info">
+    <h3><%= link_to product.name, product_path(product) %></h3>
+    <p class="product-description">
+      <%= product.description %>
+    </p>
+    <p class="product-info">
+      <strong>Trade info:</strong> <%= product.trade_info %>
+    </p>
+  </div>
+</li>

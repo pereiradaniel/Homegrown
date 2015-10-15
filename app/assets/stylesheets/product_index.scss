@@ -1,0 +1,25 @@
+.product-card {
+  padding: .3em;
+  @include span-columns(2);
+  margin-bottom: .5em;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+
+  .product-info {
+
+    h3 {
+      width: 100%;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      margin: 0;
+      font-size: .8em;
+    }
+
+    p {
+      line-height: 1em;
+      margin: 0;
+      font-size: .8em;
+    }
+  }
+}
