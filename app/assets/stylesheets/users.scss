@@ -1,3 +1,61 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#user-info {
+	text-align: center;
+}
+
+.user-controls {
+	font: 0.76em;
+}
+
+.user-controls ul {
+    font-size: 0.75em;
+    display: block;
+}
+
+.user-controls li {
+	@include media($small-screen-only) {
+			@include span-columns(1);
+			@include omega(2n);
+		}
+	display: inline-block;
+	float: left;
+  background: #3498db;
+  background-image: linear-gradient(to bottom, lighten($green, 30%), darken($green, 5%));
+  border-radius: 28px;
+  color: #ffffff;
+  padding: 0.25em 0.3em 0.25em 0.3em;
+  text-decoration: none;
+  width: 12em;
+  line-height: 1.25em;
+  text-align: center;
+  color: $light-gray;
+}
+
+.user-controls li:hover {
+  background: #3cb0fd;
+  background-image: linear-gradient(to bottom, darken($green, 5%), lighten($green, 30%));
+  text-decoration: none;
+}
+
+.user-controls a {
+	color: $light-gray;	
+}
+
+.request-box {
+	@include media($small-screen-only) {
+			@include span-columns(1);
+			@include omega(2n);
+		}
+
+	font-size: 0.75em;
+}
+
+.view-link {
+	text-align: center;
+  text-shadow: $text-shadow;
+  color: $green;
+  text-decoration: none;
+}
