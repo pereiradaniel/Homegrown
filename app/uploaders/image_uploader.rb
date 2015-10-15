@@ -25,17 +25,27 @@ class ImageUploader < CarrierWave::Uploader::Base
   # end
 
   # Process files as they are uploaded:
+<<<<<<< HEAD
   process resize_to_fill: [1000, 800]
+=======
+  process resize_to_fill: [800, 1000]
+>>>>>>> SearchButtonDropdownMenu
   # process :scale => [200, 300]
 
   # def scale(width, height)
   #   # do something
   # end
 
+  # @product.thumb.url  
+  # @produc.image_url(:thumb)
   # Create different versions of your uploaded files:
   version :thumb do
-    process :resize_to_fill => [150, 164]
+    process :resize_to_fill => [300, 328, 'Center']
   end
+
+  # version :small do
+  #   process :resize_to_fill => [300, 328]
+  # end
 
   # Add a white list of extensions which are allowed to be uploaded.
   # For images you might use something like this:
