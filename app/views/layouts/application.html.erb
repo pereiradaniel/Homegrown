@@ -19,9 +19,19 @@
         </li>
 
         <li class="nav-button">
-          <%= link_to user_path(current_user) do %>
-            <i class="fa fa-user"></i>
-          <% end %>
+          <i class="fa fa-user"></i>
+          <ul>
+            <li>
+             <%= link_to user_path(current_user) do %>
+                Profile
+              <% end %>
+            </li>
+            <li>
+              <%= link_to user_path(current_user) do %>
+                Garden
+              <% end %>
+            </li>
+          </ul>
         </li>
 
       <% else %>
@@ -40,11 +50,7 @@
         <%= link_to products_path do %>
           <i class="fa fa-home"></i>
         <% end %>
- <!--        <ul>
-          <li>Gardens</li>
-          <li>Products</li>
-        </ul>
- -->      </li>
+      </li>
       
       <%= link_to root_path do %>
         <div class="homegrown">
