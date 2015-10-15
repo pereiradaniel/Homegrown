@@ -1,23 +1,28 @@
 .header-bar {
-  color: white;
+  color:#989995;
   background-color: #F2F3F9;
-  position: fixed;
+  //position: fixed;
   margin: 0;
-  padding: 0 .5em;
-  height: $title-bar-height;
+  padding: 0 .5em .5em;
+  min-height: $title-bar-height;
   top: 0;
   left: 0;
   width: 100%;
   text-align: center;
+  font-size: .8em;
 
-  .homegrown {
-    height: 2.3em;
-    width: 5.3em;
+  a {
+    color:#989995;
+  }
+}
+
+.homegrown {
+    height: 2.875em;
+    width: 6.625em;
     float: left;
     background: url('homegrown-logo.png') no-repeat;
     background-size: 100%;
     background-position: center;
-  }
 }
 
 ul.nav {
@@ -33,34 +38,52 @@ ul.nav {
 li {
   line-height: 2.875em;
 
-  .nav-button:hover > ul {
+  &.nav-button:hover > ul {
     display: block;
   }
 
   &.nav-button > ul {
-    width: 4.5em;
-    background: #F2F3F9;
+    position: absolute;
+    left: 0;
     display: none;
-  }
+    width: 100%;
+    background: $nav-color;
+    box-shadow: -1px 5px 5px 0px rgba(150, 150, 150, 0.30);
 
-  & > a {
-    color:#989995;
+    li {
+      border-top: 1px solid lighten($nav-color, 10%);
+      border-bottom: 1px solid darken($nav-color, 10%);
+
+      &:first-child {
+        border-top: 0;
+      }
+
+      &:last-child {
+        border-bottom: 0;
+      }
+    }
   }
 
   &.nav-button {
-    height: 2.3em;
     width: 2.5em;
-    font-size: .8em;
   }
 
   &.nav-link {
     margin-left: .5em;
     color: #989995;
-    font-size: .8em;
   }
 }
 
+.nav-search {
+  input {
+    padding: 0;
+  }
 
+  input[type="submit"] {
+    padding: .25em;
+  }
+
+}
 
 main {
     padding-top: 1.5em;
