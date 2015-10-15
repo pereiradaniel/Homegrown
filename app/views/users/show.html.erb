@@ -1,48 +1,51 @@
 
-<%= link_to "Edit Profile", edit_user_path(@user) %>
-<div id="user-info">
-  <li>User Name: <%= @user.name %></li>
-  <li>User Email: <%= @user.email %></li>
-</div>
+<div class="user-container">
+    <div class="user-pix-container">
+      <div class="user-pix"></div>
+      <div class="edit-profile"><%= link_to "Edit Profile", edit_user_path(@user) %></div>
+    </div>
 
-<% if @trades.length != nil %>
-  <li><%= @trades.count %> ended trades.</li>
-  <li>
-    <%= link_to "View Ended Trades", trades_path %>
-  </li>
-<% end %>
+    <div class="user-info-box">
+      <h1><div>User Name: <%= @user.name %></div></h1>
+      <h2><div>User Email: <%= @user.email %></div></h2>
+    </div>
 
-<% if @conversations %>
-  <div id="conversations">
+    <div class="trade-info-box">
+      <% if @trades.length != nil %>
+        <div><%= @trades.count %> ended trades.</div>
+        <div><%= link_to "View Ended Trades", trades_path %></div>
+      <% end %>
+    </div>
+
+ <div class="convo-box">
+  <% if @conversations %>
     <ol>
       <% @conversations.each do |c| %>
-      
         <% if !c.trade %>
-          <ul>
-            <li>Request for product: <%= c.product.name %></li>
-            <li>Requested by: <%= c.sender.name %></li>
-            <%= link_to "View conversation", conversation_path(c) %>
-          </ul>
+          <li>Request for product: <%= c.product.name %></li>
+          <li>Requested by: <%= c.sender.name %></li>
+          <%= link_to "View conversation", conversation_path(c) %>
         <% end %>
       <% end %>
     </ol>
-  </div>
-<% end %>
-
+  <% end %>
   <% if !@user.garden %>
     <div id="create-garden-button">
-        <%= form_for([@garden]) do |f| %>
-          <div class="field">
-            <%= f.label :postal_code %>
-            <%= f.text_field :postal_code %>
-          </div>  
-          <div class="action">
-            <%= f.submit %>
-          </div>
-        <% end %>
+      <%= form_for([@garden]) do |f| %>
+        <div class="field">
+          <%= f.label :postal_code %>
+          <%= f.text_field :postal_code %>
+        </div>
+        <div class="action">
+          <%= f.submit %>
+        </div>
+      <% end %>
     </div>
   <% else %>
-    <%= link_to "Delete Garden", garden_path(@user.garden), method: :delete, data: {confirm: "Are you sure you want to delete your garden?"} %>
-  <% end %>
-  <%= link_to "Delete Profile", user_path(@user), method: :delete, data: {confirm: "Are you sure you want to delete your profile?"} %>
-</div>
+      <div class="delete-links">
+        <%= link_to "Delete Garden", garden_path(@user.garden), method: :delete, data: {confirm: "Are you sure you want to delete your garden?"} %>
+        <% end %>
+        <%= link_to "Delete Profile", user_path(@user), method: :delete, data: {confirm: "Are you sure you want to delete your profile?"} %>
+      </div>
+    </div>
+  </div>

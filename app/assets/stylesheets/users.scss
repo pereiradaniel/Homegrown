@@ -1,3 +1,49 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.user-container {
+  margin: .3em;
+ h2 {
+    font-size: .9em;
+    line-height: 1.2;
+  }
+  .user-pix-container {
+    margin-top: .5em;
+    float: right;
+    width: 5em;
+    height: 5em;
+    .user-pix {
+    width: 4em;
+    height: 4.2em;
+    border: 1px solid #ccc;
+    background: url('profile.png') no-repeat;
+    background-size: 100%;
+    background-position: center;
+  }
+    .edit-profile {
+      margin-top: .1em;
+      font-size: .8em;
+      line-height: 1.5;
+    }
+  }
+  .user-info-box {
+    margin-top: 1.2em;
+    width: 12.2em;
+    height: 1.5;
+  }
+  .trade-info-box {
+    margin-top: 2em;
+    font-size: .9em;
+    line-height: 1.5;
+  }
+  .convo-box {
+    margin-top: 1em;
+    width: 14.3em;
+    height: 4.75em;
+    font-size: .9em;
+    line-height: 1.5;
+  .delete-links {
+    margin-top: 1.2em;
+  }
+  }
+}
