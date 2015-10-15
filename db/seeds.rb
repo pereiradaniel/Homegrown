@@ -77,7 +77,7 @@ tags_array = ["green", "red", "brown", "purple", "white", "black", "sweet", "spi
     description: "Description #{x}a",
     trade_info: "Trade info #{x}a",
     postal_code: "M5H 1W7",
-    image: open("/db/" + picture_array[rand(picture_array.size)] + ".jpg")
+    image: open(picture_array[rand(picture_array.size)] + ".jpg")
     })
 
   Product.create!({
@@ -86,7 +86,7 @@ tags_array = ["green", "red", "brown", "purple", "white", "black", "sweet", "spi
     description: "Description #{x}b",
     trade_info: "Trade info #{x}b",
     postal_code: "M5H 1W7",
-    image: open("/db/" + picture_array[rand(picture_array.size)] + ".jpg")
+    image: open(picture_array[rand(picture_array.size)] + ".jpg")
     })
 
 end
@@ -255,7 +255,7 @@ Trade.create!({
       description: product_description_array[rand(product_description_array.size)],
       trade_info: trade_array[rand(trade_array.size)],
       postal_code: Garden.last.postal_code,
-      image: open("/db/" + picture_array[rand(picture_array.size)] + ".jpg")
+      image: open(picture_array[rand(picture_array.size)] + ".jpg")
       })
 
     Product.create!({
@@ -264,7 +264,7 @@ Trade.create!({
       description: product_description_array[rand(product_description_array.size)],
       trade_info: trade_array[rand(trade_array.size)],
       postal_code: Garden.last.postal_code,
-      image: open("/db/" + picture_array[rand(picture_array.size)] + ".jpg")
+      image: open(picture_array[rand(picture_array.size)] + ".jpg")
       })
 
     Product.create!({
@@ -273,7 +273,7 @@ Trade.create!({
       description: product_description_array[rand(product_description_array.size)],
       trade_info: trade_array[rand(trade_array.size)],
       postal_code: Garden.last.postal_code,
-      image: open("/db/" + picture_array[rand(picture_array.size)] + ".jpg")
+      image: open(picture_array[rand(picture_array.size)] + ".jpg")
       })
 
   # rand_product = Product.order("RANDOM()").first
