@@ -3,13 +3,13 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .user-info {
-	text-align: center;
+  text-align: center;
   font-size: 0.75em;
   text-shadow: $text-shadow;
 }
 
 .user-controls {
-	font: 0.76em;
+  font: 0.76em;
 }
 
 .user-controls ul {
@@ -18,12 +18,12 @@
 }
 
 .user-controls li {
-	@include media($small-screen-only) {
-			@include span-columns(1);
-			@include omega(2n);
-		}
-	display: inline-block;
-	float: left;
+  @include media($small-screen-only) {
+      @include span-columns(1);
+      @include omega(2n);
+    }
+  display: inline-block;
+  float: left;
   background: #3498db;
   background-image: linear-gradient(to bottom, lighten($green, 30%), darken($green, 5%));
   border-radius: 28px;
@@ -43,16 +43,16 @@
 }
 
 .user-controls a {
-	color: $light-gray;	
+  color: $light-gray;
 }
 
 .request-box {
-	@include media($small-screen-only) {
-			@include span-columns(1);
-			@include omega(2n);
-		}
+  @include media($small-screen-only) {
+      @include span-columns(1);
+      @include omega(2n);
+    }
 
-	font-size: 0.75em;
+  font-size: 0.75em;
   border: $base-border;
   border-radius: $base-border-radius;
   box-shadow: $form-box-shadow;
@@ -62,7 +62,7 @@
 }
 
 .view-link {
-	text-align: center;
+  text-align: center;
   text-shadow: $text-shadow;
   color: $green;
   text-decoration: none;

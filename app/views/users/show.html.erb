@@ -18,37 +18,37 @@
 
 <% if @conversations %>
   <div class="conversations">
-    <% @conversations.each do |c| %>    
+    <% @conversations.each do |c| %>
       <% if !c.trade %>
-  
+
           <ul class="request-box">
             <li><%= c.product.name %></li>
             <li>Requested by: <%= c.sender.name %></li>
             <li class="view-link"><%= link_to "View conversation", conversation_path(c) %></li>
             <%= link_to( image_tag(c.product.image_url(:thumb).to_s), product_path(c.product)) %>
           </ul>
-  
+
       <% end %>
     <% end %>
   </div>
 <% end %>
 
-<ul>  
+<ul>
   <% if !@user.garden %>
     <div id="create-garden-button">
-      
+
       <%= form_for([@garden]) do |f| %>
         <div class="field">
           <li><%= f.label :postal_code %></li>
           <li><%= f.text_field :postal_code %></li>
-        </div>  
+        </div>
         <div class="action">
           <li><%= f.submit %></li>
         </div>
     </div>
-</ul>    
+</ul>
       <% end %>
-    
+
   <% else %>
     <div class="user-controls">
     <ul>
