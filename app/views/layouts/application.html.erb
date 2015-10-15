@@ -35,20 +35,16 @@
         </li>
 
       <% else %>
+
         <li class="nav-link">
             <%= link_to "Sign in", :login %>
         </li>
 
       <% end %>
-      <li class="nav-button">
-        <%= link_to products_path do %>
-          <i class="fa fa-search" ></i>
-        <% end %>
-      </li>
 
       <li class="nav-button">
         <%= link_to products_path do %>
-          <i class="fa fa-home"></i>
+          <i class="fa fa-search" ></i>
         <% end %>
       </li>
 
