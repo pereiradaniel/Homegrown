@@ -36,7 +36,7 @@ $base-background-color: #fff;
 $secondary-background-color: tint($base-border-color, 75%);
 
 // Forms
-$form-box-shadow: inset 0 1px 3px rgba(#000, 0.06);
+$form-box-shadow: 0 1px 3px $light-gray;
 $form-box-shadow-focus: $form-box-shadow, 0 0 5px adjust-color($action-color, $lightness: -5%, $alpha: -0.3);
 
 // Animations
@@ -46,3 +46,8 @@ $base-timing: ease;
 // Extras
 $title-bar-height: 2.3em;
 $text-shadow: text-shadow 1px 1px 3px $light-gray;
+
+// Button styles (initially used on users.scss)
+$btn-gradient: linear-gradient(to bottom, lighten($green, 30%), darken($green, 5%));
+$btn-padding: 0.25em 0.3em 0.25em 0.3em;
+$btn-line-height: 1.25em;
