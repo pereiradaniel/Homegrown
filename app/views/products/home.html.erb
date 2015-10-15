@@ -7,7 +7,7 @@
         </div>
         <div class="carousel-info">
           <ul>
-            <li><%= link_to product.name, product_path(product) %></li>
+            <li class="truncate"><%= link_to product.name, product_path(product) %></li>
             <li>by: <%= product.garden.user.name %></li>
           </ul>
         </div>
