@@ -24,6 +24,9 @@ class ProductsController < ApplicationController
     else
       @products = Product.limit(10).order("RANDOM()")
     end
+
+    @products = @products.page(params[:page])
+
   end
 
   def show
