@@ -33,9 +33,30 @@ ul.nav {
 li {
   line-height: 2.875em;
 
+  &.nav-button:hover > ul {
+    display: block;
+  }
+
   &.nav-button > ul {
-    width: 4.5em;
-    background: #F2F3F9;
+    position: absolute;
+    left: 0;
+    display: none;
+    width: 100%;
+    background: $nav-color;
+    box-shadow: -1px 5px 5px 0px rgba(150, 150, 150, 0.30);
+
+    li {
+      border-top: 1px solid lighten($nav-color, 10%);
+      border-bottom: 1px solid darken($nav-color, 10%);
+
+      &:first-child {
+        border-top: 0;
+      }
+
+      &:last-child {
+        border-bottom: 0;
+      }
+    }
   }
 
   & > a {
