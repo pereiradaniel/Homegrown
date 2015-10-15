@@ -1,23 +1,28 @@
 .header-bar {
-  color: white;
+  color:#989995;
   background-color: #F2F3F9;
-  position: fixed;
+  //position: fixed;
   margin: 0;
-  padding: 0 .5em;
-  height: $title-bar-height;
+  padding: 0 .5em .5em;
+  min-height: $title-bar-height;
   top: 0;
   left: 0;
   width: 100%;
   text-align: center;
+  font-size: .8em;
 
-  .homegrown {
-    height: 2.3em;
-    width: 5.3em;
+  a {
+    color:#989995;
+  }
+}
+
+.homegrown {
+    height: 2.875em;
+    width: 6.625em;
     float: left;
     background: url('homegrown-logo.png') no-repeat;
     background-size: 100%;
     background-position: center;
-  }
 }
 
 ul.nav {
@@ -59,24 +64,22 @@ li {
     }
   }
 
-  & > a {
-    color:#989995;
-  }
-
   &.nav-button {
-    height: 2.3em;
     width: 2.5em;
-    font-size: .8em;
   }
 
   &.nav-link {
     margin-left: .5em;
     color: #989995;
-    font-size: .8em;
   }
 }
 
+.nav-search {
+  input[type="submit"] {
+    line-height: .1;
+  }
 
+}
 
 main {
     padding-top: 1.5em;
