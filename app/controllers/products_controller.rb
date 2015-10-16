@@ -12,19 +12,22 @@ class ProductsController < ApplicationController
 
   def choose_search_method
     search = params[:search]
-    
+
     if params[:tag]
-      @products = Product.find_by_tag(params[:tag])
+     @products = Product.find_by_tag(params[:tag])
     elsif params[:latitude] && params[:longitude] && search
-      @products = Product.where("LOWER(name) like LOWER(?) OR LOWER(description) LIKE LOWER(?)", "%#{search}%", "%#{search}%").near([params[:latitude], params[:longitude]], params[:proximity], units: :km)
+     query = "LOWER(products.name) LIKE LOWER(?) OR LOWER(products.description) LIKE LOWER(?) OR tags.name LIKE LOWER(?)"
+     @products = Product.joins("LEFT OUTER JOIN taggings ON products.id = taggings.taggable_id").joins("LEFT OUTER JOIN tags ON taggings.tag_id = tags.id").where(query, "%#{search}%", "%#{search}%", "%#{search}%")
+
+     @products = @products.near([params[:latitude], params[:longitude]], params[:proximity], units: :km)
     elsif !params[:latitude] && search
-      @products = Product.where("LOWER(name) like LOWER(?) OR LOWER(description) LIKE LOWER(?)", "%#{search}%", "%#{search}%")
+     query = "LOWER(products.name) LIKE LOWER(?) OR LOWER(products.description) LIKE LOWER(?) OR tags.name LIKE LOWER(?)"
+     @products = Product.joins(:tags).where(query, "%#{search}%", "%#{search}%", "%#{search}%")
     else
-      @products = Product.limit(10).order("RANDOM()")
+     @products = Product.limit(10).order("RANDOM()")
     end
 
     @products = @products.page(params[:page])
-
   end
 
   def show
