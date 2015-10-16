@@ -1,7 +1,6 @@
 // Place all the styles related to the Trades controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-
 .trades-seller-success ul,
 .trades-seller-unsuccess ul,
 .trades-buyer-success ul,
@@ -31,7 +30,7 @@
 
 .num-of-trades {
 	border: $base-border;
-	
+	padding: 0.2em;
 	text-align: center;	
 
 }
@@ -74,11 +73,4 @@
 		color: $light-gray;
 	}
 
-}
-
-#sell-success {
-	display:none;
-}
-.pop-out {
-	display:block;
 }

@@ -1,39 +1,31 @@
 <h1>Welcome to <%= @garden.user.name %>'s Garden</h1>
 
+<% @products.each do |product| %>
 
-<div class="products">
-
-    <% @products.each do |product| %>
-
-      <div class="product-box">
-        <ul>
-          <li><%= link_to product.name, product_path(product) %></li>
-          <li><%= product.description %></li>
-          <li><%= product.trade_info %></li>
-          
-            <div class="tags">
-              <% if product.tag_list.length > 0 %>
-                <li><% product.tag_list.each do |tag| %>
-                      <%= tag %>
-                    <% end %>
-                </li>
-              <% else %>
-                <li>no tags</li>
-              <% end %>          
-            </div>
-        </ul>
-
-        <div class="picture">
-          <%= image_tag product.image_url(:thumb).to_s %>
-        </div>
+  <ul class="garden-product-list-item">
+    <li><%= link_to product.name, product_path(product) %></li>
+    <li><%= product.description %></li>
+    <li><%= product.trade_info %></li>
+    <%= image_tag product.image_url(:thumb).to_s %>
+    
+      <div class="tags">  
+        <% if product.tag_list.length > 0 %>
+          <li><% product.tag_list.each do |tag| %>
+              <%= tag %>
+              <% end %>
+          </li>
+        <% else %>
+          <li>no tags</li>
+        <% end %>          
       </div>
+  </ul>
+<% end %>
 
-    <% end %>
-
-</div>
 
 <div id="map-canvas" data-latitude="<%= @garden.latitude.to_f %>" data-longitude="<%= @garden.longitude.to_f %>"></div>
 
 <% if @user == current_user %>
+<ul class="new-product-form">
   <%= render 'newproductform' %>
+</ul>
 <% end %>

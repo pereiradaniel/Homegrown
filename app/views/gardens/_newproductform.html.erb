@@ -1,26 +1,16 @@
-<div class="new_product">
   <%= form_for @product, :html => {:multipart => true} do |f| %>
-  <div>
-    <div>
-      <%= f.label :tag_list %>
-      <%= f.text_field :tag_list %>
-    </div>
-    <div>
-      <%= f.label :name %>
-      <%= f.text_field :name %>
-    </div>
-    <div>
-      <%= f.label :description %>
-      <%= f.text_area :description %>
-    </div>
-    <div>
-      <%= f.label :trade_info %>
-      <%= f.text_area :trade_info %>
-    </div>
-    <div>
-      <%= f.file_field :image %>
-    </div>
-      <%= f.submit %>
-    <% end %>
-  </div>
-</div>
+  <ul class="new-product-form">
+
+    <li><%= f.label :tag_list %></li>
+    <li><%= f.text_field :tag_list %></li>
+    <li><%= f.label :name %></li>
+    <li><%= f.text_field :name %></li>
+    <li><%= f.label :description %></li>
+    <li><%= f.text_area :description %></li>
+    <li><%= f.label :trade_info %></li>
+    <li><%= f.text_area :trade_info %></li>
+    <li><%= f.file_field :image %></li>
+    <li><%= f.submit %></li>
+
+<% end %>
+
