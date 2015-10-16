@@ -8,14 +8,17 @@
 
   padding: .3em;
   // @include span-columns(1);
-  width: 153.406px;
+  // width: 153.406px;
+  width: 145px;
   padding: 0;
   margin: 0;
+  margin-bottom: 5px;
   border: 1px solid #ccc;
   border-radius: 5px;
   float: left;
 
   .product-info {
+    margin: 0 .1em;
     h3 {
       width: 100%;
       white-space: nowrap;
@@ -36,7 +39,7 @@
     }
   }
 
-  
+
   .product-link {
     box-sizing: content-box;
     padding: 0px;
@@ -48,7 +51,7 @@
     & a {
         text-decoration: none;
         color: white;
-      } 
+      }
   }
 
 }
