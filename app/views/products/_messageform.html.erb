@@ -1,15 +1,14 @@
 <%= form_for([@conversation]) do |f| %>
   <div class="make-request">
-    <h3>What would you like to trade for <%= @product.name %>?</h3>
+  What would you like to trade for <%= @product.name %>?
   </div>
   <div class="field">
-    <%= f.label :request %>
     <%= f.text_area :request %>
   </div>
     <%= f.hidden_field :product_id, {value: @product.id} %>
     <%= f.hidden_field :sender_id, {value: current_user.id} %>
     <%= f.hidden_field :receiver_id, {value: @product.garden.user.id} %>
-  <div class="action">
+  <div class="product-show-btn">
     <%= f.submit %>
   </div>
 <% end %>
