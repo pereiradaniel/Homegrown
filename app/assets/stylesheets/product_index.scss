@@ -1,15 +1,10 @@
 
 .product-card {
 
-    @include media($small-screen-only) {
-      @include span-columns(1);
-      @include omega(2n);
-    }
-
   padding: .3em;
   // @include span-columns(1);
   // width: 153.406px;
-  width: 145px;
+  width: 147px;
   padding: 0;
   margin: 0;
   margin-bottom: 5px;
