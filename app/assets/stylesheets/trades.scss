@@ -69,6 +69,12 @@
 	  width: 5em;
 		}
 
+	li:hover {
+	  background: #3cb0fd;
+	  background-image: linear-gradient(to bottom, darken($green, 5%), lighten($green, 30%));
+	  text-decoration: none;
+	}
+
 	a {
 		color: $light-gray;
 	}
