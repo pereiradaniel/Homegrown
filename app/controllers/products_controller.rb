@@ -9,16 +9,22 @@ class ProductsController < ApplicationController
       format.js
     end
   end
-  
+
   def choose_search_method
     search = params[:search]
-    if params[:latitude] && params[:longitude] && search
+    
+    if params[:tag]
+      @products = Product.find_by_tag(params[:tag])
+    elsif params[:latitude] && params[:longitude] && search
       @products = Product.where("LOWER(name) like LOWER(?) OR LOWER(description) LIKE LOWER(?)", "%#{search}%", "%#{search}%").near([params[:latitude], params[:longitude]], params[:proximity], units: :km)
     elsif !params[:latitude] && search
       @products = Product.where("LOWER(name) like LOWER(?) OR LOWER(description) LIKE LOWER(?)", "%#{search}%", "%#{search}%")
     else
-      @products = Product.all
+      @products = Product.limit(10).order("RANDOM()")
     end
+
+    @products = @products.page(params[:page])
+
   end
 
   def show
