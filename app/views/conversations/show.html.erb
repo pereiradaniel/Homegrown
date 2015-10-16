@@ -1,48 +1,65 @@
-<h1>Negotiate</h1>
+<div class="convo-product-brief">
+	<ul>
+		<li><%= @product.name %><br><%= @product.trade_info %></li>
+		<li class="convo-product-brief-img-link"><%= link_to( image_tag(@product.image_url(:thumb).to_s), product_path(@product)) %></li>
+	</ul>
+</div>
+
 <div class="trade-request-info">
   <ul>
-    <li><%= @conversation.sender.name %> is requesting a trade for <%= @product.name %>
-  	</li>
+		<p class="timestamp"><%= @conversation.created_at %></p>
+    <li><%= @conversation.sender.name %> is requesting a trade for <%= @product.name %></li>
+		<li><%= @conversation.request %></li>
   </ul>
 </div>
 
+
 <% if @conversation.messages.length != nil %>
-	<ul>
-		<li>Negotiating trade for <%= @conversation.product.name %> with <%= @conversation.sender.name %>!</li>
-		<li>Initial trade request:</li>
-		<li><%= @conversation.request %></li>
-	</ul>
+
 	<% @conversation.messages.each do |m| %>
-		<div>
-		<ul>
-			<li><%= m.sender.name %> said:</li>
-			<li><%= m.content %></li>
-		</ul>
+		<div class="message-details">
+			<ul>
+				<p class="timestamp"><%= m.created_at %></p>
+				<li><%= m.sender.name %> said:</li>
+				<li class="message-content"><%= m.content %></li>
+			</ul>
 		</div>
 	<% end %>
+
 <% else %>
+
 	<ul>
-		<li>Start trading <%= @conversation.product.name %> with <%= @conversation.sender.name %>!</li>
+		<li class="message-content">Start trading <%= @conversation.product.name %> with <%= @conversation.sender.name %>!</li>
 	</ul>
+
 <% end %>
 
 <% if @owner == current_user %>
-  <%= link_to "End Trade", new_trade_path(:product => @product.id, :buyer => @conversation.sender.id, :conversation =>@conversation.id) %>
-  <%= link_to "Delete Trade Conversation", conversation_path(@conversation), method: :delete, data: {confirm: "Are you sure you want to delete this trade conversation?"} %>
+	<div class="convo-controls">
+		<ul>
+			<li><%= link_to raw("<i class=\"fa fa-gavel\"> End Trade</i>"), new_trade_path(:product => @product.id, :buyer => @conversation.sender.id, :conversation =>@conversation.id) %></li>
+		</ul>
+	</div>
 <% else %>
 <% end %>
 
-<%= form_for([@message]) do |f| %>
-	<div>
 
-		<li><%= f.label :content %></li>
-		<li><%= f.text_area :content %></li>
-		<%= f.hidden_field :conversation_id, {value: @conversation.id} %>
-		<%= f.hidden_field :sender_id, {value: current_user.id} %>
-		<%= f.hidden_field :product_id, {value: @product.id} %>
-		<% @conversation.sender != current_user ? @receiver = @conversation.sender : @receiver = current_user %>
-		<%= f.hidden_field :receiver_id, {value: @receiver.id} %>
-		<%= f.submit %>
+
+<%= form_for([@message]) do |f| %>
+	<div class="convo-message-form">
+		<ul>
+			<li>Reply</li>
+			<li><%= f.text_area :content %></li>
+			
+			<%= f.hidden_field :conversation_id, {value: @conversation.id} %>
+			<%= f.hidden_field :sender_id, {value: current_user.id} %>
+			<%= f.hidden_field :product_id, {value: @product.id} %>
+			<% @conversation.sender != current_user ? @receiver = @conversation.sender : @receiver = current_user %>
+			<%= f.hidden_field :receiver_id, {value: @receiver.id} %>
+			
+			<li><%= f.submit %></li>
+		
+		</ul>
 	</div>
 
 <% end %>

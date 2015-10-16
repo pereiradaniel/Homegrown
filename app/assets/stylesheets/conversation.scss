@@ -1,3 +1,87 @@
 // Place all the styles related to the conversation controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+	
+	.convo-product-brief li {
+	@include media($small-screen-only) {
+	    @include span-columns(1);
+	    @include omega(2n);
+	  	}
+
+	  padding: 0.25em;
+	}
+
+	.trade-request-info ul {
+		@include media($small-screen-only) {
+	    @include span-columns(2);
+	    @include omega(2n);
+	  	}
+
+			border-bottom: $base-border;
+		  border-radius: $base-border-radius;
+		  padding: $btn-padding;
+		  box-shadow: $form-box-shadow;
+		  text-decoration: none;
+		  width: 12em;
+			font-size: 0.75em;
+		
+	}
+
+
+.message-details ul, .convo-product-brief ul {
+		@include media($small-screen-only) {
+	    @include span-columns(2);
+	    @include omega(2n);
+	  	}
+		  
+		  float: left;
+			display: block;
+			border-bottom: $base-border;
+		  border-radius: $base-border-radius;
+		  padding: $btn-padding;
+		  box-shadow: $form-box-shadow;
+		  text-decoration: none;
+		  width: 12em;
+			font-size: 0.75em;
+	
+}
+
+.message-details li, .convo-product-brief li {
+	float:left;
+}
+
+.timestamp {
+	float: none;
+	display: block;
+	font-style: italic;
+	font-size: 0.7em;
+	line-height: 0.7em;
+}
+
+.convo-controls li {
+  @include media($small-screen-only) {
+      @include span-columns(2);
+      @include omega(2n);
+    }
+  display: inline-block;
+  float: left;
+  background: $green;
+  background-image: $btn-gradient;
+  border-radius: $base-border-radius;
+  padding: $btn-padding;
+  text-decoration: none;
+  line-height: $btn-line-height;
+  text-align: center;
+  color: $light-gray;
+  width: 12em;
+}
+
+.convo-controls li:hover {
+  background: #3cb0fd;
+  background-image: linear-gradient(to bottom, darken($green, 5%), lighten($green, 30%));
+  text-decoration: none;
+}
+
+.convo-controls a {
+  color: $light-gray;
+}

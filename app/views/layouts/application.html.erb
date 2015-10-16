@@ -5,6 +5,7 @@
   <meta name="viewport" content="initial-scale=1.0,width=device-width">
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js" %>
+  <%# javascript_include_tag "https://cdnjs.cloudflare.com/ajax/libs/masonry/3.3.2/masonry.pkgd.js" %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
@@ -19,7 +20,19 @@
         </li>
 
         <li class="nav-button">
-            <%= link_to raw("<i class=\"fa fa-user\"></i>"), user_path(current_user) %>
+          <i class="fa fa-user"></i>
+          <ul>
+            <li>
+             <%= link_to user_path(current_user) do %>
+                Profile
+              <% end %>
+            </li>
+            <li>
+              <%= link_to user_path(current_user) do %>
+                Garden
+              <% end %>
+            </li>
+          </ul>
         </li>
 
       <% else %>
@@ -29,11 +42,23 @@
 
       <% end %>
       <li class="nav-button">
-        <%= link_to raw("<i class=\"fa fa-search\" ></i>"), products_path %>
+        <%= link_to products_path do %>
+          <i class="fa fa-search" ></i>
+        <% end %>
       </li>
-      <div class="homegrown">
-      </div>
+
+      <li class="nav-button">
+        <%= link_to products_path do %>
+          <i class="fa fa-home"></i>
+        <% end %>
+      </li>
+
+      <%= link_to root_path do %>
+        <div class="homegrown">
+        </div>
+      <% end %>
     </ul>
+
   </header>
 
   <main>

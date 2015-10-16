@@ -1,12 +1,18 @@
+#products {
+  @include clearfix;
+}
+
 .product-card {
   padding: .3em;
-  @include span-columns(2);
-  margin-bottom: .5em;
+  // @include span-columns(1);
+  width: 153.406px;
+  padding: 0;
+  margin: 0;
   border: 1px solid #ccc;
   border-radius: 5px;
+  float: left;
 
   .product-info {
-
     h3 {
       width: 100%;
       white-space: nowrap;
@@ -21,5 +27,25 @@
       margin: 0;
       font-size: .8em;
     }
+
+    strong{
+      color: green;
+    }
   }
+
+  
+  .product-link {
+    box-sizing: content-box;
+    padding: 0px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    font-size: .8em;
+    width: 100%;
+
+    & a {
+        text-decoration: none;
+        color: white;
+      } 
+  }
+
 }

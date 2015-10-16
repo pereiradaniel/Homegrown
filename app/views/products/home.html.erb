@@ -3,11 +3,11 @@
     <% @products.each do |product| %>
       <div class="carousel-card">
         <div class="carousel-pic">
-          <%= image_tag product.image_url.to_s %>
+          <%= image_tag product.image_url(:thumb).to_s %>
         </div>
         <div class="carousel-info">
           <ul>
-            <li><%= link_to product.name, product_path(product) %></li>
+            <li class="truncate"><%= link_to product.name, product_path(product) %></li>
             <li>by: <%= product.garden.user.name %></li>
           </ul>
         </div>
@@ -44,12 +44,11 @@
   </div>
 
   <div class="category-thumb" id="berries-btn">
-    <%= link_to raw("
-        <div class=\"btn-mask\">
+    <%= link_to products_path(:tag => "berries") do %>
+        <div class="btn-mask">
           <h5>Berries</h5>
         </div>
-      "),
-      products_path(:tag => "berries") %>
+    <% end %>
   </div>
 
   <div class="category-thumb" id="pomes-btn">
