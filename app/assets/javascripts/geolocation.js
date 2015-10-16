@@ -1,6 +1,12 @@
-function geolocationSuccess(position) {
-  var latitude  = position.coords.latitude;
-  var longitude = position.coords.longitude;
+function geolocationSuccess(position, isLocationDisabled) {
+  if(position != undefined){
+    var latitude  = position.coords.latitude;
+    var longitude = position.coords.longitude;
+  }else{
+    var latitude  = undefined;
+    var longitude = undefined;
+  }
+
   var searchvar = $('#search-field').val();
   var proximity = $('#proximity').val();
   var searchFor = $('#search-button').val()
@@ -10,6 +16,7 @@ function geolocationSuccess(position) {
   }else if(searchFor == 'garden-search'){
     var urlVar = '/gardens';
   };
+
 
   $.ajax({
       url: urlVar,
@@ -25,8 +32,9 @@ function geolocationSuccess(position) {
   }
 
 function geolocationError() {
-  console.log("please enable location for this feature to work!");
-  // display this message in some div on the index page
+  alert("Please enable location for proximity search to work!");
+  var position = undefined;
+  geolocationSuccess(position);
 }
 
 

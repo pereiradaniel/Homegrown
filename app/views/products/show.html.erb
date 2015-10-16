@@ -1,4 +1,5 @@
 <div class="product-show-container">
+  <%= render 'displayproduct' %>
   <div class="product-show-btn">
     <%= button_to 'Back to the Garden', garden_path(@product.garden), method: :get %>
   </div>
@@ -31,7 +32,6 @@
     <em>Tag: <%= @product.tag_list %></em>
   </div>
 
-  <%= render 'displayproduct' %>
 
   <% if current_user && @product.garden.user != current_user %>
     <div class="product-show-text">Please leave a message

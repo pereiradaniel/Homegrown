@@ -1,8 +1,11 @@
-#products {
-  @include clearfix;
-}
 
 .product-card {
+
+    @include media($small-screen-only) {
+      @include span-columns(1);
+      @include omega(2n);
+    }
+
   padding: .3em;
   // @include span-columns(1);
   width: 153.406px;

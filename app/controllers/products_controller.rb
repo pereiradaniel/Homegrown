@@ -9,24 +9,16 @@ class ProductsController < ApplicationController
       format.js
     end
   end
-
+  
   def choose_search_method
     search = params[:search]
-    if params[:tag]
-      @products = Product.find_by_tag(params[:tag])
-    elsif params[:latitude] && params[:longitude] && search
-      query = "LOWER(products.name) LIKE LOWER(?) OR LOWER(products.description) LIKE LOWER(?) OR tags.name LIKE LOWER(?)"
-      @products = Product.joins("LEFT OUTER JOIN taggings ON products.id = taggings.taggable_id").joins("LEFT OUTER JOIN tags ON taggings.tag_id = tags.id").where(query, "%#{search}%", "%#{search}%", "%#{search}%")
-      @products = @products.near([params[:latitude], params[:longitude]], params[:proximity], units: :km)
+    if params[:latitude] && params[:longitude] && search
+      @products = Product.where("LOWER(name) like LOWER(?) OR LOWER(description) LIKE LOWER(?)", "%#{search}%", "%#{search}%").near([params[:latitude], params[:longitude]], params[:proximity], units: :km)
     elsif !params[:latitude] && search
-      query = "LOWER(products.name) LIKE LOWER(?) OR LOWER(products.description) LIKE LOWER(?) OR tags.name LIKE LOWER(?)"
-      @products = Product.joins("LEFT OUTER JOIN taggings ON products.id = taggings.taggable_id").joins("LEFT OUTER JOIN tags ON taggings.tag_id = tags.id").where(query, "%#{search}%", "%#{search}%", "%#{search}%")
+      @products = Product.where("LOWER(name) like LOWER(?) OR LOWER(description) LIKE LOWER(?)", "%#{search}%", "%#{search}%")
     else
-      @products = Product.limit(10).order("RANDOM()")
+      @products = Product.all
     end
-
-    @products = @products.page(params[:page])
-
   end
 
   def show

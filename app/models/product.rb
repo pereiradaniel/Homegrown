@@ -10,6 +10,8 @@ class Product < ActiveRecord::Base
   after_validation :geocode
 
   def self.find_by_tag(tag)
-    Product.joins(:tags).where('tags.name LIKE ?', "%#{tag}%")
+    Product.joins(@tags).where('tags.name LIKE ?', "%#{tag}%")
   end
+
+
 end
