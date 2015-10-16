@@ -1,3 +1,84 @@
 // Place all the styles related to the Trades controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.trades-seller-success ul,
+.trades-seller-unsuccess ul,
+.trades-buyer-success ul,
+.trades-buyer-unsuccess ul {
+	@include media($small-screen-only) {
+	    @include span-columns(2);
+	    @include omega(2n);
+	  	}
+
+	  display: block;
+		border-bottom: $base-border;
+	  border-radius: $base-border-radius;
+	  padding: 0.5em 1em;
+	  box-shadow: $form-box-shadow;
+	  text-decoration: none;
+	  width: 12em;
+		font-size: 0.75em;
+
+		li {
+			line-height: 1.2em;
+		}
+
+		.timestamp {
+			font-style: italic;
+		}
+}
+
+.num-of-trades {
+	border: $base-border;
+	
+	text-align: center;	
+
+}
+
+.trade-partner {
+	font-weight: 600;
+	padding-bottom: 0.5em;
+}
+
+.trade-result {
+	border-bottom: $base-border;
+}
+
+.trades-buttons ul {
+	display: block;
+}
+
+.trades-buttons {
+
+	li {
+		@include media($small-screen-only) {
+	    @include span-columns(1);
+	    @include omega(2n);
+	  	}
+		font-size: 0.6em;
+	  display: inline-block;
+	  float: left;
+	  background: $green;
+	  background-image: $btn-gradient;
+	  border-radius: $base-border-radius;
+	  padding: $btn-padding;
+	  text-decoration: none;
+	  line-height: $btn-line-height;
+	  text-align: center;
+	  color: $light-gray;
+	  width: 5em;
+		}
+
+	a {
+		color: $light-gray;
+	}
+
+}
+
+#sell-success {
+	display:none;
+}
+.pop-out {
+	display:block;
+}
