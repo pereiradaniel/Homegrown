@@ -66,6 +66,21 @@
 			@include omega(2n);
 		}
 
+		@include media($medium-screen-only) {
+			@include span-columns(2);
+			@include omega(2n);
+		}
+
+		@include media($large-screen-only) {
+			@include span-columns(4);
+			@include omega(2n);
+		}
+
+		@include media($xlarge-screen-up) {
+			@include span-columns(6);
+			@include omega(2n);
+		}		
+
 		a {
 			color: #fff;
 		}

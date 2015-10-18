@@ -85,3 +85,15 @@
 .convo-controls a {
   color: $light-gray;
 }
+
+.list-container {
+	display: none;
+}
+
+.open {
+	display: block;
+}
+
+.close {
+	display: none;
+}

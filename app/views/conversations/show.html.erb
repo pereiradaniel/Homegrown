@@ -13,19 +13,34 @@
   </ul>
 </div>
 
+<% if @conversation.messages.length > 0 %>
 
-<% if @conversation.messages.length != nil %>
+<h3><a class="message-history" href="#">Message History</a></h3>
 
-	<% @conversation.messages.each do |m| %>
+<div class="most-recent-message">
 		<div class="message-details">
 			<ul>
-				<p class="timestamp"><%= m.created_at %></p>
-				<li><%= m.sender.name %> said:</li>
-				<li class="message-content"><%= m.content %></li>
+				<p class="timestamp"><%= @conversation.messages.last.created_at %></p>
+				<li><%= @conversation.messages.last.sender.name %> said:</li>
+				<li class="message-content"><%= @conversation.messages.last.content %></li>
 			</ul>
 		</div>
-	<% end %>
+</div>
 
+
+<div class="list-container">
+	<div class="message-list">
+		<% @conversation.messages.each do |m| %>
+			<div class="message-details">
+				<ul>
+					<p class="timestamp"><%= m.created_at %></p>
+					<li><%= m.sender.name %> said:</li>
+					<li class="message-content"><%= m.content %></li>
+				</ul>
+			</div>
+		<% end %>
+	</div>
+</div>
 <% else %>
 
 	<ul>
