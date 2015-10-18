@@ -54,6 +54,7 @@ Map.prototype.init = function(latitude, longitude){
 }
 
 $(document).on('ready page:load', function(){
+
   if($('#map-canvas').length){
     var latitude = $('#map-canvas').data('latitude');
     var longitude = $('#map-canvas').data('longitude');
@@ -61,35 +62,38 @@ $(document).on('ready page:load', function(){
     window.myMap.init(latitude, longitude);
   }
 
-    updateRangeValue($('input[type=range]'));
-    $('input[type=range]').on('input change',function(){
-      var input = $(this);
-      updateRangeValue(input);
-    });    
+  updateRangeValue($('input[type=range]'));
 
-    function updateRangeValue(input){
-      var value = input.val();
-      input.next('.rangevalue').html(value + ' kilometers');
-    }
+  $('input[type=range]').on('input change',function(){
+    var input = $(this);
+    updateRangeValue(input);
+  });
 
-$("#garden-location").on("click", function(event) {
+  function updateRangeValue(input){
+    var value = input.val();
+    input.next('.rangevalue').html(value + ' kilometers');
+  }
+
+  $("#garden-location").on("click", function(event) {
     event.preventDefault();
     garden = $(this).data;
-    if ("geolocation" in navigator) {
-      navigator.geolocation.getCurrentPosition(geolocationSuccess, geolocationError);
-    } else {
-      alert("Please dump your crappy browser and use Chrome!");
-    }
-  }); 
 
-$("#search-button").on("click", function(event) {
-    event.preventDefault();
     if ("geolocation" in navigator) {
       navigator.geolocation.getCurrentPosition(geolocationSuccess, geolocationError);
     } else {
-      alert("Please dump your crappy browser and use Chrome!");
+      alert("Browser does not support geocoding");
     }
-  }); 
+  });
+
+  $("#search-button").on("click", function(event) {
+    event.preventDefault();
+
+    if ("geolocation" in navigator) {
+      navigator.geolocation.getCurrentPosition(geolocationSuccess, geolocationError);
+    } else {
+      alert("Browser does not support geocoding");
+    }
+  });
 
 });
 

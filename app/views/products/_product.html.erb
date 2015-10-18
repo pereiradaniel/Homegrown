@@ -12,6 +12,9 @@
     <p class="product-info">
       <strong>Trade info:</strong> <%= product.trade_info %>
     </p>
+    <p class="product-location">
+      About: <%= product.distance_to([@lat, @long]).round(2) %>Km from you.
+    </p>
   </div>
   <button class="product-link">
     <%= link_to 'View Product', product_path(product) %>
