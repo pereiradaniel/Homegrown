@@ -40,7 +40,7 @@ class GardensController < ApplicationController
     @garden.user = current_user
 
     if @garden.save
-      redirect_to user_garden_path(current_user, @garden)
+      redirect_to garden_path(@garden)
     else
       render :new
     end
