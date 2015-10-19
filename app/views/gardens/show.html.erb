@@ -1,4 +1,7 @@
 <h1>Welcome to <%= @garden.user.name %>'s Garden</h1>
+   <div>
+      <strong>Distance:</strong> <span class="product-distance-from"><%= @garden.distance_to([session[:lat], session[:long]]).round(2) %></span>Km from you.
+    </div>
 
 <% @products.each do |product| %>
 
@@ -7,8 +10,8 @@
     <li><%= product.description %></li>
     <li><%= product.trade_info %></li>
     <%= image_tag product.image_url(:thumb).to_s %>
-    
-      <div class="tags">  
+
+      <div class="tags">
         <% if product.tag_list.length > 0 %>
           <li><% product.tag_list.each do |tag| %>
               <%= tag %>
@@ -16,7 +19,7 @@
           </li>
         <% else %>
           <li>no tags</li>
-        <% end %>          
+        <% end %>
       </div>
   </ul>
 <% end %>
