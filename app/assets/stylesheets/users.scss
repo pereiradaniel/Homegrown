@@ -22,6 +22,22 @@
       @include span-columns(1);
       @include omega(2n);
     }
+
+  @include media($medium-screen-only) {
+    @include span-columns(2);
+    @include omega(2n);
+    }
+
+  @include media($large-screen-only) {
+    @include span-columns(4);
+    @include omega(2n);
+    }
+
+  @include media($xlarge-screen-up) {
+    @include span-columns(6);
+    @include omega(2n);
+    }
+
   display: inline-block;
   float: left;
   background: $green;
@@ -51,6 +67,21 @@
       @include omega(2n);
     }
 
+  @include media($medium-screen-only) {
+    @include span-columns(2);
+    @include omega(2n);
+    }
+
+  @include media($large-screen-only) {
+    @include span-columns(4);
+    @include omega(2n);
+    }
+
+  @include media($xlarge-screen-up) {
+    @include span-columns(6);
+    @include omega(2n);
+    }
+
   font-size: 0.75em;
   border: $base-border;
   border-radius: $base-border-radius;
@@ -58,11 +89,149 @@
   margin-top: 0.25em;
   margin-bottom: 0.25em;
   padding: 0.25em;
+
+  li.datetime {
+    font-style: italic;
+    font-size: 0.75em;
+}
 }
 
 .view-link {
+  border: $base-border;
+  border-radius: $base-border-radius;
   text-align: center;
   text-shadow: $text-shadow;
   color: $green;
   text-decoration: none;
+}
+
+.show-all {
+    @include media($small-screen-only) {
+      @include span-columns(2);
+      @include omega(2n);
+    }
+
+  @include media($medium-screen-only) {
+    @include span-columns(4);
+    @include omega(2n);
+    }
+
+  @include media($large-screen-only) {
+    @include span-columns(8);
+    @include omega(2n);
+    }
+
+  @include media($xlarge-screen-up) {
+    @include span-columns(12);
+    @include omega(2n);
+    }
+  
+  line-height: $base-line-height;
+}
+
+.product-convo-bar {
+  @include media($small-screen-only) {
+      @include span-columns(2);
+      @include omega(2n);
+    }
+
+    @include media($medium-screen-only) {
+      @include span-columns(4);
+      @include omega(2n);
+    }
+
+  @include media($large-screen-only) {
+    @include span-columns(8);
+    @include omega(2n);
+    }
+
+  @include media($xlarge-screen-up) {
+    @include span-columns(12);
+    @include omega(2n);
+    }
+  font-size: 0.75em;
+  border: $base-border;
+  border-radius: $base-border-radius;
+  box-shadow: $form-box-shadow;
+  margin-top: 0.25em;
+  margin-bottom: 0.25em;
+  padding: 0.25em;
+  
+  ul {
+    display:block;
+  }
+  
+
+  ul li {
+  display: inline-block;
+    
+    @include media($small-screen-only) {
+      @include span-columns(1);
+      @include omega(2n);
+    }
+    
+    @include media($medium-screen-only) {
+      @include span-columns(2);
+      @include omega(2n);
+    }
+
+  @include media($large-screen-only) {
+    @include span-columns(4);
+    @include omega(2n);
+    }
+
+  @include media($xlarge-screen-up) {
+    @include span-columns(6);
+    @include omega(2n);
+    }
+  }
+
+  img {
+  max-height: 100px;
+
+  @include media($medium-screen-only) {
+  @include span-columns(1);
+  @include omega(2n);
+  
+  max-height: 100px;
+
+    }
+  }
+
+}
+
+.product-related-convos {
+  display: none;
+}
+
+.open {
+  display: block;
+}
+
+.message-details {
+
+    @include media($small-screen-only) {
+      @include span-columns(1);
+      @include omega(2n);
+
+      padding-left: 0.5em;
+    }
+    
+    @include media($medium-screen-only) {
+      @include span-columns(2);
+      @include omega(2n);
+
+      padding-left: 2em;
+    }
+
+  @include media($large-screen-only) {
+    @include span-columns(4);
+    @include omega(2n);
+    padding-left: 6em;
+    }
+
+  @include media($xlarge-screen-up) {
+    @include span-columns(6);
+    @include omega(2n);
+    }
 }

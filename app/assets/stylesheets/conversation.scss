@@ -2,52 +2,135 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 	
-	.convo-product-brief li {
-	@include media($small-screen-only) {
-	    @include span-columns(1);
-	    @include omega(2n);
-	  	}
-
-	  padding: 0.25em;
-	}
-
-	.trade-request-info ul {
-		@include media($small-screen-only) {
-	    @include span-columns(2);
-	    @include omega(2n);
-	  	}
-
-			border-bottom: $base-border;
-		  border-radius: $base-border-radius;
-		  padding: $btn-padding;
-		  box-shadow: $form-box-shadow;
-		  text-decoration: none;
-		  width: 12em;
-			font-size: 0.75em;
-		
-	}
 
 
-.message-details ul, .convo-product-brief ul {
-		@include media($small-screen-only) {
-	    @include span-columns(2);
-	    @include omega(2n);
-	  	}
+.convo-product-brief {
+  @include media($small-screen-only) {
+      @include span-columns(2);
+      @include omega(2n);
+    }
+
+    @include media($medium-screen-only) {
+      @include span-columns(4);
+      @include omega(2n);
+    }
+
+  @include media($large-screen-only) {
+    @include span-columns(8);
+    @include omega(2n);
+    }
+
+  @include media($xlarge-screen-up) {
+    @include span-columns(12);
+    @include omega(2n);
+    }
+
+  font-size: 0.75em;
+  border: $base-border;
+  border-radius: $base-border-radius;
+  box-shadow: $form-box-shadow;
+  margin-top: 0.25em;
+  margin-bottom: 0.25em;
+  padding: 0.25em;
+  
+  ul {
+    display:block;
+  }
+  
+
+  ul li {
+  display: inline-block;
+    
+    @include media($small-screen-only) {
+      @include span-columns(1);
+      @include omega(2n);
+    }
+    
+    @include media($medium-screen-only) {
+      @include span-columns(2);
+      @include omega(2n);
+    }
+
+  @include media($large-screen-only) {
+    @include span-columns(4);
+    @include omega(2n);
+    }
+
+  @include media($xlarge-screen-up) {
+    @include span-columns(6);
+    @include omega(2n);
+    }
+  }
+
+  img {
+  max-height: 100px;
+
+  @include media($medium-screen-only) {
+  @include span-columns(1);
+  @include omega(2n);
+  
+  max-height: 200px;
+    }
+  }
+}
+
+.trade-request-info {
+	  @include media($small-screen-only) {
+      @include span-columns(2);
+      @include omega(2n);
+    }
+
+    @include media($medium-screen-only) {
+      @include span-columns(4);
+      @include omega(2n);
+    }
+
+  @include media($large-screen-only) {
+    @include span-columns(8);
+    @include omega(2n);
+    }
+
+  @include media($xlarge-screen-up) {
+    @include span-columns(12);
+    @include omega(2n);
+    }
+
+		border-bottom: $base-border;
+	  border-radius: $base-border-radius;
+	  padding: $btn-padding;
+	  box-shadow: $form-box-shadow;
+	  text-decoration: none;
+	  width: 12em;
+		font-size: 0.75em;
+}
+
+
+.message-details {
+  @include media($small-screen-only) {
+      @include span-columns(2);
+      @include omega(2n);
+    }
+
+    @include media($medium-screen-only) {
+      @include span-columns(4);
+      @include omega(2n);
+    }
+
+  @include media($large-screen-only) {
+    @include span-columns(8);
+    @include omega(2n);
+    }
+
+  @include media($xlarge-screen-up) {
+    @include span-columns(12);
+    @include omega(2n);
+    }
 		  
 		  float: left;
 			display: block;
-			border-bottom: $base-border;
-		  border-radius: $base-border-radius;
-		  padding: $btn-padding;
-		  box-shadow: $form-box-shadow;
 		  text-decoration: none;
-		  width: 12em;
 			font-size: 0.75em;
 	
-}
-
-.message-details li, .convo-product-brief li {
-	float:left;
 }
 
 .timestamp {
@@ -58,11 +141,28 @@
 	line-height: 0.7em;
 }
 
-.convo-controls li {
+.convo-controls {
+
   @include media($small-screen-only) {
       @include span-columns(2);
       @include omega(2n);
     }
+
+    @include media($medium-screen-only) {
+      @include span-columns(4);
+      @include omega(2n);
+    }
+
+  @include media($large-screen-only) {
+    @include span-columns(8);
+    @include omega(2n);
+    }
+
+  @include media($xlarge-screen-up) {
+    @include span-columns(12);
+    @include omega(2n);
+    }
+  
   display: inline-block;
   float: left;
   background: $green;
@@ -74,17 +174,43 @@
   text-align: center;
   color: $light-gray;
   width: 12em;
-}
+	
+  ul li {
+    
+    @include media($small-screen-only) {
+      @include span-columns(1);
+      @include omega(2n);
+    }
+    
+    @include media($medium-screen-only) {
+      @include span-columns(2);
+      @include omega(2n);
+    }
 
-.convo-controls li:hover {
+  @include media($large-screen-only) {
+    @include span-columns(4);
+    @include omega(2n);
+    }
+
+  @include media($xlarge-screen-up) {
+    @include span-columns(6);
+    @include omega(2n);
+    }
+  }
+
+	ul li:hover {
   background: #3cb0fd;
   background-image: linear-gradient(to bottom, darken($green, 5%), lighten($green, 30%));
   text-decoration: none;
+	}
+	
+	a {
+	  color: $light-gray;
+	}
+
 }
 
-.convo-controls a {
-  color: $light-gray;
-}
+
 
 .list-container {
 	display: none;
@@ -96,4 +222,8 @@
 
 .close {
 	display: none;
+}
+
+.message-history {
+	font-size: 0.85em;
 }

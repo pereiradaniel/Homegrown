@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
-  # skip_before_filter :require_login, only: [:new, :create]
-  # before_filter :load_user, only: [:show, :destroy, :update, :edit]
+  skip_before_filter :require_login, only: [:new, :create]
 
   def new
     @user = User.new
@@ -20,6 +19,10 @@ class UsersController < ApplicationController
     @conversations = Conversation.where("receiver_id = ? OR sender_id = ?", current_user.id, current_user.id)
     @trades = Trade.where("seller_id = ?", current_user.id)
     @user = current_user
+
+    # create a list of products that belong to products in @conversations
+    @products_list = @conversations.select(:product_id).distinct
+
   end
 
   def destroy
@@ -48,9 +51,5 @@ class UsersController < ApplicationController
   private
   def user_params
     params.require(:user).permit(:name, :email, :password, :password_confirmation)
-  end
-
-  def load_user
-    @user = User.find(params[:id])
   end
 end
