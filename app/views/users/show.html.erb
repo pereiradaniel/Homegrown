@@ -18,9 +18,10 @@
   
   <div class="product-convo-bar">
     <ul>
-      <li><%= c.product.name %></li>
-      <li><%= c.product.garden.user.name %></li>
+      <li><%= link_to "#{c.product.name}", product_path(c.product) %></li>
+      <li>Grower <%= link_to "#{c.product.garden.user.name}", garden_path(c.product.garden) %></li>
       <li><%= image_tag(c.product.image_url(:thumb).to_s) %></li>
+      <li><%= c.product.description %></li>
     </ul>
   </div>
 
@@ -33,10 +34,10 @@
         <% if !conv.trade %>
           <div class="request-box">
             <ul>
-              <li>Request id: <%= conv.id %></li>
-              <li>Requested by: <%= conv.sender.name %></li>
+              <li class="view-link"><%= link_to "Trade with #{conv.sender.name}", conversation_path(conv) %></li>
               <li><%= conv.request %></li>
-              <li class="view-link"><%= link_to "View conversation", conversation_path(conv) %></li>
+              <li class="datetime">Started: <%= conv.created_at.to_formatted_s(:db)  %></li>
+              <li class="datetime">Last message: <%= conv.messages.last.created_at.to_formatted_s(:db) %></li>
             </ul>
           </div>
         <% end %>
