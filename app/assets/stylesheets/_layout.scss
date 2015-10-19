@@ -3,7 +3,7 @@
   background-color: #F2F3F9;
   //position: fixed;
   margin: 0;
-  padding: 0 .5em;
+  // padding: 0 .5em;
   min-height: $title-bar-height;
   top: 0;
   left: 0;
@@ -82,6 +82,51 @@
 }
 
 main {
-  padding: 0 .5em;
+  padding: 0 0 0.5em 0;
+  @include clearfix;
+}
+
+.footer-bar{
+  font-size: .6em;
+  display: block;
+  color:#989995;
+  background-color: #F2F3F9;
+  min-height: $title-bar-height;
+  @include clearfix;
+
+  p{
+    font-weight: 700;
+  }
+
+  ul{
+    padding: 4px 0;
+    text-align: center;
+    li{    
+      @include media($small-screen-only) {
+        @include span-columns(1);
+        @include omega(1n);
+      }
+
+      @include media($medium-screen-only) {
+        @include span-columns(1);
+        @include omega(4n);
+      }  
+
+      @include media($large-screen-only) {
+        @include span-columns(2);
+        @include omega(8n);
+      }
+
+      @include media($xlarge-screen-up) {
+        @include span-columns(3);
+        @include omega(12n);
+      }
+
+      ul li{
+        @include span-columns(2);
+        float: none;
+      }
+    }
+  }
 }
 

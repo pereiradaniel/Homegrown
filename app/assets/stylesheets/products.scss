@@ -2,6 +2,46 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.banner{
+	height: 768px;
+	background: url('banner.jpg') no-repeat;
+	background-size: cover;
+	margin-bottom: 0.5em;
+	@include media($large-screen-only) {
+		max-height: 323px;
+	}
+	@include media($xlarge-screen-up) {
+		max-height: 663px;
+	}
+}
+
+.banner-text h1{
+	color: white;
+	text-align: center;
+	@include media($large-screen-only) {
+		font-size: 2.5em;
+		text-shadow: 2px 2px 4px #000000;
+  }
+	@include media($xlarge-screen-up) {
+		font-size: 4em;
+		text-shadow: 3.5px 3.5px 6px #000000;
+  }
+}
+
+#text-1{
+	@include media($large-screen-only) {
+		padding-top: 1.2em;
+  }
+	@include media($xlarge-screen-up) {
+		padding-top: 2em;
+  }
+}
+
+main > h3{
+	font-size: 1em;
+	text-align: center;
+}
+
 .carousel-container {
 	@include span-columns(2);
 	width: 100%;
@@ -11,7 +51,12 @@
 
 .carousel {
 	width: 83em;
-	height: 12em;
+	@include media($large-screen-only) {
+		height: 12em;
+  }
+	@include media($xlarge-screen-up) {
+		height: 12em;
+  }
 }
 
 .carousel-card{
@@ -78,8 +123,8 @@
 
 		@include media($xlarge-screen-up) {
 			@include span-columns(6);
-			@include omega(2n);
-		}		
+			@include omega(6n);
+		}
 
 		a {
 			color: #fff;
@@ -98,32 +143,39 @@
 	}
 
 	.btn-mask {
-		background-color: rgba(255,255,255,.2)
+		background-color: rgba(255,255,255,.2);
+		max-width: 294px;
 	}
 
 	#leafy-green-btn {
 		background: url('leafy-green-btn.jpg') no-repeat;
 		background-size: 100%;
+		max-width: 294px;
 	}
 	#roots-btn {
 		background: url('roots-btn.jpg') no-repeat;
 		background-size: 100%;
+		max-width: 294px;
 	}
 	#fruit-veggie-btn {
 		background: url('fruit-veggie-btn.jpg') no-repeat;
 		background-size: 100%;
+		max-width: 294px;
 	}
 	#pomes-btn {
 		background: url('pomes-btn.jpg') no-repeat;
 		background-size: 100%;
+		max-width: 294px;
 	}
 	#citrus-btn {
 		background: url('citrus-btn.jpg') no-repeat;
 		background-size: 100%;
+		max-width: 294px;
 	}
 	#berries-btn {
 		background: url('berries-btn.jpg') no-repeat;
 		background-size: 100%;
+		max-width: 294px;
 	}
 
 }
