@@ -1,7 +1,4 @@
 <h1>Welcome to <%= @garden.user.name %>'s Garden</h1>
-   <div>
-      <strong>Distance:</strong> <span class="product-distance-from"><%= @garden.distance_to([session[:lat], session[:long]]).round(2) %></span>Km from you.
-    </div>
 
 <% @products.each do |product| %>
 
