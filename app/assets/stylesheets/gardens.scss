@@ -6,6 +6,33 @@
   @include media($small-screen-only) {
       @include span-columns(1);
       @include omega(2n);
+
+      img {
+          max-height: 100px;
+      }
+    }
+
+    @include media($medium-screen-only) {
+      @include span-columns(2);
+      @include omega(2n);
+
+      img {
+        max-height: 200px;
+      }
+    }
+
+  @include media($large-screen-only) {
+    @include span-columns(2);
+    @include omega(2n);
+
+      img {
+        max-height: 300px;
+      }
+    }
+
+  @include media($xlarge-screen-up) {
+    @include span-columns(6);
+    @include omega(2n);
     }
 
   font-size: 0.75em;
@@ -15,7 +42,43 @@
   margin-top: 0.25em;
   margin-bottom: 0.25em;
   padding: 0.25em;
+
+  img {
+      float: right;
+      position: relative;
+      border-radius: $base-border-radius;
+    }
+
+  ul {
+    display:block;
+  }
+  
+
+  ul li {
+  display: inline-block;
+    
+    @include media($small-screen-only) {
+      @include span-columns(1);
+      @include omega(2n);
+    }
+    
+    @include media($medium-screen-only) {
+      @include span-columns(2);
+      @include omega(2n);
+    }
+
+  @include media($large-screen-only) {
+    @include span-columns(4);
+    @include omega(2n);
+    }
+
+  @include media($xlarge-screen-up) {
+    @include span-columns(6);
+    @include omega(2n);
+    }
+  }
 }
+
 
 #map-canvas {
   width: 100%;
@@ -24,6 +87,27 @@
 }
 
 .new-product-form {
-	display:block;
-	font-size: 0.4em;
+
+  display: block;
+  
+  @include media($small-screen-only) {
+    @include span-columns(2);
+    @include omega(2n);
+  }
+  
+  @include media($medium-screen-only) {
+    @include span-columns(4);
+    @include omega(2n);
+  }
+
+@include media($large-screen-only) {
+  @include span-columns(8);
+  @include omega(2n);
+  }
+
+@include media($xlarge-screen-up) {
+  @include span-columns(12);
+  @include omega(2n);
+  }
+
 }
