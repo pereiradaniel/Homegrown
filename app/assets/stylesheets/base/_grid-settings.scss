@@ -1,6 +1,6 @@
 @import "neat-helpers"; // or "../neat/neat-helpers" when not in Rails
-$visual-grid: true;
-$visual-grid-color: lighten(red, 10%);
+// $visual-grid: true;
+// $visual-grid-color: lighten(red, 10%);
 
 // Neat Overrides
 // $column: 90px;
@@ -9,11 +9,10 @@ $grid-columns: 2;
 // $max-width: 1080px;
 // Neat Breakpoints
 $small-screen: 300px;
-$medium-screen: 600px;
-$large-screen: 900px;
-$xlarge-screen: 1080px;
+$medium-screen: 640px;
+$large-screen: 960px;
+$xlarge-screen: 1280px;
 
-// $small-screen-only: new-breakpoint(max-width em($small-screen - 1px) 2);
 $small-screen-up: new-breakpoint(min-width em($small-screen) 2);
 $small-screen-only: new-breakpoint(min-width em($small-screen) max-width em($medium-screen - 1px) 2);
 

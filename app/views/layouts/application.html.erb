@@ -57,10 +57,10 @@
   </header>
 
   <main>
-    <div>
-      <p id="notice"><%= flash[:notice] %></p>
-      <p id="alert"><%= flash[:alert] %></p>
-    </div>
+<!--     <div>
+      <p id="notice"><%# flash[:notice] %></p>
+      <p id="alert"><%# flash[:alert] %></p>
+    </div> -->
     <%= yield %>
   </main>
 
@@ -83,7 +83,12 @@
           <li>Github</li>
         </ul>
       </li>
-      <li>Sponsors</li>
+      <li>
+        <p>Sponsors</p>
+        <ul>
+          <li>Bitmakerlabs</li>
+        </ul>
+      </li>
     </ul>
   </footer>
 
