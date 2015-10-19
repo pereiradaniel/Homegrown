@@ -207,3 +207,31 @@
 .open {
   display: block;
 }
+
+.message-details {
+
+    @include media($small-screen-only) {
+      @include span-columns(1);
+      @include omega(2n);
+
+      padding-left: 0.5em;
+    }
+    
+    @include media($medium-screen-only) {
+      @include span-columns(2);
+      @include omega(2n);
+
+      padding-left: 2em;
+    }
+
+  @include media($large-screen-only) {
+    @include span-columns(4);
+    @include omega(2n);
+    padding-left: 6em;
+    }
+
+  @include media($xlarge-screen-up) {
+    @include span-columns(6);
+    @include omega(2n);
+    }
+}
