@@ -2,6 +2,14 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.banner{
+	height: 768px;
+	max-height: 593px;
+	background: url('banner.jpg') no-repeat;
+	background-size: cover;
+	margin-bottom: 0.5em;
+}
+
 .carousel-container {
 	@include span-columns(2);
 	width: 100%;
@@ -63,6 +71,16 @@
 
 		@include media($small-screen-only) {
 			@include span-columns(1);
+			@include omega(2n);
+		}
+
+		@include media($medium-screen-only) {
+			@include span-columns(2);
+			@include omega(2n);
+		}
+
+		@include media($large-screen-only) {
+			@include span-columns(4);
 			@include omega(2n);
 		}
 
