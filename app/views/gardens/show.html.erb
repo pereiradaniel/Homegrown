@@ -1,25 +1,27 @@
 <h1>Welcome to <%= @garden.user.name %>'s Garden</h1>
 
-<% @products.each do |product| %>
+<div class="garden-grid">
+  <% @products.each do |product| %>
 
-  <ul class="garden-product-list-item">
-    <li><%= image_tag product.image_url(:thumb).to_s %></li>
-    <li><%= link_to product.name, product_path(product) %></li>
-    <li><%= product.description %></li>
-    <li><%= product.trade_info %></li>
+    <ul class="garden-product-list-item">
+      <li><%= image_tag product.image_url(:thumb).to_s %></li>
+      <li><%= link_to product.name, product_path(product) %></li>
+      <li><%= product.description %></li>
+      <li><%= product.trade_info %></li>
 
-      <div class="tags">
-        <% if product.tag_list.length > 0 %>
-          <li><% product.tag_list.each do |tag| %>
-              <%= tag %>
-              <% end %>
-          </li>
-        <% else %>
-          <li>no tags</li>
-        <% end %>
-      </div>
-  </ul>
-<% end %>
+        <div class="tags">
+          <% if product.tag_list.length > 0 %>
+            <li><% product.tag_list.each do |tag| %>
+                <%= tag %>
+                <% end %>
+            </li>
+          <% else %>
+            <li>no tags</li>
+          <% end %>
+        </div>
+    </ul>
+  <% end %>
+</div>
 
 
 <div id="map-canvas" data-latitude="<%= @garden.latitude.to_f %>" data-longitude="<%= @garden.longitude.to_f %>"></div>
