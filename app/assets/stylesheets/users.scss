@@ -58,9 +58,16 @@
   margin-top: 0.25em;
   margin-bottom: 0.25em;
   padding: 0.25em;
+
+  li.datetime {
+    font-style: italic;
+    font-size: 0.75em;
+}
 }
 
 .view-link {
+  border: $base-border;
+  border-radius: $base-border-radius;
   text-align: center;
   text-shadow: $text-shadow;
   color: $green;
@@ -76,7 +83,7 @@
 
 .product-convo-bar {
   @include media($small-screen-only) {
-      @include span-columns(3);
+      @include span-columns(2);
       @include omega(2n);
     }
 
@@ -90,21 +97,21 @@
   
   ul {
     display:block;
+  }
+  
+
+  ul li {
+  display: inline-block;
+    @include media($small-screen-only) {
+      @include span-columns(1);
+      @include omega(2n);
+    }
   
   }
 
-  li {
-  display: inline-block;
-  float: left;
-  text-align: center;
-  width: 12em;
-
-  }
-
-  img {
-    width: 50px;
-    
-  }
+  ul li img {
+  max-height: 100px;
+    }
 
 }
 

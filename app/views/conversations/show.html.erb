@@ -1,3 +1,13 @@
+<% if @owner == current_user %>
+	<div class="convo-controls">
+		<ul>
+			<li><%= link_to raw("<i class=\"fa fa-gavel\"> End Trade</i>"), new_trade_path(:product => @product.id, :buyer => @conversation.sender.id, :conversation =>@conversation.id) %></li>
+			<li><%= link_to  "Active Trades", user_path(current_user) %></li>
+		</ul>
+	</div>
+<% else %>
+<% end %>
+
 <div class="convo-product-brief">
 	<ul>
 		<li><%= @product.name %><br><%= @product.trade_info %></li>
@@ -7,7 +17,7 @@
 
 <div class="trade-request-info">
   <ul>
-		<p class="timestamp"><%= @conversation.created_at %></p>
+		<p class="timestamp"><%= @conversation.created_at.to_formatted_s(:db) %></p>
     <li><%= @conversation.sender.name %> is requesting a trade for <%= @product.name %></li>
 		<li><%= @conversation.request %></li>
   </ul>
@@ -15,12 +25,13 @@
 
 <% if @conversation.messages.length > 0 %>
 
-<h3><a class="message-history" href="#">Message History</a></h3>
+
+<a class="message-history" href="#">Message History</a>
 
 <div class="most-recent-message">
 		<div class="message-details">
 			<ul>
-				<p class="timestamp"><%= @conversation.messages.last.created_at %></p>
+				<p class="timestamp"><%= @conversation.messages.last.created_at.to_formatted_s(:db) %></p>
 				<li><%= @conversation.messages.last.sender.name %> said:</li>
 				<li class="message-content"><%= @conversation.messages.last.content %></li>
 			</ul>
@@ -33,7 +44,7 @@
 		<% @conversation.messages.each do |m| %>
 			<div class="message-details">
 				<ul>
-					<p class="timestamp"><%= m.created_at %></p>
+					<p class="timestamp"><%= m.created_at.to_formatted_s(:db) %></p>
 					<li><%= m.sender.name %> said:</li>
 					<li class="message-content"><%= m.content %></li>
 				</ul>
@@ -49,14 +60,6 @@
 
 <% end %>
 
-<% if @owner == current_user %>
-	<div class="convo-controls">
-		<ul>
-			<li><%= link_to raw("<i class=\"fa fa-gavel\"> End Trade</i>"), new_trade_path(:product => @product.id, :buyer => @conversation.sender.id, :conversation =>@conversation.id) %></li>
-		</ul>
-	</div>
-<% else %>
-<% end %>
 
 
 

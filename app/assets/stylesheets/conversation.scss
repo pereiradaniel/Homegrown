@@ -60,7 +60,7 @@
 
 .convo-controls li {
   @include media($small-screen-only) {
-      @include span-columns(2);
+      @include span-columns(1);
       @include omega(2n);
     }
   display: inline-block;
@@ -96,4 +96,8 @@
 
 .close {
 	display: none;
+}
+
+.message-history {
+	font-size: 0.85em;
 }
