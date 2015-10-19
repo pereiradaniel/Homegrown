@@ -19,27 +19,24 @@ function geolocationSuccess(position, isLocationDisabled) {
     var urlVar = '/gardens';
   };
 
-
   $.ajax({
-      url: urlVar,
-      method: 'GET',
-      data: {
-        longitude: longitude,
-        latitude: latitude,
-        search: searchvar,
-        proximity: proximity
-      },
-      dataType: 'script'
-    });
-  }
+    url: urlVar,
+    method: 'GET',
+    data: {
+      longitude: longitude,
+      latitude: latitude,
+      search: searchvar,
+      proximity: proximity
+    },
+    dataType: 'script'
+  });
+}
 
 function geolocationError() {
   alert("Please enable location for proximity search to work!");
   var position = undefined;
   geolocationSuccess(position);
 }
-
-
 
 function Map(mapId){
   this.mapId = mapId;
@@ -87,9 +84,6 @@ $(document).on('ready page:load', function(){
     getLocation();
   });
 
-  $("#login").on("click", function() {
-    getLocation();
-  });
 });
 
 function getLocation() {

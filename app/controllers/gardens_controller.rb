@@ -22,21 +22,12 @@ class GardensController < ApplicationController
     if params[:latitude]
       @lat = params[:latitude]
       @long = params[:longitude]
-      # binding.pry
-      session[:lat] ||= @lat
-      session[:long] ||= @long
     end
 
     @garden = Garden.find(params[:id])
     @products = Garden.find(params[:id]).products
     @product = Product.new
     @user = @garden.user
-    # @conversation = Conversation.new
-    # @message = Message.new
-
-    # respond_to do |format|
-    #   format.js
-    # end
   end
 
   def new

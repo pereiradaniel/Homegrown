@@ -1,18 +1,6 @@
 <div class="carousel-container">
   <div class="carousel">
-    <% @products.each do |product| %>
-      <div class="carousel-card">
-        <div class="carousel-pic">
-          <%= image_tag product.image_url(:thumb).to_s %>
-        </div>
-        <div class="carousel-info">
-          <ul>
-            <li class="truncate"><%= link_to product.name, product_path(product) %></li>
-            <li class="truncate">by: <%= product.garden.user.name %></li>
-          </ul>
-        </div>
-      </div>
-    <% end %>
+    <%= render 'carousel' %>
   </div>
 </div>
 
@@ -73,3 +61,33 @@
     <% end %>
   </div>
 </div>
+
+
+<% if !has_location? %>
+  <script>
+   if ("geolocation" in navigator) {
+      navigator.geolocation.getCurrentPosition(geolocationSession);
+    }else{
+      alert("Browser does not support geocoding");
+    }
+
+    function geolocationSession(position, isLocationDisabled) {
+
+      var latitude  = position.coords.latitude;
+      var longitude = position.coords.longitude;
+
+      $.ajax({
+        url: '/user_sessions/location',
+        method: 'GET',
+        data: {
+          longitude: longitude,
+          latitude: latitude
+        },
+        dataType: 'script'
+      });
+    }
+  </script>
+<% end %>
+
+
+

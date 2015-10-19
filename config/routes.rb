@@ -18,4 +18,6 @@ Rails.application.routes.draw do
 
   get 'login' => 'user_sessions#new', :as => :login
   post 'logout' => 'user_sessions#destroy', :as => :logout
+
+  get "user_sessions/location" => "user_sessions#location"
 end

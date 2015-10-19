@@ -1,0 +1,16 @@
+<% @products.each do |product| %>
+  <div class="carousel-card">
+    <div class="carousel-pic">
+      <%= image_tag product.image_url(:thumb).to_s %>
+    </div>
+    <div class="carousel-info">
+      <ul>
+        <% if session_location != nil %>
+          <li><%= product.distance_to(session[:location], :km) %></li>
+        <% end %>
+        <li class="truncate"><%= link_to product.name, product_path(product) %></li>
+        <li class="truncate">by: <%= product.garden.user.name %></li>
+      </ul>
+    </div>
+  </div>
+<% end %>

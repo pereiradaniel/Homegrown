@@ -13,11 +13,6 @@ class ProductsController < ApplicationController
   def choose_search_method
     search = params[:search]
 
-    if params[:latitude]
-      @lat = params[:latitude]
-      @long = params[:longitude]
-    end
-
     if params[:tag]
      @products = Product.find_by_tag(params[:tag])
     elsif params[:latitude] && params[:longitude] && search
@@ -81,5 +76,6 @@ class ProductsController < ApplicationController
   def product_params
     params.require(:product).permit(:name, :description, :trade_info, :image, :tag_list)
   end
+
 end
 

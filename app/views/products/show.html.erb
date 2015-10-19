@@ -32,7 +32,6 @@
     <em>Tag: <%= @product.tag_list %></em>
   </div>
 
-
   <% if current_user && @product.garden.user != current_user %>
     <div class="product-show-text">Please leave a message
     <%= render 'messageform' %></div>
