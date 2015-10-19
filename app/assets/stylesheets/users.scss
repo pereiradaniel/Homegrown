@@ -66,3 +66,52 @@
   color: $green;
   text-decoration: none;
 }
+
+.show-all {
+    @include media($small-screen-only) {
+      @include span-columns(2);
+      @include omega(2n);
+    }
+}
+
+.product-convo-bar {
+  @include media($small-screen-only) {
+      @include span-columns(3);
+      @include omega(2n);
+    }
+
+  font-size: 0.75em;
+  border: $base-border;
+  border-radius: $base-border-radius;
+  box-shadow: $form-box-shadow;
+  margin-top: 0.25em;
+  margin-bottom: 0.25em;
+  padding: 0.25em;
+  
+  ul {
+    display:block;
+  
+  }
+
+  li {
+  display: inline-block;
+  float: left;
+  text-align: center;
+  width: 12em;
+
+  }
+
+  img {
+    width: 50px;
+    
+  }
+
+}
+
+.product-related-convos {
+  display: none;
+}
+
+.open {
+  display: block;
+}

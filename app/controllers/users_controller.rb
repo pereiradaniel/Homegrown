@@ -20,6 +20,10 @@ class UsersController < ApplicationController
     @conversations = Conversation.where("receiver_id = ? OR sender_id = ?", current_user.id, current_user.id)
     @trades = Trade.where("seller_id = ?", current_user.id)
     @user = current_user
+
+    # create a list of products that belong to products in @conversations
+    @products_list = @conversations.select(:product_id).distinct
+
   end
 
   def destroy

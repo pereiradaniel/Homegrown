@@ -14,24 +14,38 @@
   </ul>
 </div>
 
-
-
-<% if @conversations %>
-  <div class="conversations">
-    <% @conversations.each do |c| %>
-      <% if !c.trade %>
-
-          <ul class="request-box">
-            <li><%= c.product.name %></li>
-            <li>Requested by: <%= c.sender.name %></li>
-            <li class="view-link"><%= link_to "View conversation", conversation_path(c) %></li>
-            <%= link_to( image_tag(c.product.image_url(:thumb).to_s), product_path(c.product)) %>
-          </ul>
-
-      <% end %>
-    <% end %>
+<% @products_list.each do |c| %>
+  
+  <div class="product-convo-bar">
+    <ul>
+      <li><%= c.product.name %></li>
+      <li><%= c.product.garden.user.name %></li>
+      <li><%= image_tag(c.product.image_url(:thumb).to_s) %></li>
+    </ul>
   </div>
+
+  <div class="convo-wrapper">
+  <a href="#" class="show-all">Show all trades in progress.</a>
+
+  <div class="product-related-convos">
+      <% @conversations.where("product_id = ?", c.product.id).each do |conv| %>
+        
+        <% if !conv.trade %>
+          <div class="request-box">
+            <ul>
+              <li>Request id: <%= conv.id %></li>
+              <li>Requested by: <%= conv.sender.name %></li>
+              <li><%= conv.request %></li>
+              <li class="view-link"><%= link_to "View conversation", conversation_path(conv) %></li>
+            </ul>
+          </div>
+        <% end %>
+      
+      <% end %>
+  </div>
+</div>
 <% end %>
+
 
 <ul>
   <% if !@user.garden %>
