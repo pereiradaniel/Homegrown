@@ -22,6 +22,22 @@
       @include span-columns(1);
       @include omega(2n);
     }
+
+  @include media($medium-screen-only) {
+    @include span-columns(2);
+    @include omega(2n);
+    }
+
+  @include media($large-screen-only) {
+    @include span-columns(4);
+    @include omega(2n);
+    }
+
+  @include media($xlarge-screen-up) {
+    @include span-columns(6);
+    @include omega(2n);
+    }
+
   display: inline-block;
   float: left;
   background: $green;
@@ -49,6 +65,21 @@
   @include media($small-screen-only) {
       @include span-columns(1);
       @include omega(2n);
+    }
+
+  @include media($medium-screen-only) {
+    @include span-columns(2);
+    @include omega(2n);
+    }
+
+  @include media($large-screen-only) {
+    @include span-columns(4);
+    @include omega(2n);
+    }
+
+  @include media($xlarge-screen-up) {
+    @include span-columns(6);
+    @include omega(2n);
     }
 
   font-size: 0.75em;
@@ -79,6 +110,23 @@
       @include span-columns(2);
       @include omega(2n);
     }
+
+  @include media($medium-screen-only) {
+    @include span-columns(4);
+    @include omega(2n);
+    }
+
+  @include media($large-screen-only) {
+    @include span-columns(8);
+    @include omega(2n);
+    }
+
+  @include media($xlarge-screen-up) {
+    @include span-columns(12);
+    @include omega(2n);
+    }
+  
+  line-height: $base-line-height;
 }
 
 .product-convo-bar {
@@ -87,6 +135,20 @@
       @include omega(2n);
     }
 
+    @include media($medium-screen-only) {
+      @include span-columns(4);
+      @include omega(2n);
+    }
+
+  @include media($large-screen-only) {
+    @include span-columns(8);
+    @include omega(2n);
+    }
+
+  @include media($xlarge-screen-up) {
+    @include span-columns(12);
+    @include omega(2n);
+    }
   font-size: 0.75em;
   border: $base-border;
   border-radius: $base-border-radius;
@@ -102,16 +164,39 @@
 
   ul li {
   display: inline-block;
+    
     @include media($small-screen-only) {
       @include span-columns(1);
       @include omega(2n);
     }
-  
+    
+    @include media($medium-screen-only) {
+      @include span-columns(2);
+      @include omega(2n);
+    }
+
+  @include media($large-screen-only) {
+    @include span-columns(4);
+    @include omega(2n);
+    }
+
+  @include media($xlarge-screen-up) {
+    @include span-columns(6);
+    @include omega(2n);
+    }
   }
 
-  ul li img {
+  img {
   max-height: 100px;
+
+  @include media($medium-screen-only) {
+  @include span-columns(1);
+  @include omega(2n);
+  
+  max-height: 100px;
+
     }
+  }
 
 }
 
