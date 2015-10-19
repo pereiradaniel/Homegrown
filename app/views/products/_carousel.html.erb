@@ -6,7 +6,7 @@
     <div class="carousel-info">
       <ul>
         <% if session_location != nil %>
-          <li><%= product.distance_to(session[:location], :km) %></li>
+          <li><%= product.distance_to(session[:location], :km).round(2) %>km</li>
         <% end %>
         <li class="truncate"><%= link_to product.name, product_path(product) %></li>
         <li class="truncate">by: <%= product.garden.user.name %></li>

@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get 'home' => 'pruducts#home'
   root 'products#home'
 
   get 'oauths/oauth'
@@ -12,7 +11,11 @@ Rails.application.routes.draw do
       get 'location'
     end
   end
-  resources :products
+  resources :products do
+    collection do
+      get 'home'
+    end
+  end
   resources :conversations
   resources :messages
   resources :trades
