@@ -69,6 +69,7 @@ class ProductsController < ApplicationController
   end
 
   def home
+
     session[:location] = [params[:latitude], params[:longitude]]
     @products = Product.near(session[:location], 10, units: :km).limit(10).order("RANDOM()")
   end
