@@ -22,6 +22,5 @@ class UserSessionsController < ApplicationController
 
   def location
     session[:location] = [params[:latitude], params[:longitude]]
-    binding.pry
   end
 end

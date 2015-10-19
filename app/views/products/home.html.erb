@@ -62,32 +62,30 @@
   </div>
 </div>
 
+<script>
+ if ("geolocation" in navigator) {
+    navigator.geolocation.getCurrentPosition(geolocationSession);
+  }else{
+    alert("Browser does not support geocoding");
+  }
 
-<% if !has_location? %>
-  <script>
-   if ("geolocation" in navigator) {
-      navigator.geolocation.getCurrentPosition(geolocationSession);
-    }else{
-      alert("Browser does not support geocoding");
-    }
+  function geolocationSession(position, isLocationDisabled) {
 
-    function geolocationSession(position, isLocationDisabled) {
+    var latitude  = position.coords.latitude;
+    var longitude = position.coords.longitude;
 
-      var latitude  = position.coords.latitude;
-      var longitude = position.coords.longitude;
+    $.ajax({
+      url: '/user_sessions/location',
+      method: 'GET',
+      data: {
+        longitude: longitude,
+        latitude: latitude
+      },
+      dataType: 'script'
+    });
+  }
+</script>
 
-      $.ajax({
-        url: '/user_sessions/location',
-        method: 'GET',
-        data: {
-          longitude: longitude,
-          latitude: latitude
-        },
-        dataType: 'script'
-      });
-    }
-  </script>
-<% end %>
 
 
 

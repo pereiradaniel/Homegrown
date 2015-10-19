@@ -7,7 +7,11 @@ Rails.application.routes.draw do
   get "oauth/callback" => "oauths#callback" # for use with Github, Facebook
   get "oauth/:provider" => "oauths#oauth", :as => :auth_at_provider
 
-  resources :user_sessions
+  resources :user_sessions do
+    collection do
+      get 'location'
+    end
+  end
   resources :products
   resources :conversations
   resources :messages
@@ -19,5 +23,4 @@ Rails.application.routes.draw do
   get 'login' => 'user_sessions#new', :as => :login
   post 'logout' => 'user_sessions#destroy', :as => :logout
 
-  get "user_sessions/location" => "user_sessions#location"
 end
