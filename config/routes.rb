@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get 'home' => 'pruducts#home'
   root 'products#home'
 
   get 'oauths/oauth'
@@ -7,8 +6,16 @@ Rails.application.routes.draw do
   get "oauth/callback" => "oauths#callback" # for use with Github, Facebook
   get "oauth/:provider" => "oauths#oauth", :as => :auth_at_provider
 
-  resources :user_sessions
-  resources :products
+  resources :user_sessions do
+    collection do
+      get 'location'
+    end
+  end
+  resources :products do
+    collection do
+      get 'home'
+    end
+  end
   resources :conversations
   resources :messages
   resources :trades
@@ -18,4 +25,5 @@ Rails.application.routes.draw do
 
   get 'login' => 'user_sessions#new', :as => :login
   post 'logout' => 'user_sessions#destroy', :as => :logout
+
 end
