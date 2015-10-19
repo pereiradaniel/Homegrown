@@ -28,8 +28,12 @@
               <% end %>
             </li>
             <li>
-              <%= link_to garden_path(current_user.garden) do %>
-                Garden
+              <% if current_user.garden %>
+                <%= link_to garden_path(current_user.garden) do %>
+                  Garden
+                <% end %>
+              <% else %>
+                <span class="disabled">Garden</span>
               <% end %>
             </li>
           </ul>

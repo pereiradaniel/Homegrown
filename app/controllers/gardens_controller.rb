@@ -12,13 +12,21 @@ class GardensController < ApplicationController
 
   def choose_search_method
     if params[:latitude] && params[:longitude]
-    @gardens = Garden.near([params[:latitude], params[:longitude]], params[:proximity], units: :km)
+      @gardens = Garden.near([params[:latitude], params[:longitude]], params[:proximity], units: :km)
     elsif !params[:latitude]
-    @gardens = Garden.all
+      @gardens = Garden.all
     end
   end
 
   def show
+    if params[:latitude]
+      @lat = params[:latitude]
+      @long = params[:longitude]
+      # binding.pry
+      session[:lat] ||= @lat
+      session[:long] ||= @long
+    end
+
     @garden = Garden.find(params[:id])
     @products = Garden.find(params[:id]).products
     @product = Product.new
@@ -40,7 +48,7 @@ class GardensController < ApplicationController
     @garden.user = current_user
 
     if @garden.save
-      redirect_to user_garden_path(current_user, @garden)
+      redirect_to garden_path(@garden)
     else
       render :new
     end

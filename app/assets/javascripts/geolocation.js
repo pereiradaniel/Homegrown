@@ -2,6 +2,7 @@ function geolocationSuccess(position, isLocationDisabled) {
   if(position != undefined){
     var latitude  = position.coords.latitude;
     var longitude = position.coords.longitude;
+
   }else{
     var latitude  = undefined;
     var longitude = undefined;
@@ -10,6 +11,7 @@ function geolocationSuccess(position, isLocationDisabled) {
   var searchvar = $('#search-field').val();
   var proximity = $('#proximity').val();
   var searchFor = $('#search-button').val()
+  var login = $("#login").val();
 
   if(searchFor == 'product-search'){
     var urlVar = '/products';
@@ -65,7 +67,7 @@ $(document).on('ready page:load', function(){
     $('input[type=range]').on('input change',function(){
       var input = $(this);
       updateRangeValue(input);
-    });    
+    });
 
     function updateRangeValue(input){
       var value = input.val();
@@ -75,21 +77,23 @@ $(document).on('ready page:load', function(){
 $("#garden-location").on("click", function(event) {
     event.preventDefault();
     garden = $(this).data;
-    if ("geolocation" in navigator) {
-      navigator.geolocation.getCurrentPosition(geolocationSuccess, geolocationError);
-    } else {
-      alert("Please dump your crappy browser and use Chrome!");
-    }
-  }); 
+    getLocation();
+  });
 
 $("#search-button").on("click", function(event) {
     event.preventDefault();
-    if ("geolocation" in navigator) {
-      navigator.geolocation.getCurrentPosition(geolocationSuccess, geolocationError);
-    } else {
-      alert("Please dump your crappy browser and use Chrome!");
-    }
-  }); 
+    getLocation();
+  });
 
+  $("#login").on("click", function() {
+    getLocation();
+  });
 });
 
+function getLocation() {
+  if ("geolocation" in navigator) {
+    navigator.geolocation.getCurrentPosition(geolocationSuccess, geolocationError);
+  } else {
+    alert("Browser does not support geocoding");
+  }
+}
