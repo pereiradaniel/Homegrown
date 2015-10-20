@@ -7,7 +7,11 @@
 	background: url('banner.jpg') no-repeat;
 	background-size: cover;
 	margin-bottom: 0.5em;
+	@include media($small-screen-up) {
+		display: none;
+	}
 	@include media($large-screen-up) {
+		display: block;
 		max-height: 323px;
 	}
 	@include media($xlarge-screen-up) {
