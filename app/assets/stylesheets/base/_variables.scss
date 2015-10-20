@@ -21,6 +21,7 @@ $green: #129347;
 $dark-gray: #333;
 $medium-gray: #999;
 $light-gray: #ddd;
+$menu-gray: #f2f3f9;
 
 // Font Colors
 $base-font-color: $dark-gray;
@@ -42,6 +43,9 @@ $form-box-shadow-focus: $form-box-shadow, 0 0 5px adjust-color($action-color, $l
 $base-duration: 150ms;
 $base-timing: ease;
 
+// Products
+$card-box-shadow: 0 1px 2px 0 rgba(0,0,0,0.22);
+
 // Extras
 $title-bar-height: 2.3em;
 $text-shadow: text-shadow 1px 1px 3px $light-gray;
@@ -53,3 +57,4 @@ $btn-line-height: 1.25em;
 
 // Navigation
 $nav-color: #F2F3F9;
+

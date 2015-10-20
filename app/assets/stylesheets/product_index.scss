@@ -1,19 +1,31 @@
+#products {
+  margin-top: .5em;
+  @include clearfix;
+}
 
 .product-card {
-
   padding: .3em;
   width: 145px;
   padding: 0;
   margin: 0;
-  margin-bottom: 5px;
+  margin-bottom: .25em;
   border: 1px solid #ccc;
   border-radius: 5px;
   float: left;
+  box-shadow: $card-box-shadow;
+
+  .product-card-pic {
+    background: white;
+  }
 
   .product-info {
-    margin: 0 .1em;
+    background: white;
+    padding: 0 .1em;
+    line-height: 1.1em;
+    margin-top: .1em;
+    font-size: .8em;
+
     h3 {
-      width: 100%;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
@@ -21,13 +33,11 @@
       font-size: .8em;
     }
 
-    p {
-      line-height: 1em;
-      margin: 0;
-      font-size: .8em;
+    .trade-info {
+
     }
 
-    strong{
+    strong {
       color: green;
     }
   }
