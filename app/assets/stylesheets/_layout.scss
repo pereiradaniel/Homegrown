@@ -3,14 +3,13 @@
   //position: fixed;
   margin: 0;
   // padding: 0.5em;
+  background: #f2f3f9;
   min-height: $title-bar-height;
   top: 0;
   left: 0;
   width: 100%;
   text-align: center;
   font-size: .8em;
-  @include background(linear-gradient(#c1c2c7, #f2f3f9));
-  // @include background(linear-gradient(black, white));
 
   a {
     color:#79797c;
@@ -94,7 +93,7 @@ main {
   color:#79797c;
   min-height: $title-bar-height;
   @include clearfix;
-  @include background(linear-gradient(#c1c2c7, #f2f3f9));
+  background: #f2f3f9;
 
   @include media($small-screen-only){
     font-size: 0.5em;
