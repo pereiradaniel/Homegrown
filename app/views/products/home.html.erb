@@ -1,11 +1,7 @@
-<div class="banner">
-  <div class="banner-text">
-    <h1 id="text-1">Trade Fresh Plants</h1>
-    <h1 id="text-2">Eat Healthy</h1>
-  </div>
+<div class="carousel-title">
+  <h3>Products near You</h3>
 </div>
 
-<h3>Products near You</h3>
 <div class="carousel-container">
   <div class="carousel">
     <%= render 'carousel' %>
@@ -20,7 +16,6 @@
 </div>
 
 <div class="category-container">
-
   <div class="category-thumb" id="leafy-green-btn">
     <%= link_to products_path(:tag => "leafy green") do %>
       <div class="btn-mask">
