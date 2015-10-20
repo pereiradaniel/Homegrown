@@ -39,6 +39,8 @@ gem 'autoprefixer-rails'
 gem 'font-awesome-sass', '~> 4.4.0'
 gem 'figaro'
 gem 'mini_magick'
+gem 'social-share-button'
+# gem 'shareable'
 
 # A Scope & Engine based, clean, powerful, customizable and sophisticated paginator for Rails 3 and 4
 gem 'kaminari'
