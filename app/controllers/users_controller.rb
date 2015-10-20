@@ -22,7 +22,7 @@ class UsersController < ApplicationController
 
     # create a list of products that belong to products in @conversations
     @products_list = @conversations.select(:product_id).distinct
-    @products_list = @products_list.page(params[:page])
+    @products_list = @products_list.page(params[:page]).per(5)
 
   end
 

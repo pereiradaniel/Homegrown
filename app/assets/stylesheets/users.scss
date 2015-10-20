@@ -235,3 +235,25 @@
     @include omega(2n);
     }
 }
+
+.pagination-links {
+      @include media($small-screen-only) {
+      @include span-columns(2);
+      @include omega(2n);
+    }
+    
+    @include media($medium-screen-only) {
+      @include span-columns(4);
+      @include omega(2n);
+    }
+
+  @include media($large-screen-only) {
+    @include span-columns(8);
+    @include omega(2n);
+    }
+
+  @include media($xlarge-screen-up) {
+    @include span-columns(12);
+    @include omega(2n);
+    }
+}
