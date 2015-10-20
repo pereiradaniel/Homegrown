@@ -5,7 +5,7 @@ class ProductsController < ApplicationController
     choose_search_method
 
     respond_to do |format|
-      format.htm
+      format.html
       format.js
     end
   end

@@ -37,7 +37,9 @@
               <li class="view-link"><%= link_to "Trade with #{conv.sender.name}", conversation_path(conv) %></li>
               <li><%= conv.request %></li>
               <li class="datetime">Started: <%= conv.created_at.to_formatted_s(:db)  %></li>
-              <li class="datetime">Last message: <%= conv.messages.last.created_at.to_formatted_s(:db) %></li>
+              <% if conv.messages.last %>
+                <li class="datetime">Last message: <%= conv.messages.last.created_at.to_formatted_s(:db) %></li>
+              <% end %>
             </ul>
           </div>
         <% end %>
@@ -47,6 +49,9 @@
 </div>
 <% end %>
 
+<div class="pagination-links">
+  <%= paginate @products_list %>
+</div>
 
 <ul>
   <% if !@user.garden %>
