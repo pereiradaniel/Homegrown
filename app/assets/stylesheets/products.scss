@@ -11,7 +11,7 @@
 		max-height: 323px;
 	}
 	@include media($xlarge-screen-up) {
-		max-height: 663px;
+		max-height: 543px;
 	}
 }
 
@@ -23,7 +23,7 @@
 		text-shadow: 2px 2px 4px #000000;
   }
 	@include media($xlarge-screen-up) {
-		font-size: 4em;
+		font-size: 3.5em;
 		text-shadow: 3.5px 3.5px 6px #000000;
   }
 }
@@ -49,16 +49,12 @@
 	width: 100%;
 	overflow: hidden;
 	overflow-x: scroll;
+	margin-bottom: 20px;
 }
 
 .carousel {
 	width: 83em;
-	@include media($large-screen-up) {
-		height: 12em;
-  }
-	@include media($xlarge-screen-up) {
-		height: 16em;
-  }
+	height: 12em;
 }
 
 .carousel-card{
@@ -69,8 +65,8 @@
 }
 
 .carousel-pic {
-	height: 8.2em;
 	overflow: hidden;
+	height: 8.2em;
 }
 
 .carousel-info {
@@ -79,7 +75,6 @@
 	a {
 		font-size: 1.01em;
 	}
-
 }
 
 .truncate {
@@ -271,5 +266,4 @@
 .product-distance-from {
 	color: blue;
 	font-style: italic;
-
 }
