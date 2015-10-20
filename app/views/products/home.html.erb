@@ -4,7 +4,7 @@
 
 <div class="carousel-container">
   <div class="carousel">
-    <%= render 'carousel' %>
+    <%= render 'loadingwheel' %>  
   </div>
 </div>
 
@@ -65,26 +65,28 @@
   </div>
 </div>
 
+<%# if !has_location? %>
 <script>
- if ("geolocation" in navigator) {
-    navigator.geolocation.getCurrentPosition(geolocationSession);
-  }else{
-    alert("Browser does not support geocoding");
-  }
+   if ("geolocation" in navigator) {
+      navigator.geolocation.getCurrentPosition(geolocationSession);
+    }else{
+      alert("Browser does not support geocoding");
+    }
 
-  function geolocationSession(position, isLocationDisabled) {
+    function geolocationSession(position, isLocationDisabled) {
 
-    var latitude  = position.coords.latitude;
-    var longitude = position.coords.longitude;
+      var latitude  = position.coords.latitude;
+      var longitude = position.coords.longitude;
 
-    $.ajax({
-      url: '/products/home',
-      method: 'GET',
-      data: {
-        longitude: longitude,
-        latitude: latitude
-      },
-      dataType: 'script'
-    });
-  }
+      $.ajax({
+        url: '/products/home',
+        method: 'GET',
+        data: {
+          longitude: longitude,
+          latitude: latitude
+        },
+        dataType: 'script'
+      });
+    }
 </script>
+<%# end %>

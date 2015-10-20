@@ -19,8 +19,4 @@ class UserSessionsController < ApplicationController
     session[:location] = nil
     redirect_to(:root, notice: 'Logged out!')
   end
-
-  def location
-    session[:location] = [params[:latitude], params[:longitude]]
-  end
 end
