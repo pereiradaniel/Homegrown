@@ -2,9 +2,7 @@
 .product-card {
 
   padding: .3em;
-  // @include span-columns(1);
-  // width: 153.406px;
-  width: 147px;
+  width: 145px;
   padding: 0;
   margin: 0;
   margin-bottom: 5px;
@@ -33,7 +31,6 @@
       color: green;
     }
   }
-
 
   .product-link {
     box-sizing: content-box;

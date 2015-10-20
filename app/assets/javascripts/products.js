@@ -4,11 +4,9 @@ $(document).on('ready page:load', function(){
 
   productCard.imagesLoaded(function(){
 
-    productCard.masonry("reloadItems");
-
     productCard.masonry({
       itemSelector: '.product-card',
-      columnWidth: 147,
+      columnWidth: 145,
       isFitWidth: true,
       gutter: 10
     });
