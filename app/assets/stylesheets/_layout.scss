@@ -1,18 +1,19 @@
 .header-bar {
-  color:#989995;
-  background-color: #F2F3F9;
+  color:#79797c;
   //position: fixed;
   margin: 0;
-  // padding: 0 .5em;
+  // padding: 0.5em;
   min-height: $title-bar-height;
   top: 0;
   left: 0;
   width: 100%;
   text-align: center;
   font-size: .8em;
+  @include background(linear-gradient(#c1c2c7, #f2f3f9));
+  // @include background(linear-gradient(black, white));
 
   a {
-    color:#989995;
+    color:#79797c;
   }
 }
 
@@ -68,7 +69,7 @@
 
 .nav-link {
   margin-left: .5em;
-  color: #989995;
+  color: #79797c;
 }
 
 .nav-search {
@@ -82,25 +83,51 @@
 }
 
 main {
-  padding: 0 0 0.5em 0;
+  max-width: 1100px;
+  padding: 0.5em;
   @include clearfix;
+  @include outer-container;
 }
 
 .footer-bar{
-  font-size: .6em;
   display: block;
-  color:#989995;
-  background-color: #F2F3F9;
+  color:#79797c;
   min-height: $title-bar-height;
   @include clearfix;
+  @include background(linear-gradient(#c1c2c7, #f2f3f9));
 
-  p{
-    font-weight: 700;
+  @include media($small-screen-only){
+    font-size: 0.5em;
+  }
+  @include media($medium-screen-only){
+    font-size: 0.65em;
+    .footer-link{
+      font-size: 0.85em;
+    }
+  }  
+  @include media($large-screen-only){
+    font-size: 0.8em;
+    .footer-link{
+      font-size: 0.85em;
+    }
+  }
+  @include media($xlarge-screen-up){
+    font-size: 1em;
+    .footer-link{
+      font-size: 0.85em;
+    }
   }
 
   ul{
-    padding: 4px 0;
+    @include clearfix;
+    padding: 4px 0 6px;
     text-align: center;
+
+    p{
+      font-weight: 700;
+      margin-bottom: 0;
+    }
+
     li{    
       @include media($small-screen-only) {
         @include span-columns(1);
@@ -122,9 +149,12 @@ main {
         @include omega(12n);
       }
 
-      ul li{
-        @include span-columns(2);
-        float: none;
+      ul{
+        padding: 0;
+        li{
+          @include span-columns(2);
+          // float: none;
+        }
       }
     }
   }

@@ -7,7 +7,7 @@
 	background: url('banner.jpg') no-repeat;
 	background-size: cover;
 	margin-bottom: 0.5em;
-	@include media($large-screen-only) {
+	@include media($large-screen-up) {
 		max-height: 323px;
 	}
 	@include media($xlarge-screen-up) {
@@ -18,7 +18,7 @@
 .banner-text h1{
 	color: white;
 	text-align: center;
-	@include media($large-screen-only) {
+	@include media($large-screen-up) {
 		font-size: 2.5em;
 		text-shadow: 2px 2px 4px #000000;
   }
@@ -29,7 +29,7 @@
 }
 
 #text-1{
-	@include media($large-screen-only) {
+	@include media($large-screen-up) {
 		padding-top: 1.2em;
   }
 	@include media($xlarge-screen-up) {
@@ -37,9 +37,11 @@
   }
 }
 
-main > h3{
-	font-size: 1em;
+.carousel-title{
 	text-align: center;
+	h3{
+		font-size: 1.2em;
+	}
 }
 
 .carousel-container {
@@ -51,11 +53,11 @@ main > h3{
 
 .carousel {
 	width: 83em;
-	@include media($large-screen-only) {
+	@include media($large-screen-up) {
 		height: 12em;
   }
 	@include media($xlarge-screen-up) {
-		height: 12em;
+		height: 16em;
   }
 }
 
@@ -87,22 +89,31 @@ main > h3{
   text-overflow: ellipsis;
 }
 
-.search-container {
-	margin-left: .5em;
-	h2 {
-		font-size: .8em;
-	}
-}
+// .search-container {
+// 	margin-left: .5em;
+// 	h2 {
+// 		font-size: .8em;
+// 	}
+// }
 
 .category-title {
  text-align: center;
-		h3 {
-			font-size: .8em;
-		}
+	h3 {
+		font-size: 1.2em;
+	}
 }
 
 .category-container {
-	margin: 0 .5em 0 .5em;
+	@include clearfix;
+	margin: 0 auto;
+
+	@include media($medium-screen-up) {
+		width: 599.97px;
+	}
+
+	@include media($large-screen-up) {
+		width: 921.906px;
+	}
 
 	.category-thumb {
 
@@ -111,18 +122,19 @@ main > h3{
 			@include omega(2n);
 		}
 
-		@include media($medium-screen-only) {
+		@include media($medium-screen-up) {
 			@include span-columns(2);
+		}
+
+		@include media($medium-screen-only) {
 			@include omega(2n);
 		}
 
 		@include media($large-screen-only) {
-			@include span-columns(4);
-			@include omega(2n);
+			@include omega(3n);
 		}
 
 		@include media($xlarge-screen-up) {
-			@include span-columns(6);
 			@include omega(6n);
 		}
 
