@@ -5,7 +5,7 @@ class ProductsController < ApplicationController
     choose_search_method
 
     respond_to do |format|
-      format.html
+      format.htm
       format.js
     end
   end
@@ -70,7 +70,6 @@ class ProductsController < ApplicationController
   end
 
   def home
-
     session[:location] = [params[:latitude], params[:longitude]]
     @products = Product.near(session[:location], 10, units: :km).limit(10).order("RANDOM()")
   end

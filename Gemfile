@@ -39,8 +39,7 @@ gem 'autoprefixer-rails'
 gem 'font-awesome-sass', '~> 4.4.0'
 gem 'figaro'
 gem 'mini_magick'
-gem 'social-share-button'
-# gem 'shareable'
+gem 'social-share-button' # replaced: gem 'shareable'
 
 # A Scope & Engine based, clean, powerful, customizable and sophisticated paginator for Rails 3 and 4
 gem 'kaminari'
@@ -50,8 +49,9 @@ gem 'acts-as-taggable-on', '~> 3.4'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-	# Use sqlite3 as the database for Active Record
-	gem 'sqlite3'
+  # Use sqlite3 as the database for Active Record
+  gem 'factory_girl_rails'
+  gem 'sqlite3'
   gem 'byebug'
   gem 'pry-rails'
 end
@@ -66,6 +66,7 @@ group :development do
   # This gem is a port of Perl's Data::Faker library that generates fake data.
   gem 'faker'
 end
+
 
 group :production do
 	gem 'pg'
