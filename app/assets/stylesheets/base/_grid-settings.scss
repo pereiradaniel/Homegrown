@@ -17,6 +17,8 @@ $xlarge-screen: 1280px;
 $small-screen-up: new-breakpoint(min-width em($small-screen) 2);
 $small-screen-only: new-breakpoint(min-width em($small-screen) max-width em($medium-screen - 1px) 2);
 
+$small-small-medium-screen-only: new-breakpoint(min-width em($small-medium-screen) max-width em($small-medium-screen - 1px) 2);
+
 $small-medium-screen-up: new-breakpoint(min-width em($small-medium-screen) 2);
 $small-medium-screen-only: new-breakpoint(min-width em($small-medium-screen) max-width em($medium-screen - 1px) 2);
 
