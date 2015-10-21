@@ -2,12 +2,6 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.user-info {
-  text-align: center;
-  font-size: 0.75em;
-  text-shadow: $text-shadow;
-}
-
 .user-controls {
   font: 0.76em;
 }
@@ -186,18 +180,37 @@
     }
   }
 
-  img {
-  max-height: 100px;
-
-  @include media($medium-screen-only) {
-  @include span-columns(1);
-  @include omega(2n);
   
-  max-height: 100px;
+  .product-convo-bar-description {
+    // padding-top: 0.75em;
+  }
 
+  .product-convo-bar-userinfo {
+    display: block;
+    text-align: center;
+      img {
+      box-shadow: $form-box-shadow;
+      max-height: 50px;
+      border: $base-border;
+      border-radius: $base-border-radius;
+      // position: absolute;
+      // right: 1em;
     }
   }
 
+  .product-convo-bar-productimage {
+    text-align: center;
+    img {
+    max-height: 100px;
+    border-radius: $base-border-radius;
+    box-shadow: $form-box-shadow;
+      }
+    }
+
+  .product-within-product-convo {
+    border: $base-border;
+    border-radius: $base-border-radius;
+  }
 }
 
 .product-related-convos {
