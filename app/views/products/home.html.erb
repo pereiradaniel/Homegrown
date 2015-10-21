@@ -65,28 +65,53 @@
   </div>
 </div>
 
-<%# if !has_location? %>
 <script>
-   if ("geolocation" in navigator) {
-      navigator.geolocation.getCurrentPosition(geolocationSession);
+
+// 1. if there is no lat/lng in the cookie cache, then
+// we need to call getLocationFromBrowser() with lat/lng set from the browser.
+
+// 2. if there IS lat/lng in the cookie cache, then
+// we need to call getProducts() with lat/lng from the cookie cache.
+
+
+  function getLocationFromBrowser(){
+    if ("geolocation" in navigator) {
+      navigator.geolocation.getCurrentPosition(geolocationSuccess);
     }else{
       alert("Browser does not support geocoding");
     }
+    setTimeout(checkLocation, 1800000);
+  }
 
-    function geolocationSession(position, isLocationDisabled) {
+  function geolocationSuccess(position, isLocationDisabled) {
 
-      var latitude  = position.coords.latitude;
-      var longitude = position.coords.longitude;
+    console.log("In geolocationSuccess!");
+    var latitude  = position.coords.latitude;
+    var longitude = position.coords.longitude;
 
-      $.ajax({
-        url: '/products/home',
-        method: 'GET',
-        data: {
-          longitude: longitude,
-          latitude: latitude
-        },
-        dataType: 'script'
-      });
-    }
+    $.cookie('latitude', latitude);
+    $.cookie('longitude', longitude);
+
+    getProducts(longitude, latitude);
+
+  }
+
+  function getProducts(longitude, latitude) {
+    $.ajax({
+      url: '/products/home',
+      method: 'GET',
+      data: {
+        longitude: longitude,
+        latitude: latitude
+      },
+      dataType: 'script'
+    });
+  }
+
+  if($.cookie('latitude') == undefined && $.cookie('longitude') == undefined ){
+    getLocationFromBrowser();
+  } else {
+    getProducts($.cookie('longitude'), $.cookie('latitude'));
+  }
+  
 </script>
-<%# end %>
