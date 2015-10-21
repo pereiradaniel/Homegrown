@@ -1,0 +1,7 @@
+<div class="user-info">
+  <ul>
+    <li><%= link_to "#{@user.name}", garden_path(@user.garden) %></li>
+    <li><%= @user.email %></li>
+    <li><%= image_tag(@user.image_url(:thumb).to_s) %></li>
+  </ul>
+</div>

@@ -161,3 +161,45 @@ main {
 .disabled {
   color: #ccc;
 }
+
+.user-info {
+  ul {
+  border: $base-border;
+  border-radius: $base-border-radius;
+  box-shadow: $form-box-shadow;
+  display: block;
+  text-align: center;
+  font-size: 0.75em;
+  text-shadow: $text-shadow;
+  padding: 0.2em;
+  margin-bottom: 1em;
+  }
+
+@include media($small-screen-only) {
+      @include span-columns(2);
+      @include omega(2n);
+    }
+
+  @include media($medium-screen-only) {
+    @include span-columns(4);
+    @include omega(2n);
+    }
+
+  @include media($large-screen-only) {
+    @include span-columns(8);
+    @include omega(2n);
+    }
+
+  @include media($xlarge-screen-up) {
+    @include span-columns(12);
+    @include omega(2n);
+    }
+
+  ul li {
+    display: inline-block;
+    img {
+      max-height: 50px;
+      border-radius: 50%;
+    }
+  }
+}
