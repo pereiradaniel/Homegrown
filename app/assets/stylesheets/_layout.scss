@@ -27,6 +27,9 @@
   @include media($small-medium-screen-up) {
     width: 11.625em;
     height: 11.625em * .43396266;
+    background: url('homegrown-logo-lg.png') no-repeat;
+    background-size: 100%;
+    background-position: center;
   }
 }
 
