@@ -222,16 +222,23 @@
 	}
 }
 
+//Product Show Page Style
 .product-show-container {
 	@include outer-container;
 	font-size: .8em;
 }
 
 .product-show-btn {
-	margin: .8em;
-	width: 100%;
-}
 
+	box-sizing: border-box;
+	font-weight: $btn-font-weight;
+	font-size: $btn-font-size;
+	  a {
+		text-decoration: none;
+		color: white;
+	}
+
+}
 .action-btn {
 	box-sizing: content-box;
 	padding: .5em 0 .5em 0;
