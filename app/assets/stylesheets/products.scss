@@ -222,47 +222,57 @@
 	}
 }
 
+//Product Show Page Style
 .product-show-container {
 	@include outer-container;
 	font-size: .8em;
+	@include clearfix;
 }
 
 .product-show-btn {
-	margin: .8em;
-	width: 100%;
-}
-
-.action-btn {
-	box-sizing: content-box;
-	padding: .5em 0 .5em 0;
-	font-size: .95em;
-	width: 45%;
-	float: left;
-	margin-right: 10%;
-
-  a {
+	box-sizing: border-box;
+	font-weight: $btn-font-weight;
+	font-size: $btn-font-size;
+	  a {
 		text-decoration: none;
 		color: white;
 	}
 
 }
+.edit-controls {
 
-.btn2{
-	margin-right: 0;
+	li { display: inline-block;}
+
+	input[type=submit] {
+		width: 90px;
+		height: 42px;
+		margin-right: .5em;
+		// float: left;
+
+	}
 }
 
 .update-btn {
-	box-sizing: content-box;
-	padding: .5em 0 .5em 0;
 	font-size: .8em;
-	width: 100%;
+	// width: 90px;
 	float: left;
-	margin: 0 2.5em .8em 2.5em;
+	height: 42px;
+	display: inline-block;
 }
 
 .product-show-text {
 	margin-top: .4em;
 	font-weight: bold;
+	font-size: 1em;
+}
+
+.text-label {
+	font-size: 1em;
+	line-height: 1.2em;
+	margin-top: 1.2em;
+}
+
+.text-field {
 	font-size: 1em;
 }
 /*Style for the geo distance info on product search page */

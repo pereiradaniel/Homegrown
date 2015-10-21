@@ -1,6 +1,9 @@
 <h1><%= @product.name %></h1>
 <div class="picture">
   <%= image_tag @product.image_url %>
+    <div>
+    <em>Tag: <%= @product.tag_list %></em>
+  </div>
 </div>
 <div><%= @product.description %></div>
 <div><%= @product.trade_info %></div>
