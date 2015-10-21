@@ -1,13 +1,9 @@
 .header-bar {
   color:#79797c;
-  //position: fixed;
   margin: 0;
-  // padding: 0.5em;
+  padding: 0 .5em;
   background: #f2f3f9;
   min-height: $title-bar-height;
-  top: 0;
-  left: 0;
-  width: 100%;
   text-align: center;
   font-size: .8em;
 
@@ -27,11 +23,9 @@
 
 .nav {
   line-height: 2.875em;
-  display: block;
   @include clearfix;
 
   & > li {
-    display: inline-block;
     float: right;
   }
 }
@@ -103,7 +97,7 @@ main {
     .footer-link{
       font-size: 0.85em;
     }
-  }  
+  }
   @include media($large-screen-only){
     font-size: 0.8em;
     .footer-link{
@@ -127,7 +121,7 @@ main {
       margin-bottom: 0;
     }
 
-    li{    
+    li{
       @include media($small-screen-only) {
         @include span-columns(1);
         @include omega(1n);
@@ -136,7 +130,7 @@ main {
       @include media($medium-screen-only) {
         @include span-columns(1);
         @include omega(4n);
-      }  
+      }
 
       @include media($large-screen-only) {
         @include span-columns(2);
