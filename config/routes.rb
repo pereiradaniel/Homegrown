@@ -7,11 +7,8 @@ Rails.application.routes.draw do
   get "oauth/callback" => "oauths#callback" # for use with Github, Facebook
   get "oauth/:provider" => "oauths#oauth", :as => :auth_at_provider
 
-  resources :user_sessions do
-    collection do
-      get 'location'
-    end
-  end
+  resources :user_sessions
+
   resources :products do
     get 'imagedelete'
     collection do
