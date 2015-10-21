@@ -70,51 +70,51 @@
 	@include clearfix;
 	margin: 0 auto;
 
-	@include media($medium-screen-up) {
-		width: 599.97px;
-	}
+		@include media($medium-screen-up) {
+			width: 599.97px;
+		}
 
-	@include media($large-screen-up) {
-		width: 921.906px;
-	}
+		@include media($large-screen-up) {
+			width: 921.906px;
+		}
 
 	.category-thumb {
 
-		@include media($small-screen-only) {
-			@include span-columns(1);
-			@include omega(2n);
-		}
+			@include media($small-screen-only) {
+				@include span-columns(1);
+				@include omega(2n);
+			}
 
-		@include media($medium-screen-up) {
-			@include span-columns(2);
-		}
+			@include media($medium-screen-up) {
+				@include span-columns(2);
+			}
 
-		@include media($medium-screen-only) {
-			@include omega(2n);
-		}
+			@include media($medium-screen-only) {
+				@include omega(2n);
+			}
 
-		@include media($large-screen-only) {
-			@include omega(3n);
-		}
+			@include media($large-screen-only) {
+				@include omega(3n);
+			}
 
-		@include media($xlarge-screen-up) {
-			@include omega(6n);
-		}
+			@include media($xlarge-screen-up) {
+				@include omega(6n);
+			}
 
-		a {
-			color: #fff;
-		}
+			a {
+				color: #fff;
+			}
 		text-align: center;
 		border: 1px solid #ccc;
 		margin-bottom: .4em;
 		color: #fff;
 		font-weight: normal;
 
-		h5 {
-			font-size: .8em;
-			line-height: 4.1em;
-			margin: 0;
-		}
+			h5 {
+				font-size: .8em;
+				line-height: 4.1em;
+				margin: 0;
+			}
 	}
 
 	.btn-mask {
@@ -189,7 +189,7 @@
 //Product Show Page Style
 .product-show-container {
 	@include outer-container;
-	font-size: .8em;
+	font-size: $global-font-size;
 	@include clearfix;
 }
 
