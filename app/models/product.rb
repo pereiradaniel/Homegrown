@@ -13,5 +13,4 @@ class Product < ActiveRecord::Base
     Product.joins(:tags).where('tags.name LIKE ?', "%#{tag}%")
   end
 
-
 end
