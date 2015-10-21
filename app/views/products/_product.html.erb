@@ -6,14 +6,15 @@
   </div>
   <div class="product-info">
     <h3><%= link_to product.name, product_path(product) %></h3>
+    <div>
+      <strong>Distance: </strong><%= product.distance_to(session_location, :km).round(2) %> km
+    </div>
     <div class="product-description">
       <%= product.description %>
     </div>
-    <div class="product-info">
+    <div class="trade-info">
       <strong>Trade info:</strong> <%= product.trade_info %>
     </div>
-    <div>
-      <strong>Distance: </strong><%= product.distance_to(session_location, :km).round(2) %>Km
-    </div>
+
   </div>
 </div>
