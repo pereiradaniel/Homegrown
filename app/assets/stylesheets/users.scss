@@ -125,7 +125,7 @@
     @include span-columns(12);
     @include omega(2n);
     }
-  
+
   line-height: $base-line-height;
 }
 
@@ -156,20 +156,20 @@
   margin-top: 0.25em;
   margin-bottom: 0.25em;
   padding: 0.25em;
-  
+
   ul {
     display:block;
   }
-  
+
 
   ul li {
   display: inline-block;
-    
+
     @include media($small-screen-only) {
       @include span-columns(1);
       @include omega(2n);
     }
-    
+
     @include media($medium-screen-only) {
       @include span-columns(2);
       @include omega(2n);
@@ -192,7 +192,7 @@
   @include media($medium-screen-only) {
   @include span-columns(1);
   @include omega(2n);
-  
+
   max-height: 100px;
 
     }
@@ -216,7 +216,7 @@
 
       padding-left: 0.5em;
     }
-    
+
     @include media($medium-screen-only) {
       @include span-columns(2);
       @include omega(2n);
@@ -241,7 +241,7 @@
       @include span-columns(2);
       @include omega(2n);
     }
-    
+
     @include media($medium-screen-only) {
       @include span-columns(4);
       @include omega(2n);
@@ -256,4 +256,18 @@
     @include span-columns(12);
     @include omega(2n);
     }
+}
+
+//Login & Register Button Style
+.user-login-action {
+  li {
+    display: inline-block;
+  }
+  .login-btn {
+    width: 96px;
+    margin-right: 7em;
+
+
+  }
+
 }
