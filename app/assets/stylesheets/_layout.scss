@@ -103,7 +103,7 @@ main {
     .footer-link{
       font-size: 0.85em;
     }
-  }  
+  }
   @include media($large-screen-only){
     font-size: 0.8em;
     .footer-link{
@@ -127,7 +127,7 @@ main {
       margin-bottom: 0;
     }
 
-    li{    
+    li{
       @include media($small-screen-only) {
         @include span-columns(1);
         @include omega(1n);
@@ -136,7 +136,7 @@ main {
       @include media($medium-screen-only) {
         @include span-columns(1);
         @include omega(4n);
-      }  
+      }
 
       @include media($large-screen-only) {
         @include span-columns(2);

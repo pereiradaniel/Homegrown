@@ -1,14 +1,19 @@
 $(document).on('ready page:load', function(){
 
+  var breakpoints = {
+    small: 145,
+    medium: 236
+  };
+
   var productCard = $('#products');
 
   productCard.imagesLoaded(function(){
 
     productCard.masonry({
       itemSelector: '.product-card',
-      columnWidth: 147,
+      columnWidth: 146,
       isFitWidth: true,
-      gutter: 10
+      gutter: 8
     });
   });
 });
