@@ -10,23 +10,42 @@
   a {
     color:#79797c;
   }
+
+  @include media($small-medium-screen-up){
+    padding: 0 1em;
+  }
 }
 
 .homegrown {
-    height: 2.875em;
-    width: 6.625em;
-    float: left;
-    background: url('homegrown-logo.png') no-repeat;
-    background-size: 100%;
-    background-position: center;
+  //height: 2.875em;
+  width: 6.625em;
+  height: 6.625em * .43396266;
+  //width: 6.625em;
+  float: left;
+  background: url('homegrown-logo.png') no-repeat;
+  background-size: 100%;
+  background-position: center;
+
+  @include media($small-medium-screen-up) {
+    width: 11.625em;
+    height: 11.625em * .43396266;
+  }
 }
 
 .nav {
-  line-height: 2.875em;
   @include clearfix;
+  line-height: 2.875em;
 
   & > li {
     float: right;
+  }
+
+  li:nth-child(2) {
+    margin: 0;
+  }
+
+  @include media($small-medium-screen-up) {
+    line-height: 5.03515em;
   }
 }
 
@@ -61,7 +80,7 @@
 }
 
 .nav-link {
-  margin-left: .5em;
+  margin-left: .7em;
   color: #79797c;
 }
 
@@ -76,34 +95,39 @@
 }
 
 main {
-  max-width: 1100px;
-  padding: 0.5em;
   @include clearfix;
   @include outer-container;
+
+  max-width: 1100px;
+  padding: 0 0.5em 0.5em;
 }
 
 .footer-bar{
+  @include clearfix;
+
   display: block;
   color:#79797c;
   min-height: $title-bar-height;
-  @include clearfix;
   background: #f2f3f9;
 
   @include media($small-screen-only){
     font-size: 0.5em;
   }
+
   @include media($medium-screen-only){
     font-size: 0.65em;
     .footer-link{
       font-size: 0.85em;
     }
   }
+
   @include media($large-screen-only){
     font-size: 0.8em;
     .footer-link{
       font-size: 0.85em;
     }
   }
+
   @include media($xlarge-screen-up){
     font-size: 1em;
     .footer-link{
@@ -152,6 +176,7 @@ main {
     }
   }
 }
+
 .disabled {
   color: #ccc;
 }

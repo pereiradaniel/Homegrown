@@ -74,6 +74,13 @@ class ProductsController < ApplicationController
     @products = Product.near(session[:location], 10, units: :km).limit(10).order("RANDOM()")
   end
 
+  def imagedelete
+    @product = Product.find(params[:product_id])
+    @product.remove_image!
+    @product.save
+    redirect_to product_path(@product)
+  end
+
   private
   def product_params
     params.require(:product).permit(:name, :description, :trade_info, :image, :tag_list)

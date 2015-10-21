@@ -2,36 +2,6 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.banner{
-	height: 768px;
-	background: url('banner.jpg') no-repeat;
-	background-size: cover;
-	margin-bottom: 0.5em;
-	@include media($small-screen-up) {
-		display: none;
-	}
-	@include media($large-screen-up) {
-		display: block;
-		max-height: 323px;
-	}
-	@include media($xlarge-screen-up) {
-		max-height: 543px;
-	}
-}
-
-.banner-text h1{
-	color: white;
-	text-align: center;
-	@include media($large-screen-up) {
-		font-size: 2.5em;
-		text-shadow: 2px 2px 4px #000000;
-  }
-	@include media($xlarge-screen-up) {
-		font-size: 3.5em;
-		text-shadow: 3.5px 3.5px 6px #000000;
-  }
-}
-
 #text-1{
 	@include media($large-screen-up) {
 		padding-top: 1.2em;

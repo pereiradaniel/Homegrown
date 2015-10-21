@@ -1,5 +1,10 @@
 $(document).on('ready page:load', function(){
 
+  var breakpoints = {
+    small: 145,
+    medium: 236
+  };
+
   var productCard = $('#products');
 
   productCard.imagesLoaded(function(){
@@ -8,7 +13,7 @@ $(document).on('ready page:load', function(){
       itemSelector: '.product-card',
       columnWidth: 145,
       isFitWidth: true,
-      gutter: 10
+      gutter: 8
     });
   });
 });
