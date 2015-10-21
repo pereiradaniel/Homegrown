@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     end
   end
   resources :products do
+    get 'imagedelete'
     collection do
       get 'home'
     end
