@@ -1,9 +1,4 @@
-<div class="user-info">
-  <ul>
-    <li><%= @user.name %></li>
-    <li><%= @user.email %></li>
-  </ul>
-</div>
+<%= render 'userinfobox' %>
 
 <div class="user-controls">
   <ul>
@@ -19,9 +14,14 @@
   <div class="product-convo-bar">
     <ul>
       <li><%= link_to "#{c.product.name}", product_path(c.product) %></li>
-      <li>Grower <%= link_to "#{c.product.garden.user.name}", garden_path(c.product.garden) %></li>
-      <li><%= image_tag(c.product.image_url(:thumb).to_s) %></li>
-      <li><%= c.product.description %></li>
+      <li class="product-convo-bar-userinfo">
+        <ul>
+          <li><%=image_tag(c.product.garden.user.image_url(:thumb).to_s) %></li>
+          <li>Grower <%= link_to "#{c.product.garden.user.name}", garden_path(c.product.garden) %></li>
+        </ul>
+      </li>
+      <li class="product-convo-bar-productimage"><%= image_tag(c.product.image_url(:thumb).to_s) %></li>
+      <li class="product-convo-bar-description"><%= c.product.description %></li>
     </ul>
   </div>
 

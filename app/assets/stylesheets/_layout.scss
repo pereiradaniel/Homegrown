@@ -1,56 +1,68 @@
 .header-bar {
   color:#79797c;
-  //position: fixed;
   margin: 0;
-  // padding: 0.5em;
+  padding: 0 .5em;
   background: #f2f3f9;
   min-height: $title-bar-height;
-  top: 0;
-  left: 0;
-  width: 100%;
   text-align: center;
   font-size: .8em;
 
   a {
     color:#79797c;
   }
+
+  @include media($small-medium-screen-up){
+    padding: 0 1em;
+  }
 }
 
 .homegrown {
-    height: 2.875em;
-    width: 6.625em;
-    float: left;
-    background: url('homegrown-logo.png') no-repeat;
+  width: 6.625em;
+  height: 6.625em * .43396266;
+  float: left;
+  background: url('homegrown-logo.png') no-repeat;
+  background-size: 100%;
+  background-position: center;
+
+  @include media($small-medium-screen-up) {
+    width: 11.625em;
+    height: 11.625em * .43396266;
+    background: url('homegrown-logo-lg.png') no-repeat;
     background-size: 100%;
     background-position: center;
+  }
 }
 
 .nav {
-  line-height: 2.875em;
-  display: block;
   @include clearfix;
+  line-height: 2.875em;
 
   & > li {
-    display: inline-block;
     float: right;
+  }
+
+  @include media($small-medium-screen-up) {
+    line-height: 5.03515em;
+  }
+
+  @include media($small-small-medium-screen-only) {
+    li:nth-child(2) {
+      margin: 0;
+    }
   }
 }
 
 .nav-button {
   width: 2.5em;
+}
 
-  &:hover > ul {
-    display: block;
+#user-icon {
+  @include media($small-medium-screen-up) {
+    display: none;
   }
 }
 
 .nav-button > ul {
-  position: absolute;
-  left: 0;
-  display: none;
-  width: 100%;
-  background: $nav-color;
-  box-shadow: -1px 5px 5px 0px rgba(150, 150, 150, 0.30);
 
   li {
     border-top: 1px solid lighten($nav-color, 10%);
@@ -66,9 +78,54 @@
   }
 }
 
+.drop-down {
+  @include media($small-medium-screen-up) {
+    position: relative;
+  }
+
+  & > ul {
+    background: $nav-color;
+    box-shadow: -1px 5px 5px 0px rgba(150, 150, 150, 0.30);
+    display: none;
+    position: absolute;
+    left: 0;
+    width: 100%;
+
+    @include media($small-medium-screen-up) {
+      position: absolute;
+      width: 12em;
+      left: -8em
+    }
+
+    li {
+      border-top: 1px solid lighten($nav-color, 10%);
+      border-bottom: 1px solid darken($nav-color, 10%);
+
+      &:first-child {
+        border-top: 0;
+      }
+
+      &:last-child {
+        border-bottom: 0;
+      }
+    }
+  }
+
+  &:hover > ul {
+    display: block;
+  }
+}
+
 .nav-link {
-  margin-left: .5em;
+  margin-left: .7em;
   color: #79797c;
+
+  &.medium-screen {
+    display: none;
+    @include media($small-medium-screen-up) {
+      display: block;
+    }
+  }
 }
 
 .nav-search {
@@ -82,34 +139,39 @@
 }
 
 main {
-  max-width: 1100px;
-  padding: 0.5em;
   @include clearfix;
   @include outer-container;
+
+  max-width: 1100px;
+  padding: 0 0.5em 0.5em;
 }
 
 .footer-bar{
+  @include clearfix;
+
   display: block;
   color:#79797c;
   min-height: $title-bar-height;
-  @include clearfix;
   background: #f2f3f9;
 
   @include media($small-screen-only){
     font-size: 0.5em;
   }
+
   @include media($medium-screen-only){
     font-size: 0.65em;
     .footer-link{
       font-size: 0.85em;
     }
   }
+
   @include media($large-screen-only){
     font-size: 0.8em;
     .footer-link{
       font-size: 0.85em;
     }
   }
+
   @include media($xlarge-screen-up){
     font-size: 1em;
     .footer-link{
@@ -158,6 +220,49 @@ main {
     }
   }
 }
+
 .disabled {
   color: #ccc;
+}
+
+.user-info {
+  ul {
+  border: $base-border;
+  border-radius: $base-border-radius;
+  box-shadow: $form-box-shadow;
+  display: block;
+  text-align: center;
+  font-size: 0.75em;
+  text-shadow: $text-shadow;
+  padding: 0.2em;
+  margin-bottom: 1em;
+  }
+
+@include media($small-screen-only) {
+      @include span-columns(2);
+      @include omega(2n);
+    }
+
+  @include media($medium-screen-only) {
+    @include span-columns(4);
+    @include omega(2n);
+    }
+
+  @include media($large-screen-only) {
+    @include span-columns(8);
+    @include omega(2n);
+    }
+
+  @include media($xlarge-screen-up) {
+    @include span-columns(12);
+    @include omega(2n);
+    }
+
+  ul li {
+    display: inline-block;
+    img {
+      max-height: 50px;
+      border-radius: 50%;
+    }
+  }
 }

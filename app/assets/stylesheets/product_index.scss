@@ -7,6 +7,42 @@ body {
   }
 }
 
+.banner-container {
+  display: none;
+
+  @include media($large-screen-up) {
+    display: block;
+    height: 447.5px;
+  }
+}
+
+.banner {
+  position: absolute;
+  left:0;
+  width: 100%;
+  max-width: 1200px;
+  background: url('banner.jpg') no-repeat;
+  background-size: cover;
+  margin-bottom: 0.5em;
+  display: none;
+
+  @include media($large-screen-up) {
+    display: block;
+  }
+}
+
+.banner-text {
+  margin: 7em 0;
+  h1 {
+    color: white;
+    text-align: center;
+    @include media($large-screen-up) {
+      font-size: 2.5em;
+      text-shadow: 2px 2px 4px #000000;
+    }
+  }
+}
+
 #products {
   margin: .5em auto 0;
   @include clearfix;
@@ -19,9 +55,10 @@ body {
   margin: 0;
   margin-bottom: .5em;
   border: 1px solid #ccc;
-  border-radius: 5px;
+  border-radius: $base-border-radius;
   float: left;
-  box-shadow: $card-box-shadow;
+  box-shadow: $form-box-shadow;
+  overflow: hidden;
 
   @include media($medium-screen-up) {
     width: 236px;
@@ -34,9 +71,13 @@ body {
   .product-info {
     background: white;
     padding: 0 .6em .6em;
-    line-height: 1.1em;
+    line-height: 1.2em;
     margin-top: .1em;
-    font-size: .8em;
+    font-size: .75em;
+
+    & > div {
+      margin-top: .1em;
+    }
 
     h3 {
       white-space: nowrap;
@@ -46,13 +87,13 @@ body {
       font-size: 1.1em;
     }
 
-    .trade-info {
-
-    }
-
     strong {
       color: green;
     }
+  }
+
+  .distance {
+    font-weight: bold;
   }
 
   .product-link {

@@ -11,7 +11,7 @@ $(document).on('ready page:load', function(){
 
     productCard.masonry({
       itemSelector: '.product-card',
-      columnWidth: 146,
+      columnWidth: 145,
       isFitWidth: true,
       gutter: 8
     });
