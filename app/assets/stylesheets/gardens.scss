@@ -25,15 +25,15 @@
     @include span-columns(4);
     @include omega(2n);
 
-      img {
-        max-height: 300px;
-      }
+    img {
+      max-height: 300px;
     }
+  }
 
   @include media($xlarge-screen-up) {
     @include span-columns(6);
     @include omega(2n);
-    }
+  }
 
   font-size: 0.75em;
   border: $base-border;
@@ -52,16 +52,16 @@
   ul {
     display: block;
   }
-  
+
 
   ul li {
-  display: inline-block;
-    
+    display: inline-block;
+
     @include media($small-screen-only) {
       @include span-columns(1);
       @include omega(2n);
     }
-    
+
     @include media($medium-screen-only) {
       @include span-columns(2);
       @include omega(2n);
@@ -89,12 +89,12 @@
 .new-product-form {
 
   display: block;
-  
+
   @include media($small-screen-only) {
     @include span-columns(2);
     @include omega(2n);
   }
-  
+
   @include media($medium-screen-only) {
     @include span-columns(4);
     @include omega(2n);

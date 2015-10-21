@@ -53,9 +53,10 @@ body {
   margin: 0;
   margin-bottom: .5em;
   border: 1px solid #ccc;
-  border-radius: 5px;
+  border-radius: $base-border-radius;
   float: left;
-  box-shadow: $card-box-shadow;
+  box-shadow: $form-box-shadow;
+  overflow: hidden;
 
   @include media($medium-screen-up) {
     width: 236px;
@@ -68,9 +69,13 @@ body {
   .product-info {
     background: white;
     padding: 0 .6em .6em;
-    line-height: 1.1em;
+    line-height: 1.2em;
     margin-top: .1em;
-    font-size: .8em;
+    font-size: .75em;
+
+    & > div {
+      margin-top: .1em;
+    }
 
     h3 {
       white-space: nowrap;
@@ -80,13 +85,13 @@ body {
       font-size: 1.1em;
     }
 
-    .trade-info {
-
-    }
-
     strong {
       color: green;
     }
+  }
+
+  .distance {
+    font-weight: bold;
   }
 
   .product-link {
