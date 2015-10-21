@@ -2,45 +2,6 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.banner{
-	height: 768px;
-	background: url('banner.jpg') no-repeat;
-	background-size: cover;
-	margin-bottom: 0.5em;
-	@include media($small-screen-up) {
-		display: none;
-	}
-	@include media($large-screen-up) {
-		display: block;
-		max-height: 323px;
-	}
-	@include media($xlarge-screen-up) {
-		max-height: 543px;
-	}
-}
-
-.banner-text h1{
-	color: white;
-	text-align: center;
-	@include media($large-screen-up) {
-		font-size: 2.5em;
-		text-shadow: 2px 2px 4px #000000;
-  }
-	@include media($xlarge-screen-up) {
-		font-size: 3.5em;
-		text-shadow: 3.5px 3.5px 6px #000000;
-  }
-}
-
-#text-1{
-	@include media($large-screen-up) {
-		padding-top: 1.2em;
-  }
-	@include media($xlarge-screen-up) {
-		padding-top: 2em;
-  }
-}
-
 .carousel-title{
 	text-align: center;
 	h3{
@@ -54,6 +15,7 @@
 	overflow: hidden;
 	overflow-x: scroll;
 	margin-bottom: 20px;
+	padding-bottom: 1em;
 }
 
 .carousel {
@@ -66,6 +28,7 @@
 	width: 7.5em;
 	margin-left: .5em;
 	display: inline-block;
+	box-shadow: $form-box-shadow;
 }
 
 .carousel-pic {
@@ -74,7 +37,8 @@
 }
 
 .carousel-info {
-	height: 2.9em;
+	height: 4.9em;
+	padding: 0 .2em;
 	font-size: .8em;
 	a {
 		font-size: 1.01em;

@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  before_filter :require_login, except: [:index, :show]
+  before_filter :require_login, except: [:index, :show, :home]
 
   def index
     choose_search_method
