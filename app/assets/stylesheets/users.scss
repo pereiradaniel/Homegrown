@@ -1,7 +1,6 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-
 .user-info {
   text-align: center;
   font-size: 0.75em;
@@ -260,12 +259,14 @@
 
 //Login & Register Button Style
 .user-login-action {
+  text-align: center;
+
   li {
     display: inline-block;
   }
   .login-btn {
     width: 96px;
-    margin-right: 7em;
+    margin-right: 2em;
 
 
   }

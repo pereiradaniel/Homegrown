@@ -225,7 +225,7 @@
 //Product Show Page Style
 .product-show-container {
 	@include outer-container;
-	font-size: .8em;
+	font-size: $global-font-size;
 	@include clearfix;
 }
 
@@ -273,7 +273,6 @@
 }
 
 .text-field {
-	font-size: 1em;
 }
 /*Style for the geo distance info on product search page */
 
