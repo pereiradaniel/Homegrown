@@ -187,55 +187,89 @@
 }
 
 //Product Show Page Style
-.product-show-container {
-	@include outer-container;
-	font-size: $global-font-size;
-	@include clearfix;
-}
-
-.product-show-btn {
-	box-sizing: border-box;
-	font-weight: $btn-font-weight;
-	font-size: $btn-font-size;
-	  a {
-		text-decoration: none;
-		color: white;
-	}
-}
-.edit-controls {
-
-	li { display: inline-block;}
-
-	input[type=submit] {
-		width: 90px;
-		height: 42px;
-		margin-right: .5em;
-		// float: left;
-	}
-}
-
-.update-btn {
+.product-grid {
+	margin-top: 1em;
 	font-size: .8em;
-	// width: 90px;
-	float: left;
-	height: 42px;
-	display: inline-block;
-}
+  @include clearfix;
+  max-width: 350px;
+  margin: 0 auto;
 
-.product-show-text {
-	margin-top: .4em;
-	font-weight: bold;
-	font-size: 1em;
-}
 
-.text-label {
-	font-size: 1em;
-	line-height: 1.2em;
-	margin-top: 1.2em;
-}
+	border: $base-border;
+  border-radius: $base-border-radius;
+  box-shadow: $form-box-shadow;
+  margin-top: 0.4em;
+  margin-bottom: 0.4em;
+  padding: 0.4em;
 
-.text-field {
-	font-size: 1em;
+  @include media($medium-screen-up) {
+    margin:0;
+    max-width: 100%;
+  }
+
+	.product-show-pic {
+
+		img {
+		  width: 50%;
+      border-radius: $base-border-radius;
+
+      @include media($small-screen-up) {
+				width: 100%;
+      }
+
+			@include media($medium-screen-up) {
+				width: 200%;
+      }
+			@include media($large-screen-up) {
+				width: 300%;
+      }
+		}
+	}
+
+	.product-show-btn {
+		box-sizing: border-box;
+		font-weight: $btn-font-weight;
+		font-size: $btn-font-size;
+		  a {
+			text-decoration: none;
+			color: white;
+		}
+	}
+	.edit-controls {
+
+		li { display: inline-block;}
+
+		input[type=submit] {
+			width: 90px;
+			height: 42px;
+			margin-right: .1em;
+		}
+	}
+
+	.update-btn {
+		font-size: .8em;
+		// width: 90px;
+		float: left;
+		height: 42px;
+		display: inline-block;
+	}
+
+	.product-show-text {
+		margin-top: .4em;
+		font-weight: bold;
+
+	}
+
+	.text-label {
+		font-size: .8em;
+		line-height: 1.2em;
+		margin-top: 1.2em;
+	}
+
+	.text-field {
+		font-size: .8em;
+	}
+
 }
 /*Style for the geo distance info on product search page */
 

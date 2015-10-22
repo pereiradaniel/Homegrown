@@ -1,9 +1,9 @@
-<div class="product-show-container">
-
+<div class="product-grid">
   <%= render 'displayproduct' %>
-
   <ul class="social-media-bar">
-    <li><%= social_share_button_tag("#{@product.name} grown by #{@product.garden.user.name}!", :popup => "true") %></li>
+    <li>
+      <%= social_share_button_tag("#{@product.name} grown by #{@product.garden.user.name}!", :popup => "true") %>
+    </li>
   </ul>
 
   <button class="product-show-btn">
@@ -14,7 +14,7 @@
     <div>
       <%= form_for(@product) do |f| %>
         <div>
-          <%= f.label :tag_list, :class => 'text-field' %>
+          <%= f.label :tag_list, :class => 'text-label' %>
           <%= f.text_field :tag_list,:class => 'text-field' %>
         </div>
         <div class="update-btn edit-controls">
@@ -25,10 +25,10 @@
       <% end %>
     </div>
   <% end %>
-
   <% if current_user && @product.garden.user != current_user %>
     <div class="product-show-text">Please leave a message
-    <%= render 'messageform' %></div>
+      <%= render 'messageform' %>
+    </div>
   <% end %>
 
 </div>

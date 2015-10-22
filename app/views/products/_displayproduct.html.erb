@@ -1,9 +1,13 @@
+
 <h1><%= @product.name %></h1>
-<div class="picture">
+
+<div class="product-show-pic">
   <%= image_tag @product.image_url %>
-    <div>
-    <em>Tag: <%= @product.tag_list %></em>
-  </div>
 </div>
-<div><%= @product.description %></div>
+<div>
+    <em>Tag: <%= @product.tag_list %></em>
+</div>
+<div class="product-description">
+  <%= @product.description %>
+</div>
 <div><%= @product.trade_info %></div>
