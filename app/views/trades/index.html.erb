@@ -5,57 +5,144 @@
   </ul>
 </div>
 
-<% if @trades_seller_success %>
-  <div class="trades-seller-success">
-    <ul>
-      <li class="num-of-trades"><%= @trades_seller_success.count %> successfully completed trades for your items.</li>
-        <% @trades_seller_success.each do |t| %>
-            <li class="trade-partner">You traded <%= t.product.name %> with <%= t.buyer.name %>.</li>
-            <div class="trade-result">
-              <li>The result of this trade was:</li>
-              <li><%= t.negotiation_result %></li>
-              <li>Trade ended on <%= t.created_at %></li>
-            </div>
-        <% end %>
-    </ul>
-  </div>
-<% end %>
-
-<% if @trades_seller_unsuccessful %>
-  <div class="trades-seller-unsuccess">
-    <ul>
-        <li class="num-of-trades"><%= @trades_seller_unsuccessful.count %> unsuccessful trades for your items.</li>    
-          <% @trades_seller_unsuccessful.each do |t| %>
-            <li>You attempted to trade with <%= t.buyer.name %> for your <%= t.product.name %></li>
-            <li class="timestamp">Trade ended on <%= t.created_at %></li>
-          <% end %>
-    </ul>
-  </div>
-<% end %>
-
-<% if @trades_buyer_success %>
-  <div class="trades-buyer-success">
-    <ul>
-      <li class="num-of-trades"><%= @trades_buyer_success.count %> completed trades for items from others.</li>
-        <% @trades_buyer_success.each do |t| %>
-            <li class="trade-partner">You traded <%= t.product.name %> with <%= t.seller.name %>.</li>
-              <div class="trade-result">
-                <li>The result of this trade was:</li>
-                <li><%= t.negotiation_result %></li>
-                <li>Trade ended on <%= t.created_at %></li>
-              </div>
-        <% end %>
-    </ul>
-  </div>
-<% end %>
-
-<% if @trades_buyer_unsuccessful %>
-  <div class="trades-buyer-unsuccess">
-    <ul>
-      <li class="num-of-trades"><%= @trades_buyer_unsuccessful.count %> unsuccessful trades for items from others.</li> 
-      <% @trades_buyer_unsuccessful.each do |t| %>
-        <li>You attempted to trade with <%= t.buyer.name %> for their <%= t.product.name %></li>
+<div class="vertical-tabs-container">
+  <div class="vertical-tabs">
+    <a href="javascript:void(0)" class="js-vertical-tab vertical-tab is-active" rel="tab1">
+      <% if @trades_seller_success %>
+        <%= @trades_seller_success.count %>
+      <% else %>0
       <% end %>
-    </ul>
+    succesful trades for: your items</a>
+    <a href="javascript:void(0)" class="js-vertical-tab vertical-tab" rel="tab2">
+      <% if @trades_seller_unsuccessful %>
+        <%= @trades_seller_unsuccessful.count %>
+      <% else %>0
+      <% end %>
+    unsuccesful trades for: your items</a>
+    <a href="javascript:void(0)" class="js-vertical-tab vertical-tab" rel="tab3">
+      <% if @trades_buyer_success %>
+        <%= @trades_buyer_success.count %>
+      <% else %>0
+      <% end %>
+    succesful trades for: other items</a>
+    <a href="javascript:void(0)" class="js-vertical-tab vertical-tab" rel="tab4">
+      <% if @trades_buyer_unsuccessful %>
+        <%= @trades_buyer_unsuccessful.count %>
+      <% else %>0
+      <% end %>
+    unsuccesful trades for: other items</a>
   </div>
-<% end %>
+
+  <div class="vertical-tab-content-container">
+    <a href="" class="js-vertical-tab-accordion-heading vertical-tab-accordion-heading is-active" rel="tab1">
+      <% if @trades_seller_success %>
+        <%= @trades_seller_success.count %>
+      <% else %>0
+      <% end %>
+    succesful trades for: your items</a>
+    <div id="tab1" class="js-vertical-tab-content vertical-tab-content">
+      <% if @trades_seller_success %>
+        <div class="trades-seller-success">
+          <ul>
+            <li class="num-of-trades"><%= @trades_seller_success.count %> successfully completed trades for your items.</li>
+              <% @trades_seller_success.each do |t| %>
+                <div class="trade-brief">
+                  <li class="trade-partner">You traded <%= t.product.name %> with <%= t.buyer.name %>.</li>
+                  <li><%= image_tag t.product.image_url(:thumb).to_s %> <%= image_tag t.buyer.image_url(:thumb).to_s %></li>
+                    <div class="trade-result">
+                      <li>The result of this trade was:</li>
+                      <li><%= t.negotiation_result %></li>
+                      <li class="timestamp">Trade ended on <%= t.created_at.to_formatted_s(:db) %></li>
+                    </div>
+                </div>
+              <% end %>
+          </ul>
+        </div>
+      <% end %>
+    </div>
+
+    <a href="" class="js-vertical-tab-accordion-heading vertical-tab-accordion-heading" rel="tab2">
+      <% if @trades_seller_unsuccessful %>
+        <%= @trades_seller_unsuccessful.count %>
+      <% else %>0
+      <% end %>
+    unsuccesful trades for: your items</a>
+    <div id="tab2" class="js-vertical-tab-content vertical-tab-content">
+      <% if @trades_seller_unsuccessful %>
+        <div class="trades-seller-unsuccess">
+          <ul>
+            <li class="num-of-trades"><%= @trades_seller_unsuccessful.count %> unsuccessful trades for your items.</li>    
+              <% @trades_seller_unsuccessful.each do |t| %>
+                <div class="trade-brief">
+                  <li class="trade-partner">You attempted to trade with <%= t.product.name %> with <%= t.buyer.name %>.</li>
+                  <li><%= image_tag t.product.image_url(:thumb).to_s %></li>
+                    <div class="trade-result">
+                      <li>The result of this trade was:</li>
+                      <li><%= t.negotiation_result %></li>
+                      <li class="timestamp">Trade ended on <%= t.created_at.to_formatted_s(:db) %></li>
+                    </div>
+                  </div>
+                <% end %>
+          </ul>
+        </div>
+      <% end %>      
+    </div>
+
+    <a href="" class="js-vertical-tab-accordion-heading vertical-tab-accordion-heading" rel="tab3">
+      <% if @trades_buyer_success %>
+        <%= @trades_buyer_success.count %>
+      <% else %>0
+      <% end %>
+    succesful trades for: other items</a>
+    <div id="tab3" class="js-vertical-tab-content vertical-tab-content">
+      <% if @trades_buyer_success %>
+        <div class="trades-buyer-success">
+          <ul>
+            <li class="num-of-trades"><%= @trades_buyer_success.count %> completed trades for items from others.</li>
+              <% @trades_buyer_success.each do |t| %>
+                <div class="trade-brief">
+                  <li class="trade-partner">You traded <%= t.product.name %> with <%= t.seller.name %>.</li>
+                  <li><%= image_tag t.product.image_url(:thumb).to_s %> <%= image_tag t.seller.image_url(:thumb).to_s %></li>
+                    <div class="trade-result">
+                      <li>The result of this trade was:</li>
+                      <li><%= t.negotiation_result %></li>
+                      <li class="timestamp">Trade ended on <%= t.created_at.to_formatted_s(:db) %></li>
+                    </div>
+                  </div>
+              <% end %>
+          </ul>
+        </div>
+      <% end %>      
+    </div>
+
+    <a href="" class="js-vertical-tab-accordion-heading vertical-tab-accordion-heading" rel="tab4">
+      <% if @trades_buyer_unsuccessful %>
+        <%= @trades_buyer_unsuccessful.count %>
+      <% else %>0
+      <% end %>
+    unsuccesful trades for: other items</a>
+    <div id="tab4" class="js-vertical-tab-content vertical-tab-content">
+      <% if @trades_buyer_unsuccessful %>
+        <div class="trades-buyer-unsuccess">
+          <ul>
+            <li class="num-of-trades"><%= @trades_buyer_unsuccessful.count %> unsuccessful trades for items from others.</li> 
+              <% @trades_buyer_unsuccessful.each do |t| %>
+                <div class="trade-brief">
+                  <li class="trade-partner">You attempted to trade with <%= t.product.name %> with <%= t.seller.name %>.</li>
+                  <li><%= image_tag t.product.image_url(:thumb).to_s %> <%= image_tag t.seller.image_url(:thumb).to_s %></li>
+                    <div class="trade-result">
+                      <li>The result of this trade was:</li>
+                      <li><%= t.negotiation_result %></li>
+                      <li class="timestamp">Trade ended on <%= t.created_at.to_formatted_s(:db) %></li>
+                    </div>
+                </div>
+              <% end %>
+          </ul>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+
+

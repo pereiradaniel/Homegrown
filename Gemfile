@@ -40,6 +40,7 @@ gem 'font-awesome-sass', '~> 4.4.0'
 gem 'figaro'
 gem 'mini_magick'
 gem 'social-share-button' # replaced: gem 'shareable'
+gem 'refills'
 
 # A Scope & Engine based, clean, powerful, customizable and sophisticated paginator for Rails 3 and 4
 gem 'kaminari'

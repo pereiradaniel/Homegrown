@@ -1,15 +1,12 @@
 // Place all the styles related to the Trades controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-.trades-seller-success ul,
-.trades-seller-unsuccess ul,
-.trades-buyer-success ul,
-.trades-buyer-unsuccess ul {
-	@include media($small-screen-only) {
-	    @include span-columns(2);
-	    @include omega(2n);
-	  	}
-
+.trades-seller-success,
+.trades-seller-unsuccess,
+.trades-buyer-success,
+.trades-buyer-unsuccess {
+	
+	ul {
 	  display: block;
 		border-bottom: $base-border;
 	  border-radius: $base-border-radius;
@@ -19,6 +16,26 @@
 	  width: 12em;
 		font-size: 0.75em;
 
+	@include media($small-screen-only) {
+	    @include span-columns(2);
+	    @include omega(2n);
+	  	}
+
+ 	@include media($medium-screen-only) {
+    @include span-columns(4);
+    @include omega(2n);
+  	}
+
+ 	@include media($large-screen-only) {
+    @include span-columns(8);
+    @include omega(2n);
+  	}
+
+  @include media($xlarge-screen-up) {
+    @include span-columns(12);
+    @include omega(2n);
+  	}
+
 		li {
 			line-height: 1.2em;
 		}
@@ -26,10 +43,12 @@
 		.timestamp {
 			font-style: italic;
 		}
+	}
 }
 
 .num-of-trades {
 	border: $base-border;
+	border-radius: $base-border-radius;
 	padding: 0.2em;
 	text-align: center;	
 
@@ -44,17 +63,10 @@
 	border-bottom: $base-border;
 }
 
-.trades-buttons ul {
-	display: block;
-}
-
 .trades-buttons {
+	display: block;
 
 	li {
-		@include media($small-screen-only) {
-	    @include span-columns(1);
-	    @include omega(2n);
-	  	}
 		font-size: 0.6em;
 	  display: inline-block;
 	  float: left;
@@ -67,6 +79,25 @@
 	  text-align: center;
 	  color: $light-gray;
 	  width: 5em;
+		@include media($small-screen-only) {
+	    @include span-columns(1);
+	    @include omega(2n);
+	  	}
+
+		@include media($medium-screen-only) {
+		  @include span-columns(2);
+		  @include omega(2n);
+			}
+
+		@include media($large-screen-only) {
+		  @include span-columns(4);
+		  @include omega(2n);
+			}
+
+		@include media($xlarge-screen-up) {
+		  @include span-columns(6);
+		  @include omega(2n);
+			}
 		}
 
 	li:hover {
@@ -78,5 +109,12 @@
 	a {
 		color: $light-gray;
 	}
+}
 
+.trade-brief {
+	padding: 1em;
+
+	img {
+		max-height: 40px;
+	}
 }
