@@ -2,6 +2,56 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.garden-grid {
+  @include clearfix;
+  max-width: 350px;
+  margin: 0 auto;
+
+  @include media($medium-screen-up) {
+    margin:0;
+    max-width: 100%;
+  }
+
+  .product-card {
+    position: relative;
+    height: 15.3em;
+
+    @include media($small-screen-up) {
+      @include span-columns(2);
+    }
+
+    @include media($medium-screen-only) {
+      @include omega(2n);
+    }
+
+    @include media($medium-screen-up) {
+      @include span-columns(2);
+    }
+
+    @include media($large-screen-up) {
+      @include span-columns(2.666666666);
+    }
+
+    @include media($large-screen-only) {
+      @include omega(3n);
+    }
+  }
+
+  .product-card-pic {
+    img {
+      width: 100%;
+    }
+  }
+
+  div.product-info {
+    position: absolute;
+    top: 16.5em;
+    background: rgba(242,243,249,.6);
+    width: 100%;
+    padding: .5em;
+  }
+}
+
 .garden-product-list-item {
   @include media($small-screen-only) {
       @include span-columns(1);
@@ -79,15 +129,61 @@
   }
 }
 
+.garden-info {
+  @include clearfix;
+  text-align: center;
+
+  @include media($large-screen-up) {
+    margin-top: .8em;
+  }
+
+  .owner-info {
+    margin: .5em 0;
+
+    @include media($large-screen-up) {
+      @include span-columns(3);
+    }
+  }
+
+  .profile-pic {
+    position: relative;
+    height: 6em;
+    width: 6em;
+    background: rgba(255,255,255,.5);
+    margin: 0 auto;
+
+    &:before {
+      content: "\f007";
+      font-family: FontAwesome;
+      font-size: 4em;
+      position: absolute;
+      left: .3555em;
+      z-index: -1;
+      @include media($large-screen-up) {
+        left: .6em;
+        top: .2em;
+      }
+    }
+
+    @include media($large-screen-up) {
+      height: 8em;
+      width: 8em;
+
+    }
+  }
+}
 
 #map-canvas {
   width: 100%;
   height: 200px;
   background-color: #CCC;
+
+  @include media($large-screen-up) {
+    @include span-columns(5);
+  }
 }
 
 .new-product-form {
-
   display: block;
 
   @include media($small-screen-only) {
@@ -100,14 +196,13 @@
     @include omega(2n);
   }
 
-@include media($large-screen-only) {
-  @include span-columns(8);
-  @include omega(2n);
+  @include media($large-screen-only) {
+    @include span-columns(8);
+    @include omega(2n);
   }
 
-@include media($xlarge-screen-up) {
-  @include span-columns(12);
-  @include omega(2n);
+  @include media($xlarge-screen-up) {
+    @include span-columns(12);
+    @include omega(2n);
   }
-
 }
