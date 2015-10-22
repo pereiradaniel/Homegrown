@@ -42,6 +42,9 @@ gem 'mini_magick'
 gem 'social-share-button' # replaced: gem 'shareable'
 gem 'refills'
 
+# Delayed jobs
+gem 'delayed_job_active_record'
+
 # A Scope & Engine based, clean, powerful, customizable and sophisticated paginator for Rails 3 and 4
 gem 'kaminari'
 
