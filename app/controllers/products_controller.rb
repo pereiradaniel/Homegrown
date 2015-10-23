@@ -20,9 +20,9 @@ class ProductsController < ApplicationController
      @products = Product.joins("LEFT OUTER JOIN taggings ON products.id = taggings.taggable_id").joins("LEFT OUTER JOIN tags ON taggings.tag_id = tags.id").where(query, "%#{search}%", "%#{search}%", "%#{search}%")
 
      @products = @products.near([params[:latitude], params[:longitude]], params[:proximity], units: :km)
-    elsif !params[:latitude] && search
+    elsif (params[:noloc] == "true") && search
      query = "LOWER(products.name) LIKE LOWER(?) OR LOWER(products.description) LIKE LOWER(?) OR tags.name LIKE LOWER(?)"
-     @products = Product.joins(:tags).where(query, "%#{search}%", "%#{search}%", "%#{search}%")
+     @products = Product.joins("LEFT OUTER JOIN taggings ON products.id = taggings.taggable_id").joins("LEFT OUTER JOIN tags ON taggings.tag_id = tags.id").where(query, "%#{search}%", "%#{search}%", "%#{search}%")
     else
      @products = Product.limit(10).order("RANDOM()")
     end
