@@ -12,7 +12,9 @@ body {
 
   @include media($large-screen-up) {
     display: block;
+    text-align: center;
     height: 447.5px;
+
   }
 }
 
@@ -21,10 +23,12 @@ body {
   left:0;
   width: 100%;
   max-width: 1200px;
-  background: url('banner.jpg') no-repeat;
-  background-size: cover;
+  background-image: url('banner.jpg');
+  background-repeat:no-repeat;
+  background-size:cover;
   margin-bottom: 0.5em;
   display: none;
+  text-align: center;
 
   @include media($large-screen-up) {
     display: block;

@@ -145,51 +145,99 @@ main {
   max-width: 1100px;
   padding: 0 0.5em 0.5em;
 }
+// social media link style
+.social-links {
+  // @include clearfix;
+  background: #555;
+  color: #fff;
+  div {display: inline-block}
+  .social-media {
 
-.footer-bar{
+    display: inline-block;
+    font-size: 2em;
+    margin: 10px 0;
+    padding: 10px;
+    float: inline-block;
+  }
+}
+//New footer style
+.footer-container {
+  background: #555;
+  text-align: center;
+  color: #fff;
+  padding: 2em;
+  margin-right: auto;
+  margin-left: auto;
+}
+.footer-menu {
+
+  // min-height: $title-bar-height;
+  background: #555;
+  font-weight: normal;
+  display: inline;
+  line-height: 2em;
+  font-size: .6em;
+  ul {
+
+  }
+  li {
+    display: inline-block;
+    font-size: 1.5em;
+    // line-height: .4em;
+    margin: .4em;
+
+  }
+  // min-height: $title-bar-height;
+
+
+}
+.footer-bar {
   @include clearfix;
 
-  display: block;
-  color:#79797c;
+  // display: block;
+  // color:#79797c;
+  color: #fff;
   min-height: $title-bar-height;
-  background: #f2f3f9;
+  // background: #f2f3f9;
+  background: #555;
 
-  @include media($small-screen-only){
+  @include media($small-screen-only) {
     font-size: 0.5em;
   }
 
-  @include media($medium-screen-only){
+  @include media($medium-screen-only) {
     font-size: 0.65em;
-    .footer-link{
+    .footer-link {
       font-size: 0.85em;
     }
+
   }
 
-  @include media($large-screen-only){
+  @include media($large-screen-only) {
     font-size: 0.8em;
     .footer-link{
       font-size: 0.85em;
     }
   }
 
-  @include media($xlarge-screen-up){
+  @include media($xlarge-screen-up) {
     font-size: 1em;
     .footer-link{
       font-size: 0.85em;
     }
   }
 
-  ul{
+  ul {
     @include clearfix;
     padding: 4px 0 6px;
     text-align: center;
 
-    p{
-      font-weight: 700;
+    p {
+       font-weight: 700;
       margin-bottom: 0;
     }
 
-    li{
+    li {
       @include media($small-screen-only) {
         @include span-columns(1);
         @include omega(1n);
@@ -210,9 +258,9 @@ main {
         @include omega(12n);
       }
 
-      ul{
+      ul {
         padding: 0;
-        li{
+        li {
           @include span-columns(2);
           // float: none;
         }
@@ -220,6 +268,7 @@ main {
     }
   }
 }
+//social media icons of the footer menu
 
 .disabled {
   color: #ccc;
