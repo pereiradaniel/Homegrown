@@ -1,17 +1,28 @@
 function geolocationSuccess(position, isLocationDisabled) {
-  if(position != undefined){
-    var latitude  = position.coords.latitude;
-    var longitude = position.coords.longitude;
-
-  }else{
-    var latitude  = undefined;
-    var longitude = undefined;
-  }
-
   var searchvar = $('#search-field').val();
   var proximity = $('#proximity').val();
   var searchFor = $('#search-button').val()
   var login = $("#login").val();
+
+  if(position != undefined){
+    var latitude  = position.coords.latitude;
+    var longitude = position.coords.longifalse;
+    var noloc = "false";
+    var request_object = {
+      longitude: longitude,
+      latitude: latitude,
+      search: searchvar,
+      proximity: proximity
+    };
+
+  }else{
+    // alert("Please enable location for proximity search to work!");
+    var noloc = "true";
+    var request_object = {
+      search: searchvar,
+      noloc: noloc
+    };
+  }
 
   if(searchFor == 'product-search'){
     var urlVar = '/products';
@@ -22,20 +33,15 @@ function geolocationSuccess(position, isLocationDisabled) {
   $.ajax({
     url: urlVar,
     method: 'GET',
-    data: {
-      longitude: longitude,
-      latitude: latitude,
-      search: searchvar,
-      proximity: proximity
-    },
+    data: request_object,
     dataType: 'script'
   });
 }
 
 function geolocationError() {
-  alert("Please enable location for proximity search to work!");
-  var position = undefined;
-  geolocationSuccess(position);
+  // alert("Please enable location for proximity search to work!");
+  var no_position = undefined;
+  geolocationSuccess(no_position);
 }
 
 function Map(mapId){

@@ -1,85 +1,29 @@
-<%= render 'userinfobox' %>
-
 <div class="user-controls">
-  <ul>
-    <li><%= link_to raw("<i class=\"fa fa-gear\"> Profile Settings</i>"), edit_user_path(@user) %></li>
-      <% if @trades.length != nil %>
-        <li><%= link_to raw("<i class=\"fa fa-apple\"> Ended Trades</i>"), trades_path %> <%= @trades.count %></li>
-      <% end %>
-  </ul>
-</div>
-
-<% @products_list.each do |c| %>
-  
-  <div class="product-convo-bar">
-    <ul>
-      <li><%= link_to "#{c.product.name}", product_path(c.product) %></li>
-      <li class="product-convo-bar-userinfo">
-        <ul>
-          <li><%=image_tag(c.product.garden.user.image_url(:thumb).to_s) %></li>
-          <li>Grower <%= link_to "#{c.product.garden.user.name}", garden_path(c.product.garden) %></li>
-        </ul>
-      </li>
-      <li class="product-convo-bar-productimage"><%= image_tag(c.product.image_url(:thumb).to_s) %></li>
-      <li class="product-convo-bar-description"><%= c.product.description %></li>
-    </ul>
-  </div>
-
-  <div class="convo-wrapper">
-  <a href="#" class="show-all">Show all trades in progress.</a>
-
-  <div class="product-related-convos">
-      <% @conversations.where("product_id = ?", c.product.id).each do |conv| %>
-        
-        <% if !conv.trade %>
-          <div class="request-box">
-            <ul>
-              <li class="view-link"><%= link_to "Trade with #{conv.sender.name}", conversation_path(conv) %></li>
-              <li><%= conv.request %></li>
-              <li class="datetime">Started: <%= conv.created_at.to_formatted_s(:db)  %></li>
-              <% if conv.messages.last %>
-                <li class="datetime">Last message: <%= conv.messages.last.created_at.to_formatted_s(:db) %></li>
-              <% end %>
-            </ul>
-          </div>
-        <% end %>
-      
-      <% end %>
-  </div>
-</div>
-<% end %>
-
-<div class="pagination-links">
-  <%= paginate @products_list %>
-</div>
-
-<ul>
-  <% if !@user.garden %>
-    <div id="create-garden-button">
-
-      <%= form_for([@garden]) do |f| %>
-        <div class="field">
-          <li><%= f.label :postal_code %></li>
-          <li><%= f.text_field :postal_code %></li>
-        </div>
-        <div class="action">
-          <li><%= f.submit %></li>
-        </div>
-    </div>
-</ul>
-      <% end %>
-
-  <% else %>
-    <div class="user-controls">
-    <ul>
-      <li>
-        <%= link_to raw("<i class=\"fa fa-trash\"> Delete Garden</i>"), garden_path(@user.garden), method: :delete, data: {confirm: "Are you sure you want to delete your garden?"} %>
-      </li>
+  <%= button_to trades_path do %>
+    Ended Trades <span class="badge-success"><%= @trades.count %></span>
   <% end %>
+</div>
 
-    <li>
-      <%= link_to raw("<i class=\"fa fa-user\"> Delete Profile</i>"), method: :delete, data: {confirm: "Are you sure you want to delete your profile?"} %>
+<div class="conversations">
+  <ul class="accordion-tabs">
+
+    <li class="tab-header-and-content">
+      <a href="javascript:void(0)" class="is-active tab-link">Their Requests</a>
+      <div class="tab-content">
+        <ul class="accordion">
+          <%= render partial: 'conversations/conversations_accordion', locals: { products_list: @received_products_list, conversations: @received_conversations } %>
+        </ul>
+      </div>
     </li>
 
-    </div>
+    <li class="tab-header-and-content">
+      <a href="javascript:void(0)" class="tab-link">My Requests</a>
+      <div class="tab-content">
+        <ul class="accordion">
+          <%= render partial: 'conversations/conversations_accordion', locals: { products_list: @sent_products_list, conversations: @sent_conversations } %>
+        </ul>
+      </div>
+    </li>
   </ul>
+</div>
+</div>
