@@ -90,11 +90,12 @@
     position: absolute;
     left: 0;
     width: 100%;
+    z-index: 9000;
 
     @include media($small-medium-screen-up) {
       position: absolute;
       width: 12em;
-      left: -8em
+      left: -8em;
     }
 
     li {
