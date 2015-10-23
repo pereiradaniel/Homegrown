@@ -4,6 +4,8 @@ class Product < ActiveRecord::Base
   belongs_to :trade
   validates :name, presence: true
   mount_uploader :image, ImageUploader
+  # mount_uploader :image, AssetUploader
+  after_save :enqueue
   acts_as_taggable
 
   geocoded_by :postal_code

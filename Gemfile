@@ -31,6 +31,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # gem 'capistrano-rails', group: :development
 
 gem 'carrierwave'
+# gem 'streamio-ffmpeg'
 gem 'sorcery'
 gem 'geocoder'
 gem 'bourbon'

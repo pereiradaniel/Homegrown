@@ -20,7 +20,7 @@
 /config/application.yml
 
 # Ignore image dir
-/public/uploads/product
+/public/uploads
 /1.jpg
 /2.jpg
 /3.jpg

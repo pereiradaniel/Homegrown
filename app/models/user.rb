@@ -4,6 +4,9 @@ class User < ActiveRecord::Base
   end
 
   mount_uploader :image, ImageUploader
+  # mount_uploader :image, AssetUploader
+  after_save :enqueue
+  
   has_many :authentications, :dependent => :destroy
   accepts_nested_attributes_for :authentications
 
