@@ -98,7 +98,7 @@ end
   User.create!({
     name: "User#{x}",
     email: "user#{x}@email.com",
-    image: open("#{Rails.root}/app/assets/images" + profile_picture_array[rand(picture_array.size)] + ".jpg"),
+    image: open("#{Rails.root}/app/assets/images/" + profile_picture_array[rand(picture_array.size)] + ".jpg"),
     password: "1111",
     password_confirmation: "1111"
     })
