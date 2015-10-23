@@ -3,7 +3,7 @@
   What would you like to trade for <%= @product.name %>?
   </div>
   <div class="field">
-    <%= f.text_area :request %>
+    <%= f.text_area :request, class: "product-show-convo" %>
   </div>
     <%= f.hidden_field :product_id, {value: @product.id} %>
     <%= f.hidden_field :sender_id, {value: current_user.id} %>

@@ -1,34 +1,25 @@
 <div class="product-grid">
   <%= render 'displayproduct' %>
-  <ul class="social-media-bar">
-    <li>
-      <%= social_share_button_tag("#{@product.name} grown by #{@product.garden.user.name}!", :popup => "true") %>
-    </li>
-  </ul>
-
-  <button class="product-show-btn">
-    <%= link_to 'View Garden', garden_path(@product.garden) %>
-  </button>
-
-  <% if @product.garden.user == current_user %>
-    <div>
-      <%= form_for(@product) do |f| %>
+    <div class="product-show-grid">
+      <% if @product.garden.user == current_user %>
         <div>
-          <%= f.label :tag_list, :class => 'text-label' %>
-          <%= f.text_field :tag_list,:class => 'text-field' %>
+          <%= form_for(@product) do |f| %>
+            <div>
+              <%= f.label :tag_list, :class => 'text-label' %>
+              <%= f.text_field :tag_list,:class => 'text-field' %>
+            </div>
+            <div class="update-btn edit-controls">
+              <li><%= f.submit "Update" %></li>
+              <li> <%= button_to 'Edit', edit_product_path(@product), method: :get %></li>
+              <li><%= button_to "Delete", product_path(@product) , method: :delete, data: {confirm: "Are you sure you want to delete this product?"} %></li>
+            </div>
+          <% end %>
         </div>
-        <div class="update-btn edit-controls">
-          <li><%= f.submit "Update" %></li>
-          <li> <%= button_to 'Edit', edit_product_path(@product), method: :get %></li>
-          <li><%= button_to "Delete", product_path(@product) , method: :delete, data: {confirm: "Are you sure you want to delete this product?"} %></li>
+      <% end %>
+      <% if current_user && @product.garden.user != current_user %>
+        <div class="product-show-text">Please leave a message
+          <%= render 'messageform' %>
         </div>
       <% end %>
     </div>
-  <% end %>
-  <% if current_user && @product.garden.user != current_user %>
-    <div class="product-show-text">Please leave a message
-      <%= render 'messageform' %>
-    </div>
-  <% end %>
-
 </div>
