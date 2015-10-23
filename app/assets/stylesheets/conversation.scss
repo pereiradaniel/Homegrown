@@ -2,6 +2,46 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.conversations {
+  @include clearfix;
+  .tab-link {
+    width: 48%;
+    text-align: center;
+  }
+
+  .accordion-tabs .tab-content {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+.oldstuff {
+  @include clearfix;
+}
+.conversations .accordion {
+  border: none;
+
+  li {
+    vertical-align: middle;
+  }
+
+  a {
+    @include clearfix;
+
+    line-height: 3em;
+    img {
+      float: left;
+      width: 3.5em;
+      height: 3.5em;
+      margin-right: 1em;
+      border: 1px solid darken($menu-gray, 20%);
+    }
+  }
+}
+
+
+
+
 .convo-product-brief {
   @include media($small-screen-only) {
       @include span-columns(2);
@@ -205,8 +245,6 @@
 	}
 
 }
-
-
 
 .list-container {
 	display: none;

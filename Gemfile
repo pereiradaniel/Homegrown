@@ -47,6 +47,9 @@ gem 'kaminari'
 # A tagging plugin for Rails applications that allows for custom tagging along dynamic contexts.
 gem 'acts-as-taggable-on', '~> 3.4'
 
+# Components and patterns built with Bourbon and Neat http://refills.bourbon.io
+gem 'refills'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   # Use sqlite3 as the database for Active Record
