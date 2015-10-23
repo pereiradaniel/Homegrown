@@ -28,6 +28,31 @@
   border: none;
   margin-bottom: 0;
 
+  li {
+    vertical-align: middle;
+
+    & > a {
+      @include clearfix;
+      padding-left: 1em;
+      padding-right: 1em;
+
+      line-height: 3em;
+
+      img {
+        float: left;
+        width: 3.5em;
+        height: 3.5em;
+        margin-right: 1em;
+        border: 1px solid darken($menu-gray, 20%);
+      }
+
+      i {
+        float: right;
+        line-height: 3em;
+      }
+    }
+  }
+
   .submenu {
     font-size: .8em;
 
@@ -48,23 +73,6 @@
       a {
         line-height: 1.4;
       }
-    }
-  }
-
-  li {
-    vertical-align: middle;
-  }
-
-  a {
-    @include clearfix;
-
-    line-height: 3em;
-    img {
-      float: left;
-      width: 3.5em;
-      height: 3.5em;
-      margin-right: 1em;
-      border: 1px solid darken($menu-gray, 20%);
     }
   }
 }

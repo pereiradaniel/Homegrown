@@ -1,10 +1,7 @@
 <div class="user-controls">
-  <ul>
-    <li><%= link_to raw("<i class=\"fa fa-gear\"> Profile Settings</i>"), edit_user_path(@user) %></li>
-      <% if @trades.length != nil %>
-        <li><%= link_to raw("<i class=\"fa fa-apple\"> Ended Trades</i>"), trades_path %> <%= @trades.count %></li>
-      <% end %>
-  </ul>
+  <%= button_to trades_path do %>
+    Ended Trades <span class="badge-success"><%= @trades.count %></span>
+  <% end %>
 </div>
 
 <div class="conversations">
@@ -22,40 +19,11 @@
     <li class="tab-header-and-content">
       <a href="javascript:void(0)" class="tab-link">My Requests</a>
       <div class="tab-content">
-        <%= render partial: 'conversations/conversations_accordion', locals: { products_list: @sent_products_list, conversations: @sent_conversations } %>
+        <ul class="accordion">
+          <%= render partial: 'conversations/conversations_accordion', locals: { products_list: @sent_products_list, conversations: @sent_conversations } %>
+        </ul>
       </div>
     </li>
   </ul>
 </div>
 </div>
-
-<ul>
-  <% if !@user.garden %>
-    <div id="create-garden-button">
-
-      <%= form_for([@garden]) do |f| %>
-        <div class="field">
-          <li><%= f.label :postal_code %></li>
-          <li><%= f.text_field :postal_code %></li>
-        </div>
-        <div class="action">
-          <li><%= f.submit %></li>
-        </div>
-    </div>
-</ul>
-      <% end %>
-
-  <% else %>
-    <div class="user-controls">
-    <ul>
-      <li>
-        <%= link_to raw("<i class=\"fa fa-trash\"> Delete Garden</i>"), garden_path(@user.garden), method: :delete, data: {confirm: "Are you sure you want to delete your garden?"} %>
-      </li>
-  <% end %>
-
-    <li>
-      <%= link_to raw("<i class=\"fa fa-user\"> Delete Profile</i>"), method: :delete, data: {confirm: "Are you sure you want to delete your profile?"} %>
-    </li>
-
-    </div>
-  </ul>

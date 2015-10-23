@@ -3,6 +3,7 @@
     <a href="javascript:void(0)" class="js-accordion-trigger">
       <%= image_tag(product.image_url(:thumb).to_s) %>
       <%= product.name %>
+      <i class="fa fa-caret-down"></i>
     </a>
     <ul class="submenu">
       <% conversations.where("product_id = ?", product.id).each do |conv| %>
