@@ -1,0 +1,23 @@
+<% products_list.each do |product| %>
+  <li>
+    <a href="javascript:void(0)" class="js-accordion-trigger">
+      <%= image_tag(product.image_url(:thumb).to_s) %>
+      <%= product.name %>
+    </a>
+    <ul class="submenu">
+      <% conversations.where("product_id = ?", product.id).each do |conv| %>
+        <li>
+          <a href="javascript:void(0)">
+            <i class="fa fa-envelope"></i>
+            <div class="conversation-info">
+              <%= link_to "Trade request from #{conv.sender.name}", conversation_path(conv) %>
+              Last message: <%= conv.messages.last.created_at.to_formatted_s(:db) %>
+            </div>
+          </a>
+        </li>
+      <% end %>
+    </ul>
+  </li>
+<% end %>
+
+

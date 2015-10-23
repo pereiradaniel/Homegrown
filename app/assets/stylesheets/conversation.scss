@@ -4,22 +4,52 @@
 
 .conversations {
   @include clearfix;
+
   .tab-link {
     width: 48%;
     text-align: center;
   }
 
-  .accordion-tabs .tab-content {
-    padding-left: 0;
-    padding-right: 0;
+  .accordion-tabs {
+
+    .tab-header-and-content {
+      & > a {
+        font-size: .9em;
+      }
+    }
+
+    .tab-content {
+      padding: 1em 0;
+    }
   }
 }
 
-.oldstuff {
-  @include clearfix;
-}
 .conversations .accordion {
   border: none;
+  margin-bottom: 0;
+
+  .submenu {
+    font-size: .8em;
+
+    li {
+      @include clearfix;
+      padding: 0 .5em;
+
+      & > a {
+        float: right;
+        margin-left: .5em;
+      }
+    }
+
+    .conversation-info {
+      float: right;
+      margin-top: .8em;
+
+      a {
+        line-height: 1.4;
+      }
+    }
+  }
 
   li {
     vertical-align: middle;
@@ -38,9 +68,6 @@
     }
   }
 }
-
-
-
 
 .convo-product-brief {
   @include media($small-screen-only) {
