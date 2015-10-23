@@ -16,6 +16,7 @@
 # ary[rand(ary.size)]
 
 picture_array = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
+profile_picture_array = ["profile1", "profile2", "profile3", "profile4", "profile5", "profile6", "profile7", "profile8", "profile9"]
 postal_code_array = ["M5H 1W7", "M7A 1Y7", "M1J 2E1", "L4B 3P4", "M9C 2Y2", "M5H 2M3", "M2N 5V7", "M2J 5A7"]
 # postal_code: postal_code_array[rand(ary.size)]
 product_name_array = ["Apple", "Pepper", "Potato", "Garlic", "Sweet potato", "Hot pepper", "Sweet pepper",
@@ -62,6 +63,7 @@ tags_array = ["green", "red", "brown", "purple", "white", "black", "sweet", "spi
   User.create!({
     name: "User#{x}",
     email: "user#{x}@email.com",
+    image: open("#{Rails.root}/app/assets/images/" + profile_picture_array[rand(picture_array.size)] + ".jpg"),
     password: "1111",
     password_confirmation: "1111"
     })
@@ -77,7 +79,7 @@ tags_array = ["green", "red", "brown", "purple", "white", "black", "sweet", "spi
     description: "Description #{x}a",
     trade_info: "Trade info #{x}a",
     postal_code: "M5H 1W7",
-    image: open("#{Rails.root}/" + picture_array[rand(picture_array.size)] + ".jpg")
+    image: open("#{Rails.root}/app/assets/images/" + picture_array[rand(picture_array.size)] + ".jpg")
     })
 
   Product.create!({
@@ -86,7 +88,7 @@ tags_array = ["green", "red", "brown", "purple", "white", "black", "sweet", "spi
     description: "Description #{x}b",
     trade_info: "Trade info #{x}b",
     postal_code: "M5H 1W7",
-    image: open("#{Rails.root}/" + picture_array[rand(picture_array.size)] + ".jpg")
+    image: open("#{Rails.root}/app/assets/images/" + picture_array[rand(picture_array.size)] + ".jpg")
     })
 
 end
@@ -96,6 +98,7 @@ end
   User.create!({
     name: "User#{x}",
     email: "user#{x}@email.com",
+    image: open("#{Rails.root}/app/assets/images" + profile_picture_array[rand(picture_array.size)] + ".jpg"),
     password: "1111",
     password_confirmation: "1111"
     })
@@ -111,7 +114,7 @@ end
     description: "Description #{x}a",
     trade_info: "Trade info #{x}a",
     postal_code: "M9C 2Y2",
-    image: open("#{Rails.root}/" + picture_array[rand(picture_array.size)] + ".jpg")
+    image: open("#{Rails.root}/app/assets/images/" + picture_array[rand(picture_array.size)] + ".jpg")
     })
 
   Product.create!({
@@ -120,7 +123,7 @@ end
     description: "Description #{x}b",
     trade_info: "Trade info #{x}b",
     postal_code: "M9C 2Y2",
-    image: open("#{Rails.root}/" + picture_array[rand(picture_array.size)] + ".jpg")
+    image: open("#{Rails.root}/app/assets/images/" + picture_array[rand(picture_array.size)] + ".jpg")
     })
 
 end
@@ -242,6 +245,7 @@ Trade.create!({
     User.create!({
       name: user_names[rand(user_names.size)],
       email: email_handle[rand(email_handle.size)] + email_nicks[rand(email_nicks.size)] + Random.rand(666).to_s + "@" + email_array[rand(email_array.size)] + domain_array[rand(domain_array.size)],
+      image: open("#{Rails.root}/app/assets/images/" + profile_picture_array[rand(picture_array.size)] + ".jpg"),
       password: "1111",
       password_confirmation: "1111"
       })
@@ -257,7 +261,7 @@ Trade.create!({
       description: product_description_array[rand(product_description_array.size)],
       trade_info: trade_array[rand(trade_array.size)],
       postal_code: Garden.last.postal_code,
-      image: open("#{Rails.root}/" + picture_array[rand(picture_array.size)] + ".jpg")
+      image: open("#{Rails.root}/app/assets/images/" + picture_array[rand(picture_array.size)] + ".jpg")
       })
 
     Product.create!({
@@ -266,7 +270,7 @@ Trade.create!({
       description: product_description_array[rand(product_description_array.size)],
       trade_info: trade_array[rand(trade_array.size)],
       postal_code: Garden.last.postal_code,
-      image: open("#{Rails.root}/" + picture_array[rand(picture_array.size)] + ".jpg")
+      image: open("#{Rails.root}/app/assets/images/" + picture_array[rand(picture_array.size)] + ".jpg")
       })
 
     Product.create!({
@@ -275,7 +279,7 @@ Trade.create!({
       description: product_description_array[rand(product_description_array.size)],
       trade_info: trade_array[rand(trade_array.size)],
       postal_code: Garden.last.postal_code,
-      image: open("#{Rails.root}/" + picture_array[rand(picture_array.size)] + ".jpg")
+      image: open("#{Rails.root}/app/assets/images/" + picture_array[rand(picture_array.size)] + ".jpg")
       })
 
   # rand_product = Product.order("RANDOM()").first
