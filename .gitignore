@@ -21,3 +21,6 @@
 
 # Ignore image dir
 /public/uploads
+
+# Mac fs file
+/.DS_Store
