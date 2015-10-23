@@ -20,14 +20,14 @@
   width: 6.625em;
   height: 6.625em * .43396266;
   float: left;
-  background: url('homegrown-logo.png') no-repeat;
+  background: url(image-path('homegrown-logo.png')) no-repeat;
   background-size: 100%;
   background-position: center;
 
   @include media($small-medium-screen-up) {
     width: 11.625em;
     height: 11.625em * .43396266;
-    background: url('homegrown-logo-lg.png') no-repeat;
+    background: url(image-path('homegrown-logo-lg.png')) no-repeat;
     background-size: 100%;
     background-position: center;
   }
