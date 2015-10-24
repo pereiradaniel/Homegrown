@@ -8,11 +8,11 @@
     <%= label_tag :password %>
     <%= password_field_tag :password %>
   </div>
-</div>
+
 
   <div class="user-login-action">
     <li><%= submit_tag "Login", value: "login", class: "login-btn" %></li>
     <li><%= button_to "Register", new_user_path, method: :get %></li>
   </div>
-
+</div>
 <% end %>
