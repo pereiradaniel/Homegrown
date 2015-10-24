@@ -1,4 +1,4 @@
-function geolocationSuccess(position, isLocationDisabled) {
+function geolocationSuccess(position) {
   var searchvar = $('#search-field').val();
   var proximity = $('#proximity').val();
   var searchFor = $('#search-button').val()
