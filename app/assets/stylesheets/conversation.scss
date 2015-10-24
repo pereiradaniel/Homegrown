@@ -78,221 +78,39 @@
 }
 
 .convo-product-brief {
-  @include media($small-screen-only) {
-      @include span-columns(2);
-      @include omega(2n);
-    }
-
-    @include media($medium-screen-only) {
-      @include span-columns(4);
-      @include omega(2n);
-    }
-
-  @include media($large-screen-only) {
-    @include span-columns(8);
-    @include omega(2n);
-    }
-
-  @include media($xlarge-screen-up) {
-    @include span-columns(12);
-    @include omega(2n);
-    }
-
-  font-size: 0.75em;
+  @include clearfix;
   border: $base-border;
   border-radius: $base-border-radius;
   box-shadow: $form-box-shadow;
+  font-size: 0.8em;
   margin-top: 0.25em;
   margin-bottom: 0.25em;
   padding: 0.25em;
-
-  ul {
-    display:block;
-  }
-
-  ul li {
-  display: inline-block;
-
-    @include media($small-screen-only) {
-      @include span-columns(1);
-      @include omega(2n);
-    }
-
-    @include media($medium-screen-only) {
-      @include span-columns(2);
-      @include omega(2n);
-    }
-
-  @include media($large-screen-only) {
-    @include span-columns(4);
-    @include omega(2n);
-    }
-
-  @include media($xlarge-screen-up) {
-    @include span-columns(6);
-    @include omega(2n);
-    }
-  }
+  background: lighten($action-color, 63%);
 
   img {
-  max-height: 100px;
+    float: right;
+    max-height: 100px;
+    margin-left: .25em;
+  }
+}
 
-  @include media($medium-screen-only) {
-  @include span-columns(1);
-  @include omega(2n);
+.message-list {
+  .comment {
+    padding-bottom: .5em;
+    .comment-content {
+      h1 {
+        font-size: .8em;
+        margin-bottom: 0;
+      }
 
-  max-height: 200px;
+      p.comment-detail {
+        font-size: .6em;
+      }
     }
   }
 }
 
-.trade-request-info {
-	  @include media($small-screen-only) {
-      @include span-columns(2);
-      @include omega(2n);
-    }
 
-    @include media($medium-screen-only) {
-      @include span-columns(4);
-      @include omega(2n);
-    }
 
-  @include media($large-screen-only) {
-    @include span-columns(8);
-    @include omega(2n);
-    }
 
-  @include media($xlarge-screen-up) {
-    @include span-columns(12);
-    @include omega(2n);
-    }
-
-		border-bottom: $base-border;
-	  border-radius: $base-border-radius;
-	  padding: $btn-padding;
-	  box-shadow: $form-box-shadow;
-	  text-decoration: none;
-	  width: 12em;
-		font-size: 0.75em;
-}
-
-.message-details {
-  @include media($small-screen-only) {
-      @include span-columns(2);
-      @include omega(2n);
-    }
-
-    @include media($medium-screen-only) {
-      @include span-columns(4);
-      @include omega(2n);
-    }
-
-  @include media($large-screen-only) {
-    @include span-columns(8);
-    @include omega(2n);
-    }
-
-  @include media($xlarge-screen-up) {
-    @include span-columns(12);
-    @include omega(2n);
-    }
-
-		  float: left;
-			display: block;
-		  text-decoration: none;
-			font-size: 0.75em;
-
-}
-
-.timestamp {
-	float: none;
-	display: block;
-	font-style: italic;
-	font-size: 0.7em;
-	line-height: 0.7em;
-}
-
-.convo-controls {
-
-  @include media($small-screen-only) {
-      @include span-columns(2);
-      @include omega(2n);
-    }
-
-    @include media($medium-screen-only) {
-      @include span-columns(4);
-      @include omega(2n);
-    }
-
-  @include media($large-screen-only) {
-    @include span-columns(8);
-    @include omega(2n);
-    }
-
-  @include media($xlarge-screen-up) {
-    @include span-columns(12);
-    @include omega(2n);
-    }
-
-  display: inline-block;
-  float: left;
-  background: $green;
-  background-image: $btn-gradient;
-  border-radius: $base-border-radius;
-  padding: $btn-padding;
-  text-decoration: none;
-  line-height: $btn-line-height;
-  text-align: center;
-  color: $light-gray;
-  width: 12em;
-
-  ul li {
-
-    @include media($small-screen-only) {
-      @include span-columns(1);
-      @include omega(2n);
-    }
-
-    @include media($medium-screen-only) {
-      @include span-columns(2);
-      @include omega(2n);
-    }
-
-  @include media($large-screen-only) {
-    @include span-columns(4);
-    @include omega(2n);
-    }
-
-  @include media($xlarge-screen-up) {
-    @include span-columns(6);
-    @include omega(2n);
-    }
-  }
-
-	ul li:hover {
-  background: #3cb0fd;
-  background-image: linear-gradient(to bottom, darken($green, 5%), lighten($green, 30%));
-  text-decoration: none;
-	}
-
-	a {
-	  color: $light-gray;
-	}
-
-}
-
-.list-container {
-	display: none;
-}
-
-.open {
-	display: block;
-}
-
-.close {
-	display: none;
-}
-
-.message-history {
-	font-size: 0.85em;
-}
