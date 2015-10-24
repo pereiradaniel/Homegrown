@@ -6,7 +6,7 @@ function geolocationSuccess(position, isLocationDisabled) {
 
   if(position != undefined){
     var latitude  = position.coords.latitude;
-    var longitude = position.coords.longifalse;
+    var longitude = position.coords.longitude;
     var noloc = "false";
     var request_object = {
       longitude: longitude,
