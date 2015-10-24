@@ -146,21 +146,7 @@ main {
   max-width: 1100px;
   padding: 0 0.5em 0.5em;
 }
-// social media link style
-.social-links {
-  // @include clearfix;
-  background: #555;
-  color: #fff;
-  div {display: inline-block}
-  .social-media {
 
-    display: inline-block;
-    font-size: 2em;
-    margin: 10px 0;
-    padding: 10px;
-    float: inline-block;
-  }
-}
 //New footer style
 .footer-container {
   background: #555;
@@ -169,107 +155,116 @@ main {
   padding: 2em;
   margin-right: auto;
   margin-left: auto;
+  .copyright-info {
+    color: #ccc;
+  }
 }
 .footer-menu {
-
-  // min-height: $title-bar-height;
   background: #555;
-  font-weight: normal;
+  font-weight: 200;
   display: inline;
   line-height: 2em;
   font-size: .6em;
-  ul {
 
-  }
+
   li {
     display: inline-block;
-    font-size: 1.5em;
-    // line-height: .4em;
+    font-size: 2em;
     margin: .4em;
 
-  }
-  // min-height: $title-bar-height;
-
-
-}
-.footer-bar {
-  @include clearfix;
-
-  // display: block;
-  // color:#79797c;
-  color: #fff;
-  min-height: $title-bar-height;
-  // background: #f2f3f9;
-  background: #555;
-
-  @include media($small-screen-only) {
-    font-size: 0.5em;
-  }
-
-  @include media($medium-screen-only) {
-    font-size: 0.65em;
-    .footer-link {
-      font-size: 0.85em;
-    }
-
-  }
-
-  @include media($large-screen-only) {
-    font-size: 0.8em;
-    .footer-link{
-      font-size: 0.85em;
-    }
-  }
-
-  @include media($xlarge-screen-up) {
-    font-size: 1em;
-    .footer-link{
-      font-size: 0.85em;
-    }
-  }
-
-  ul {
-    @include clearfix;
-    padding: 4px 0 6px;
-    text-align: center;
-
-    p {
-       font-weight: 700;
-      margin-bottom: 0;
-    }
-
-    li {
       @include media($small-screen-only) {
-        @include span-columns(1);
-        @include omega(1n);
-      }
-
-      @include media($medium-screen-only) {
-        @include span-columns(1);
-        @include omega(4n);
-      }
-
-      @include media($large-screen-only) {
-        @include span-columns(2);
-        @include omega(8n);
-      }
-
-      @include media($xlarge-screen-up) {
-        @include span-columns(3);
-        @include omega(12n);
-      }
-
-      ul {
-        padding: 0;
-        li {
-          @include span-columns(2);
-          // float: none;
-        }
-      }
+      font-size: 2em;
+    }
+      @include media($small-screen-up) {
+      font-size: 2.5em;
+    }
+      @include media($medium-screen-up) {
+      font-size: 3em;
+    }
+      @include media($large-screen-up) {
+      font-size: 3em;
     }
   }
 }
-//social media icons of the footer menu
+
+//* old footer style */
+// .footer-bar {
+//   @include clearfix;
+
+//   // display: block;
+//   // color:#79797c;
+//   color: #fff;
+//   min-height: $title-bar-height;
+//   // background: #f2f3f9;
+//   background: #555;
+
+//   @include media($small-screen-only) {
+//     font-size: 0.5em;
+//   }
+
+//   @include media($medium-screen-only) {
+//     font-size: 0.65em;
+//     .footer-link {
+//       font-size: 0.85em;
+//     }
+
+//   }
+
+//   @include media($large-screen-only) {
+//     font-size: 0.8em;
+//     .footer-link{
+//       font-size: 0.85em;
+//     }
+//   }
+
+//   @include media($xlarge-screen-up) {
+//     font-size: 1em;
+//     .footer-link{
+//       font-size: 0.85em;
+//     }
+//   }
+
+//   ul {
+//     @include clearfix;
+//     padding: 4px 0 6px;
+//     text-align: center;
+
+//     p {
+//        font-weight: 700;
+//       margin-bottom: 0;
+//     }
+
+//     li {
+//       @include media($small-screen-only) {
+//         @include span-columns(1);
+//         @include omega(1n);
+//       }
+
+//       @include media($medium-screen-only) {
+//         @include span-columns(1);
+//         @include omega(4n);
+//       }
+
+//       @include media($large-screen-only) {
+//         @include span-columns(2);
+//         @include omega(8n);
+//       }
+
+//       @include media($xlarge-screen-up) {
+//         @include span-columns(3);
+//         @include omega(12n);
+//       }
+
+//       ul {
+//         padding: 0;
+//         li {
+//           @include span-columns(2);
+//           // float: none;
+//         }
+//       }
+//     }
+//   }
+// }
 
 .disabled {
   color: #ccc;

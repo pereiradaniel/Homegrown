@@ -2,11 +2,15 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.carousel-title{
+.carousel-title {
+	margin-top: .8em;
 	text-align: center;
 	h3{
 		font-size: 1.2em;
 	}
+	// @include media($medium-screen-up) {
+	// 	margin-top: .05em;
+	// }
 }
 
 .carousel-container {
