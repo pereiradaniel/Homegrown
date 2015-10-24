@@ -241,7 +241,7 @@ Trade.create!({
   success: true
 })
 
-50.times do |i|
+8.times do |i|
     User.create!({
       name: user_names[rand(user_names.size)],
       email: email_handle[rand(email_handle.size)] + email_nicks[rand(email_nicks.size)] + Random.rand(666).to_s + "@" + email_array[rand(email_array.size)] + domain_array[rand(domain_array.size)],
