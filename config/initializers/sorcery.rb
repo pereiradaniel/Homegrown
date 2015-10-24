@@ -116,8 +116,8 @@ Rails.application.config.sorcery.configure do |config|
   # config.twitter.user_info_mapping = {:email => "screen_name"}
 
   #
-  config.facebook.key = "897009703681282"
-  config.facebook.secret = "2d249df507ca31f3800ed012a22a0d97"
+  config.facebook.key = "Figaro.env.facebook_key"
+  config.facebook.secret = "Figaro.env.facebook_secret"
   config.facebook.callback_url = "http://0.0.0.0:3000/oauth/callback?provider=facebook"
   config.facebook.user_info_mapping = {:email => "name"}
   config.facebook.access_permissions = ["email", "publish_actions"]

@@ -30,7 +30,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-gem 'carrierwave'
+gem 'carrierwave-aws'
 # gem 'streamio-ffmpeg'
 gem 'sorcery'
 gem 'geocoder'
@@ -69,7 +69,7 @@ group :development do
   gem 'web-console', '~> 2.0'
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  gem 'spring'
+  # gem 'spring'
 
   # This gem is a port of Perl's Data::Faker library that generates fake data.
   gem 'faker'
