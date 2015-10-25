@@ -12,7 +12,6 @@ class ProductsController < ApplicationController
 
   def choose_search_method
     search = params[:search]
-
     if params[:tag]
      @products = Product.find_by_tag(params[:tag])
     elsif params[:latitude] && params[:longitude] && search
