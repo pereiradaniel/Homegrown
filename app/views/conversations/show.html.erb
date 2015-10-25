@@ -1,9 +1,3 @@
-<% if @owner == current_user %>
-	<div class="convo-controls">
-		<%= link_to 'End Trade', new_trade_path(:product => @product.id, :buyer => @conversation.sender.id, :conversation => @conversation.id), method: "get" %>
-	</div>
-<% end %>
-
 <div class="convo-product-brief">
 	<%= link_to( image_tag(@product.image_url(:thumb).to_s), product_path(@product)) %>
 	<div><%= @conversation.sender.name %> is requesting a trade:</div>
@@ -13,15 +7,20 @@
 <%= form_for([@message]) do |f| %>
 	<div class="convo-message-form">
 		<ul>
-			<li>Reply</li>
 			<li><%= f.text_area :content %></li>
 				<%= f.hidden_field :conversation_id, {value: @conversation.id} %>
 				<%= f.hidden_field :sender_id, {value: current_user.id} %>
 				<%= f.hidden_field :product_id, {value: @product.id} %>
 				<% @conversation.sender != current_user ? @receiver = @conversation.sender : @receiver = current_user %>
 				<%= f.hidden_field :receiver_id, {value: @receiver.id} %>
-			<li><%= f.submit %></li>
+			<li><%= f.submit "Send" %></li>
 		</ul>
+	</div>
+<% end %>
+
+<% if @owner == current_user %>
+	<div class="convo-controls">
+		<%= link_to 'End Trade', new_trade_path(:product => @product.id, :buyer => @conversation.sender.id, :conversation => @conversation.id), method: "get" %>
 	</div>
 <% end %>
 
