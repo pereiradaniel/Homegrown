@@ -1,16 +1,21 @@
-<%= form_tag user_sessions_path, :method => :post do %>
-<div class="login-grid">
-  <div class="login-field">
-    <%= label_tag :email %>
-    <%= text_field_tag :email %>
+<div class="login-form">
+  <%= form_tag user_sessions_path, :method => :post do %>
+  <div class="login-grid">
+    <div class="login-field">
+      <%= label_tag :email %>
+      <%= text_field_tag :email %>
+    </div>
+    <div class="login-field">
+      <%= label_tag :password %>
+      <%= password_field_tag :password %>
+    </div>
   </div>
-  <div class="login-field">
-    <%= label_tag :password %>
-    <%= password_field_tag :password %>
+  <div class="user-login-btn">
+    <%= submit_tag "Login", value: "login", class: "login-btn" %>
   </div>
-  <div class="user-login-action">
-    <li><%= submit_tag "Login", value: "login", class: "login-btn" %></li>
-    <li><%= button_to "Register", new_user_path, method: :get %></li>
-  </div>
+  <% end %>
 </div>
-<% end %>
+
+<div class="register-btn">
+  <%= button_to "Register", new_user_path, method: :get %>
+</div>

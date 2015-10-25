@@ -285,57 +285,6 @@
   }
 }
 
-//Login & Register Button Style
-.login-grid {
-  @include media($small-screen-only) {
-      margin-left: .1em;
-    }
-
-  @include media($small-screen-up) {
-      margin-left: 6em;
-    }
-  @include media($small-medium-screen-only) {
-      margin-left: 6em;
-    }
-  @include media($small-medium-screen-up) {
-      margin-left: 7em;
-  }
-
-  @include media($medium-screen-up) {
-      margin-left: 8em;
-  }
-  @include media($large-screen-up) {
-      margin-left: 21em;
-  }
-}
-.login-field {
-
-  margin-top: 1em;
-  #email {
-
-    width: 18em;
-    height: 2.3em;
-  }
-  #password {
-
-    width: 18em;
-    height: 2.3em;
-  }
-
-}
-.user-login-action {
-  margin-left: .5em;
-  margin-top: 2.5em;
-  margin-bottom: 2.5em;
-
-  li {
-    display: inline-block;
-  }
-  .login-btn {
-    width: 96px;
-    margin-right: 2em;
-  }
-}
 //style on Register form page
 .create-user {
   margin-left: 6em;
