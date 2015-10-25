@@ -36,7 +36,7 @@
       padding-left: 1em;
       padding-right: 1em;
 
-      line-height: 3em;
+      // line-height: 3em;
 
       img {
         float: left;
@@ -67,9 +67,9 @@
     }
 
     .conversation-info {
-      float: right;
-      margin-top: .8em;
-
+      // float: right;
+      padding: .8em;
+      vertical-align: middle;
       a {
         line-height: 1.4;
       }
