@@ -28,10 +28,8 @@ class ConversationsController < ApplicationController
 		redirect_to user_path(current_user)
 	end
 
-
 	private
 	def conversation_params
 		params.require(:conversation).permit(:product_id, :sender_id, :receiver_id, :request, :trade_id)
 	end
-
 end

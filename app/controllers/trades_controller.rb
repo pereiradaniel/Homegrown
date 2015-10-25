@@ -30,6 +30,6 @@ class TradesController < ApplicationController
   def trade_params
     params.require(:trade).permit(:negotiation_result, :seller_id, :buyer_id, :product_id, :conversation_id, :success)
   end
-  
+
 
 end
