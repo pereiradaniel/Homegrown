@@ -286,48 +286,39 @@
 }
 
 //style on Register form page
-.create-user {
-  margin-left: 6em;
+.register-form{
+  width: 300px;
+  text-align: center;
+  margin: 0 auto;
+  label{
+    float: none;
+    text-align: left;
+    margin-top: 0.5em;
+  }
 }
-.register-grid {
-  @include media($small-screen-only) {
-      margin-left: .1em;
-    }
 
-  @include media($small-screen-up) {
-      margin-left: .2em;
-    }
-  @include media($small-medium-screen-only) {
-      margin-left: 2em;
-    }
-  @include media($small-medium-screen-up) {
-      margin-left: 5.5em;
-  }
-
-  @include media($medium-screen-up) {
-      margin-left: 7.5em;
-  }
-  @include media($large-screen-up) {
-      margin-left: 18.5em;
-  }
-
-}
 .register-field {
   #user_name {
+    margin: 0 auto;
     width: 18em;
     height: 2.3em;
   }
   #user_email {
+    margin: 0 auto;
     width: 18em;
     height: 2.3em;
   }
   #user_password {
+    margin: 0 auto;
     width: 18em;
     height: 2.3em;
   }
   #user_password_confirmation {
+    margin: 0 auto;
     width: 18em;
     height: 2.3em;
   }
-
+  #user_image{
+    margin: 0 0 1em 0;
+  }
 }
