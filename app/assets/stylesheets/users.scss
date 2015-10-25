@@ -289,7 +289,7 @@
 .register-form{
   width: 300px;
   text-align: center;
-  margin: 0 auto;
+  margin: 0.5em auto;
   label{
     float: none;
     text-align: left;
@@ -322,3 +322,8 @@
     margin: 0 0 1em 0;
   }
 }
+
+.register-action{
+  margin-bottom: 0.7em;
+}
+
