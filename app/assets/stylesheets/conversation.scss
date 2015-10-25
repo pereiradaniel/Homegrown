@@ -79,19 +79,19 @@
 
 .convo-product-brief {
   @include clearfix;
-  border: $base-border;
-  border-radius: $base-border-radius;
   box-shadow: $form-box-shadow;
   font-size: 0.8em;
-  margin-top: 0.25em;
-  margin-bottom: 0.25em;
   padding: 0.25em;
   background: lighten($action-color, 63%);
+  position: absolute;
+  left: 0;
+  width: 100%;
 
   img {
-    float: right;
-    max-height: 100px;
+    float: left;
+    max-height: 4em;
     margin-left: .25em;
+    padding-right: 1em;
   }
 }
 
@@ -108,6 +108,29 @@
         font-size: .6em;
       }
     }
+  }
+}
+
+
+#new_message {
+  @include clearfix;
+}
+.convo-message-form {
+
+  padding-top: 4em;
+
+  #message_content {
+    float: left;
+    width: 75%;
+  }
+
+  input[type="submit"]{
+    float: left;
+    width: 20%;
+    max-width: 7em;
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: 1em;
   }
 }
 
