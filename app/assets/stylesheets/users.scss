@@ -292,25 +292,20 @@
     }
 
   @include media($small-screen-up) {
-      margin-left: .1em;
+      margin-left: 6em;
     }
   @include media($small-medium-screen-only) {
       margin-left: 6em;
     }
   @include media($small-medium-screen-up) {
-      margin-left: 8em;
+      margin-left: 7em;
   }
-  @include media($medium-screen-only) {
-      margin-left: 8em;
-  }
-  @include media($medium-screen-only) {
+
+  @include media($medium-screen-up) {
       margin-left: 8em;
   }
   @include media($large-screen-up) {
-      margin-left: 9em;
-  }
-  @include media($large-screen-up) {
-      margin-left: 16em;
+      margin-left: 21em;
   }
 }
 .login-field {
@@ -328,7 +323,8 @@
   }
 }
 .user-login-action {
-  text-align: center;
+  // text-align: center;
+  margin-left: .5em;
   margin-top: 2.5em;
   margin-bottom: 2.5em;
 
@@ -340,10 +336,3 @@
     margin-right: 2em;
   }
 }
-
-
-
-
-
-
-
