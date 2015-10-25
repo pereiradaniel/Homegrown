@@ -1,6 +1,6 @@
 <% if @owner == current_user %>
 	<div class="convo-controls">
-		<%= button_to 'End Trade', new_trade_path(:product => @product.id, :buyer => @conversation.sender.id, :conversation =>@conversation.id) %>
+		<%= link_to 'End Trade', new_trade_path(:product => @product.id, :buyer => @conversation.sender.id, :conversation => @conversation.id), method: "get" %>
 	</div>
 <% end %>
 
