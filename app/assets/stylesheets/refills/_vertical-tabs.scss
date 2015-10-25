@@ -26,11 +26,13 @@
   }
 
   font-size: 0.7em;
+  overflow: hidden;
+
 
   //////////////////////////////////////////////////////////////////////////////////
 
   $tab-border-color: $base-border-color;
-  $tab-border: 1px solid $tab-border-color;
+  $tab-border: $base-border;
   $tab-border-radius: $base-border-radius;
   $tab-content-background: lighten($tab-border-color, 10%);
   $tab-active-color: $tab-content-background;
@@ -53,17 +55,21 @@
       float: left;
       // height: $vertical-tabs-height;
       width: 20%;
+        div:last-child {
+        border: none;
+      }
+
     }
   }
 
   .vertical-tab {
     @include media($vertical-tab-mode) {
-      border-bottom: $tab-border;
-      border-radius: $tab-border-radius;
+      // border-bottom: $tab-border;
+      // border-radius: $tab-border-radius;
       display: block;
       font-weight: bold;
       margin-right: -1px;
-      padding: ($base-spacing / 2) ($gutter / 2);
+      padding: ($base-spacing / 2) + 0.25em ($gutter / 2) + 0.25em;
 
       &.is-active {
         background-color: $tab-content-background;
@@ -97,6 +103,7 @@
   }
 
   .vertical-tab-content {
+    padding: ($base-spacing / 2) + 0.5em ($gutter / 2) + 0.5em;
     background-color: $tab-content-background;
     // padding: $base-spacing $gutter;
 
@@ -116,7 +123,7 @@
     cursor: pointer;
     display: block;
     font-weight: bold;
-    padding: $base-spacing / 2 $gutter / 2;
+    padding: ($base-spacing / 2) + 0.25em ($gutter / 2) + 0.25em;
 
 
     &:focus,
@@ -140,3 +147,6 @@
 }
 
 // Based on code by Jett Miller jettmiller.net
+a.js-vertical-tab.vertical-tab {
+    border: none;
+}
