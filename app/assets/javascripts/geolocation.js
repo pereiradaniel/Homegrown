@@ -1,10 +1,10 @@
-function geolocationSuccess(position) {
+function geolocationSuccess(position, isLocationDisabled) {
   var searchvar = $('#search-field').val();
   var proximity = $('#proximity').val();
   var searchFor = $('#search-button').val()
   var login = $("#login").val();
 
-  if(position != undefined){
+  if(position != undefined) {
     var latitude  = position.coords.latitude;
     var longitude = position.coords.longitude;
     var noloc = "false";
@@ -40,8 +40,7 @@ function geolocationSuccess(position) {
 
 function geolocationError() {
   // alert("Please enable location for proximity search to work!");
-  var no_position = undefined;
-  geolocationSuccess(no_position);
+  geolocationSuccess();
 }
 
 function Map(mapId){

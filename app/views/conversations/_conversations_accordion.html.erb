@@ -12,7 +12,9 @@
             <i class="fa fa-envelope"></i>
             <div class="conversation-info">
               <%= link_to "Trade request from #{conv.sender.name}", conversation_path(conv) %>
-              Last message: <%= conv.messages.last.created_at.to_formatted_s(:db) %>
+              <% if conv.messages.last %>
+              Last message: <%= conv.messages.last.created_at.to_formatted_s(:db)  %>
+              <% end %>
             </div>
           </a>
         </li>
@@ -20,5 +22,3 @@
     </ul>
   </li>
 <% end %>
-
-
