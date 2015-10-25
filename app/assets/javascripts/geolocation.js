@@ -1,46 +1,56 @@
 function geolocationSuccess(position, isLocationDisabled) {
-  var searchvar = $('#search-field').val();
-  var proximity = $('#proximity').val();
-  var searchFor = $('#search-button').val()
-  var login = $("#login").val();
-
-  if(position != undefined) {
-    var latitude  = position.coords.latitude;
-    var longitude = position.coords.longitude;
-    var noloc = "false";
-    var request_object = {
-      longitude: longitude,
-      latitude: latitude,
-      search: searchvar,
-      proximity: proximity
-    };
-
-  }else{
-    // alert("Please enable location for proximity search to work!");
-    var noloc = "true";
-    var request_object = {
-      search: searchvar,
-      noloc: noloc
-    };
-  }
-
-  if(searchFor == 'product-search'){
-    var urlVar = '/products';
-  }else if(searchFor == 'garden-search'){
-    var urlVar = '/gardens';
+  var latitude  = position.coords.latitude;
+  var longitude = position.coords.longitude;
+  var noloc = "false";
+  var search = getSearchVars();
+  var request_object = {
+    longitude: longitude,
+    latitude: latitude,
+    search: search.searchvar,
+    proximity: search.proximity
   };
-
-  $.ajax({
-    url: urlVar,
-    method: 'GET',
-    data: request_object,
-    dataType: 'script'
-  });
+  runAjaxRequest(request_object);
 }
 
 function geolocationError() {
   // alert("Please enable location for proximity search to work!");
-  geolocationSuccess();
+  var noloc = "true";
+  var search = getSearchVars();
+  var request_object = {
+      search: search.searchvar,
+      noloc: noloc
+    };
+
+  runAjaxRequest(request_object);
+}
+
+function runAjaxRequest(request) {
+  var urlVar = chooseModelToSearch();
+  $.ajax({
+      url: urlVar,
+      method: 'GET',
+      data: request,
+      dataType: 'script'
+    });
+}
+
+function getSearchVars() {
+  var searchObject = {
+    searchvar: $('#search-field').val(),
+    proximity: $('#proximity').val(),
+    searchFor: $('#search-button').val(),
+    login: $("#login").val(),
+  };
+  return searchObject;
+};
+
+function chooseModelToSearch() {
+  if($('#search-button').val() == 'product-search'){
+    var url = '/products';
+  }else if($('#search-button').val() == 'garden-search'){
+    var url = '/gardens';
+  };
+  return url;
 }
 
 function Map(mapId){
