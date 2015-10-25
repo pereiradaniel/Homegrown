@@ -17,4 +17,4 @@
 //= require imagesloaded.pkgd.min
 //= require jquery.cookie
 //= require_tree .
-
+//*= require social-share-button
