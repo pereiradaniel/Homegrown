@@ -210,10 +210,8 @@
 		}
 
 		.product-show-img {
-		 	width: 335px;
-			height: 435px;
+		 	//width: 335px;
       border-radius: $base-border-radius;
-
 		}
 
 		.product-detail-grid {
@@ -226,6 +224,7 @@
 				@include omega(2n);
 			}
 		}
+
 		.product-show-convo {
 			height: 10em;
     	width: 18em;
@@ -261,6 +260,7 @@
 			color: white;
 		}
 	}
+
 	.edit-controls {
 
 		li { display: inline-block;}
@@ -274,8 +274,6 @@
 
 	.update-btn {
 		font-size: .8em;
-		// width: 90px;
-		float: left;
 		height: 42px;
 		display: inline-block;
 	}
