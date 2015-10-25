@@ -1,3 +1,11 @@
+main {
+  @include clearfix;
+  @include outer-container;
+
+  max-width: 1100px;
+  padding: 0 0.5em 0.5em;
+}
+
 .header-bar {
   color:#79797c;
   margin: 0;
@@ -139,12 +147,16 @@
   }
 }
 
-main {
-  @include clearfix;
-  @include outer-container;
+.nav .modal {
+  label {
+    font-size: 1em;
+    font-weight: normal;
+  }
+  .modal-trigger {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
 
-  max-width: 1100px;
-  padding: 0 0.5em 0.5em;
 }
 
 //New footer style
