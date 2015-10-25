@@ -5,40 +5,13 @@
 .trades-seller-unsuccess,
 .trades-buyer-success,
 .trades-buyer-unsuccess {
-	
+
 	ul {
-	  display: block;
 		border-bottom: $base-border;
-	  border-radius: $base-border-radius;
-	  padding: 0.5em 1em;
-	  box-shadow: $form-box-shadow;
+	  // padding: 0.5em 1em;
 	  text-decoration: none;
-	  width: 12em;
-		font-size: 0.75em;
-
-	@include media($small-screen-only) {
-	    @include span-columns(2);
-	    @include omega(2n);
-	  	}
-
- 	@include media($medium-screen-only) {
-    @include span-columns(4);
-    @include omega(2n);
-  	}
-
- 	@include media($large-screen-only) {
-    @include span-columns(8);
-    @include omega(2n);
-  	}
-
-  @include media($xlarge-screen-up) {
-    @include span-columns(12);
-    @include omega(2n);
-  	}
-
-		li {
-			line-height: 1.2em;
-		}
+	  //width: 12em;
+		font-size: 0.8em;
 
 		.timestamp {
 			font-style: italic;
@@ -47,11 +20,9 @@
 }
 
 .num-of-trades {
-	border: $base-border;
-	border-radius: $base-border-radius;
 	padding: 0.2em;
-	text-align: center;	
-
+	text-align: center;
+	background: lighten($action-color, 63%);
 }
 
 .trade-partner {
@@ -61,60 +32,4 @@
 
 .trade-result {
 	border-bottom: $base-border;
-}
-
-.trades-buttons {
-	display: block;
-
-	li {
-		font-size: 0.6em;
-	  display: inline-block;
-	  float: left;
-	  background: $green;
-	  background-image: $btn-gradient;
-	  border-radius: $base-border-radius;
-	  padding: $btn-padding;
-	  text-decoration: none;
-	  line-height: $btn-line-height;
-	  text-align: center;
-	  color: $light-gray;
-	  width: 5em;
-		@include media($small-screen-only) {
-	    @include span-columns(1);
-	    @include omega(2n);
-	  	}
-
-		@include media($medium-screen-only) {
-		  @include span-columns(2);
-		  @include omega(2n);
-			}
-
-		@include media($large-screen-only) {
-		  @include span-columns(4);
-		  @include omega(2n);
-			}
-
-		@include media($xlarge-screen-up) {
-		  @include span-columns(6);
-		  @include omega(2n);
-			}
-		}
-
-	li:hover {
-	  background: #3cb0fd;
-	  background-image: linear-gradient(to bottom, darken($green, 5%), lighten($green, 30%));
-	  text-decoration: none;
-	}
-
-	a {
-		color: $light-gray;
-	}
-}
-
-.trade-brief {
-	padding: 1em;
-
-	img {
-		max-height: 40px;
-	}
 }

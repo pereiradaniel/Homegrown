@@ -285,15 +285,49 @@
   }
 }
 
-//Login & Register Button Style
-.user-login-action {
-  text-align: center;
+//style on Register form page
+.create-user {
+  margin-left: 6em;
+}
+.register-grid {
+  @include media($small-screen-only) {
+      margin-left: .1em;
+    }
 
-  li {
-    display: inline-block;
+  @include media($small-screen-up) {
+      margin-left: .2em;
+    }
+  @include media($small-medium-screen-only) {
+      margin-left: 2em;
+    }
+  @include media($small-medium-screen-up) {
+      margin-left: 5.5em;
   }
-  .login-btn {
-    width: 96px;
-    margin-right: 2em;
+
+  @include media($medium-screen-up) {
+      margin-left: 7.5em;
   }
+  @include media($large-screen-up) {
+      margin-left: 18.5em;
+  }
+
+}
+.register-field {
+  #user_name {
+    width: 18em;
+    height: 2.3em;
+  }
+  #user_email {
+    width: 18em;
+    height: 2.3em;
+  }
+  #user_password {
+    width: 18em;
+    height: 2.3em;
+  }
+  #user_password_confirmation {
+    width: 18em;
+    height: 2.3em;
+  }
+
 }

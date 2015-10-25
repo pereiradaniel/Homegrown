@@ -1,5 +1,5 @@
 <div class="user-controls">
-  <%= button_to trades_path do %>
+  <%= button_to trades_path, method: 'get' do %>
     Ended Trades <span class="badge-success"><%= @trades.count %></span>
   <% end %>
 </div>
