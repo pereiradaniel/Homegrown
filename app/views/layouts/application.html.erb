@@ -22,10 +22,6 @@
           <%= link_to 'Profile', user_path(current_user)%>
         </li>
 
-        <li class="nav-link medium-screen">
-          <%= link_to "Garden", garden_path(current_user.garden) %>
-        </li>
-
         <li class="nav-button drop-down" id="user-icon">
           <i class="fa fa-user"></i>
           <ul>
@@ -92,7 +88,9 @@
       <li><i class="fa fa-tumblr-square"></i></li>
       <li><i class="fa fa-twitter-square"></i></li>
     </ul>
-    |  Home  |  Products  |  Gardens  |  Profile  |
+    <% if current_user %>
+    |  <%= link_to "Home", home_products_path %> | <%= link_to "Products",products_path %> |  <%= link_to "Garden", garden_path(current_user) %>  |  <%= link_to "Profile", user_path(current_user) %>  |
+    <% end %>
     <div class="copyright-info">&copy; 2015 Homegrown. All rights reserved. Sponsor by bitmaker Labs</div>
 
   </div>
