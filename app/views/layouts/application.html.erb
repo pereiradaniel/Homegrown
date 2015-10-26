@@ -27,16 +27,20 @@
         <li class="nav-button drop-down" id="user-icon">
           <i class="fa fa-user"></i>
           <ul>
-            <li>
-              <%= link_to 'Profile', user_path(current_user)%>
-            </li>
-            <li>
-              <% if current_user.garden %>
-                <%= link_to "Garden", garden_path(current_user.garden) %>
-              <% else %>
-                <span class="disabled">Garden</span>
+            <%= link_to user_path(current_user) do %>
+              <li>
+                Profile
+              </li>
+            <% end %>
+              <%= link_to garden_path(current_user.garden) do %>
+                <li>
+                  <% if current_user.garden %>
+                    Garden
+                  <% else %>
+                    <span class="disabled">Garden</span>
+                  <% end %>
+                </li>
               <% end %>
-            </li>
           </ul>
         </li>
 
