@@ -16,7 +16,7 @@
     <ul class="nav">
       <% if current_user %>
 
-        <li class="nav-link">
+        <li class="nav-link" id="logout">
             <%= link_to "Sign out", :logout, method: :post %>
         </li>
 
