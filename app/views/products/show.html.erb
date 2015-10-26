@@ -18,7 +18,7 @@
         </div>
       <% end %>
       <% if current_user && @product.garden.user != current_user %>
-        <div class="product-show-text">Please leave a message
+        <div class="product-show-text">
           <%= render 'messageform' %>
         </div>
       <% end %>
