@@ -73,7 +73,11 @@
 		}
 
 	.category-thumb {
-		@include transition(background-size .5s ease-out);
+		@include transition(background-size .3s ease-out);
+
+		&:hover {
+			background-size: 108%;
+		}
 
 		@include media($small-screen-only) {
 			@include span-columns(1);
@@ -110,21 +114,15 @@
 		background-repeat: no-repeat;
 		background-position: center;
 
-
 		h5 {
 			font-size: .8em;
 			line-height: 4.1em;
 			margin: 0;
 		}
-
-	}
-
-	.category-thumb:hover {
-		background-size: 110%;
 	}
 
 	.btn-mask {
-		@include transition(background-color .3s ease-out);
+		@include transition(background-color .2s ease-out);
 		background-color: rgba(255,255,255,.2);
 
 		&:hover {
@@ -170,7 +168,7 @@
 		}
 
 		.picture img {
-		    height: 100px;
+	    height: 100px;
 		}
 	}
 
@@ -179,7 +177,7 @@
 		@include omega(4n);
 
 		.picture img {
-	    	height: 200px;
+    	height: 200px;
 	  }
 	}
 }

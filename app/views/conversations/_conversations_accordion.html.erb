@@ -11,11 +11,15 @@
           <a href="javascript:void(0)">
             <i class="fa fa-envelope"></i>
             <div class="conversation-info">
-              <%= link_to "Trade with #{conv.sender.name}", conversation_path(conv) %>
-              <% if conv.messages.last %>
-              Last message: <%= conv.messages.last.created_at.to_formatted_s(:db)  %>
-              <% else %>
-              Started on: <%= conv.created_at.to_formatted_s(:db)  %>
+              <%= link_to conversation_path(conv) do %>
+                Trade with <%= conv.sender.name %>
+                <div>
+                  <% if conv.messages.last %>
+                    Last message: <%= conv.messages.last.created_at.to_formatted_s(:db) %>
+                  <% else %>
+                    Started on: <%= conv.created_at.to_formatted_s(:db) %>
+                  <% end %>
+                </div>
               <% end %>
             </div>
           </a>

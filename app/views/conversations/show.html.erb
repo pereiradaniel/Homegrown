@@ -5,9 +5,10 @@
 </div>
 
 <%= form_for([@message]) do |f| %>
+
 	<div class="convo-message-form">
 		<ul>
-			<li><%= f.text_area :content %></li>
+			<li><%= f.text_area :content, :placeholder => "Type in your message here" %></li>
 				<%= f.hidden_field :conversation_id, {value: @conversation.id} %>
 				<%= f.hidden_field :sender_id, {value: current_user.id} %>
 				<%= f.hidden_field :product_id, {value: @product.id} %>
@@ -19,15 +20,13 @@
 <% end %>
 
 <% if @owner == current_user %>
-	<div class="convo-controls">
+
+	<button class="user-controls">
 		<%= link_to 'End Trade', new_trade_path(:product => @product.id, :buyer => @conversation.sender.id, :conversation => @conversation.id), method: "get" %>
-	</div>
+	</button>
 <% end %>
 
 <% if @conversation.messages.length > 0 %>
-
-	Messages
-
 	<div class="list-container">
 		<div class="message-list">
 			<% @conversation.messages.order(created_at: :desc).each do |m| %>

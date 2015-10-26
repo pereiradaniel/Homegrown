@@ -1,13 +1,13 @@
 # encoding: utf-8
 
 ######
-require File.join(Rails.root, "lib", "carrier_wave", "delayed_job") # New
+#require File.join(Rails.root, "lib", "carrier_wave", "delayed_job") # New
 ######
 
 class ImageUploader < CarrierWave::Uploader::Base
 
   ######
-  include CarrierWave::Delayed::Job # New
+  #include CarrierWave::Delayed::Job # New
   ######
 
   # Include RMagick or MiniMagick support:
@@ -34,17 +34,23 @@ class ImageUploader < CarrierWave::Uploader::Base
   # end
 
   # Process files as they are uploaded:
-  process resize_to_fill: [500, 3000]
+  process resize_to_fill: [2000, 0]
   # process :scale => [200, 300]
 
   # def scale(width, height)
   #   # do something
   # end
 
-  # @product.thumb.url  
+  version :medium do
+    process :resize_to_fill => [640, 0, 'Center']
+    process :resize_to_fill => [610, 476, 'Center']
+  end
+
+  # @product.thumb.url
   # @produc.image_url(:thumb)
   # Create different versions of your uploaded files:
   version :thumb do
+    process :resize_to_fill => [640, 0, 'Center']
     process :resize_to_fill => [300, 328, 'Center']
   end
 
