@@ -47,16 +47,23 @@ email_nicks = ["dave", "strongman", "viking", "larry", "holmes", "king", "prince
   "redhead", "rebel", "master_chef", "dancer", "pianist", "noodles", "baldy", "trailer_park_guy"]
 domain_array = [".com", ".ca", ".cx", ".biz", ".uk", ".org", ".ru", ".net", ".cn", ".jp", ".pt", ".br", ".ge", ".ir", ".au", ".nz", ".ro", ".pl"]
 
-tags_array = ["green", "red", "brown", "purple", "white", "black", "sweet", "spicy", "juicy", "crunchy", "organic", "GMO", "traditional",
+@tags_array = ["green", "red", "brown", "purple", "white", "black", "sweet", "spicy", "juicy", "crunchy", "organic", "GMO", "traditional",
   "hot", "tasty", "legume", "vegetable", "berry", "herb", "dried", "preserved", "no artificial fertilizer", "large", "small", "giant", "medium",
   "asian", "carribean", "eurpoean", "african", "north american", "special", "mexican", "south american", "backyard", "hydroponic", "fancy", "plain",
   "fresh", "stewable"]
 
-# tags_array.each do |tag|
-#   Tag.create!({
-#     name: tag
-#   })
-# end
+@app_tags_array = ["leafy green", "root", "fruit vegetable", "berries", "pomes", "citrus"]
+
+def get_tags(num_of_tags)
+   array_of_tags = []
+   num_of_tags.times do
+    array_of_tags.push(@tags_array[rand(@tags_array.size)])
+  end
+
+  array_of_tags.push(@app_tags_array[rand(@app_tags_array.size)])
+
+  return array_of_tags
+end
 
 5.times do |i|
   x = i + 1
@@ -79,7 +86,8 @@ tags_array = ["green", "red", "brown", "purple", "white", "black", "sweet", "spi
     description: "Description #{x}a",
     trade_info: "Trade info #{x}a",
     postal_code: "M5H 1W7",
-    image: open("#{Rails.root}/app/assets/images/" + picture_array[rand(picture_array.size)] + ".jpg")
+    image: open("#{Rails.root}/app/assets/images/" + picture_array[rand(picture_array.size)] + ".jpg"),
+    tag_list: get_tags(10)
     })
 
   Product.create!({
@@ -88,7 +96,8 @@ tags_array = ["green", "red", "brown", "purple", "white", "black", "sweet", "spi
     description: "Description #{x}b",
     trade_info: "Trade info #{x}b",
     postal_code: "M5H 1W7",
-    image: open("#{Rails.root}/app/assets/images/" + picture_array[rand(picture_array.size)] + ".jpg")
+    image: open("#{Rails.root}/app/assets/images/" + picture_array[rand(picture_array.size)] + ".jpg"),
+    tag_list: get_tags(10)
     })
 
 end
@@ -114,7 +123,8 @@ end
     description: "Description #{x}a",
     trade_info: "Trade info #{x}a",
     postal_code: "M9C 2Y2",
-    image: open("#{Rails.root}/app/assets/images/" + picture_array[rand(picture_array.size)] + ".jpg")
+    image: open("#{Rails.root}/app/assets/images/" + picture_array[rand(picture_array.size)] + ".jpg"),
+    tag_list: get_tags(10)
     })
 
   Product.create!({
@@ -123,7 +133,8 @@ end
     description: "Description #{x}b",
     trade_info: "Trade info #{x}b",
     postal_code: "M9C 2Y2",
-    image: open("#{Rails.root}/app/assets/images/" + picture_array[rand(picture_array.size)] + ".jpg")
+    image: open("#{Rails.root}/app/assets/images/" + picture_array[rand(picture_array.size)] + ".jpg"),
+    tag_list: get_tags(10)
     })
 
 end
@@ -261,7 +272,8 @@ Trade.create!({
       description: product_description_array[rand(product_description_array.size)],
       trade_info: trade_array[rand(trade_array.size)],
       postal_code: Garden.last.postal_code,
-      image: open("#{Rails.root}/app/assets/images/" + picture_array[rand(picture_array.size)] + ".jpg")
+      image: open("#{Rails.root}/app/assets/images/" + picture_array[rand(picture_array.size)] + ".jpg"),
+      tag_list: get_tags(10)
       })
 
     Product.create!({
@@ -270,7 +282,8 @@ Trade.create!({
       description: product_description_array[rand(product_description_array.size)],
       trade_info: trade_array[rand(trade_array.size)],
       postal_code: Garden.last.postal_code,
-      image: open("#{Rails.root}/app/assets/images/" + picture_array[rand(picture_array.size)] + ".jpg")
+      image: open("#{Rails.root}/app/assets/images/" + picture_array[rand(picture_array.size)] + ".jpg"),
+      tag_list: get_tags(10)
       })
 
     Product.create!({
@@ -279,7 +292,8 @@ Trade.create!({
       description: product_description_array[rand(product_description_array.size)],
       trade_info: trade_array[rand(trade_array.size)],
       postal_code: Garden.last.postal_code,
-      image: open("#{Rails.root}/app/assets/images/" + picture_array[rand(picture_array.size)] + ".jpg")
+      image: open("#{Rails.root}/app/assets/images/" + picture_array[rand(picture_array.size)] + ".jpg"),
+      tag_list: get_tags(10)
       })
 
   # rand_product = Product.order("RANDOM()").first
