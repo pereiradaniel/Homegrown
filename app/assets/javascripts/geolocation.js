@@ -44,8 +44,18 @@ $(document).ready(function(){
     });
 
  function geolocationSuccess(position, isLocationDisabled) {
-    var latitude  = position.coords.latitude;
-    var longitude = position.coords.longitude;
+    if($.cookie('latitude') == undefined && $.cookie('longitude') == undefined ) {
+    
+      var latitude  = position.coords.latitude;
+      var longitude = position.coords.longitude;
+
+      $.cookie('latitude', latitude);
+      $.cookie('longitude', longitude);
+    }else{
+      var latitude = $.cookie('latitude');
+      var longitude = $.cookie('longitude');
+    }
+
     var noloc = "false";
     var search = getSearchVars();
     var request_object = {
