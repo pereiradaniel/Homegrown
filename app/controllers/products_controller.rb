@@ -43,7 +43,7 @@ class ProductsController < ApplicationController
     if @product.save
       redirect_to garden_path(@product.garden)
     else
-      render :new
+      redirect_to garden_path(current_user.garden)
     end
   end
 
