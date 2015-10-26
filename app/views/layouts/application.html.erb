@@ -22,6 +22,14 @@
           <%= link_to 'Profile', user_path(current_user)%>
         </li>
 
+        <li class="nav-link medium-screen">
+          <% if current_user.garden %>
+            <%= link_to "Garden", garden_path(current_user.garden) %>
+          <% else %>
+            <span class="disabled">Garden</span>
+          <% end %>
+        </li>
+
         <li class="nav-button drop-down" id="user-icon">
           <i class="fa fa-user"></i>
           <ul>
