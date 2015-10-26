@@ -1,29 +1,30 @@
-<div class="user-controls">
-  <%= button_to trades_path, method: 'get' do %>
-    Ended Trades <span class="badge-success"><%= @trades.count %></span>
-  <% end %>
-</div>
+<div class="user-show-grid">
+  <div class="user-controls">
+    <%= button_to trades_path, method: 'get' do %>
+      Trade Histry <span class="badge-success"><%= @trades.count %></span>
+    <% end %>
+  </div>
 
-<div class="conversations">
-  <ul class="accordion-tabs">
+  <div class="conversations">
+    <ul class="accordion-tabs">
 
-    <li class="tab-header-and-content">
-      <a href="javascript:void(0)" class="is-active tab-link">Their Requests</a>
-      <div class="tab-content">
-        <ul class="accordion">
-          <%= render partial: 'conversations/conversations_accordion', locals: { products_list: @received_products_list, conversations: @received_conversations } %>
-        </ul>
-      </div>
-    </li>
+      <li class="tab-header-and-content">
+        <a href="javascript:void(0)" class="is-active tab-link">Their Requests</a>
+        <div class="tab-content">
+          <ul class="accordion">
+            <%= render partial: 'conversations/conversations_accordion', locals: { products_list: @received_products_list, conversations: @received_conversations } %>
+          </ul>
+        </div>
+      </li>
 
-    <li class="tab-header-and-content">
-      <a href="javascript:void(0)" class="tab-link">My Requests</a>
-      <div class="tab-content">
-        <ul class="accordion">
-          <%= render partial: 'conversations/conversations_accordion', locals: { products_list: @sent_products_list, conversations: @sent_conversations } %>
-        </ul>
-      </div>
-    </li>
-  </ul>
-</div>
+      <li class="tab-header-and-content">
+        <a href="javascript:void(0)" class="tab-link">My Requests</a>
+        <div class="tab-content">
+          <ul class="accordion">
+            <%= render partial: 'conversations/conversations_accordion', locals: { products_list: @sent_products_list, conversations: @sent_conversations } %>
+          </ul>
+        </div>
+      </li>
+    </ul>
+  </div>
 </div>

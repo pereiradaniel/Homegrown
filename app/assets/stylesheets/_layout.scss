@@ -167,9 +167,18 @@ main {
   padding: 2em;
   margin-right: auto;
   margin-left: auto;
+  & a:link {
+    color: #fff;
+
+  }
+  & a:visited {
+    color: #fff;
+  }
+
   .copyright-info {
     color: #ccc;
   }
+
 }
 .footer-menu {
   background: #555;
@@ -177,7 +186,6 @@ main {
   display: inline;
   line-height: 2em;
   font-size: .6em;
-
 
   li {
     display: inline-block;
