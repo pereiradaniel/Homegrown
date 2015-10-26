@@ -70,22 +70,6 @@ main {
   }
 }
 
-.nav-button > ul {
-
-  li {
-    border-top: 1px solid lighten($nav-color, 10%);
-    border-bottom: 1px solid darken($nav-color, 10%);
-
-    &:first-child {
-      border-top: 0;
-    }
-
-    &:last-child {
-      border-bottom: 0;
-    }
-  }
-}
-
 .drop-down {
   @include media($small-medium-screen-up) {
     position: relative;
@@ -106,17 +90,17 @@ main {
       left: -8em;
     }
 
+    a:first-child li {
+      border-top: 0;
+    }
+
+    a:last-child li {
+      border-bottom: 0;
+    }
+
     li {
       border-top: 1px solid lighten($nav-color, 10%);
       border-bottom: 1px solid darken($nav-color, 10%);
-
-      &:first-child {
-        border-top: 0;
-      }
-
-      &:last-child {
-        border-bottom: 0;
-      }
     }
   }
 
