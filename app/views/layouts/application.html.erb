@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link href='http://fonts.googleapis.com/css?family=Nunito:400,700,300' rel='stylesheet' type='text/css'>
-  <link href='http://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
   <title>Homegrown</title>
   <meta name="viewport" content="initial-scale=1.0,width=device-width">
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag 'application', 'http://fonts.googleapis.com/css?family=Nunito:400,700,300' %>
+  <%= stylesheet_link_tag 'application', 'http://fonts.googleapis.com/css?family=Varela+Round' %>
   <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js" %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
@@ -24,14 +24,6 @@
           <%= link_to 'Profile', user_path(current_user)%>
         </li>
 
-        <li class="nav-link medium-screen">
-          <% if current_user.garden %>
-            <%= link_to "Garden", garden_path(current_user.garden) %>
-          <% else %>
-            <span class="disabled">Garden</span>
-          <% end %>
-        </li>
-
         <li class="nav-button drop-down" id="user-icon">
           <i class="fa fa-user"></i>
           <ul>
@@ -46,6 +38,24 @@
               <% end %>
             </li>
           </ul>
+        </li>
+
+        <li class="nav-link medium-screen">
+          <%= link_to 'Inbox', inbox_path(current_user)%>
+        </li>
+
+        <li class="nav-button" id="inbox-icon">
+          <%= link_to inbox_path(current_user) do %>
+            <i class="fa fa-inbox"></i>
+          <% end %>
+        </li>
+
+        <li class="nav-link medium-screen">
+          <% if current_user.garden %>
+            <%= link_to "Garden", garden_path(current_user.garden) %>
+          <% else %>
+            <span class="disabled">Garden</span>
+          <% end %>
         </li>
 
       <% else %>
@@ -90,19 +100,23 @@
   <main>
     <%= yield %>
   </main>
-<div class="footer-container">
-  <div class="footer-menu">
-    <ul>
-      <li><i class="fa fa-pinterest-square"></i></li>
-      <li><i class="fa fa-facebook-square"></i></li>
-      <li><i class="fa fa-tumblr-square"></i></li>
-      <li><i class="fa fa-twitter-square"></i></li>
-    </ul>
-    <% if current_user %>
-    |  <%= link_to "Home", home_products_path %> | <%= link_to "Products",products_path %> |  <%= link_to "Garden", garden_path(current_user) %>  |  <%= link_to "Profile", user_path(current_user) %>  |
-    <% end %>
-    <div class="copyright-info">&copy; 2015 Homegrown. All rights reserved. Sponsor by bitmaker Labs</div>
 
-  </div>
+  <div class="footer-container">
+    <div class="footer-menu">
+      <ul>
+        <li><i class="fa fa-pinterest-square"></i></li>
+        <li><i class="fa fa-facebook-square"></i></li>
+        <li><i class="fa fa-tumblr-square"></i></li>
+        <li><i class="fa fa-twitter-square"></i></li>
+      </ul>
+      <% if current_user %>
+      |  <%= link_to "Home", home_products_path %> 
+      | <%= link_to "Products",products_path %> 
+      |  <%= link_to "Garden", garden_path(current_user) %>  
+      |  <%= link_to "Profile", user_path(current_user) %>  |
+      <% end %>
+      <div class="copyright-info">&copy; 2015 Homegrown. All rights reserved. Sponsor by bitmaker Labs</div>
+    </div>
+  </div>  
 </body>
 </html>

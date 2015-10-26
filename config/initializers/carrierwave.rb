@@ -1,3 +1,4 @@
+# Using fog-aws
 # CarrierWave.configure do |config|
 #   config.ignore_integrity_errors = false
 #   config.ignore_processing_errors = false
@@ -6,6 +7,9 @@
 #   config.fog_provider = 'fog/aws'                        # required
 #   config.fog_credentials = {
 #     provider:              'AWS',                        # required
+
+#     # aws_access_key_id:     Figaro.env.AWSAccessKeyId,                        # required
+#     # aws_secret_access_key: Figaro.env.AWSSecretKey,                        # required
     
 #     #region:                'us-east-1',                  # optional, defaults to 'us-east-1'
 #     # host:                  's3.example.com',             # optional, defaults to nil
@@ -17,6 +21,7 @@
 #   #config.fog_attributes = { 'Cache-Control' => "max-age=#{365.day.to_i}" } 
 # end
 
+# Using carrierwave-aws
 CarrierWave.configure do |config|
   config.storage    = :aws
   config.aws_bucket = 'homegrownapp'
