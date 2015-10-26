@@ -8,9 +8,6 @@
 	h3{
 		font-size: 1.2em;
 	}
-	// @include media($medium-screen-up) {
-	// 	margin-top: .05em;
-	// }
 }
 
 .carousel-container {
@@ -76,78 +73,82 @@
 		}
 
 	.category-thumb {
+		@include transition(background-size .5s ease-out);
 
-			@include media($small-screen-only) {
-				@include span-columns(1);
-				@include omega(2n);
-			}
+		@include media($small-screen-only) {
+			@include span-columns(1);
+			@include omega(2n);
+		}
 
-			@include media($medium-screen-up) {
-				@include span-columns(2);
-			}
+		@include media($medium-screen-up) {
+			@include span-columns(2);
+		}
 
-			@include media($medium-screen-only) {
-				@include omega(2n);
-			}
+		@include media($medium-screen-only) {
+			@include omega(2n);
+		}
 
-			@include media($large-screen-only) {
-				@include omega(3n);
-			}
+		@include media($large-screen-only) {
+			@include omega(3n);
+		}
 
-			@include media($xlarge-screen-up) {
-				@include omega(6n);
-			}
+		@include media($xlarge-screen-up) {
+			@include omega(6n);
+		}
 
-			a {
-				color: #fff;
-			}
+		a {
+			color: #fff;
+		}
+
 		text-align: center;
 		border: 1px solid #ccc;
 		margin-bottom: .4em;
 		color: #fff;
 		font-weight: normal;
+		max-width: 294px;
+		background-size: 100%;
+		background-repeat: no-repeat;
+		background-position: center;
 
-			h5 {
-				font-size: .8em;
-				line-height: 4.1em;
-				margin: 0;
-			}
+
+		h5 {
+			font-size: .8em;
+			line-height: 4.1em;
+			margin: 0;
+		}
+
+	}
+
+	.category-thumb:hover {
+		background-size: 110%;
 	}
 
 	.btn-mask {
+		@include transition(background-color .3s ease-out);
 		background-color: rgba(255,255,255,.2);
-		max-width: 294px;
+
+		&:hover {
+			background-color: rgba(255,255,255, 0);
+		}
 	}
 
 	#leafy-green-btn {
-		background: url(image-path('leafy-green-btn.jpg')) no-repeat;
-		background-size: 100%;
-		max-width: 294px;
+		background-image: url(image-path('leafy-green-btn.jpg'));
 	}
 	#roots-btn {
-		background: url(image-path('roots-btn.jpg')) no-repeat;
-		background-size: 100%;
-		max-width: 294px;
+		background-image: url(image-path('roots-btn.jpg'));
 	}
 	#fruit-veggie-btn {
-		background: url(image-path('fruit-veggie-btn.jpg')) no-repeat;
-		background-size: 100%;
-		max-width: 294px;
+		background-image: url(image-path('fruit-veggie-btn.jpg'));
 	}
 	#pomes-btn {
-		background: url(image-path('pomes-btn.jpg')) no-repeat;
-		background-size: 100%;
-		max-width: 294px;
+		background-image: url(image-path('pomes-btn.jpg'));
 	}
 	#citrus-btn {
-		background: url(image-path('citrus-btn.jpg')) no-repeat;
-		background-size: 100%;
-		max-width: 294px;
+		background-image: url(image-path('citrus-btn.jpg'));
 	}
 	#berries-btn {
-		background: url(image-path('berries-btn.jpg')) no-repeat;
-		background-size: 100%;
-		max-width: 294px;
+		background-image: url(image-path('berries-btn.jpg'));
 	}
 
 }
@@ -195,8 +196,6 @@
 	border: $base-border;
   border-radius: $base-border-radius;
   box-shadow: $form-box-shadow;
-  // margin-top: 1em;
-  // margin-bottom: 0.4em;
   padding: 0.4em;
 
   @include media($medium-screen-up) {
@@ -210,7 +209,6 @@
 		}
 
 		.product-show-img {
-		 	//width: 335px;
       border-radius: $base-border-radius;
 		}
 
