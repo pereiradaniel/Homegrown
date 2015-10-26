@@ -8,10 +8,12 @@
   margin: 0 auto;
 
   @include media($medium-screen-up) {
-    margin:0;
-    max-width: 100%;
+    max-width: 627px;
   }
 
+  @include media($large-screen-up) {
+    max-width: 940px;
+  }
   .product-card {
     position: relative;
     height: 15.3em;
@@ -26,10 +28,11 @@
 
     @include media($medium-screen-up) {
       @include span-columns(2);
+      max-width: 306.9px;
     }
 
     @include media($large-screen-up) {
-      @include span-columns(2.666666666);
+      @include span-columns(2.8);
     }
 
     @include media($large-screen-only) {
