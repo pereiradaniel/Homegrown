@@ -95,11 +95,20 @@ function geolocationSuccess(position, isLocationDisabled) {
   var latitude  = position.coords.latitude;
   var longitude = position.coords.longitude;
 
-  $.cookie('latitude', latitude);
-  $.cookie('longitude', longitude);
-  
+  var expiry = expireCookie(20);
+
+  $.cookie('latitude', latitude, { expires: expiry });
+  $.cookie('longitude', longitude, { expires: expiry });
+
   getProducts(longitude, latitude);
 }
+
+  function expireCookie(minutes) {
+    var date = new Date();
+    var min = minutes;
+    return date.setTime(date.getTime() + (min * 60 * 1000));
+  }
+
 function getProducts(longitude, latitude) {
   $.ajax({
     url: '/products/home',
