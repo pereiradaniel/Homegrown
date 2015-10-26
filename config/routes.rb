@@ -20,7 +20,13 @@ Rails.application.routes.draw do
   resources :trades
 
 	resources :gardens, only: [:show, :new, :index, :create, :destroy]
-  resources :users, only: [:show, :new, :create, :destroy, :edit, :update]
+  resources :users, only: [:show, :new, :create, :destroy, :edit, :update] #do
+  #   member do
+  #     get 'inbox' => 'user#inbox', :as => :inbox
+  #   end
+  # end
+
+  get '/users/:id/inbox', to: 'users#inbox', as: 'inbox'
 
   get 'login' => 'user_sessions#new', :as => :login
   post 'logout' => 'user_sessions#destroy', :as => :logout

@@ -64,7 +64,7 @@ main {
   width: 2.5em;
 }
 
-#user-icon {
+#user-icon, #inbox-icon {
   @include media($small-medium-screen-up) {
     display: none;
   }

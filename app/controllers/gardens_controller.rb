@@ -30,18 +30,14 @@ class GardensController < ApplicationController
     @user = @garden.user
   end
 
-  def new
-    @garden = Garden.new
-  end
-
   def create
-    @garden = Garden.create(garden_params)
+    @garden = Garden.new(garden_params)
     @garden.user = current_user
 
     if @garden.save
-      redirect_to garden_path(@garden)
+      redirect_to user_path(@current_user)
     else
-      render :new
+      redirect_to user_path(@current_user)
     end
   end
 

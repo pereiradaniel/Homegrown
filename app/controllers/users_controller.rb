@@ -15,7 +15,11 @@ class UsersController < ApplicationController
   end
 
   def show
-    @garden = Garden.new
+    @user = current_user
+    @garden = Garden.new  
+  end
+
+  def inbox
     @sent_conversations = Conversation.where("sender_id = ?", current_user.id)
     @received_conversations = Conversation.where("receiver_id = ?", current_user.id)
     @trades = Trade.where("seller_id = ?", current_user.id)
@@ -38,15 +42,19 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = User.find(params[:id])
+    @user = current_user
   end
 
   def update
     @user = User.find(params[:id])
-    if @user.update_attributes(user_params)
-      redirect_to user_path(@user)
+    if user_params
+      if @user.update_attributes(user_params)
+        redirect_to user_path(@user)
+      else
+        render :edit
+      end
     else
-      render :edit
+      redirect_to user_path(@user)
     end
   end
 

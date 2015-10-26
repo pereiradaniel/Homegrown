@@ -1,29 +1,43 @@
-<div class="user-controls">
-  <%= button_to trades_path, method: 'get' do %>
-    Ended Trades <span class="badge-success"><%= @trades.count %></span>
+<h1><%= @user.name %></h1>
+<% if !@user.image %>
+  <%= form_for(@user) do |f| %>
+    <div class="pic-upload">
+      <%= f.label :"Upload Profile Picture" %>
+      <%= f.file_field :image %>
+    </div>
+    <div class="change-pic-btn">
+      <%= f.submit "Upload" %>
+    </div>
   <% end %>
-</div>
 
-<div class="conversations">
-  <ul class="accordion-tabs">
+<% else %>
+  <%= image_tag(@user.image) %>
+  <%= form_for(@user) do |f| %>
+    <div class="pic-upload">
+      <%= f.label :"Change Profile Picture" %>
+      <%= f.file_field :image %>
+    </div>
 
-    <li class="tab-header-and-content">
-      <a href="javascript:void(0)" class="is-active tab-link">Their Requests</a>
-      <div class="tab-content">
-        <ul class="accordion">
-          <%= render partial: 'conversations/conversations_accordion', locals: { products_list: @received_products_list, conversations: @received_conversations } %>
-        </ul>
-      </div>
-    </li>
+    <div>
+      <%= f.submit "Upload" %>
+    </div>
+  <% end %>
+<% end %>
 
-    <li class="tab-header-and-content">
-      <a href="javascript:void(0)" class="tab-link">My Requests</a>
-      <div class="tab-content">
-        <ul class="accordion">
-          <%= render partial: 'conversations/conversations_accordion', locals: { products_list: @sent_products_list, conversations: @sent_conversations } %>
-        </ul>
-      </div>
-    </li>
-  </ul>
-</div>
-</div>
+<% if !@user.garden %>
+  <p>Create a Garden</p>
+  <%= form_for(@garden) do |f| %>
+    <div class="pic-upload">
+      <%= f.label :postal_code %>
+      <%= f.text_field :postal_code %>
+    </div>
+    <div class="create-garden-btn">
+      <%= f.submit "Create Garden" %>
+    </div>
+  <% end %>
+
+<% else %>
+  <%= link_to "View Garden", garden_path(@user.garden) %> | 
+  <%= link_to "Delete Garden", garden_path(@user.garden), method: :delete, data: {confirm: "Are you sure you want to delete this picture?"} %>
+<% end %>
+
