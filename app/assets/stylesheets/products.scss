@@ -75,6 +75,10 @@
 	.category-thumb {
 		@include transition(background-size .3s ease-out);
 
+		&:hover {
+			background-size: 108%;
+		}
+
 		@include media($small-screen-only) {
 			@include span-columns(1);
 			@include omega(2n);
@@ -110,17 +114,11 @@
 		background-repeat: no-repeat;
 		background-position: center;
 
-
 		h5 {
 			font-size: .8em;
 			line-height: 4.1em;
 			margin: 0;
 		}
-
-	}
-
-	.category-thumb:hover {
-		background-size: 108%;
 	}
 
 	.btn-mask {
@@ -170,7 +168,7 @@
 		}
 
 		.picture img {
-		    height: 100px;
+	    height: 100px;
 		}
 	}
 
@@ -179,7 +177,7 @@
 		@include omega(4n);
 
 		.picture img {
-	    	height: 200px;
+    	height: 200px;
 	  }
 	}
 }
