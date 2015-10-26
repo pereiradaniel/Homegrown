@@ -37,6 +37,6 @@
   <% end %>
 
 <% else %>
-  <%= link_to "View Garden", garden_path(@user.garden) %> | 
+  <%= link_to "View Garden", garden_path(@user.garden) %> |
   <%= link_to "Delete Garden", garden_path(@user.garden), method: :delete, data: {confirm: "Are you sure you want to delete this picture?"} %>
 <% end %>

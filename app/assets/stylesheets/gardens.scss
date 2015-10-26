@@ -154,6 +154,7 @@
     width: 6em;
     background: rgba(255,255,255,.5);
     margin: 0 auto;
+    overflow: hidden;
 
     &:before {
       content: "\f007";

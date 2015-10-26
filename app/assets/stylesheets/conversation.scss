@@ -95,6 +95,15 @@
 .message-list {
   .comment {
     padding-bottom: .5em;
+
+    .comment-image {
+      overflow: hidden;
+
+      & > img {
+        background-color: white;
+      }
+    }
+
     .comment-content {
       h1 {
         font-size: .8em;
