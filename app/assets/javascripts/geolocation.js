@@ -1,3 +1,18 @@
+  function Map(mapId){
+    this.mapId = mapId;
+  }
+
+  Map.prototype.init = function(latitude, longitude){
+    var options = {
+      center: {lat: latitude, lng: longitude},
+      zoom: 15,
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    };
+
+    this.map = new google.maps.Map(this.mapId, options);
+  }
+
+
 $(document).ready(function(){
   if($('#map-canvas').length){
     var latitude = $('#map-canvas').data('latitude');
@@ -28,7 +43,7 @@ $(document).ready(function(){
       getLocation();
     });
 
-  function geolocationSuccess(position, isLocationDisabled) {
+ function geolocationSuccess(position, isLocationDisabled) {
     var latitude  = position.coords.latitude;
     var longitude = position.coords.longitude;
     var noloc = "false";
@@ -81,20 +96,6 @@ $(document).ready(function(){
       var url = '/gardens';
     };
     return url;
-  }
-
-  function Map(mapId){
-    this.mapId = mapId;
-  }
-
-  Map.prototype.init = function(latitude, longitude){
-    var options = {
-      center: {lat: latitude, lng: longitude},
-      zoom: 15,
-      mapTypeId: google.maps.MapTypeId.ROADMAP
-    };
-
-    this.map = new google.maps.Map(this.mapId, options);
   }
 
   function getLocation() {
