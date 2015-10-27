@@ -16,9 +16,10 @@
 # ary[rand(ary.size)]
 
 picture_array = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
-profile_picture_array = ["profile1", "profile2", "profile3", "profile4", "profile5", "profile6", "profile7", "profile8", "profile9"]
-postal_code_array = ["M5H 1W7", "M7A 1Y7", "M1J 2E1", "L4B 3P4", "M9C 2Y2", "M5H 2M3", "M2N 5V7", "M2J 5A7"]
-# postal_code: postal_code_array[rand(ary.size)]
+profile_picture_array = ["profile1", "profile2", "profile3", "profile4", "profile5", "profile6", "profile7", "profile8", "profile9",
+  "profile10", "profile11", "profile12", "profile13","profile14", "profile15", "profile16", "profile17", "profile18",
+  "profile19", "profile20"]
+postal_code_array = ["M5G 2L5", "M4R 1P2", "M1B 5W7", "M4W 3X8", "M6J 2V5", "M5G 1C3", "M5A 3H6", "M1H 1B2", "M1K 1R8", "M5S 3H7", "M5A 3W8", "M5H 1W7", "M7A 1Y7", "M1J 2E1", "L4B 3P4", "M9C 2Y2", "M5H 2M3", "M2N 5V7", "M2J 5A7"]
 product_name_array = ["Apple", "Pepper", "Potato", "Garlic", "Sweet potato", "Hot pepper", "Sweet pepper",
   "Chives", "Lettuce", "Tomato", "Roma tomato", "Green apple", "Macintosh apple", "Uncle Bob's Super Gala Apple",
   "Zucchini", "Uncle Orazio's Special Greenhouse Zucchinis", "Hydroponic Tomatoes", "Basil", "Oregano", "Dried and cured Oregano",
@@ -47,16 +48,24 @@ email_nicks = ["dave", "strongman", "viking", "larry", "holmes", "king", "prince
   "redhead", "rebel", "master_chef", "dancer", "pianist", "noodles", "baldy", "trailer_park_guy"]
 domain_array = [".com", ".ca", ".cx", ".biz", ".uk", ".org", ".ru", ".net", ".cn", ".jp", ".pt", ".br", ".ge", ".ir", ".au", ".nz", ".ro", ".pl"]
 
-tags_array = ["green", "red", "brown", "purple", "white", "black", "sweet", "spicy", "juicy", "crunchy", "organic", "GMO", "traditional",
+@tags_array = ["green", "red", "brown", "purple", "white", "black", "sweet", "spicy", "juicy", "crunchy", "organic", "GMO", "traditional",
   "hot", "tasty", "legume", "vegetable", "berry", "herb", "dried", "preserved", "no artificial fertilizer", "large", "small", "giant", "medium",
   "asian", "carribean", "eurpoean", "african", "north american", "special", "mexican", "south american", "backyard", "hydroponic", "fancy", "plain",
   "fresh", "stewable"]
 
-# tags_array.each do |tag|
-#   Tag.create!({
-#     name: tag
-#   })
-# end
+@app_tags_array = ["leafy green", "root", "fruit vegetable", "berries", "pomes", "citrus"]
+
+def get_tags(num_of_tags)
+   array_of_tags = []
+   num_of_tags.times do
+    array_of_tags.push(@tags_array[rand(@tags_array.size)])
+  end
+
+  array_of_tags.push(@app_tags_array[rand(@app_tags_array.size)])
+
+  return array_of_tags
+end
+
 
 5.times do |i|
   x = i + 1
@@ -79,7 +88,8 @@ tags_array = ["green", "red", "brown", "purple", "white", "black", "sweet", "spi
     description: "Description #{x}a",
     trade_info: "Trade info #{x}a",
     postal_code: "M5H 1W7",
-    image: open("#{Rails.root}/app/assets/images/" + picture_array[rand(picture_array.size)] + ".jpg")
+    image: open("#{Rails.root}/app/assets/images/" + picture_array[rand(picture_array.size)] + ".jpg"),
+    tag_list: get_tags(10)
     })
 
   Product.create!({
@@ -88,7 +98,8 @@ tags_array = ["green", "red", "brown", "purple", "white", "black", "sweet", "spi
     description: "Description #{x}b",
     trade_info: "Trade info #{x}b",
     postal_code: "M5H 1W7",
-    image: open("#{Rails.root}/app/assets/images/" + picture_array[rand(picture_array.size)] + ".jpg")
+    image: open("#{Rails.root}/app/assets/images/" + picture_array[rand(picture_array.size)] + ".jpg"),
+    tag_list: get_tags(10)
     })
 
 end
@@ -114,7 +125,8 @@ end
     description: "Description #{x}a",
     trade_info: "Trade info #{x}a",
     postal_code: "M9C 2Y2",
-    image: open("#{Rails.root}/app/assets/images/" + picture_array[rand(picture_array.size)] + ".jpg")
+    image: open("#{Rails.root}/app/assets/images/" + picture_array[rand(picture_array.size)] + ".jpg"),
+    tag_list: get_tags(10)
     })
 
   Product.create!({
@@ -123,7 +135,8 @@ end
     description: "Description #{x}b",
     trade_info: "Trade info #{x}b",
     postal_code: "M9C 2Y2",
-    image: open("#{Rails.root}/app/assets/images/" + picture_array[rand(picture_array.size)] + ".jpg")
+    image: open("#{Rails.root}/app/assets/images/" + picture_array[rand(picture_array.size)] + ".jpg"),
+    tag_list: get_tags(10)
     })
 
 end
@@ -241,7 +254,7 @@ Trade.create!({
   success: true
 })
 
-8.times do |i|
+10.times do |i|
     User.create!({
       name: user_names[rand(user_names.size)],
       email: email_handle[rand(email_handle.size)] + email_nicks[rand(email_nicks.size)] + Random.rand(666).to_s + "@" + email_array[rand(email_array.size)] + domain_array[rand(domain_array.size)],
@@ -255,60 +268,46 @@ Trade.create!({
       postal_code: postal_code_array[rand(postal_code_array.size)]
       })
 
-    Product.create!({
-      garden_id: Garden.last.id,
-      name: product_name_array[rand(product_name_array.size)],
-      description: product_description_array[rand(product_description_array.size)],
-      trade_info: trade_array[rand(trade_array.size)],
-      postal_code: Garden.last.postal_code,
-      image: open("#{Rails.root}/app/assets/images/" + picture_array[rand(picture_array.size)] + ".jpg")
-      })
-
-    Product.create!({
-      garden_id: Garden.last.id,
-      name: product_name_array[rand(product_name_array.size)],
-      description: product_description_array[rand(product_description_array.size)],
-      trade_info: trade_array[rand(trade_array.size)],
-      postal_code: Garden.last.postal_code,
-      image: open("#{Rails.root}/app/assets/images/" + picture_array[rand(picture_array.size)] + ".jpg")
-      })
-
-    Product.create!({
-      garden_id: Garden.last.id,
-      name: product_name_array[rand(product_name_array.size)],
-      description: product_description_array[rand(product_description_array.size)],
-      trade_info: trade_array[rand(trade_array.size)],
-      postal_code: Garden.last.postal_code,
-      image: open("#{Rails.root}/app/assets/images/" + picture_array[rand(picture_array.size)] + ".jpg")
-      })
-
-  # rand_product = Product.order("RANDOM()").first
+  10.times do |x|
+      Product.create!({
+        garden_id: Garden.last.id,
+        name: product_name_array[rand(product_name_array.size)],
+        description: product_description_array[rand(product_description_array.size)],
+        trade_info: trade_array[rand(trade_array.size)],
+        postal_code: Garden.last.postal_code,
+        image: open("#{Rails.root}/app/assets/images/" + picture_array[rand(picture_array.size)] + ".jpg"),
+        tag_list: get_tags(10)
+        })
+  end
 
  offset = rand(Product.count)
  rand_product = Product.offset(offset).first
 
-  Conversation.create!({
-    request: request_array[rand(request_array.size)],
-    product_id: rand_product.id,
-    sender_id: User.last.id,
-    receiver_id: rand_product.garden.user.id
-    })
+  5.times do |x|
+    Conversation.create!({
+      request: request_array[rand(request_array.size)],
+      product_id: rand_product.id,
+      sender_id: User.last.id,
+      receiver_id: rand_product.garden.user.id
+      })
 
-  5.times do |i|
-      x = i + 1
-      Message.create!({
-        content: message_array[rand(message_array.size)],
-        conversation_id: Conversation.last,
-        sender_id: Conversation.last.sender.id,
-        receiver_id: Conversation.last.receiver.id
-        })
+    5.times do |i|
+        x = i + 1
+        Message.create!({
+          content: message_array[rand(message_array.size)],
+          conversation_id: Conversation.last,
+          sender_id: Conversation.last.sender.id,
+          receiver_id: Conversation.last.receiver.id
+          })
 
-      Message.create!({
-        content: message_array[rand(message_array.size)],
-        conversation_id: Conversation.last,
-        sender_id: Conversation.last.receiver.id,
-        receiver_id: Conversation.last.sender.id
-        })
-    end
+        Message.create!({
+          content: message_array[rand(message_array.size)],
+          conversation_id: Conversation.last,
+          sender_id: Conversation.last.receiver.id,
+          receiver_id: Conversation.last.sender.id
+          })
+      end
+
+  end
 
 end
