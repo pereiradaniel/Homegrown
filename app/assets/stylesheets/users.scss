@@ -419,6 +419,12 @@
     }
   }
 
+  .create-garden {
+    clear: both;
+    padding: 1em;
+
+  }
+
   @include media($large-screen-up) {
     .user-pic {
       width: 300px;
