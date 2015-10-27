@@ -33,3 +33,11 @@
 .trade-result {
 	border-bottom: $base-border;
 }
+
+.end-trade {
+	label {
+		margin-top: .25em;
+		margin-right: .25em;
+		float: none;
+	}
+}

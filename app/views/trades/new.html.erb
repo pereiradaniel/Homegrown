@@ -1,20 +1,27 @@
-<%= form_for(@trade) do |f| %>
-  <ul>
-  	<li><%= @buyer.name %><%= @product.name %></li>
-    <li>What was the result of this trade?</li>
+<div class="end-trade">
+  <%= form_for(@trade) do |f| %>
+  	<div>
+      Ending trade with <%= @buyer.name %> for <%= @product.name %>
+    </div>
 
-    <%= f.radio_button(:success, "true")  %>
-    <li><%= f.label(:success, "Succesful") %></li>
-    <%= f.radio_button(:success, "false")  %>
-    <li><%= f.label(:unsuccessful, "Unsuccesful") %></li>
+    <div>What was the result of this trade?</div>
 
-
-  </ul>
-    <%= f.label :negotiation_result %>
-    <%= f.text_field :negotiation_result %>
-	  <%= f.hidden_field :seller_id, {value: current_user.id} %>
-	  <%= f.hidden_field :buyer_id, {value: @buyer.id} %>
-	  <%= f.hidden_field :product_id, {value: @product.id} %>	
+    <div>
+      <%= f.radio_button(:success, "true")  %>
+      <%= f.label(:success, "Succesful") %>
+    </div>
+    <div>
+      <%= f.radio_button(:success, "false")  %>
+      <%= f.label(:unsuccessful, "Unsuccesful") %>
+    </div>
+    <div>
+      <%= f.label "Comment on this trade:" %>
+      <%= f.text_field :negotiation_result %>
+    </div>
+    <%= f.hidden_field :seller_id, {value: current_user.id} %>
+    <%= f.hidden_field :buyer_id, {value: @buyer.id} %>
+    <%= f.hidden_field :product_id, {value: @product.id} %>
     <%= f.hidden_field :conversation_id, {value: @conversation.id} %>
-    <%= f.submit %>
-<% end %>
+    <%= f.submit 'End Trade' %>
+  <% end %>
+</div>
