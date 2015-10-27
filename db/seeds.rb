@@ -55,6 +55,9 @@ domain_array = [".com", ".ca", ".cx", ".biz", ".uk", ".org", ".ru", ".net", ".cn
 
 @app_tags_array = ["leafy green", "root", "fruit vegetable", "berries", "pomes", "citrus"]
 
+negotiation_success_result_array = ["Thanks!", "Good job!", "Great produce!"]
+negotiation_unsuccess_result_array = ["Sorry :(", "I'm all out!", "I will have more again soon!"]
+
 def get_tags(num_of_tags)
   @array_of_tags = []
   
@@ -311,51 +314,93 @@ Trade.create!({
 
 end
 
-  10.times do |x|
-    i = x + 1
-    
-      Product.create!({
-        garden_id: i,
-        name: product_name_array[rand(product_name_array.size)],
-        description: product_description_array[rand(product_description_array.size)],
-        trade_info: trade_array[rand(trade_array.size)],
-        postal_code: Garden.find(i).postal_code,
-        image: open("#{Rails.root}/app/assets/images/" + picture_array[rand(picture_array.size)] + ".jpg"),
-        tag_list: get_tags(10)
-        })
-      
-      Conversation.create!({
-        request: request_array[rand(request_array.size)],
-        product_id: Product.last.id,
-        sender_id: User.last.(i + 2),
-        receiver_id: Product.last.garden.user.id
-        })
-
-      5.times do |i|
-        
-        Message.create!({
-          content: message_array[rand(message_array.size)],
-          conversation_id: Conversation.last,
-          sender_id: Conversation.last.sender.id,
-          receiver_id: Conversation.last.receiver.id
-          })
-
-        Message.create!({
-          content: message_array[rand(message_array.size)],
-          conversation_id: Conversation.last,
-          sender_id: Conversation.last.receiver.id,
-          receiver_id: Conversation.last.sender.id
-          })
-      end
+10.times do |x|
+  i = x + 1
   
+    Product.create!({
+      garden_id: i,
+      name: product_name_array[rand(product_name_array.size)],
+      description: product_description_array[rand(product_description_array.size)],
+      trade_info: trade_array[rand(trade_array.size)],
+      postal_code: Garden.find(i).postal_code,
+      image: open("#{Rails.root}/app/assets/images/" + picture_array[rand(picture_array.size)] + ".jpg"),
+      tag_list: get_tags(10)
+      })
+    
+    Conversation.create!({
+      request: request_array[rand(request_array.size)],
+      product_id: Product.last.id,
+      sender_id: User.find.(rand((i + 1)..20),
+      receiver_id: Product.last.garden.user.id
+      })
+
+    5.times do |i|
+      
+      Message.create!({
+        content: message_array[rand(message_array.size)],
+        conversation_id: Conversation.last,
+        sender_id: Conversation.last.sender.id,
+        receiver_id: Conversation.last.receiver.id
+        })
+
+      Message.create!({
+        content: message_array[rand(message_array.size)],
+        conversation_id: Conversation.last,
+        sender_id: Conversation.last.receiver.id,
+        receiver_id: Conversation.last.sender.id
+        })
+    end
+
     Trade.create!({
-    negotiation_result: "Good trade!  Thanks.",
-    seller_id: 1,
-    buyer_id: 5,
-    product_id: 1,
-    conversation_id: 4,
+    negotiation_result: negotiation_success_result_array[rand(negotiation_success_result_array.size)],
+    seller_id: Conversation.last.receiver.id,
+    buyer_id: Conversation.last.sender.id,
+    product_id: Product.last.id,
+    conversation_id: Conversation.last.id,
     success: true
   })
 
+  Product.create!({
+      garden_id: i,
+      name: product_name_array[rand(product_name_array.size)],
+      description: product_description_array[rand(product_description_array.size)],
+      trade_info: trade_array[rand(trade_array.size)],
+      postal_code: Garden.find(i).postal_code,
+      image: open("#{Rails.root}/app/assets/images/" + picture_array[rand(picture_array.size)] + ".jpg"),
+      tag_list: get_tags(10)
+      })
+    
+    Conversation.create!({
+      request: request_array[rand(request_array.size)],
+      product_id: Product.last.id,
+      sender_id: User.find.(rand((i + 1)..20),
+      receiver_id: Product.last.garden.user.id
+      })
 
-  end
+    5.times do |i|
+      
+      Message.create!({
+        content: message_array[rand(message_array.size)],
+        conversation_id: Conversation.last,
+        sender_id: Conversation.last.sender.id,
+        receiver_id: Conversation.last.receiver.id
+        })
+
+      Message.create!({
+        content: message_array[rand(message_array.size)],
+        conversation_id: Conversation.last,
+        sender_id: Conversation.last.receiver.id,
+        receiver_id: Conversation.last.sender.id
+        })
+    end
+
+    Trade.create!({
+    negotiation_result: negotiation_unsuccess_result_array[rand(negotiation_unsuccess_result_array.size)],
+    seller_id: Conversation.last.receiver.id,
+    buyer_id: Conversation.last.sender.id,
+    product_id: Product.last.id,
+    conversation_id: Conversation.last.id,
+    success: true
+  })
+
+end
