@@ -11,11 +11,10 @@
 }
 
 .carousel-container {
-	@include span-columns(2);
-	width: 100%;
+	max-width: 1200px;
+  margin: 0 auto 1em;
 	overflow: hidden;
 	overflow-x: scroll;
-	margin-bottom: 20px;
 	padding-bottom: 1em;
 }
 
@@ -54,6 +53,7 @@
 }
 
 .category-title {
+	@include clearfix;
  text-align: center;
 	h3 {
 		font-size: 1.2em;

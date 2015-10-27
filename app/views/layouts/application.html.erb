@@ -5,13 +5,12 @@
   <meta name="viewport" content="initial-scale=1.0,width=device-width">
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= stylesheet_link_tag 'application', 'https://fonts.googleapis.com/css?family=Nunito:400,700,300' %>
-  <%= stylesheet_link_tag 'application', 'https://fonts.googleapis.com/css?family=Varela+Round' %>
+  <%= stylesheet_link_tag 'application', 'https://fonts.googleapis.com/css?family=Oswald:300' %>
   <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js" %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-
   <header class="header-bar">
     <ul class="nav">
       <% if current_user %>
@@ -114,13 +113,13 @@
         <li><i class="fa fa-twitter-square"></i></li>
       </ul>
       <% if current_user %>
-      |  <%= link_to "Home", home_products_path %> 
-      | <%= link_to "Products",products_path %> 
-      |  <%= link_to "Garden", garden_path(current_user) %>  
+      |  <%= link_to "Home", home_products_path %>
+      | <%= link_to "Products",products_path %>
+      |  <%= link_to "Garden", garden_path(current_user) %>
       |  <%= link_to "Profile", user_path(current_user) %>  |
       <% end %>
       <div class="copyright-info">&copy; 2015 Homegrown. All rights reserved. Sponsor by bitmaker Labs</div>
     </div>
-  </div>  
+  </div>
 </body>
 </html>
