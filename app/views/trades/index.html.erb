@@ -48,7 +48,7 @@
             <li class="num-of-trades"><%= @trades_seller_unsuccessful.count %> unsuccessful trades for your items.</li>
               <% @trades_seller_unsuccessful.each do |t| %>
                 <div class="trade-brief">
-                  <li class="trade-partner">You attempted to trade with <%= t.product.name %> with <%= t.buyer.name %>.</li>
+                  <li class="trade-partner">You attempted to trade <%= t.product.name %> with <%= t.buyer.name %>.</li>
                     <div class="trade-result">
                       <li>The result of this trade was:</li>
                       <li><%= t.negotiation_result %></li>
@@ -94,7 +94,7 @@
             <li class="num-of-trades"><%= @trades_buyer_unsuccessful.count %> unsuccessful trades for items from others.</li>
               <% @trades_buyer_unsuccessful.each do |t| %>
                 <div class="trade-brief">
-                  <li class="trade-partner">You attempted to trade with <%= t.product.name %> with <%= t.seller.name %>.</li>
+                  <li class="trade-partner">You attempted to trade <%= t.product.name %> with <%= t.seller.name %>.</li>
                     <div class="trade-result">
                       <li>The result of this trade was:</li>
                       <li><%= t.negotiation_result %></li>
