@@ -45,6 +45,12 @@ main {
   }
 }
 
+.nav-link{
+  @include media($small-medium-screen-up) {
+    padding-right: 9px;
+  }
+}
+
 .nav {
   @include clearfix;
   line-height: 2.875em;
