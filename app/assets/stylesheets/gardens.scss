@@ -197,6 +197,29 @@
   }
 }
 
+.new-product {
+  #js-expander-content {
+    @include clearfix;
+    background-color: lighten($green, 63%);
+    padding: 1em;
+    border-radius: 5px;
+    box-shadow: $form-box-shadow;
+  }
+
+  .expander {
+    a {
+      color: $green;
+    }
+
+    .expander-trigger{
+      margin-top: 1em;
+    }
+
+    margin: 0 auto;
+  }
+
+}
+
 .new-product-form {
   display: block;
 

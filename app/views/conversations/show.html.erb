@@ -37,7 +37,7 @@
 				  <div class="comment-content">
 				    <h1><%= m.sender.name %></h1>
 				    <p><%= m.content %></p>
-				    <p class="comment-detail"><%= m.created_at.to_formatted_s(:db) %></p>
+				    <p class="comment-detail"><%= m.created_at.in_time_zone("Eastern Time (US & Canada)") %></p>
 				  </div>
 				</div>
 			<% end %>
