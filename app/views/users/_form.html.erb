@@ -4,7 +4,7 @@
       <%= f.label :name %>
       <%= f.text_field :name %>
     </div>
-    
+
     <div class="register-field">
       <%= f.label :email %>
       <%= f.text_field :email %>
@@ -20,11 +20,12 @@
       <%= f.password_field :password_confirmation %>
     </div>
 
-    <div class="register-field">
-      <%= f.label :avatar %>
-      <%= f.file_field :image %>
-    </div>
-
+    <% if current_user %>
+      <div class="register-field">
+        <%= f.label :avatar %>
+        <%= f.file_field :image %>
+      </div>
+    <% end %>
     <div class="register-action">
       <%= f.submit class: "create-user" %>
     </div>
