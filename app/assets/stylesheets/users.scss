@@ -329,3 +329,102 @@
 .user-show-grid {
   margin-top: 1em;
 }
+
+.user-profile{
+  max-width: 640px;
+  border: 1px solid #ddd;
+  margin: 15px auto 5px;
+  background: #f7f7f7;
+
+  @include media($small-screen-only) {
+    .user-name{
+      text-align: center;
+      margin: 10px;
+      h1{
+        font-size: 1.1em;
+      }
+    }
+    .user-pic{
+      text-align: center;
+    }
+    .edit-profile{
+      text-align: center;
+      margin-top: 10px;
+      font-size: .9em;
+    }
+    .edit-garden{
+      text-align: center;
+      margin: 10px 0 10px;
+      font-size: .9em;
+    }
+    .upload-pic{
+      text-align: center;
+      label{
+        text-align: center;
+        float: none;
+      }
+      #user_image{
+        width: 200px;
+        margin: 0 auto 10px;
+      }
+    }
+  }
+
+  @include media($medium-screen-up) {
+    .user-name{
+      text-align: center;
+      margin: 10px;
+      h1{
+        font-size: 1.4em;
+      }
+    }
+    .user-box{
+      max-width: 600px;
+      margin: 0 auto;
+      @include clearfix;
+
+      .user-pic{
+        width: 270px;
+        height: 295.2px;
+        background: 100%;
+        float: left;
+        margin-bottom: 20px;
+        margin-left: 10px;
+      }
+
+      .upload-pic{
+        max-width: 220px;
+        float: left;
+        margin-top: 20px;
+        margin-left: 30px;
+      }
+
+      .edit-profile{
+        margin-top: 40px;
+        margin-left: 30px;
+        float: left;
+        a{
+          font-size: .9em;
+        }
+      }
+
+      .edit-garden{
+        float: left;
+        margin-left: 30px;
+        margin-top: 20px;
+        a{
+          font-size: .9em;
+        }
+      }
+    }
+  }
+
+  @include media($large-screen-up) {
+    .user-pic {
+      width: 300px;
+      height: 328px;
+      background: 100%;
+    }
+  }
+}
+
