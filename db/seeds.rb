@@ -22,7 +22,7 @@ profile_picture_array = ["profile1", "profile2", "profile3", "profile4", "profil
 postal_code_array = ["M5G 2L5", "M4R 1P2", "M1B 5W7", "M4W 3X8", "M6J 2V5", "M5G 1C3", "M5A 3H6", "M1H 1B2", "M1K 1R8", "M5S 3H7", "M5A 3W8", "M5H 1W7", "M7A 1Y7", "M1J 2E1", "L4B 3P4", "M9C 2Y2", "M5H 2M3", "M2N 5V7", "M2J 5A7"]
 product_name_array = ["Apple", "Pepper", "Potato", "Garlic", "Sweet potato", "Hot pepper", "Sweet pepper",
   "Chives", "Lettuce", "Tomato", "Roma tomato", "Green apple", "Macintosh apple", "Uncle Bob's Super Gala Apple",
-  "Zucchini", "Uncle Orazio's Special Greenhouse Zucchinis", "Hydroponic Tomatoes", "Basil", "Oregano", "Dried and cured Oregano",
+  "Zucchini", "Greenhouse Zucchinis", "Squash", "Hydroponic Tomatoes", "Basil Leaves", "Oregano", "Dried and cured Oregano",
   "Spanish Onion", "Onion", "Green Onion"]
 email_array = ["hotmail", "yahoo", "gmail"]
 product_description_array = ["Juicy and tender", "Picked last week!", "My first attempt growing these.", "My special growing technique!",
@@ -34,7 +34,7 @@ trade_array = ["For free!  1 x bushel per request.  Send a request, and I'll tel
   "I want to trade these for some nice herbs and spices, nothing in particular.  Send me a request and we can discuss.", "$5 / bushel OBO.",
   "Would love to trade with someone who is good at growing corn.", "Not sure what I'd like to trade these for, or you can purchase for $10 for a large bushel, $5 for small bushel."]
 user_names = ["Farmer Joe", "Miguel", "Johnny", "Sally", "Uncle Bob", "Jessie", "Big Mike", "Orlando", "Diana", "Ravinder", "Rohini",
-  "Lisa", "James", "Hong", "Simon", "Imran", "Masterful Mina", "Intelligent Ilia", "Mega Matt", "Naturalie Natalie", "Erik 'The Grilled Cheeser' Dohnberg", "Adrian aka 'Jaclyn 2.0'"]
+  "Lisa", "James", "Hong", "Simon", "Imran", "Masterful Mina", "Intelligent Ilia", "Mega Matt", "Naturalie Natalie", "Erik The #F00", "Amazing Adrian"]
 request_array = ["I want to buy right away for the price you are asking!  Can you supply 5 or 6?", "Could you trade me 3 of these for 5 of my special basil leaves?  They are already prepared for use",
   "Wow I would love to have 10 of these if possible, but could you give me a 10% discount on the bulk order?", "I don't have anything to trade, but could you sell me some?",
   "That is a great price!  Can I pick up 3x by this Friday?", "Hey those look pretty good!  Did you see my special apples?  Mayby we could trade a bushel for a bushel??? :)",
@@ -56,14 +56,15 @@ domain_array = [".com", ".ca", ".cx", ".biz", ".uk", ".org", ".ru", ".net", ".cn
 @app_tags_array = ["leafy green", "root", "fruit vegetable", "berries", "pomes", "citrus"]
 
 def get_tags(num_of_tags)
-   array_of_tags = []
-   num_of_tags.times do
-    array_of_tags.push(@tags_array[rand(@tags_array.size)])
+  @array_of_tags = []
+  
+  num_of_tags.times do
+    @array_of_tags.push(@tags_array[rand(@tags_array.size)])
   end
 
-  array_of_tags.push(@app_tags_array[rand(@app_tags_array.size)])
+  @array_of_tags.push(@app_tags_array[rand(@app_tags_array.size)])
 
-  return array_of_tags
+  return @array_of_tags
 end
 
 
@@ -101,7 +102,6 @@ end
     image: open("#{Rails.root}/app/assets/images/" + picture_array[rand(picture_array.size)] + ".jpg"),
     tag_list: get_tags(10)
     })
-
 end
 
 5.times do |i|
@@ -138,7 +138,6 @@ end
     image: open("#{Rails.root}/app/assets/images/" + picture_array[rand(picture_array.size)] + ".jpg"),
     tag_list: get_tags(10)
     })
-
 end
 
 # User 2 is requesting Product 1a from User 1
@@ -311,3 +310,52 @@ Trade.create!({
   end
 
 end
+
+  10.times do |x|
+    i = x + 1
+    
+      Product.create!({
+        garden_id: i,
+        name: product_name_array[rand(product_name_array.size)],
+        description: product_description_array[rand(product_description_array.size)],
+        trade_info: trade_array[rand(trade_array.size)],
+        postal_code: Garden.find(i).postal_code,
+        image: open("#{Rails.root}/app/assets/images/" + picture_array[rand(picture_array.size)] + ".jpg"),
+        tag_list: get_tags(10)
+        })
+      
+      Conversation.create!({
+        request: request_array[rand(request_array.size)],
+        product_id: Product.last.id,
+        sender_id: User.last.(i + 2),
+        receiver_id: Product.last.garden.user.id
+        })
+
+      5.times do |i|
+        
+        Message.create!({
+          content: message_array[rand(message_array.size)],
+          conversation_id: Conversation.last,
+          sender_id: Conversation.last.sender.id,
+          receiver_id: Conversation.last.receiver.id
+          })
+
+        Message.create!({
+          content: message_array[rand(message_array.size)],
+          conversation_id: Conversation.last,
+          sender_id: Conversation.last.receiver.id,
+          receiver_id: Conversation.last.sender.id
+          })
+      end
+  
+    Trade.create!({
+    negotiation_result: "Good trade!  Thanks.",
+    seller_id: 1,
+    buyer_id: 5,
+    product_id: 1,
+    conversation_id: 4,
+    success: true
+  })
+
+
+  end
