@@ -214,6 +214,10 @@
   }
 
   .expander {
+    @include media($small-screen-up) {
+      width: 100%;
+    }
+
     a {
       color: $green;
     }
@@ -224,7 +228,6 @@
 
     margin: 0 auto;
   }
-
 }
 
 .new-product-form {
