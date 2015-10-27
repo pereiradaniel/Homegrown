@@ -26,6 +26,8 @@
         <%= f.file_field :image %>
       </div>
     <% end %>
+
+    <%= render partial: 'shared/flash' %>
     <div class="register-action">
       <%= f.submit class: "create-user" %>
     </div>
