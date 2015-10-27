@@ -1,42 +1,63 @@
-<h1><%= @user.name %></h1>
-<% if !@user.image %>
-  <%= form_for(@user) do |f| %>
-    <div class="pic-upload">
-      <%= f.label :"Upload Profile Picture" %>
-      <%= f.file_field :image %>
-    </div>
-    <div class="change-pic-btn">
-      <%= f.submit "Upload" %>
-    </div>
-  <% end %>
+<div class="user-profile">
+  <div class="user-name">
+    <h1><%= @user.name %></h1>
+  </div>
 
-<% else %>
-  <%= image_tag(@user.image) %>
-  <%= form_for(@user) do |f| %>
-    <div class="pic-upload">
-      <%= f.label :"Change Profile Picture" %>
-      <%= f.file_field :image %>
+  <div class="user-box">
+    <% if !@user.image %>
+      <div class="upload-pic">
+        <%= form_for(@user) do |f| %>
+          <div class="pic-upload">
+            <%= f.label :"Upload Profile Picture" %>
+            <%= f.file_field :image %>
+          </div>
+          <div class="change-pic-btn">
+            <%= f.submit "Upload" %>
+          </div>
+        <% end %>
+      </div>
+
+    <% else %>
+      <div class="user-pic">
+        <%= image_tag(@user.image_url(:thumb).to_s) %>
+      </div>
+      <div class="upload-pic">
+        <%= form_for(@user) do |f| %>
+          <div class="pic-upload">
+            <%= f.label :"Change Profile Picture" %>
+            <%= f.file_field :image %>
+          </div>
+          <div>
+            <%= f.submit "Upload" %>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+
+    <div class="edit-profile">
+      <%= link_to "Edit Profile", edit_user_path(@user) %>
     </div>
 
-    <div>
-      <%= f.submit "Upload" %>
-    </div>
-  <% end %>
-<% end %>
+    <% if !@user.garden %>
+      <div class="create-garden">
+        <p>Create a Garden</p>
+        <%= form_for(@garden) do |f| %>
+          <div class="pic-upload">
+            <%= f.label :postal_code %>
+            <%= f.text_field :postal_code %>
+          </div>
+          <div class="create-garden-btn">
+            <%= f.submit "Create Garden" %>
+          </div>
+        <% end %>
+      </div>
 
-<% if !@user.garden %>
-  <p>Create a Garden</p>
-  <%= form_for(@garden) do |f| %>
-    <div class="pic-upload">
-      <%= f.label :postal_code %>
-      <%= f.text_field :postal_code %>
-    </div>
-    <div class="create-garden-btn">
-      <%= f.submit "Create Garden" %>
-    </div>
-  <% end %>
+    <% else %>
+      <div class="edit-garden">
+        <%= link_to "View Garden", garden_path(@user.garden) %> | 
+        <%= link_to "Delete Garden", garden_path(@user.garden), method: :delete, data: {confirm: "Are you sure you want to delete this picture?"} %>
+      </div>
+    <% end %>
 
-<% else %>
-  <%= link_to "View Garden", garden_path(@user.garden) %> |
-  <%= link_to "Delete Garden", garden_path(@user.garden), method: :delete, data: {confirm: "Are you sure you want to delete this picture?"} %>
-<% end %>
+  </div>
+</div>
