@@ -185,14 +185,14 @@ end
         x = i + 1
         Message.create!({
           content: message_array[rand(message_array.size)],
-          conversation_id: Conversation.last,
+          conversation_id: Conversation.last.id,
           sender_id: Conversation.last.sender.id,
           receiver_id: Conversation.last.receiver.id
           })
 
         Message.create!({
           content: message_array[rand(message_array.size)],
-          conversation_id: Conversation.last,
+          conversation_id: Conversation.last.id,
           sender_id: Conversation.last.receiver.id,
           receiver_id: Conversation.last.sender.id
           })
@@ -224,14 +224,14 @@ end
         3.times do
           Message.create!({
             content: message_array[rand(message_array.size)],
-            conversation_id: Conversation.last,
+            conversation_id: Conversation.last.id,
             sender_id: Conversation.last.sender.id,
             receiver_id: Conversation.last.receiver.id
             })
 
           Message.create!({
             content: message_array[rand(message_array.size)],
-            conversation_id: Conversation.last,
+            conversation_id: Conversation.last.id,
             sender_id: Conversation.last.receiver.id,
             receiver_id: Conversation.last.sender.id
             })
@@ -268,14 +268,14 @@ end
       3.times do    
         Message.create!({
           content: message_array[rand(message_array.size)],
-          conversation_id: Conversation.last,
+          conversation_id: Conversation.last.id,
           sender_id: Conversation.last.sender.id,
           receiver_id: Conversation.last.receiver.id
           })
 
         Message.create!({
           content: message_array[rand(message_array.size)],
-          conversation_id: Conversation.last,
+          conversation_id: Conversation.last.id,
           sender_id: Conversation.last.receiver.id,
           receiver_id: Conversation.last.sender.id
           })
