@@ -118,7 +118,7 @@ Rails.application.config.sorcery.configure do |config|
   #
   config.facebook.key = Figaro.env.facebook_key
   config.facebook.secret = Figaro.env.facebook_secret
-  config.facebook.callback_url = "http://0.0.0.0:3000/oauth/callback?provider=facebook"
+  config.facebook.callback_url = "https://glacial-chamber-9845.herokuapp.com/oauth/callback?provider=facebook"
   config.facebook.user_info_mapping = {:email => "name"}
   config.facebook.access_permissions = ["email", "publish_actions"]
   config.facebook.display = "page"
@@ -126,7 +126,7 @@ Rails.application.config.sorcery.configure do |config|
   #
   config.github.key = Figaro.env.github_key
   config.github.secret = Figaro.env.github_secret
-  config.github.callback_url = "http://localhost:3000/oauth/callback?provider=github"
+  config.github.callback_url = "https://glacial-chamber-9845.herokuapp.com/oauth/callback?provider=github"
   config.github.user_info_mapping = {:email => "name"}
   #
   # config.google.key = ""
