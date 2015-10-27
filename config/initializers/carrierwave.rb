@@ -41,8 +41,8 @@ CarrierWave.configure do |config|
   }
 
   config.aws_credentials = {
-    access_key_id:     Figaro.env.AWSAccessKeyId,
-    secret_access_key: Figaro.env.AWSSecretKey,
+    access_key_id:     ENV['AWSAccessKeyId'],
+    secret_access_key: ENV['AWSSecretKey'],
     region:            'us-east-1' # Required
   }
 
