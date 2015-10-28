@@ -12,14 +12,13 @@ class ProductsController < ApplicationController
 
   def choose_search_method
     search = params[:search]
+    query = "LOWER(products.name) LIKE LOWER(?) OR LOWER(products.description) LIKE LOWER(?) OR tags.name LIKE LOWER(?)"
     if params[:tag]
-     @products = Product.find_by_tag(params[:tag])
+     @products = Product.find_by_tag(params[:tag]).distinct(:product_id)
     elsif params[:latitude] && params[:longitude] && search
-     query = "LOWER(products.name) LIKE LOWER(?) OR LOWER(products.description) LIKE LOWER(?) OR tags.name LIKE LOWER(?)"
-     @products = Product.joins("LEFT OUTER JOIN taggings ON products.id = taggings.taggable_id").joins("LEFT OUTER JOIN tags ON taggings.tag_id = tags.id").where(query, "%#{search}%", "%#{search}%", "%#{search}%").near([params[:latitude], params[:longitude]], params[:proximity], units: :km)
+     @products = Product.joins("LEFT OUTER JOIN taggings ON products.id = taggings.taggable_id").joins("LEFT OUTER JOIN tags ON taggings.tag_id = tags.id").where(query, "%#{search}%", "%#{search}%", "%#{search}%").distinct(:product_id).near([params[:latitude], params[:longitude]], params[:proximity], units: :km)
     elsif (params[:noloc] == "true") && search
-     query = "LOWER(products.name) LIKE LOWER(?) OR LOWER(products.description) LIKE LOWER(?) OR tags.name LIKE LOWER(?)"
-     @products = Product.joins("LEFT OUTER JOIN taggings ON products.id = taggings.taggable_id").joins("LEFT OUTER JOIN tags ON taggings.tag_id = tags.id").where(query, "%#{search}%", "%#{search}%", "%#{search}%")
+     @products = Product.joins("LEFT OUTER JOIN taggings ON products.id = taggings.taggable_id").joins("LEFT OUTER JOIN tags ON taggings.tag_id = tags.id").where(query, "%#{search}%", "%#{search}%", "%#{search}%").distinct(:product_id)
     else
      @products = Product.limit(10).order("RANDOM()")
     end

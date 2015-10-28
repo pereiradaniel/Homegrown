@@ -14,9 +14,10 @@
   @include media($large-screen-up) {
     max-width: 940px;
   }
+
   .product-card {
     position: relative;
-    height: 12em;
+    height: 11.7em;
 
     @include media($small-screen-up) {
       @include span-columns(2);
@@ -48,11 +49,17 @@
 
   div.product-info {
     position: absolute;
-    top: 12.1em;
+    top: 11.8em;
     background: rgba(242,243,249,.6);
     width: 100%;
     padding: .5em;
+
+    .product-description {
+      @include ellipsis;
+    }
   }
+
+
 }
 
 .garden-product-list-item {
@@ -207,6 +214,10 @@
   }
 
   .expander {
+    @include media($small-screen-up) {
+      width: 100%;
+    }
+
     a {
       color: $green;
     }
@@ -217,7 +228,6 @@
 
     margin: 0 auto;
   }
-
 }
 
 .new-product-form {

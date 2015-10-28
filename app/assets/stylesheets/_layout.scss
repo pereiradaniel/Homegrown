@@ -2,7 +2,7 @@ main {
   @include clearfix;
   @include outer-container;
 
-  max-width: 1100px;
+  max-width: 1600px;
   padding: 0 0.5em 0.5em;
 }
 
@@ -149,6 +149,12 @@ main {
   .modal-trigger {
     padding-top: 0;
     padding-bottom: 0;
+    padding: 0 .8em;
+  }
+
+  i {
+    font-size: 2em;
+    margin-right: .5em;
   }
 
 }

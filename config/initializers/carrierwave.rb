@@ -24,7 +24,7 @@
 # Using carrierwave-aws
 CarrierWave.configure do |config|
   config.storage    = :aws
-  config.aws_bucket = 'homegrownapp'
+  config.aws_bucket = 'homegrownprod'
   config.aws_acl    = 'public-read'
 
   # Optionally define an asset host for configurations that are fronted by a
