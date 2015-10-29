@@ -10,13 +10,14 @@ class UsersController < ApplicationController
     if @user.save
       redirect_to root_path
     else
+      flash.now[:alert] = @user.errors.full_messages.first
       render :new
     end
   end
 
   def show
     @user = current_user
-    @garden = Garden.new  
+    @garden = Garden.new
   end
 
   def inbox

@@ -10,12 +10,12 @@
       <%= password_field_tag :password %>
     </div>
   </div>
+  <%= render partial: 'shared/flash' %>
   <div class="user-login-btn">
     <%= submit_tag "Login", value: "login", class: "login-btn" %>
   </div>
   <% end %>
 </div>
-
 <div class="register-btn">
   <%= button_to "Register", new_user_path, method: :get %>
 </div>
