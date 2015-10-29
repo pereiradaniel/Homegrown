@@ -23,9 +23,9 @@
           <%= link_to 'Profile', user_path(current_user)%>
         </li>
 
-        <li class="nav-button drop-down" id="user-icon">
+        <li class="nav-button drop-down more" id="user-icon">
           <i class="fa fa-user"></i>
-          <ul>
+          <ul class="submenu">
             <%= link_to user_path(current_user) do %>
               <li>
                 Profile
