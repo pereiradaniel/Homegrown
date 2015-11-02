@@ -1,13 +1,14 @@
 # encoding: utf-8
 
 ######
-require File.join(Rails.root, "lib", "carrier_wave", "delayed_job") # New
+# require File.join(Rails.root, "lib", "carrier_wave", "delayed_job") # Delayed jobs module
 ######
 
 class ImageUploader < CarrierWave::Uploader::Base
-
+include ::CarrierWave::Backgrounder::Delay # carrierwave_backgrounder
+  
   ######
-  include CarrierWave::Delayed::Job # New
+  # include CarrierWave::Delayed::Job # Delayed jobs module.
   ######
 
   # Include RMagick or MiniMagick support:

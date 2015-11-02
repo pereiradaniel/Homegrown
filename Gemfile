@@ -44,6 +44,7 @@ gem 'mini_magick'
 
 # Delayed jobs
 gem 'delayed_job_active_record'
+gem 'carrierwave_backgrounder'
 
 # A Scope & Engine based, clean, powerful, customizable and sophisticated paginator for Rails 3 and 4
 gem 'kaminari'
