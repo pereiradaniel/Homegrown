@@ -1,13 +1,13 @@
 # encoding: utf-8
 
 ######
-#require File.join(Rails.root, "lib", "carrier_wave", "delayed_job") # New
+require File.join(Rails.root, "lib", "carrier_wave", "delayed_job") # New
 ######
 
 class ImageUploader < CarrierWave::Uploader::Base
 
   ######
-  #include CarrierWave::Delayed::Job # New
+  include CarrierWave::Delayed::Job # New
   ######
 
   # Include RMagick or MiniMagick support:
@@ -15,9 +15,9 @@ class ImageUploader < CarrierWave::Uploader::Base
   include CarrierWave::MiniMagick
 
   # Choose what kind of storage to use for this uploader:
-  # storage :file
+  storage :file
   # storage :fog
-  storage :aws
+  # storage :aws
 
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
