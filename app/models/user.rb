@@ -20,7 +20,7 @@ class User < ActiveRecord::Base
   validates :password_confirmation, presence: true, if: -> { new_record? || changes["password"] }
 
   validates :email, presence: true
-  validates :email, uniqueness: true
+  validates :email, uniqueness: {case_sensitive: false}
   validates :email, format: { with: /\A([\w+\-].?)+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i,
     message: "not a valid email address" }
   validates :name, presence: true
