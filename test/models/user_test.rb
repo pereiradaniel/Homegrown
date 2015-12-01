@@ -1,16 +1,25 @@
 require 'test_helper'
 
 class UserTest < ActiveSupport::TestCase
-  # include Sorcery::TestHelpers::Rails::Integration
-  # include Sorcery::TestHelpers::Rails::Controller
+  include Sorcery::TestHelpers::Rails::Integration
+  include Sorcery::TestHelpers::Rails::Controller
 
   # def setup
   #   @user = users(:one)
   #   login_user(user = @user, route = login)  # replace with your login url path
   # end
 
-  def setup
-    @user = User.new(name: "Carlos", email: "cz1111@email.com", password: "1111", password_confirmation: "1111")
+  # def setup
+  #   @user = User.new(name: "Carlos", email: "cz1111@email.com", password: "1111", password_confirmation: "1111")
+  # end
+
+  # def setup
+  #   create_new_user(attributes_hash = {name: "Carlos", email: "cz1111@email.com", password: "1111", password_confirmation: "1111"})
+  # end
+
+  setup do 
+    @user = users(:one)
+    puts @user.inspect  
   end
 
   test "name should be present" do
@@ -22,9 +31,9 @@ class UserTest < ActiveSupport::TestCase
 
   test "email address should be unique" do
     dup_user = @user.dup
-    dup_user.email = @chef.email.upcase # To ensure email address is not case sensitive
+    dup_user.email = @user.email.upcase # To ensure email address is not case sensitive
     @user.save
-    assert_not dup_chef.valid?
+    assert_not dup_user.valid?
   end
 
   test "email validation should accept valid email addresses" do
