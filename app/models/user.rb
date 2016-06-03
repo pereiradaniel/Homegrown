@@ -7,7 +7,8 @@ class User < ActiveRecord::Base
   # before_save { self.email = self.email.downcase }  # same as above
   # We can omit the 2nd self because Rails does this for us.
 
-  mount_uploader :image, ImageUploader
+  # For AWS upload
+  # mount_uploader :image, ImageUploader
   # mount_uploader :image, AssetUploader
   # after_save :enqueue
 

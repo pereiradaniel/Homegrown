@@ -76,7 +76,7 @@ end
   User.create!({
     name: user_names[rand(user_names.size)],
     email: "user#{x}@email.com",
-    image: open("#{Rails.root}/app/assets/images/" + profile_picture_array[rand(picture_array.size)] + ".jpg"),
+    image: profile_picture_array[rand(picture_array.size)] + ".jpg",
     password: "1111",
     password_confirmation: "1111"
     })
@@ -92,7 +92,7 @@ end
     description: product_description_array[rand(product_description_array.size)],
     trade_info: trade_array[rand(trade_array.size)],
     postal_code: Garden.last.postal_code,
-    image: open("#{Rails.root}/app/assets/images/" + picture_array[rand(picture_array.size)] + ".jpg"),
+    image: picture_array[rand(picture_array.size)] + ".jpg",
     tag_list: get_tags(rand(1..10))
     })
 
@@ -102,7 +102,7 @@ end
     description: product_description_array[rand(product_description_array.size)],
     trade_info: trade_array[rand(trade_array.size)],
     postal_code: Garden.last.postal_code,
-    image: open("#{Rails.root}/app/assets/images/" + picture_array[rand(picture_array.size)] + ".jpg"),
+    image: picture_array[rand(picture_array.size)] + ".jpg",
     tag_list: get_tags(rand(1..10))
     })
 end
@@ -112,7 +112,7 @@ end
   User.create!({
     name: user_names[rand(user_names.size)],
     email: "user#{x}@email.com",
-    image: open("#{Rails.root}/app/assets/images/" + profile_picture_array[rand(picture_array.size)] + ".jpg"),
+    image: profile_picture_array[rand(picture_array.size)] + ".jpg",
     password: "1111",
     password_confirmation: "1111"
     })
@@ -128,7 +128,7 @@ end
     description: product_description_array[rand(product_description_array.size)],
     trade_info: trade_array[rand(trade_array.size)],
     postal_code: Garden.last.postal_code,
-    image: open("#{Rails.root}/app/assets/images/" + picture_array[rand(picture_array.size)] + ".jpg"),
+    image: picture_array[rand(picture_array.size)] + ".jpg",
     tag_list: get_tags(rand(1..10))
     })
 
@@ -138,7 +138,7 @@ end
     description: product_description_array[rand(product_description_array.size)],
     trade_info: trade_array[rand(trade_array.size)],
     postal_code: Garden.last.postal_code,
-    image: open("#{Rails.root}/app/assets/images/" + picture_array[rand(picture_array.size)] + ".jpg"),
+    image: picture_array[rand(picture_array.size)] + ".jpg",
     tag_list: get_tags(rand(1..10))
     })
 end
@@ -148,7 +148,7 @@ end
     User.create!({
       name: user_names[rand(user_names.size)],
       email: email_handle[rand(email_handle.size)] + email_nicks[rand(email_nicks.size)] + Random.rand(666).to_s + "@" + email_array[rand(email_array.size)] + domain_array[rand(domain_array.size)],
-      image: open("#{Rails.root}/app/assets/images/" + profile_picture_array[rand(picture_array.size)] + ".jpg"),
+      image: profile_picture_array[rand(picture_array.size)] + ".jpg",
       password: "1111",
       password_confirmation: "1111"
       })
@@ -165,7 +165,7 @@ end
         description: product_description_array[rand(product_description_array.size)],
         trade_info: trade_array[rand(trade_array.size)],
         postal_code: Garden.last.postal_code,
-        image: open("#{Rails.root}/app/assets/images/" + picture_array[rand(picture_array.size)] + ".jpg"),
+        image: picture_array[rand(picture_array.size)] + ".jpg",
         tag_list: get_tags(rand(1..10))
         })
   end
@@ -209,7 +209,7 @@ end
       description: product_description_array[rand(product_description_array.size)],
       trade_info: trade_array[rand(trade_array.size)],
       postal_code: Garden.find(i).postal_code,
-      image: open("#{Rails.root}/app/assets/images/" + picture_array[rand(picture_array.size)] + ".jpg"),
+      image: picture_array[rand(picture_array.size)] + ".jpg",
       tag_list: get_tags(rand(1..10))
       })
 
@@ -253,7 +253,7 @@ end
         description: product_description_array[rand(product_description_array.size)],
         trade_info: trade_array[rand(trade_array.size)],
         postal_code: Garden.find(i).postal_code,
-        image: open("#{Rails.root}/app/assets/images/" + picture_array[rand(picture_array.size)] + ".jpg"),
+        image: picture_array[rand(picture_array.size)] + ".jpg",
         tag_list: get_tags(rand(1..10))
         })
       

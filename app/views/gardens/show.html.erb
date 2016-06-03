@@ -5,7 +5,7 @@
     <div class="product-card">
       <div class="product-card-pic">
         <%= link_to product_path(product) do %>
-          <%= image_tag product.image_url(:medium).to_s %>
+          <%= image_tag product.image %>
         <% end %>
       </div>
       <div class="product-info">
@@ -50,7 +50,7 @@
 </div>
   <div class="owner-info">
     <div class="profile-pic">
-      <%=image_tag(@garden.user.image_url(:thumb).to_s) %>
+      <%=image_tag(@garden.user.image) %>
     </div>
     <%= @garden.user.name %>
   </div>
